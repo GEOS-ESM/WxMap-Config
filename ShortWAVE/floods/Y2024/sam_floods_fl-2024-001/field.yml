@@ -1,0 +1,13 @@
+field:
+
+  GEOSANA:
+
+    _tqv:
+      long_name: Total Precipitable Water Vapor
+      units: kg m-2
+      expression: tqv.tavg1_2d_slv_Nx(td=-1)
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: Pa
+      expression: slp.tavg1_2d_slv_Nx

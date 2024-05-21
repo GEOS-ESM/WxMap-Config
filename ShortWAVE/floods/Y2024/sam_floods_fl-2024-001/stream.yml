@@ -1,0 +1,10 @@
+stream:
+      
+  GEOSANA:
+      
+    long_name: GEOS FP Analysis
+    description: GEOS FP Analysis
+    type: analysis
+    uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/assim/$collection
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    logos: [nasa-logo-ul, gmao-logo-ur]

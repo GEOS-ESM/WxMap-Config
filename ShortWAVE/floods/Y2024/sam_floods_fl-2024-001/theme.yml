@@ -1,0 +1,51 @@
+
+theme:
+
+  plot:
+
+    tpw:
+      long_name: TPW
+      levels: [0]
+      layers: [tpw, slp, hilo]
+      title: 'Sea Level Pressure [mb]; TPW [kg m-2]'
+      hilo:
+        expr: smth9(smth9(_slp/100))
+        color: 255 255 255
+        lmark: 'off'
+        radius: 50000
+      slp:
+        clab: 'off'
+        ccolor: 255 255 255
+      map:
+        line_color: 0 0 0 120
+        layers: [water, land, NE_10m_Lakes, NE_10m_Admin0, ne_10m_admin_1_states_provinces]
+
+
+  layer:
+
+    tpw:
+      gxout: shaded
+      expr: _tqv
+      cbar: CET-R4
+      cbunits: 'Total Precipitable Water [kg m-2]'
+      cbunits:
+      nsub: 10
+      skip: 10
+      clevs:
+      cmin: 0
+      cmax: 75
+      cint: 5
+      scale:
+
+    slp:
+      gxout: contour
+      expr: smth9(_slp / 100)
+      cint: 8
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.12
+
+    hilo:
+      gxout: hilo
+      expr: smth9(smth9(_slp / 100))

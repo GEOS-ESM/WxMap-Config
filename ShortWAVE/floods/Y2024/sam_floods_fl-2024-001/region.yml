@@ -1,0 +1,12 @@
+reset: [region]
+
+region:
+
+  sam:
+
+    long_name: South America
+    lon: -86 10
+    lat: -40 14
+    mpdset: hires
+    mproj: latlon
+    mpvals:

@@ -1,0 +1,18 @@
+map:
+
+  world_shaded_relief:
+    service: World_Shaded_Relief
+
+  world_shaded_relief-01:
+    water_color: 0 0 0 0
+    land_color: 0 0 0 0
+    layers: [standard, water, land, world_shaded_relief, lsmask]
+    
+  world_imagery:
+    service: World_Imagery
+
+  world_imagery-01:
+    water_color: 0 0 0 0
+    land_color: 0 0 0 0
+    brightness: 1.3
+    layers: [standard, water, land, world_imagery, lsmask]
