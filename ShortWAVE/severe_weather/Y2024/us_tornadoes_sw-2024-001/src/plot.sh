@@ -20,7 +20,7 @@ wxmap.py --config $config_path \
          --end_dt ${edate}T23 \
          --t_deltat 1 \
          --field aprcp \
-         --fullframe --lights_off --plot_only \
+         --fullframe --lights_off --no_title --no_label --no_logo \
          --geometry 3840x2160 \
          --track /home/jardizzo/src/FLUID/sandbox/share/projects/SE_severe_weather/tornadoes/202405/tracks \
          --oname $NOBACKUP/ShortWAVE/severe_weather/Y${year}/$catalog_id/images/$catalog_id.nasa.gmao.geos-fp.analysis.aprcp.image.2160p.%Y%m%d%H.png
