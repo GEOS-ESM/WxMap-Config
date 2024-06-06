@@ -1,0 +1,11 @@
+default:
+
+  configs: [/gpfsm/dnb34/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/wildfires/Y2024/canada_wildfires_wf-2024-001]
+  stream: GEOSANA
+  start_dt: P0D
+  end_dt: P30DT23H
+  t_deltat: PT1H
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 3840x2160
+  oname: /discover/nobackup/jardizzo/ShortWAVE/wildfires/Y2024/canada_wildfires_wf-2024-001/images/canada_wildfires_wf-2024-001.nasa.gmao.geos-fp.analysis.coclbb_test2.image.2160p.%Y%m%d%H.png
+  levels: [0]
+  fields: [coclbb]

@@ -1,0 +1,19 @@
+reset: [region]
+
+aq: &AQ
+  AIRNOW:
+    file: '/discover/nobackup/jardizzo/AQ/airnow_%Y%m%d.json'
+
+region:
+
+  nam:
+    
+    long_name: North America
+    lon: -180 180
+    lat: 0 90
+    mpdset: hires
+    mproj: nps
+    mpvals: 230 310 20 86
+    addlayers: [Canada_Province]
+
+    airnow: *AQ
