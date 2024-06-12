@@ -1,0 +1,6 @@
+dset /gpfsm/dnb04/projects/p71/aogcm/g5fcst/forecast/production/geos-s2s/runx/ensmean/DRFT/may/may.geosgcm_ocn2d.05.nc4
+title S2S DRFT
+undef 1e+15
+dtype netcdf
+xdef lon 720 linear -180 0.5
+ydef lat 361 linear -90 0.5

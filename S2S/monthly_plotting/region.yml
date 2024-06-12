@@ -1,0 +1,66 @@
+reset: [region]
+
+region:
+
+  SEASIA:
+
+    long_name: Seven Seas
+    lon: 60 150
+    lat: -15 30
+    mpdset: newmap
+    mproj: latlon
+    addlayers: [NE_10m_Lakes, NE_10m_Admin0]
+
+  AUS:
+
+    long_name: Australia
+    lon: 110 160
+    lat: -45 -5
+    mpdset: hires
+    mproj: latlon
+    addlayers: [NE_10m_Lakes, NE_10m_Admin1]
+
+  EUR:
+    
+    long_name: Europe
+    lon: -20 60
+    lat: 30 70
+    mpdset: newmap
+    mproj: latlon
+    addlayers: [NE_10m_Lakes, NE_10m_Admin0]
+
+  glb:
+
+    long_name: Global
+    lon: -180 180
+    lat: -90 90
+    mpdset: lowres
+    mproj: latlon
+    addlayers: [NE_10m_Lakes, NE_10m_Admin0]
+
+  eqpac:
+
+    long_name: Equatorial pacific
+    lon: 110 290
+    lat: -20 20
+    mpdset: newmap
+    mproj: latlon
+    addlayers: [NE_10m_Lakes, NE_10m_Admin0]
+
+  NA:
+
+    long_name: North America
+    lon: -168 -57
+    lat: 17 75
+    mpdset: lowres
+    mproj: latlon
+    addlayers: [NE_10m_Lakes, NE_10m_Admin1]
+
+  SA:
+
+    long_name: South America
+    lon: -90 -30
+    lat: -60 13
+    mpdset: mres
+    mproj: latlon
+    addlayers: [NE_10m_Lakes, NE_10m_Admin0]

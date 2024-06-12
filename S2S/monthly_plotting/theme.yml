@@ -1,0 +1,112 @@
+theme:
+
+  plot:
+
+    t2m_anom:
+      long_name: T2M Anom
+      levels: [0]
+      layers: [shaded]
+      title: '[Anomaly] Temperature at 2-meters (C)'
+      shaded:
+        expr: t2m_expr
+        cbar: bwr
+        cmin: -4
+        cmax: 4
+        cint: 0.5
+        nsub: 1
+        skip: 2
+
+    Precip_anom:
+      long_name: TPREC Anom
+      levels: [0]
+      layers: [shaded]
+      title: '[Anomaly] Total Precipitation (mm/day)'
+      shaded:
+        expr: tprec_expr
+        cbar: BrnWGrn
+      # cbunits: mm/day
+        cbunits:
+        cdict: tprec_anom_attr
+        cmin: -5
+        cmax: 5
+        cint: 1
+        nsub: 1
+        skip: 1
+
+    SST_anom:
+      long_name: T2M Anom
+      levels: [0]
+      layers: [shaded]
+      title: '[Anomaly] Surface Temperature (C)'
+      shaded:
+        expr: ts_expr
+        cmin: -4
+        cmax: 4
+        cint: 1
+        nsub: 10
+        skip: 10
+      map:
+        layers: [shaderelief-gray]
+
+    SSS_anom:
+      long_name: SSS Anom
+      levels: [0]
+      layers: [shaded]
+      title: '[Anomaly] Surface Salinity (PSU)'
+      shaded:
+        expr: ss_expr
+        cmin: -0.8
+        cmax: 0.8
+        cint: 0.2
+      map:
+        layers: [shaderelief-gray]
+
+  layer:
+
+    shaded:
+      gxout: shaded
+      cbunits: ''
+      cbar: bwr
+      nsub: 10
+      skip: 10
+
+    contour:
+      gxout: contour
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.18
+      contour: 'off'
+
+  attribute:
+
+    tprec_anom_attr:
+      - {cmin: -3, cmax: 3, cint: 0.5}
+      - {'$region': 'AUS', cmin: -4.5, cmax: 4.5, cint: 1.5}
+      - {'$region': 'SA', cmin: -4.5, cmax: 4.5, cint: 1.5}
+      - {'$region': 'EUR', cmin: -0.9, cmax: 0.91, cint: 0.2}
+      - {'$region': 'glb', cmin: -8, cmax: 8, cint: 2}
+      - {'$region': 'NA', cmin: -0.9, cmax: 0.91, cint: 0.2}
+      - {'$region': 'SEASIA', cmin: -8, cmax: 8, cint: 2}
+
+    lsprcp_anom_attr:
+      - {cmin: -2, cmax: 2, cint: 0.4}
+      - {'$region': 'global,indonesia', cmin: -3, cmax: 3, cint: 0.5}
+
+    t2m_expr:
+      default: _t2m-_t2m_ltm
+      EUR: maskout(_t2m-_t2m_ltm,(_frland+_frlandice)-0.05)
+      NA: maskout(_t2m-_t2m_ltm,(_frland+_frlandice)-0.05)
+      SA: maskout(_t2m-_t2m_ltm,(_frland+_frlandice)-0.05)
+
+    ts_expr: 
+      default: maskout(maskout(_ts-_ts_ltm,_fro-0.9),-_aice)
+
+    ss_expr: 
+      default: maskout(maskout(_ss-_ss_ltm,_fro-0.9),-_aice)
+
+    tprec_expr:
+      default: (_tprec-_tprec_ltm)*86400
+      EUR: maskout((_tprec-_tprec_ltm)*86400,(_frland+_frlandice)-0.05)
+      NA: maskout((_tprec-_tprec_ltm)*86400,(_frland+_frlandice)-0.05)
+      SA: maskout((_tprec-_tprec_ltm)*86400,(_frland+_frlandice)-0.05)
