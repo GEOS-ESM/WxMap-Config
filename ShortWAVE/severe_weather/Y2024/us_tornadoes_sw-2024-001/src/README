@@ -1,0 +1,5 @@
+Near Real-time Tornado Reports
+wget https://www.spc.noaa.gov/climo/reports/240502_rpts_torn.csv
+
+Filtered / Validated Tornado Reports
+wget https://www.spc.noaa.gov/climo/reports/%y%m%d_rpts_filtered_torn.csv
