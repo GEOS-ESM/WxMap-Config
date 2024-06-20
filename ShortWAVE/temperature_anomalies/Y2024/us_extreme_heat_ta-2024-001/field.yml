@@ -1,0 +1,8 @@
+field:
+
+  GEOSANA:
+
+    _t2m:
+      long_name: 2-meter Air Temperature
+      units: K
+      expression: max(t2m.GEOSANA.tavg1_2d_slv_Nx,td=-24,td=-1)

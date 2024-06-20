@@ -1,0 +1,23 @@
+map:
+  default:
+    line_color: 0 0 0 100
+
+  NE_10m_Admin0:
+    shape_file: Natural_Earth/ne_10m_admin_0_countries
+    line_width: 8
+    zorder: -1
+
+  NE_10m_Coastline:
+    shape_file: Natural_Earth/ne_10m_coastline
+    line_width: 2
+    zorder: -1
+
+  NE_10m_Lakes:
+    shape_file: Natural_Earth/ne_10m_lakes
+    line_width: 2
+    zorder: -1
+
+  ne_10m_admin_1_states_provinces:
+    shape_file: Natural_Earth/ne_10m_admin_1_states_provinces
+    line_width: 2
+    zorder: -1

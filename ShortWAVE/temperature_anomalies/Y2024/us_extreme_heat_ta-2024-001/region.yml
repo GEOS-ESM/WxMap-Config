@@ -1,0 +1,18 @@
+reset: [region]
+
+records: &RECORDS
+  FIRMS:
+    file: '/discover/nobackup/jardizzo/GHCND/extremes/Y2024/US/temperature.records.%Y%m%d.json'
+
+region:
+
+  conus:
+
+    long_name: CONUS
+    lon: -135 -65
+    lat: 20 60
+    mpdset: hires
+    mproj: scaled
+    frame: 'off'
+
+    records: *RECORDS
