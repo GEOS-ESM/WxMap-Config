@@ -1,0 +1,29 @@
+field:
+
+  GEOSANA: &geosana
+
+    _aprcp:
+      long_name: Accumulated Precipitation
+      units: mm
+      expression: sum(prectot.tavg1_2d_flx_Nx,td=-24,td=-1)*60*60
+
+    _tprcp:
+      long_name: Storm Total Precipitation
+      units: mm
+      expression: sum(prectot.SPECIAL.tavg1_2d_flx_Nx,t=1,td=-1)*60*60
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: Pa
+      expression: slp.tavg1_2d_slv_Nx
+
+    _epv:
+      long_name: Ertels Potential Vorticity
+      units: m s-1
+      expression: epv.inst3_3d_asm_Np
+
+  G5FPFC:
+    <<: *geosana
+
+  G5FP:
+    <<: *geosana

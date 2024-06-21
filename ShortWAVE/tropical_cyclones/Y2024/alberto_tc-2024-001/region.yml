@@ -1,0 +1,11 @@
+reset: [region]
+
+region:
+
+  gulf:
+    long_name: Gulf of Mexico
+    lon: -108 -84
+    lat: 16 32
+    mpdset: hires
+    mpvals:
+    frame: 'off'

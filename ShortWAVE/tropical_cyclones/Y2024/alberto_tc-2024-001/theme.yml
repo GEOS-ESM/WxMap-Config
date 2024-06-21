@@ -1,0 +1,134 @@
+theme:
+
+  plot:
+
+    tprcp:
+      long_name: Storm Total Precip
+      levels: [0]
+      layers: [precip, slp, hilo]
+      title: 'SLP (mb), Storm Total Precipitation (mm)'
+      parea: 0 11 0 8.5
+      precip:
+        expr: _tprcp
+        #clevs: 2.5 5 10 20 30 40 50 75 100 125 250 375 500 750 1000
+        #clevs: 2 4 8 16 24 32 40 60 80 100 200 300 400 600 800
+        #clevs: 1.5 3 6 12 18 24 30 45 60 75 150 225 300 450 600
+        #clevs: 0.5 1 2 4 6 8 10 15 20 25 50 75 100 150 200
+        clevs: 1 2 4 8 12 16 20 30 40 50 100 150 200 300 400
+      hilo:
+        expr: smth9(smth9(_slp/100))
+        color: 255 255 255
+        hmark: 'off'
+        radius: 50000
+      slp:
+        clab: 'off'
+        ccolor: 255 255 255
+        cthick: 4
+      map:
+        line_color: 0 0 0
+        line_width: 2
+        layers: [world_shaded_relief-01]
+        frame: 'off'
+
+    epv:
+      long_name: EPV
+      levels: [10, 30, 50, 100, 200, 300, 500, 700, 850]
+      layers: [epv, heights, hilo]
+      title: '$level-hPa Potential Vorticity [PVU]; Geopotential Height [dam]'
+      parea: 0 11 0 8.5
+      map:
+        line_color: 0 0 0
+        line_width: 2
+        layers: [bluemarble-01]
+      hilo:
+        expr: maskout(smth9(smth9(_hght/10)),lat-30)
+        color: 255 255 255
+
+  layer:
+
+    slp:
+      gxout: contour
+      expr: _slp / 100
+      cint: 4
+      clab: masked
+      cthick: 4
+      ccolor: 0 0 0
+      clsize: 0.12
+
+    heights:
+      gxout: contour
+      expr: smth9(smth9(_hght/10))
+      cint: htcint
+      csmooth: 'on'
+      clab: 'off'
+      cthick: 6
+      ccolor: 255 255 255
+      clsize: 0.10
+      clskip: 2
+
+    hilo:
+      gxout: hilo
+      expr: smth9(smth9(_slp / 100))
+
+    precip:
+      gxout: shaded
+      expr: _aprcp
+      csmooth: 'on'
+      cbar: Precip
+    # cbunits: "Accum Precip [mm]"
+      nsub: 1
+      type: linear
+      skip: 1
+      clevs: 0.5 1 2 4 6 8 10 15 20 25 50 75 100 150 200
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.062 1.000 1.000
+        - 1.000 1.000 1.000
+
+    epv:
+      gxout: shaded
+      expr: abs(_epv*1000000)
+      cbar: EPV_noalpha
+    # cbunits: PVU
+      cbunits:
+      nsub: 10
+      skip: 10
+      cdict: epvdict
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.214 0.600 0.600
+        - 0.250 0.800 0.800
+        - 0.286 1.000 1.000
+        - 0.321 1.000 1.000
+        - 0.357 1.000 1.000
+        - 0.393 1.000 1.000
+        - 0.429 1.000 1.000
+        - 0.464 1.000 1.000
+        - 0.500 1.000 1.000
+        - 0.536 1.000 1.000
+        - 1.000 1.000 1.000
+
+  attribute:
+
+    htcint:
+      default: 6
+      850: 3
+      700: 3
+      500: 6
+      300: 12 
+      200: 12
+      100: 12 
+      50: 12
+      30: 14
+      10: 20
+
+    epvdict:
+      - {'$level': 10, cmin: 0, cmax: 890, cint: 89}
+      - {'$level': 30, cmin: 0, cmax: 150, cint: 15}
+      - {'$level': 50, cmin: 0, cmax: 77, cint: 7}
+      - {'$level': 100, cmin: 0, cmax: 30, cint: 3}
+      - {'$level': 200, cmin: 0, cmax: 16, cint: 2}
+      - {'$level': 300, cmin: 0, cmax: 13, cint: 1}
+      - {'$level': 500, cmin: 0, cmax: 7.7, cint: 0.7, scale: exp_scale}
+      - {'$level': 700, cmin: 0, cmax: 7, cint: 0.7, scale: exp_scale}
+      - {'$level': 850, cmin: 0, cmax: 12, cint: 1, scale: exp_scale}
