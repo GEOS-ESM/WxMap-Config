@@ -7,7 +7,7 @@ def im_draw_places(im, places, font_name, font_size, font_color=(255,255,255), s
 
     for place in places:
         p = place.split()
-        xo = float(p[0]) - 800
+        xo = float(p[0])
         yo = float(p[1])
         name = ' '.join(p[2:])
         w, h = d1.text_size(name)

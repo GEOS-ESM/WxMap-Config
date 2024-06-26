@@ -38,14 +38,42 @@ shape:
     line_color: 255 0 0
     line_width: 10
     line_style: 1
-    str_color: 0 0 0 0
+    str_color: 1
     str_width: 5
     str_size: 0.15
     position: r
     font: bold
-    size: 2.0
-    window: 48
-    spacing: 1
+    size: 1.5
+    window: 240
+    spacing: 12
+
+  track1:
+    class: track
+    line_color: 255 255 255
+    line_width: 12
+    line_style: 1
+    str_color: 1
+    str_width: 5
+    str_size: 0.15
+    position: r
+    font: bold
+    size: 1.5
+    window: 240
+    spacing: 3
+
+  track2:
+    class: track
+    line_color: 255 0 0
+    line_width: 2
+    line_style: 1
+    str_color: 1
+    str_width: 5
+    str_size: 0.15
+    position: r
+    font: bold
+    size: 1.5
+    window: 240
+    spacing: 3
 
   ships:
     class: symbol

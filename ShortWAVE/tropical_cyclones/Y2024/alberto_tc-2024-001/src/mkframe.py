@@ -61,7 +61,9 @@ for fname in sys.argv[1:]:
 
     # Add place names
     
-    places = []
+    places = ['723 777 MEXICO',
+              '1542 351 TEXAS',
+              '2652 147 LOUISIANA']
     im_draw_places(im_final, places, bold_name, 45)
 
     # Add the colorbar and title
@@ -75,7 +77,7 @@ for fname in sys.argv[1:]:
     w2, h2 = d2.text_size(s2)
 
     w3, h3 = (im_cbar.width, im_cbar.height)
-    box = round_rectangle((max(w1,w2,w3)+20, h1+h2+h3+20), 50, (0,0,0,80))
+    box = round_rectangle((max(w1,w2,w3)+20, h1+h2+h3+30), 50, (0,0,0,80))
     box = ImageOps.flip(box)
     im_final.paste(box, (0, 0), box)
     d1.draw_text(10, 10, s1)
