@@ -18,8 +18,7 @@ theme:
     aod:
       long_name: Aerosols
       levels: [0]
-    # layers: [ssexttau, duexttau, suexttau, niexttau, ocexttau]
-      layers: [bcexttau, ocexttau, duexttau, ssexttau, suexttau, niexttau, suexttau]
+      layers: [bcexttau, ocexttau, duexttau, ssexttau, niexttau, suexttau]
       title: 'AOT'
       map:
         layers: [shaderelief-gray]

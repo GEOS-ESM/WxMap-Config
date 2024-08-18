@@ -16,7 +16,7 @@ request = {
     'gmao_logo_name': '/home/jardizzo/src/FLUID/sandbox/share/files/gmao-logo-white.png'
     }
 
-im_cbar = Image.open('aod_cbar.png').convert("RGBA")
+im_cbar = Image.open('aod_bill_cbar.png').convert("RGBA")
 im_cbar = image_trim(im_cbar)
 im_cbar = im_cbar.resize((3840/3,2160/28), Image.ANTIALIAS)
 
@@ -44,9 +44,9 @@ for fname in sys.argv[1:]:
     # Use RGB mode (i.e. no alpha channel for the canvas)
 
     im_main = Image.open(fname).convert("RGBA")
-    im_main = image_trim(im_main)
+  # im_main = image_trim(im_main)
   # im_main = im_main.crop((1, 34, 3839, 2125))
-    im_main = im_main.resize((3840, 2160), Image.ANTIALIAS)
+  # im_main = im_main.resize((3840, 2160), Image.ANTIALIAS)
     
     im_final = Image.new('RGB', (im_main.width, im_main.height), color='black')
     im_final.paste(im_main, (0, 0), im_main)
@@ -67,24 +67,20 @@ for fname in sys.argv[1:]:
     # Add the colorbar and title
 
     d1 = HersheyDraw(im_final, bold_name, 90, font_color)
-    s1 = 'Canada Wildfires'
+    s1 = 'Africa Dust'
     w1, h1 = d1.text_size(s1)
 
     d2 = HersheyDraw(im_final, font_name, 45, font_color)
-    s2 = 'Column CO from Biomass Burning [10`a18`n molecules cm`a-2`n]'
+    s2 = 'Aerosol Optical Thickness [550nm: 0-.5]'
     w2, h2 = d2.text_size(s2)
 
-    d3 = HersheyDraw(im_final, font_name, 36, font_color)
-    s3 = '*Red triangles indicate elevated CO emissions using MODIS QFED'
-    w3, h3 = d3.text_size(s3)
     w4, h4 = (im_cbar.width, im_cbar.height)
-    box = round_rectangle((max(w1,w2,w3,w4)+40, h1+h2+h3+h4+10+30), 50, (0,0,0,80))
+    box = round_rectangle((max(w1,w2,w4)+40, h1+h2+h4+40), 50, (0,0,0,80))
     box = ImageOps.flip(box)
     im_final.paste(box, (0, 0), box)
     d1.draw_text(10, 10, s1)
     d2.draw_text(10, 10+h1+10, s2)
     im_final.paste(im_cbar, (10, 10+h1+10+h2+10), im_cbar)
-    d3.draw_text(10, 10+h1+10+h2+10+h4+10, s3)
 
     # Add the model and date/time label
 
