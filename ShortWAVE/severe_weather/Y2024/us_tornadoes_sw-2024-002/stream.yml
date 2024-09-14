@@ -1,0 +1,13 @@
+stream:
+
+  GEOSCF:
+
+    long_name: GEOS CF
+    description: GEOS CF Meteorological Replay
+    type: analysis
+    uri: /discover/nobackup/projects/gmao/geos_cf/pub/GEOS-CF_NRT/opendap/assim/$collection
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    logos: [nasa-logo-ul, gmao-logo-ur]

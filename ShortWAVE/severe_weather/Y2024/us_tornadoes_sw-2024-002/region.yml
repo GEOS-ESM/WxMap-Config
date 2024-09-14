@@ -1,0 +1,11 @@
+reset: [region]
+
+region:
+
+  us_se:
+
+    long_name: U.S. South East
+    lon: -110 -70
+    lat: 25 45
+    mpdset: hires
+    mproj: latlon
