@@ -1,0 +1,14 @@
+reset: [region]
+
+region:
+
+  gulf:
+    long_name: Gulf of Mexico
+  # lon: -98 -74
+  # lat: 20 33
+    lon: -103 -73
+    lat: 17 34
+    mpdset: hires
+    mpvals:
+    frame: 'off'
+    track1: [/discover/nobackup/jardizzo/IBTrACS/tracks/beryl/2024.json]
