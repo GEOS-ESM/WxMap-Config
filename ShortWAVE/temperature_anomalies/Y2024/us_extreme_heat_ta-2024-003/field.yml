@@ -1,0 +1,14 @@
+field:
+
+  GEOSANA:
+
+    _epv:
+      long_name: Ertels Potential Vorticity
+      units: m s-1
+      expression: epv.inst3_3d_asm_Np
+
+    _t2mmax:
+      long_name: 2-meter Air Temperature
+      units: K
+    # expression: max(t2m.inst1_2d_asm_Nx,td=-23,td=0)
+      expression: max(t2m.inst3_2d_asm_Nx,td=-7,td=0)-273.15

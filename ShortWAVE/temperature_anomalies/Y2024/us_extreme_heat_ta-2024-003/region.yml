@@ -1,0 +1,39 @@
+reset: [region]
+
+region:
+
+  nam:
+
+    long_name: North America
+  # lon: 0 360
+    lon: -180 180
+    lat: 0 90
+    mpdset: hires
+    mproj: nps
+  # mpvals: 210 300 25 71
+    mpvals: -150 -60 25 71
+    addlayers: [Canada_Province]
+    frame: 'off'
+
+  nam2:
+
+    long_name: North America
+    lon: 0 360
+    lat: 0 90
+    mpdset: hires
+    mproj: nps
+    mpvals: 220 310 25 75
+    addlayers: [Canada_Province]
+    frame: 'off'
+
+  nam-hwl:
+
+    long_name: North America
+    lon: 0 360
+    lat: 0 90
+    mpdset: hires
+    mproj: nps
+    mpvals: 230 310 20 86
+    addlayers: [Canada_Province]
+    frame: 'off'
+

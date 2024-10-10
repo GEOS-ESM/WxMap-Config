@@ -1,0 +1,67 @@
+shape:
+
+  default:
+    line_color: 0 0 0
+    line_width: 5
+    line_style: 1
+
+# string:
+#   line_color: 255 0 0
+#   str_size: 0.12
+
+  mark:
+    line_color: 255 165 0
+    fill_color: 255 165 0
+    size: 0.18
+    mark: 9
+
+  string:
+    font: bold
+    str_size: 0.15
+    position: 'r'
+    line_color: 255 255 255
+    zorder: -2
+    clip: 0
+
+  string2:
+    class: string
+    font: bold
+    str_size: 0.10
+    position: 'r'
+    line_color: 255 255 255
+    zorder: -2
+    clip: 0
+
+  station:
+    class: station_mark
+    line_color: 255 255 255
+    fill_color: 100 0 100
+    inner_size: 0.15
+    outer_size: 0.15
+    outer_line: ''
+    line_width: 4
+    mark_type: 3 2
+    zorder: -3
+    clip: 0
+
+  symbol:
+    line_color: 255 255 255
+    fill_color: 255 255 255
+    line_width: 5
+    line_style: 1
+    type: 3
+    size: 5
+    clip: 0
+
+  track:
+    line_color: 255 0 0
+    line_width: 12
+    line_style: 1
+    str_color: 1
+    str_width: 5
+    str_size: 0.15
+    position: r
+    font: bold
+    size: 1.5
+    window: 240
+    spacing: 12
