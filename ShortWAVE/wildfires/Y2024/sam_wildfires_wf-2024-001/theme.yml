@@ -1,0 +1,79 @@
+theme:
+
+  plot:
+
+    coclbb: &COBBLA
+      long_name: CO Biomass Burning Latin America
+      levels: [0]
+      layers: [coclbb, qfed1, qfed2]
+      title: 'Column CO from Biomass Burning [10`a18`n molecules cm`a-2`n]'
+      map:
+        layers: [bluemarble01]
+
+  layer:
+
+    coclbb_1:
+      gxout: shaded
+      expr: _coclbbla*2150
+      cbar: myinferno
+      cmin:
+      cmax:
+      cint:
+      clevs: 0.02 0.025 0.03 0.035 0.04 0.08 0.16 0.32 0.64 1.28 2.56
+      nsub: 20
+      skip: 20
+      scale: exp_scale
+      alpha:
+        - 0.00 0.0 0.0
+        - 0.01 0.0 0.0
+        - 0.05 1.0 1.0
+        - 1.00 1.0 1.0
+      alpha_2:
+        - 0.00 0.0 0.0
+        - 0.03 0.0 0.0
+        - 0.05 1.0 1.0
+        - 1.00 1.0 1.0
+
+    coclbb:
+      gxout: shaded
+      expr: _coclbbla*2150
+      cbar: myinferno
+      cmin: 0.0
+      cmax: 2.2
+      cint: 0.2
+      clevs: 0.02 0.025 0.03 0.035 0.04 0.08 0.16 0.32 0.64 1.28 2.56
+  #   clevs: 0.04 0.045 0.05 0.06 0.08 0.16 0.32 0.64 1.28 2.56
+      nsub: 10
+      skip: 10
+      scale: log_scale
+      alpha_1:
+        - 0.00 0.0 0.0
+        - 0.01 0.0 0.0
+        - 0.05 1.0 1.0
+        - 1.00 1.0 1.0
+      alpha_2:
+        - 0.00 0.0 0.0
+        - 0.03 0.0 0.0
+        - 0.05 1.0 1.0
+        - 1.00 1.0 1.0
+      alpha:
+        - 0.00 0.0 0.0
+     #  - 0.01 0.0 0.0
+        - 0.10 1.0 1.0
+        - 1.00 1.0 1.0
+
+    qfed1:
+      gxout: grid
+      cmark: 9 
+      digsiz: 0.08
+      ccolor: 230 0 0
+      cthick: 5
+      expr: maskout(_biomass, _biomass-0.00000008)
+
+    qfed2:
+      gxout: grid
+      cmark: 8
+      digsiz: 0.08
+      ccolor: 0 0 0
+      cthick: 5
+      expr: maskout(_biomass, _biomass-0.00000008)
