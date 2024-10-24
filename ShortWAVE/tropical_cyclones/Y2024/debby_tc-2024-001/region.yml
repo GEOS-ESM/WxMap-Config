@@ -1,0 +1,14 @@
+reset: [region]
+
+region:
+
+  eastcoast:
+    long_name: East Coast
+  # lon: -103 -55
+  # lat: 18 42
+    lon: -92 -66
+    lat: 25 39
+    mpdset: hires
+    mpvals:
+    frame: 'off'
+    track1: [/discover/nobackup/jardizzo/IBTrACS/tracks/2024.json]

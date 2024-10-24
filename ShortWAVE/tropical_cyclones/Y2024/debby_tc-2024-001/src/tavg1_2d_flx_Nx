@@ -1,0 +1,54 @@
+dset /discover/nobackup/projects/gmao/gmao_ops/pub//f5295_fp/das/Y%y4/M%m2/D%d2/GEOS.fp.asm.tavg1_2d_flx_Nx.%y4%m2%d2_%h2%n2.V01.nc4
+OPTIONS template
+title GEOS5 FP 2d time-averaged surface flux diagnostics
+undef 1e+15
+dtype netcdf
+xdef 1152 linear -180 0.3125
+ydef 721 linear -90 0.25
+zdef 1 linear 0 1 
+tdef 4000 linear 23:30Z03AUG2024 60mn
+vars 43
+NIRDR=>nirdr 0 t,y,x surface_downwelling_nearinfrared_beam_flux
+DISPH=>disph 0 t,y,x zero_plane_displacement_height
+TAITIME=>taitime 0 t TAITIME
+HLML=>hlml 0 t,y,x surface_layer_height
+Z0H=>z0h 0 t,y,x surface_roughness_for_heat
+TSH=>tsh 0 t,y,x effective_surface_skin_temperature
+FRCCN=>frccn 0 t,y,x areal_fraction_of_convective_showers
+HFLUX=>hflux 0 t,y,x sensible_heat_flux_from_turbulence
+PRECSNO=>precsno 0 t,y,x snowfall
+PRECLSC=>preclsc 0 t,y,x nonanvil_large_scale_precipitation
+PREVTOT=>prevtot 0 t,y,x Total_column_re-evap/subl_of_precipitation
+FRCLS=>frcls 0 t,y,x areal_fraction_of_nonanvil_large_scale_showers
+PRECANV=>precanv 0 t,y,x anvil_precipitation
+PRECTOT=>prectot 0 t,y,x total_precipitation
+NIRDF=>nirdf 0 t,y,x surface_downwelling_nearinfrared_diffuse_flux
+EVAP=>evap 0 t,y,x evaporation_from_turbulence
+CDQ=>cdq 0 t,y,x surface_exchange_coefficient_for_moisture
+Z0M=>z0m 0 t,y,x surface_roughness
+RHOA=>rhoa 0 t,y,x air_density_at_surface
+BSTAR=>bstar 0 t,y,x surface_buoyancy_scale
+USTAR=>ustar 0 t,y,x surface_velocity_scale
+CDM=>cdm 0 t,y,x surface_exchange_coefficient_for_momentum
+TSTAR=>tstar 0 t,y,x surface_temperature_scale
+RISFC=>risfc 0 t,y,x surface_bulk_richardson_number
+PBLH=>pblh 0 t,y,x planetary_boundary_layer_height
+EFLUX=>eflux 0 t,y,x total_latent_energy_flux
+PRECCON=>preccon 0 t,y,x convective_precipitation
+SPEED=>speed 0 t,y,x surface_ventilation_velocity
+QSH=>qsh 0 t,y,x effective_surface_specific_humidity
+PGENTOT=>pgentot 0 t,y,x Total_column_production_of_precipitation
+CDH=>cdh 0 t,y,x surface_exchange_coefficient_for_heat
+QSTAR=>qstar 0 t,y,x surface_moisture_scale
+TAUX=>taux 0 t,y,x eastward_surface_stress
+CN=>cn 0 t,y,x surface_neutral_drag_coefficient
+TAUGWY=>taugwy 0 t,y,x surface_northward_gravity_wave_stress
+TLML=>tlml 0 t,y,x surface_air_temperature
+QLML=>qlml 0 t,y,x surface_specific_humidity
+FRCAN=>frcan 0 t,y,x areal_fraction_of_anvil_showers
+TAUGWX=>taugwx 0 t,y,x surface_eastward_gravity_wave_stress
+ULML=>ulml 0 t,y,x surface_eastward_wind
+VLML=>vlml 0 t,y,x surface_northward_wind
+FRSEAICE=>frseaice 0 t,y,x ice_covered_fraction_of_tile
+TAUY=>tauy 0 t,y,x northward_surface_stress
+endvars
