@@ -8,11 +8,9 @@ theme:
       layers: [coclbb]
       title: 'Column CO from Biomass Burning [10`a18`n molecules cm`a-2`n]'
       map:
-        layers: [bluemarble01]
-      map:
         line_color: 255 255 255
         line_width: 2
-        layers: [world_imagery-01] #quebec
+        layers: [world_imagery-01]
 
   layer:
 
