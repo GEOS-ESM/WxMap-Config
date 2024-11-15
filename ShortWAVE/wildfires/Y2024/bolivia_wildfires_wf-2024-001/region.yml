@@ -1,0 +1,13 @@
+reset: [region]
+
+region:
+
+  bolivia:
+    long_name: Bolivia
+    lon: -70 -54
+    lat: -19 -10
+    mpdset: hires
+    mproj: latlon
+    mpvals:
+    addlayers: [Wildfires]
+    frame: 'off'
