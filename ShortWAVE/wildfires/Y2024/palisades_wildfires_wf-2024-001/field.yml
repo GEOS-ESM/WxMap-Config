@@ -1,0 +1,17 @@
+field:
+
+  G5FPFC: &geos
+
+    _biomass:
+      long_name: Biomass
+      units: 1
+      expression: biomass.QFED.QFED(z=1,t=1)
+
+    _coclbbna:
+      long_name: CO Column Burden (North America Biomass Burning)
+      units: kg m-2
+      expression: coclbbna.inst1_2d_hwl_Nx
+
+  GEOSANA:
+
+    <<: *geos

@@ -1,0 +1,32 @@
+theme:
+
+  plot:
+
+    coclbb:
+      long_name: CO Biomass Burning North America
+      levels: [0]
+      layers: [coclbb]
+      title: 'Column CO from Biomass Burning [10`a18`n molecules cm`a-2`n]'
+      map:
+        line_color: 0 0 0
+        line_width: 5
+        layers: [world_imagery-01]
+
+  layer:
+
+    coclbb:
+      gxout: shaded
+      expr: smth9(re(_coclbbna*2150,0.1,0.1))
+      cbar: myinferno
+      cmin: 0.0
+      cmax: 2.2
+      cint: 0.2
+    # clevs: 0.08 0.16 0.32 0.64 1.28 2.56 5.12 10.24
+      clevs: 0.07 0.075 0.08 0.16 0.32 0.64 1.28 2.56
+      nsub: 20
+      skip: 20
+      scale: log_scale
+      alpha:
+        - 0.00 0.0 0.0
+        - 0.15 0.0 0.0
+        - 1.00 1.0 1.0

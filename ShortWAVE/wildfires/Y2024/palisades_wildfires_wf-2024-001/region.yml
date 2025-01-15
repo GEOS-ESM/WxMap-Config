@@ -1,0 +1,13 @@
+reset: [region]
+
+region:
+
+  palisades:
+    long_name: Palisades
+    lat: 30.57 37.57
+    lon: -125.53 -111.53
+    mpdset: hires
+    mproj: latlon
+    mpvals:
+    addlayers: [Wildfires]
+    frame: 'off'
