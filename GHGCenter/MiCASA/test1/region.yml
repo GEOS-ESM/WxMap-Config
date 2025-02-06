@@ -1,0 +1,55 @@
+reset: [region]
+
+region:
+
+  nam:
+    
+    long_name: North America
+    lon: -130 -60 
+    lat: 25 50
+    mpdset: mres
+    mproj: latlon
+    mpvals:
+
+
+#  nsam:
+    
+#    long_name: North and South America
+#    lon: -136 -31
+#    lat: -56 49
+#    mpdset: mres
+#    mproj: latlon
+#    mpvals:    
+
+# ortho:
+
+#   long_name: Orthographic East
+#   lon: -160 20
+#   lat: -90 90
+#   mpdset: mres
+#   mproj: orthogr
+#   mpvals: 
+#   grid: 'off'
+#   barbs: 'off'
+#   streamlines: 'off'
+#   thick_above: 'off'
+#   thick_below: 'off'
+#   hilo: 'off'
+
+#  sam:
+
+#    long_name: South America
+#    lon: -86 10
+#    lat: -40 14
+#    mpdset: hires
+#    mproj: latlon
+#    mpvals:
+
+# sam2:
+
+#   long_name: South America
+#   lon: -86 10
+#   lat: -40 8
+#   mpdset: hires
+#   mproj: latlon
+#   mpvals:
