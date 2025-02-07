@@ -8,7 +8,7 @@ theme:
         layers: [nee]
         title: 'MiCASA Net Ecosystem Exchange [kg C m`a-2`n s`a-1`n]'
         map:
-            layers: [coastlines]
+            layers: [world_imagery-01]
 
 #    coclbb: &COBBLA
 #      long_name: CO Biomass Burning Latin America
