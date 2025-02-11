@@ -22,7 +22,7 @@ theme:
 
 
     nee:
-        cbar: BWR 
+        cbar: MyPuOr
         gxout: shaded
         expr: _nee/1e-7
         cmin: -2.5
