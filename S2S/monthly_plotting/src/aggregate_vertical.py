@@ -45,7 +45,7 @@ args = parser.parse_args()
 oname = args.output_name
 bname = os.path.basename(oname)
 files = args.input_files
-var = bname.split('_')[4]
+var = bname.split('_')[5]
 
 odir = os.path.dirname(files[0])
 #os.makedirs(odir, mode=0o755, exist_ok=True)
@@ -53,7 +53,7 @@ odir = os.path.dirname(files[0])
 # Determine title based on output variable name
 # =============================================
 
-TITLES = {"t2m": 'S2S_2.1 T2M Anomaly (`ao`nC)',
+TITLES = {"T2M": 'S2S_2.1 T2M Anomaly (`ao`nC)',
           "Precip": 'S2S_2.1 Precip Anomaly (mm/day)',
           "SST": 'S2S_2.1 SST Anomaly (`ao`nC)',
           "SSS": 'S2S_2.1 SSS Anomaly'

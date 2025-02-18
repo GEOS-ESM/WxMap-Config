@@ -2,7 +2,21 @@ theme:
 
   plot:
 
-    t2m_anom:
+    dusmass_anom: 
+      long_name: Dust Surface Mass Concentration
+      levels: [0]
+      layers: [shaded]
+      title: '[Anomaly] Dust Surface Mass Concentration (`3m`f13g/m`a3`n)'
+      shaded:
+        expr: (_dusmass-_dusmass_ltm)*1.e+9
+        cbar: bwr
+        cmin: -4
+        cmax: 4
+        cint: 0.5
+        nsub: 1
+        skip: 2
+
+    T2M_anom:
       long_name: T2M Anom
       levels: [0]
       layers: [shaded]

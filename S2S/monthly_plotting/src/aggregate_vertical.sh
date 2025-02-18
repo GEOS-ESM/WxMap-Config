@@ -35,8 +35,9 @@ for field in SST_anom SSS_anom; do
     month=`echo $release_date | cut -c5-6`
     DATE=${year}-${month}-01
     mmm=`echo $(date +"%b" -d "$DATE") | tr '[A-Z]' '[a-z]'`
+    ccyymm=`echo $(date +"%Y%m" -d "$DATE")`
 
-    oname=$opath/S2S_2.1_${mmm}_mean_${var}_anom_fcst_${region}.png
+    oname=$opath/S2S_2.1_${mmm}_mean_${ccyymm}_${var}_anom_fcst_${region}.png
     echo $oname
 
     aggregate_vertical.py -i $files -o $oname

@@ -24,7 +24,8 @@ for lead in 1 2 3 4 5 6 7 8 9; do
 
   echo $release_date $target_date
 
-  for field in SST_anom SSS_anom t2m_anom Precip_anom; do
+# for field in SST_anom SSS_anom T2M_anom Precip_anom; do
+  for field in dusmass_anom; do
 
     wxmap.py --config $config_path --stream S2SENS --fcst_dt $release_date --time_dt $target_date --field $field --no_title --tight --no_logo --oname $ONAME
 
@@ -34,7 +35,7 @@ done
 
 # Aggregate the plots onto a single canvas.
 
-aggregate.sh $1
-aggregate_vertical.sh $1
+#aggregate.sh $1
+#aggregate_vertical.sh $1
 
 exit 0

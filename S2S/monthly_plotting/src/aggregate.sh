@@ -18,7 +18,8 @@ opath=$(date +"$OPATH" -d "$DATE")
 
 mkdir -p $opath
 
-for field in t2m_anom Precip_anom SSS_anom SST_anom; do
+for field in T2M_anom Precip_anom SSS_anom SST_anom; do
+#for field in dusmass_anom; do
 
   for region in glb eqpac NA SA AUS SEASIA EUR; do
 
@@ -35,8 +36,9 @@ for field in t2m_anom Precip_anom SSS_anom SST_anom; do
     month=`echo $release_date | cut -c5-6`
     DATE=${year}-${month}-01
     mmm=`echo $(date +"%b" -d "$DATE") | tr '[A-Z]' '[a-z]'`
+    ccyymm=`echo $(date +"%Y%m" -d "$DATE")`
 
-    oname=$opath/S2S_2.1_${mmm}_mean_${var}_anom_fcst_${region}.png
+    oname=$opath/S2S_2.1_${mmm}_mean_${ccyymm}_${var}_anom_fcst_${region}.png
     echo $oname
 
     aggregate.py -i $files -o $oname

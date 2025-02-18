@@ -71,3 +71,13 @@ field:
       long_name: Surface Salinity
       units: psu
       expression: ss.S2SDRFT.geosgcm_ocn2d(t=1)
+
+    _dusmass:
+      long_name: Dust Surface Mass Concentration
+      units: kg m-3
+      expression: dusmass25.geosgcm_aero(t=1)
+
+    _dusmass_ltm:
+      long_name: Dust Surface Mass Concentration
+      units: kg m-3
+      expression: dusmass25.S2SDRFT.geosgcm_aero(t=1)
