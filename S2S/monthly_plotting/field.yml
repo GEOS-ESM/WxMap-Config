@@ -81,3 +81,13 @@ field:
       long_name: Dust Surface Mass Concentration
       units: kg m-3
       expression: dusmass25.S2SDRFT.geosgcm_aero(t=1)
+
+    _totexttau:
+      long_name: Total Aerosol Extinction AOT [550 nm]
+      units: 1
+      expression: totexttau.geosgcm_aero(t=1)
+
+    _totexttau_ltm:
+      long_name: Total Aerosol Extinction AOT [550 nm]
+      units: 1
+      expression: totexttau.S2SDRFT.geosgcm_aero(t=1)

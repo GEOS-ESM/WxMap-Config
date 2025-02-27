@@ -16,6 +16,20 @@ theme:
         nsub: 1
         skip: 2
 
+    totexttau_anom:
+      long_name: Total Aerosol Extinction AOT [550 nm]
+      levels: [0]
+      layers: [shaded]
+      title: '[Anomaly] Total Aerosol Extinction AOT [550 nm]'
+      shaded:
+        expr: _totexttau-_totexttau_ltm
+        cbar: bwr
+        cmin: -0.2
+        cmax: 0.21
+        cint: 0.04
+        nsub: 10
+        skip: 10
+
     T2M_anom:
       long_name: T2M Anom
       levels: [0]
