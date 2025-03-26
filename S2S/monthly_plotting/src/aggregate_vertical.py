@@ -9,11 +9,12 @@ from hershey_draw import *
 
 def image_trim(im, margin=0):
 
-    bg = Image.new(im.mode, im.size, im.getpixel((0,0)))
-    diff = ImageChops.difference(im, bg)
+    bg = Image.new(im.mode, im.size, im.getpixel((0,0))).convert('RGB')
+    diff = ImageChops.difference(im.convert('RGB'), bg)
     diff = ImageChops.add(diff, diff, 2.0, -100)
-    bbox = list(diff.getbbox())
+    bbox = diff.getbbox()
     if bbox:
+        bbox = list(bbox)
         bbox[0] -= margin
         bbox[1] -= margin
         bbox[2] += margin
@@ -29,7 +30,7 @@ def image_scale(im, xsize=None):
     ratio   = float(im.size[1]) / float(im.size[0])
     ysize   = int(xsize * ratio)
 
-    return im.resize((xsize, ysize), Image.ANTIALIAS)
+    return im.resize((xsize, ysize), Image.LANCZOS)
 
 # Retrieve command-line arguments
 # ===============================
