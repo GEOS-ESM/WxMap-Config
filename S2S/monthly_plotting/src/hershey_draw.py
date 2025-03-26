@@ -40,8 +40,9 @@ class HersheyDraw(object):
         self.d     = ImageDraw.Draw(im)
         self.fn    = ImageFont.truetype(font, size)
         self.fs    = ImageFont.truetype(font, int(size/2))
-        self.hn    = self.d.textsize('1', font=self.fn)[1]
-        self.hs    = self.d.textsize('1', font=self.fs)[1]
+        self.hn    = self.d.textbbox((0,0), '1', font=self.fn)[3]
+        self.hs    = self.d.textbbox((0,0), '1', font=self.fs)[3]
+
 
     def text_size(self, text):
         """
@@ -83,8 +84,8 @@ class HersheyDraw(object):
                 sText += s[1:]
 
         wn, hn, ws, hs = (0, 0, 0, 0)
-        if nText: wn, hn = self.d.textsize(nText, font=self.fn)
-        if sText: ws, hs = self.d.textsize(sText, font=self.fs)
+        if nText: wn, hn = self.d.textbbox((0,0), nText, font=self.fn)[2:4]
+        if sText: ws, hs = self.d.textbbox((0,0), sText, font=self.fs)[2:4]
 
         return (wn + ws, max(hn,hs))
 
@@ -128,15 +129,15 @@ class HersheyDraw(object):
 
             if s[0] == 'n':
                 self.d.text( (x, y), s[1:], font=self.fn, fill=self.color)
-                w, h = self.d.textsize(s[1:], font=self.fn)
+                w, h = self.d.textbbox((0,0), s[1:], font=self.fn)[2:4]
                 x += w
             elif s[0] == 'a':
                 self.d.text( (x, y), s[1:], font=self.fs,
                                                       fill=self.color)
-                w, h = self.d.textsize(s[1:], font=self.fs)
+                w, h = self.d.textbbox((0,0), s[1:], font=self.fs)[2:4]
                 x += w
             elif s[0] == 'b':
                 self.d.text( (x, y+self.hn-self.hs), s[1:], font=self.fs,
                                                       fill=self.color)
-                w, h = self.d.textsize(s[1:], font=self.fs)
+                w, h = self.d.textbbox((0,0), s[1:], font=self.fs)[2:4]
                 x += w
