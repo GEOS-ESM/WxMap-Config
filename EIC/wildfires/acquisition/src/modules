@@ -1,0 +1,9 @@
+source /usr/share/lmod/lmod/init/csh
+
+set sourced=($_)
+set thisfile=`realpath $sourced[2]`
+set src_dir=`dirname $thisfile`
+set lib_dir=`dirname $src_dir`/lib
+echo $lib_dir
+module load python/GEOSpyD/Min23.5.2-0_py3.11
+setenv PYTHONPATH $lib_dir
