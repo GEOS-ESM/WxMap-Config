@@ -1,0 +1,3 @@
+DSET /discover/nobackup/projects/gmao/osse2/HWT/CONUS02KM/Feature-c2160_L137/holding/tavg1_2d_flx_Nx/%y4%m2/Feature-c2160_L137.tavg1_2d_flx_Nx.%y4%m2%d2_%h230z.nc4
+OPTIONS template
+TDEF time 4000 linear 11:30Z24SEP2024 60mn
