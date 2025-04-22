@@ -1,0 +1,23 @@
+field:
+
+  GEOSANA:
+
+    _flashrate:
+      long_name: Lightning Flash Rate
+      units: min-1 km-2
+      expression: flashrate.GEOSCF.ems_tavg_1hr_g1440x721_x1(z=1)
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: Pa
+      expression: slp.tavg1_2d_slv_Nx
+
+    _prectot:
+      long_name: Total Precipitation
+      units: kg m-2 s-1
+      expression: prectot.tavg1_2d_flx_Nx(z=1)
+
+    _aprcp:
+      long_name: Accumulated Precipitation
+      units: mm
+      expression: sum(prectot.GEOSANA.tavg1_2d_flx_Nx,td=-24,td=-1)*60*60

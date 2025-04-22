@@ -1,0 +1,65 @@
+theme:
+  
+  plot:
+
+    aprcp:
+      long_name: Accumulated Precip
+      levels: [0]
+    # layers: [precip, flashrate, slp, hilo]
+      layers: [precip, slp, hilo]
+      title: 'SLP (mb), 24-hr Accumulated Precipitation (mm)'
+      hilo:
+        color: 255 255 255
+        radius: 2000
+      map:
+        line_color: 255 255 255 100
+        line_width: 1
+        layers: [world_imagery-02]
+
+  layer:
+
+    hilo:
+      gxout: hilo
+      expr: smth9(smth9(_slp / 100))
+
+    precip:
+      gxout: shaded
+      expr: _aprcp
+      csmooth: 'on'
+      cbar: Precip
+      cbunits: "Accum Precip [mm]"
+      nsub: 1
+      type: linear
+      skip: 1
+      clevs: 0.5 1 2 4 6 8 10 15 20 25 50 75 100 150 200
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.062 1.000 1.000
+        - 1.000 1.000 1.000
+
+    slp:
+      gxout: contour
+      expr: _slp / 100
+      cint: 4
+      clab: masked
+      cthick: 4
+      ccolor: 255 255 255
+      clsize: 0.12
+
+    flashrate:
+      gxout: grid
+      cmark: 3
+      ccolor: 255 255 255
+      expr: maskout(maskout(_flashrate*1440,_flashrate*1440-0.144),RANDOM-0.3)
+      cbunits: 'day-1 km-2'
+      cbar: Lightning
+      cmin: 0
+      cmax: 0.5
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      digsiz: 0.04
+      alpha_off:
+        - 0.000 0.000 0.000
+        - 0.050 1.000 1.000
+        - 1.000 1.000 1.000
