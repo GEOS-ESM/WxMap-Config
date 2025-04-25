@@ -47,7 +47,7 @@ field:
     _slp1x1:
       long_name: Sea Level Pressure
       units: mb
-      expression: re(slp.none(z=1)/100,360,linear,-180,1.00,181,linear,-90,1.00,"ba")
+      expression: re(slp.none(z=1)/100,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
 
   GenCast:
 
