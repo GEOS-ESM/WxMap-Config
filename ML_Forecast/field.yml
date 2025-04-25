@@ -1,0 +1,106 @@
+field:
+  
+  GEOS: &geos
+    
+    _slpgeos:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: re(slp.GEOSFP.inst3_3d_asm_Np/100,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+    _slpana:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: re(slp.GEOSANA.inst3_3d_asm_Np/100,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  GEOSANA:
+
+    <<: *geos
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: slp.inst3_3d_asm_Np/100
+
+  GEOSFP:
+      
+    <<: *geos
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: slp.inst3_3d_asm_Np/100
+    
+    _slp1x1:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: re(slp.inst3_3d_asm_Np/100,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+    
+  Aurora:
+
+    <<: *geos
+    
+    _slp:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: slp.none(z=1)/100
+
+    _slp1x1:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: re(slp.none(z=1)/100,360,linear,-180,1.00,181,linear,-90,1.00,"ba")
+
+  GenCast:
+
+    <<: *geos
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: slp.none(z=1)/100
+
+    _slp1x1:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: re(slp.none(z=1)/100,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Pangu:
+
+    <<: *geos
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: slp.none(z=1)/100
+
+    _slp1x1:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: re(slp.none(z=1)/100,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Aifs:
+
+    <<: *geos
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: slp.none(z=1)/100
+
+    _slp1x1:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: re(slp.none(z=1)/100,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Prithvi:
+
+    <<: *geos
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: slp.none(z=1)/100
+
+    _slp1x1:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: re(slp.none(z=1)/100,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
