@@ -2,6 +2,148 @@ theme:
 
   plot:
 
+    h850_full:
+      long_name: H
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 850 mb Heights (m)'
+      shaded:
+        expr: full(e=4)
+        cbar: Rainbow
+        cdict: h850_attr
+        cmin: 0
+        cmax: 20
+        cint: 2
+
+    h850_anom:
+      long_name: H Anom
+      levels: [0]
+      layers: [shaded, sig95, sig90]
+      title: '[Anomaly] 850 mb Heights (m)'
+      shaded:
+        expr: anom(e=4)
+        cdict: h850_anom_attr
+        cmin: -10
+        cmax: 10
+        cint: 2
+      sig95:
+        expr: ttest(e=4)
+      sig90:
+        expr: ttest(e=4)
+
+    h850_std:
+      long_name: H Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 850 mb Heights (m)'
+      shaded:
+        expr: stdc(e=4)
+        cbar: Blues
+        cdict: h850_std_attr
+        cmin: 0
+        cmax: 1
+        cint: 0.1
+
+    h850_ttest:
+      long_name: H T-test
+      levels: [0]
+      layers: [shaded, sig95, sig90]
+      title: '[T-test] 850 mb Heights (m)'
+      shaded:
+        expr: ttest(e=4)
+        cdict:
+        cmin: -2
+        cmax: 2
+        cint: 0.4
+      sig95:
+        expr: ttest(e=4)
+      sig90:
+        expr: ttest(e=4)
+
+    h850_diff:
+      long_name: H Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[ENSO-Neutral] 850 mb Heights (m)'
+      shaded:
+        expr: full(e=4)-full.M2NEUT.none(e=4)
+        cdict: h850_anom_attr
+        cmin: -10
+        cmax: 10
+        cint: 2
+
+    prectot_full:
+      long_name: Precip
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Precipitation Rate (mm/day)'
+      shaded:
+        expr: full(e=3)
+        cbar: MeanPrecip
+        cdict: prectot_attr
+        cmin: 0
+        cmax: 20
+        cint: 2
+
+    prectot_anom:
+      long_name: Precip Anom
+      levels: [0]
+      layers: [shaded, sig95, sig90]
+      title: '[Anomaly] Precipitation Rate (mm/day)'
+      shaded:
+        expr: anom(e=3)
+        cbar: BrnWGrn
+        cdict: prectot_anom_attr
+        cmin: -10
+        cmax: 10
+        cint: 2
+      sig95:
+        expr: ttest(e=3)
+      sig90:
+        expr: ttest(e=3)
+
+    prectot_std:
+      long_name: Precip Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Precipitation Rate (mm/day)'
+      shaded:
+        expr: stdc(e=3)
+        cbar: Blues
+        cdict: prectot_std_attr
+        cmin: 0
+        cmax: 1
+        cint: 0.1
+
+    prectot_ttest:
+      long_name: Precip T-test
+      levels: [0]
+      layers: [shaded, sig95, sig90]
+      title: '[T-test] Precipitation Rate (mm/day)'
+      shaded:
+        expr: ttest(e=3)
+        cdict:
+        cmin: -2
+        cmax: 2
+        cint: 0.4
+      sig95:
+        expr: ttest(e=3)
+      sig90:
+        expr: ttest(e=3)
+
+    prectot_diff:
+      long_name: Precip Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[ENSO-Neutral] Precipitation Rate (mm/day)'
+      shaded:
+        expr: full(e=3)-full.M2NEUT.none(e=3)
+        cdict: prectot_anom_attr
+        cbar: BrnWGrn
+        cmin: -10
+        cmax: 10
+        cint: 2
+
     ts_full:
       long_name: TSURF
       levels: [0]
@@ -69,7 +211,7 @@ theme:
       title: '[ENSO-Neutral] Surface Temperature (C)'
       shaded:
         expr: full(e=1)-full.M2NEUT.none(e=1)
-        cdict:
+        cdict: ts_anom_attr
         cmin: -3
         cmax: 3
         cint: 0.5
@@ -141,7 +283,7 @@ theme:
       title: '[ENSO-Neutral] Temperature at 2-meters (C)'
       shaded:
         expr: full(e=2)-full.M2NEUT.none(e=2)
-        cdict:
+        cdict: t2m_anom_attr
         cmin: -3
         cmax: 3
         cint: 0.5
