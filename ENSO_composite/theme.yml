@@ -1,0 +1,186 @@
+theme:
+
+  plot:
+
+    ts_full:
+      long_name: TSURF
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Surface Temperature (C)'
+      shaded:
+        expr: full(e=1)-273.15
+        cbar: Rainbow
+        cdict: ts_attr
+        cmin: -30
+        cmax: 30
+        cint: 5
+
+    ts_anom:
+      long_name: TSURF Anom
+      levels: [0]
+      layers: [shaded, sig95, sig90]
+      title: '[Anomaly] Surface Temperature (C)'
+      shaded:
+        expr: anom(e=1)
+        cdict: ts_anom_attr
+        cmin: -3
+        cmax: 3
+        cint: 0.5
+      sig95:
+        expr: ttest(e=1)
+      sig90:
+        expr: ttest(e=1)
+
+    ts_std:
+      long_name: TSURF Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Surface Temperature (C)'
+      shaded:
+        expr: stdc(e=1)
+        cbar: Blues
+        cdict: ts_std_attr
+        cmin: 0
+        cmax: 10
+        cint: 1
+
+    ts_ttest:
+      long_name: TSURF T-test
+      levels: [0]
+      layers: [shaded, sig95, sig90]
+      title: '[T-test] Surface Temperature (C)'
+      shaded:
+        expr: ttest(e=1)
+        cdict:
+        cmin: -2
+        cmax: 2
+        cint: 0.4
+        nsub: 8
+        skip: 8
+      sig95:
+        expr: ttest(e=1)
+      sig90:
+        expr: ttest(e=1)
+
+    ts_diff:
+      long_name: TSURF Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[ENSO-Neutral] Surface Temperature (C)'
+      shaded:
+        expr: full(e=1)-full.M2NEUT.none(e=1)
+        cdict:
+        cmin: -3
+        cmax: 3
+        cint: 0.5
+
+    t2m_full:
+      long_name: T2M
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Temperature at 2-meters (C)'
+      shaded:
+        expr: full(e=2)-273.15
+        cbar: Rainbow
+        cdict: t2m_attr
+        cmin: -30
+        cmax: 30
+        cint: 5
+
+    t2m_anom:
+      long_name: T2M Anom
+      levels: [0]
+      layers: [shaded, sig95, sig90]
+      title: '[Anomaly] Temperature at 2-meters (C)'
+      shaded:
+        expr: anom(e=2)
+        cdict: t2m_anom_attr
+        cmin: -3
+        cmax: 3
+        cint: 0.5
+      sig95:
+        expr: ttest(e=2)
+      sig90:
+        expr: ttest(e=2)
+
+    t2m_std:
+      long_name: T2M Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Temperature at 2-meters (C)'
+      shaded:
+        expr: stdc(e=2)
+        cbar: Blues
+        cdict: t2m_std_attr
+        cmin: 0
+        cmax: 10
+        cint: 1
+
+    t2m_ttest:
+      long_name: T2M T-test
+      levels: [0]
+      layers: [shaded, sig95, sig90]
+      title: '[T-test] Temperature at 2-meters (C)'
+      shaded:
+        expr: ttest(e=2)
+        cdict:
+        cmin: -2
+        cmax: 2
+        cint: 0.4
+        nsub: 8
+        skip: 8
+      sig95:
+        expr: ttest(e=2)
+      sig90:
+        expr: ttest(e=2)
+
+    t2m_diff:
+      long_name: T2M Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[ENSO-Neutral] Temperature at 2-meters (C)'
+      shaded:
+        expr: full(e=2)-full.M2NEUT.none(e=2)
+        cdict:
+        cmin: -3
+        cmax: 3
+        cint: 0.5
+
+  layer:
+
+    shaded:
+      gxout: shaded
+      cbunits: ''
+      cbar: bwr
+      nsub: 10
+      skip: 10
+
+    contour:
+      gxout: contour
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.18
+      contour: 'off'
+
+    sig90:
+      gxout: contour
+      cint: 1000
+      ccolor: 0 255 0
+      cthick: 11
+      cstyle: 3
+      clevs: 1.833
+      clsize: 0.13
+      clthick: 10
+      clab: 'off'
+
+    sig95:
+      gxout: contour
+      cint: 1000
+      ccolor: 0 255 0
+      cthick: 11
+      cstyle: 1
+      clevs: 2.262
+      clsize: 0.13
+      clthick: 10
+      clab: 'off'

@@ -1,0 +1,40 @@
+theme:
+
+  attribute:
+
+    t2m_attr: &T2M
+
+      - {'$level': 0, '$region': 'greenland', '%m': '12', cmin: -35, cmax: 10, cint: 5}
+      - {'$level': 0, '$region': 'sam', '%m': '12', cmin: -4, cmax: 32, cint: 4}
+      - {'$level': 0, '$region': 'sps', '%m': '12', cmin: -35, cmax: 28, cint: 7}
+      - {'$level': 0, '$region': 'africa', '%m': '12', cmin: -8, cmax: 28, cint: 4}
+      - {'$level': 0, '$region': 'pacific', '%m': '12', cmin: -35, cmax: 35, cint: 7}
+      - {'$level': 0, '$region': 'hawaii', '%m': '12', cmin: 16, cmax: 28, cint: 1}
+      - {'$level': 0, '$region': 'australia', '%m': '12', cmin: 0, cmax: 33, cint: 3}
+      - {'$level': 0, '$region': 'mideast', '%m': '12', cmin: -15, cmax: 30, cint: 5}
+      - {'$level': 0, '$region': 'camer,enso,ensoext', '%m': '12', cmin: 0, cmax: 30, cint: 3}
+      - {'$level': 0, '$region': 'sevseas', '%m': '12', cmin: -24, cmax: 36, cint: 6}
+      - {'$level': 0, '$region': 'brazil', '%m': '12', cmin: 0, cmax: 30, cint: 3}
+      - {'$level': 0, '$region': 'carib', '%m': '12', cmin: 8, cmax: 28, cint: 2}
+      - {'$level': 0, '$region': 'usa', '%m': '12', cmin: -25, cmax: 25, cint: 5}
+      - {'$level': 0, '$region': 'nam', '%m': '12', cmin: -30, cmax: 24, cint: 6}
+      - {'$level': 0, '$region': 'indian', '%m': '12', cmin: -15, cmax: 35, cint: 5}
+      - {'$level': 0, '$region': 'nps', '%m': '12', cmin: -36, cmax: 24, cint: 6}
+      - {'$level': 0, '$region': 'natl', '%m': '12', cmin: -20, cmax: 30, cint: 5}
+      - {'$level': 0, '$region': 'conus', '%m': '12', cmin: -20, cmax: 25, cint: 5}
+      - {'$level': 0, '$region': 'europe', '%m': '12', cmin: -36, cmax: 24, cint: 6}
+      - {'$level': 0, '$region': 'global', '%m': '12', cmin: -35, cmax: 35, cint: 7}
+      - {'$level': 0, '$region': 'india', '%m': '12', cmin: -20, cmax: 30, cint: 5}
+      - {'$level': 0, '$region': 'npac', '%m': '12', cmin: -35, cmax: 28, cint: 7}
+      - {'$level': 0, '$region': 'atlantic', '%m': '12', cmin: -30, cmax: 30, cint: 6}
+      - {'$level': 0, '$region': 'nasia', '%m': '12', cmin: -20, cmax: 25, cint: 5}
+      - {'$level': 0, '$region': 'siberia', '%m': '12', cmin: -40, cmax: 10, cint: 5}
+      - {'$level': 0, '$region': 'nepacific', '%m': '12', cmin: -30, cmax: 30, cint: 6}
+      - {'$level': 0, '$region': 'indonesia', '%m': '12', cmin: 10, cmax: 32, cint: 2}
+      - {'$level': 0, '$region': 'alaska', '%m': '12', cmin: -28, cmax: 12, cint: 4}
+      - {'$level': 0, '$region': 'ortho', '%m': '12', cmin: -35, cmax: 28, cint: 7}
+      - {'$level': 0, '$region': 'midatl', '%m': '12', cmin: -9, cmax: 21, cint: 3}
+      - {'$level': 0, '$region': 'eastasia', '%m': '12', cmin: -30, cmax: 30, cint: 6}
+
+    ts_attr:
+      <<: *T2M
