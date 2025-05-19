@@ -23,7 +23,7 @@ theme:
       levels: [0]
       header: $model
       title: 'Surface Temperature (C)'
-      xlabel: '$tm_string'
+      xlabel: $tm_string
       layout: *LAYOUT1
       panels:
         - {field: ts_full, pos: 11, label: Mean}
@@ -36,7 +36,7 @@ theme:
       levels: [0]
       header: $model
       title: 'Temperature at 2-meters (C)'
-      xlabel: '$tm_string'
+      xlabel: $tm_string
       layout: *LAYOUT1
       panels:
         - {field: t2m_full, pos: 11, label: Mean}
@@ -49,7 +49,7 @@ theme:
       levels: [0]
       header: $model
       title: '850 mb Heights (m)'
-      xlabel: '$tm_string'
+      xlabel: $tm_string
       layout: *LAYOUT1
       panels:
         - {field: h850_full, pos: 11, label: Mean}
@@ -161,10 +161,10 @@ theme:
       shaded:
         expr: anom(e=3)
         cbar: BrnWGrn
-        cdict: prectot_anom_attr
-        cmin: -10
-        cmax: 10
-        cint: 2
+    #   cdict: prectot_anom_attr
+        cmin: -5
+        cmax: 5
+        cint: 1
       sig95:
         expr: ttest(e=3)
       sig90:
@@ -206,11 +206,11 @@ theme:
       title: '[ENSO-Neutral] Precipitation Rate (mm/day)'
       shaded:
         expr: full(e=3)-full.M2NEUT.none(e=3)
-        cdict: prectot_anom_attr
+    #   cdict: prectot_anom_attr
         cbar: BrnWGrn
-        cmin: -10
-        cmax: 10
-        cint: 2
+        cmin: -5
+        cmax: 5
+        cint: 1
 
     ts_full:
       long_name: TSURF

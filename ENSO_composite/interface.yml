@@ -1,0 +1,68 @@
+theme:
+
+  interface:
+
+    field:
+
+      long_name: VARIABLES
+      groups:
+        - panels
+        - anomaly
+        - mean
+        - diff
+        - stdev
+        - ttest
+
+      panels:
+        long_name: 4-Panel
+        type: button
+        items:
+          - prectot_all: Precip
+          - t2m_all: T2M
+          - ts_all: TS
+          - h850_all: H850
+
+      mean:
+        long_name: Mean
+        type: button
+        items:
+          - prectot_full: Precip
+          - t2m_full: T2M
+          - ts_full: TS
+          - h850_full: H850
+
+      anomaly:
+        long_name: Anomaly
+        type: button
+        items:
+          - prectot_anom: Precip
+          - t2m_anom: T2M
+          - ts_anom: TS
+          - h850_anom: H850
+
+      diff:
+        long_name: ENSO-Neutral
+        type: button
+        items:
+          - prectot_diff: Precip
+          - t2m_diff: T2M
+          - ts_diff: TS
+          - h850_diff: H850
+
+      stdev:
+        long_name: Std Dev
+        type: button
+        items:
+          - prectot_std: Precip
+          - t2m_std: T2M
+          - ts_std: TS
+          - h850_std: H850
+
+      ttest:
+        long_name: T-test
+        type: button
+        items:
+          - prectot_ttest: Precip
+          - t2m_ttest: T2M
+          - ts_ttest: TS
+          - h850_ttest: H850
