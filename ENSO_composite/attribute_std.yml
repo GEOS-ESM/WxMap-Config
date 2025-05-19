@@ -36,8 +36,7 @@ theme:
       - {'$level': 0, '$region': 'midatl', '%m': '12', cmin: 0, cmax: 3.6, cint: 0.4}
       - {'$level': 0, '$region': 'eastasia', '%m': '12', cmin: 0, cmax: 4.4, cint: 0.4}
 
-    ts_std_attr:
-      <<: *T2M
+    ts_std_attr: *T2M
 
     prectot_std_attr:
 

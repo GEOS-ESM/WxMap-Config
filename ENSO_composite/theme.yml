@@ -1,9 +1,77 @@
-theme:
+layout1: &LAYOUT1
+# geometry: 500x375
+  geometry: 490x367
+  scale: 1.8
+  tight: 1
+  bbox: 0 70 1024 730
+  no_title: 1
+  no_label: 1
+  no_logo: 1
+# no_cbar: 1
+  shape: 0
 
-  plot:
+defs:
+  ENSO_composite:
+    ref_date: 1980-12-01
+
+theme:  
+        
+  plot: 
+
+    ts_all:
+      long_name: TS
+      levels: [0]
+      header: $model
+      title: 'Surface Temperature (C)'
+      xlabel: '$tm_string'
+      layout: *LAYOUT1
+      panels:
+        - {field: ts_full, pos: 11, label: Mean}
+        - {field: ts_anom, pos: 21, label: Anomaly}
+        - {field: ts_diff, pos: 12, label: ENSO-Neutral}
+        - {field: ts_std,  pos: 22, label: Std Dev}
+        
+    t2m_all:
+      long_name: T2M
+      levels: [0]
+      header: $model
+      title: 'Temperature at 2-meters (C)'
+      xlabel: '$tm_string'
+      layout: *LAYOUT1
+      panels:
+        - {field: t2m_full, pos: 11, label: Mean}
+        - {field: t2m_anom, pos: 21, label: Anomaly}
+        - {field: t2m_diff, pos: 12, label: ENSO-Neutral}
+        - {field: t2m_std,  pos: 22, label: Std Dev}
+
+    h850_all:
+      long_name: H850
+      levels: [0]
+      header: $model
+      title: '850 mb Heights (m)'
+      xlabel: '$tm_string'
+      layout: *LAYOUT1
+      panels:
+        - {field: h850_full, pos: 11, label: Mean}
+        - {field: h850_anom, pos: 21, label: Anomaly}
+        - {field: h850_diff, pos: 12, label: ENSO-Neutral}
+        - {field: h850_std,  pos: 22, label: Std Dev}
+
+    prectot_all:
+      long_name: Precip
+      levels: [0]
+      header: $model
+      title: 'Precipitation Rate (mm/day)'
+      xlabel: $tm_string
+      layout: *LAYOUT1
+      panels:
+        - {field: prectot_full, pos: 11, label: Mean}
+        - {field: prectot_anom, pos: 21, label: Anomaly}
+        - {field: prectot_diff, pos: 12, label: ENSO-Neutral}
+        - {field: prectot_std,  pos: 22, label: Std Dev}
 
     h850_full:
-      long_name: H
+      long_name: H850
       levels: [0]
       layers: [shaded]
       title: '[Mean] 850 mb Heights (m)'
@@ -16,7 +84,7 @@ theme:
         cint: 2
 
     h850_anom:
-      long_name: H Anom
+      long_name: H850 Anom
       levels: [0]
       layers: [shaded, sig95, sig90]
       title: '[Anomaly] 850 mb Heights (m)'
@@ -32,7 +100,7 @@ theme:
         expr: ttest(e=4)
 
     h850_std:
-      long_name: H Stdev
+      long_name: H850 Stdev
       levels: [0]
       layers: [shaded]
       title: '[Std Dev] 850 mb Heights (m)'
@@ -45,7 +113,7 @@ theme:
         cint: 0.1
 
     h850_ttest:
-      long_name: H T-test
+      long_name: H850 T-test
       levels: [0]
       layers: [shaded, sig95, sig90]
       title: '[T-test] 850 mb Heights (m)'
@@ -61,7 +129,7 @@ theme:
         expr: ttest(e=4)
 
     h850_diff:
-      long_name: H Difference
+      long_name: H850 Difference
       levels: [0]
       layers: [shaded]
       title: '[ENSO-Neutral] 850 mb Heights (m)'
