@@ -1,18 +1,18 @@
 stream:
 
-  M2ENSO:
+# M2ENSO:
 
-    long_name: MERRA-2 ENSO Composite
-    type: analysis
-    institution: NASA Global Modeling and Assimilation Office
-    description: MERRA-2 ENSO Composite
-    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/climatestatistics/based_on_1991-2020/ENSO_composite/comp_MERRA-2_$collection.ctl
-    service: !!python/object/apply:dataservice.GEOSDDF []
-    logos: [nasa-logo-ul, gmao-logo-ur]
+#   long_name: MERRA-2 ENSO Composite
+#   type: analysis
+#   institution: NASA Global Modeling and Assimilation Office
+#   description: MERRA-2 ENSO Composite
+#   uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/climatestatistics/based_on_1991-2020/ENSO_composite/comp_MERRA-2_$collection.ctl
+#   service: !!python/object/apply:dataservice.GEOSDDF []
+#   logos: [nasa-logo-ul, gmao-logo-ur]
 
   M2NEUT:
 
-    long_name: MERRA-2 ENSO Composite (Neutral)
+    long_name: Neutral
     type: analysis
     institution: NASA Global Modeling and Assimilation Office
     description: MERRA-2 ENSO Composite (Neutral)
@@ -22,7 +22,7 @@ stream:
 
   M2NINA:
 
-    long_name: MERRA-2 ENSO Composite (La Nina)
+    long_name: La Nina
     type: analysis
     institution: NASA Global Modeling and Assimilation Office
     description: MERRA-2 ENSO Composite (La Nina)
@@ -32,7 +32,7 @@ stream:
 
   M2NINO:
 
-    long_name: MERRA-2 ENSO Composite (El Nino)
+    long_name: El Nino
     type: analysis
     institution: NASA Global Modeling and Assimilation Office
     description: MERRA-2 ENSO Composite (El Nino)

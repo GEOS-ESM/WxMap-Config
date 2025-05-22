@@ -28,7 +28,7 @@ theme:
       panels:
         - {field: ts_full, pos: 11, label: Mean}
         - {field: ts_anom, pos: 21, label: Anomaly}
-        - {field: ts_diff, pos: 12, label: ENSO-Neutral}
+        - {field: ts_diff, pos: 12, label: $model_name minus Neutral}
         - {field: ts_std,  pos: 22, label: Std Dev}
         
     t2m_all:
@@ -41,7 +41,7 @@ theme:
       panels:
         - {field: t2m_full, pos: 11, label: Mean}
         - {field: t2m_anom, pos: 21, label: Anomaly}
-        - {field: t2m_diff, pos: 12, label: ENSO-Neutral}
+        - {field: t2m_diff, pos: 12, label: $model_name minus Neutral}
         - {field: t2m_std,  pos: 22, label: Std Dev}
 
     h850_all:
@@ -54,7 +54,7 @@ theme:
       panels:
         - {field: h850_full, pos: 11, label: Mean}
         - {field: h850_anom, pos: 21, label: Anomaly}
-        - {field: h850_diff, pos: 12, label: ENSO-Neutral}
+        - {field: h850_diff, pos: 12, label: $model_name minus Neutral}
         - {field: h850_std,  pos: 22, label: Std Dev}
 
     prectot_all:
@@ -67,7 +67,7 @@ theme:
       panels:
         - {field: prectot_full, pos: 11, label: Mean}
         - {field: prectot_anom, pos: 21, label: Anomaly}
-        - {field: prectot_diff, pos: 12, label: ENSO-Neutral}
+        - {field: prectot_diff, pos: 12, label: $model_name minus Neutral}
         - {field: prectot_std,  pos: 22, label: Std Dev}
 
     h850_full:
@@ -132,7 +132,7 @@ theme:
       long_name: H850 Difference
       levels: [0]
       layers: [shaded]
-      title: '[ENSO-Neutral] 850 mb Heights (m)'
+      title: '[$model_name minus Neutral] 850 mb Heights (m)'
       shaded:
         expr: full(e=4)-full.M2NEUT.none(e=4)
         cdict: h850_anom_attr
@@ -203,7 +203,7 @@ theme:
       long_name: Precip Difference
       levels: [0]
       layers: [shaded]
-      title: '[ENSO-Neutral] Precipitation Rate (mm/day)'
+      title: '[$model_name minus Neutral] Precipitation Rate (mm/day)'
       shaded:
         expr: full(e=3)-full.M2NEUT.none(e=3)
     #   cdict: prectot_anom_attr
@@ -276,7 +276,7 @@ theme:
       long_name: TSURF Difference
       levels: [0]
       layers: [shaded]
-      title: '[ENSO-Neutral] Surface Temperature (C)'
+      title: '[$model_name minus Neutral] Surface Temperature (C)'
       shaded:
         expr: full(e=1)-full.M2NEUT.none(e=1)
         cdict: ts_anom_attr
@@ -348,7 +348,7 @@ theme:
       long_name: T2M Difference
       levels: [0]
       layers: [shaded]
-      title: '[ENSO-Neutral] Temperature at 2-meters (C)'
+      title: '[$model_name minus Neutral] Temperature at 2-meters (C)'
       shaded:
         expr: full(e=2)-full.M2NEUT.none(e=2)
         cdict: t2m_anom_attr
