@@ -1,0 +1,7 @@
+config: [ENSO_composite]
+streams: [M2NINO, M2NINA, M2NEUT]
+
+default:
+  field: t2m_all
+  region: enso
+  level: '0'

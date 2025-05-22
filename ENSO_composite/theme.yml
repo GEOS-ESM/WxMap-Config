@@ -162,9 +162,9 @@ theme:
         expr: anom(e=3)
         cbar: BrnWGrn
     #   cdict: prectot_anom_attr
-        cmin: -5
-        cmax: 5
-        cint: 1
+        cmin: -10
+        cmax: 10
+        cint: 2
       sig95:
         expr: ttest(e=3)
       sig90:
@@ -208,9 +208,9 @@ theme:
         expr: full(e=3)-full.M2NEUT.none(e=3)
     #   cdict: prectot_anom_attr
         cbar: BrnWGrn
-        cmin: -5
-        cmax: 5
-        cint: 1
+        cmin: -10
+        cmax: 10
+        cint: 2
 
     ts_full:
       long_name: TSURF
