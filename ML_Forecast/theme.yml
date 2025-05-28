@@ -9,12 +9,12 @@ layout1: &LAYOUT1
   no_logo: 1
 # no_cbar: 1
   shape: 0
-
+      
 AOT_off: &AOT_OFF
   - 0.00 1.0 1.0
   - 0.50 1.0 1.0
   - 1.00 1.0 1.0
-
+      
 AOT_std: &AOT_STD
   - 0.000 0.000 0.000
   - 0.050 1.000 1.000
@@ -22,82 +22,64 @@ AOT_std: &AOT_STD
 
 theme:
 
-  plot:
-
-    slp:
-      long_name: SLP
-      title: 'Sea Level Pressure (mb)'
-      levels: [0]
-      layers: [shading, slp]
-      shading:
-        expr: _slp
-        cbar: smoke01_r
-        cbunits: '[mb]'
-        cmin: 990
-        cmax: 1030
-        cint: 4
-        alpha: *AOT_OFF
-
-    slp_error:
-      long_name: SLP Error
-      levels: [0]
-      layers: [slperror]
-      title: '[Error] Sea Level Pressure (mb)'
-
-    slp_impact:
-      long_name: SLP Closeness
-      levels: [0]
-      layers: [slpimpact]
-      title: '[Impact] Sea Level Pressure (mb)'
-
   layer:
 
     shading:
       gxout: shaded
+      expr:
       cbar: smoke01
+      cmin:
+      cmax:
+      cint:
+      clevs:
+      cdict:
+      cbunits:
       nsub: 10
       skip: 10
-      cmin: 0
-      cmax: 100
-      cint: 10
       scale:
-        
-    slp:
+
+    contour:
       gxout: contour
-      expr: _slp
-      cint: 4  
+      expr:
+#     cmin:
+#     cmax:
+      cint:
+#     clevs:
+      cdict:
       clab: masked
-      cthick: 5 
+      cthick: 5
       ccolor: 0 0 0
       clsize: 0.10
 
-    slperror:
+    error:
       gxout: shaded
       method: diff
-      a: _slp1x1
-      b: _slpana
+      a:
+      b:
       expr: '$diff'
       cbar: bwr
-      cbunits: '[mb]'
-      cmin: -20
-      cmax: 20
-      cint: 4
+      cbunits:
+      cmin:
+      cmax:
+      cint:
+      clevs:
+      cdict:
       nsub: 10
       skip: 10
-      alpha: *AOT_OFF
 
-    slpimpact:
+    impact:
       gxout: shaded
       method: impact
-      a: _slpgeos
-      b: _slp1x1
-      c: _slpana
+      a:
+      b:
+      c:
       expr: '$impact'
       cbar: bwr_r
-      cbunits: '[mb]'
-      cmin: -20
-      cmax: 20
-      cint: 4
+      cbunits:
+      cmin:
+      cmax:
+      cint:
+      clevs:
+      cdict:
       nsub: 10
       skip: 10
-      alpha: *AOT_OFF

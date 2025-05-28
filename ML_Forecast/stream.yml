@@ -24,7 +24,8 @@ stream:
     downloading: enabled
     access: public
   # uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/fcast/$collection/$collection.%%Y%%m%%d_%%H
-    uri: /discover/nobackup/projects/gmao/geos_fp_arch/f5295_fp/forecast/Y%%Y/M%%m/D%%d/H%%H/GEOS.fp.fcst.$collection.%%Y%%m%%d_%%H+%Y%m%d_%H%M.V01.nc4
+    uri: /discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ML_Forecast/data/$collection.%%Y%%m%%d_%%H
+  # uri: /discover/nobackup/projects/gmao/geos_fp_arch/f5295_fp/forecast/Y%%Y/M%%m/D%%d/H%%H/GEOS.fp.fcst.$collection.%%Y%%m%%d_%%H+%Y%m%d_%H%M.V01.nc4
     service: !!python/object/apply:dataservice.GEOSDDF []
     animation: enabled
     max_frames: 20
@@ -39,7 +40,8 @@ stream:
 
     long_name: GEOS-FP
     description: GEOS-FP $cycle
-    uri: /discover/nobackup/projects/gmao/geos_fp_arch/f5295_fp/forecast/Y%%Y/M%%m/D%%d/H%%H/GEOS.fp.fcst.$collection.%%Y%%m%%d_%%H+%Y%m%d_%H%M.V01.nc4
+  # uri: /discover/nobackup/projects/gmao/geos_fp_arch/f5295_fp/forecast/Y%%Y/M%%m/D%%d/H%%H/GEOS.fp.fcst.$collection.%%Y%%m%%d_%%H+%Y%m%d_%H%M.V01.nc4
+    uri: /discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ML_Forecast/data/$collection.%%Y%%m%%d_%%H
 
   Aurora:
 

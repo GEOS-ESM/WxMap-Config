@@ -1,0 +1,46 @@
+theme:
+
+  plot:
+
+    slp:
+      long_name: SLP
+      title: 'Sea Level Pressure (mb)'
+      levels: [0]
+      layers: [shading, contour]
+      shading:
+        expr: _slp
+        cbar: smoke01_r
+        cbunits: '[mb]'
+        cmin: 990
+        cmax: 1030
+        cint: 4
+      contour:
+        expr: _slp
+        cint: 4
+
+    slp_error:
+      long_name: SLP Error
+      levels: [0]
+      layers: [error]
+      title: '[Error] Sea Level Pressure (mb)'
+      error:
+        a: _slp1x1
+        b: _slpana
+        cbunits: '[mb]'
+        cmin: -20
+        cmax: 20
+        cint: 4
+
+    slp_impact:
+      long_name: SLP Closeness
+      levels: [0]
+      layers: [impact]
+      title: '[Impact] Sea Level Pressure (mb)'
+      impact:
+        a: _slpgeos
+        b: _slp1x1
+        c: _slpana
+        cbunits: '[mb]'
+        cmin: -20
+        cmax: 20
+        cint: 4

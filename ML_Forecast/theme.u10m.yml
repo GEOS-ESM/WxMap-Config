@@ -1,0 +1,49 @@
+theme:
+
+  plot:
+
+    u10m:
+      long_name: U10M
+      title: '10-Meter U-wind (m/s)'
+      levels: [0]
+      layers: [shading, contour]
+      shading:
+        expr: _u10m
+        cbar: bwr
+        cbunits: 'm/s'
+        type: linear 
+        nsub: 10
+        skip: 10
+        cmin: -15
+        cmax: 15
+        cint: 3
+      contour:
+        expr: _u10m
+        cint: 3
+
+    u10m_error:
+      long_name: U10M Error
+      levels: [0]
+      layers: [error]
+      title: '[Error] 10-Meter U-wind (m/s)'
+      error:
+        a: _u10m1x1
+        b: _u10mana
+        cbunits: '[m/s]'
+        cmin: -10
+        cmax: 10
+        cint: 2
+
+    u10m_impact:
+      long_name: U10M Closeness
+      levels: [0]
+      layers: [impact]
+      title: '[Impact] 10-Meter U-wind (m/s)'
+      impact:
+        a: _u10mgeos
+        b: _u10m1x1
+        c: _u10mana
+        cbunits: '[m/s]'
+        cmin: -10
+        cmax: 10
+        cint: 2

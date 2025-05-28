@@ -1,0 +1,106 @@
+field:
+  
+  GEOS: &geos
+    
+    _u10mgeos:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: re(u10m.GEOSFP.tavg1_2d_slv_Nx(td=-1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+    _u10mana:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: re(u10m.GEOSANA.tavg1_2d_slv_Nx(td=-1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  GEOSANA:
+
+    <<: *geos
+
+    _u10m:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: u10m.tavg1_2d_slv_Nx(td=-1)
+
+  GEOSFP:
+      
+    <<: *geos
+
+    _u10m:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: u10m.tavg1_2d_slv_Nx(td=-1)
+    
+    _u10m1x1:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: re(u10m.tavg1_2d_slv_Nx(td=-1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+    
+  Aurora:
+
+    <<: *geos
+    
+    _u10m:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: u10m.none(z=1,t=1)
+
+    _u10m1x1:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: re(u10m.none(z=1,t=1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  GenCast:
+
+    <<: *geos
+
+    _u10m:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: u10m.none(z=1,t=1)
+
+    _u10m1x1:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: re(u10m.none(z=1,t=1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Pangu:
+
+    <<: *geos
+
+    _u10m:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: u10m.none(z=1,t=1)
+
+    _u10m1x1:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: re(u10m.none(z=1,t=1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Aifs:
+
+    <<: *geos
+
+    _u10m:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: u10m.none(z=1,t=1)
+
+    _u10m1x1:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: re(u10m.none(z=1,t=1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Prithvi:
+
+    <<: *geos
+
+    _u10m:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: u10m.none(z=1,t=1)
+
+    _u10m1x1:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: re(u10m.none(z=1,t=1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")

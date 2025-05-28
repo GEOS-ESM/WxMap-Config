@@ -1,0 +1,81 @@
+theme:
+
+  plot:
+
+    t2m:
+      long_name: T2M
+      title: '2-Meter Temperature (C)'
+      levels: [0]
+      layers: [shading, contour]
+      shading:
+        expr: _t2m-273.15
+        cbar: Temperature
+        cbunits: '`3.`0`f13C'
+        type: linear 
+        nsub: 5 
+        skip: 5
+        cdict: t2mcdict
+      contour:
+        expr: _t2m-273.15
+        cdict: t2mcdict
+
+    t2m_error:
+      long_name: T2M Error
+      levels: [0]
+      layers: [error]
+      title: '[Error] 2-Meter Temperature (C)'
+      error:
+        a: _t2m1x1
+        b: _t2mana
+        cbunits: '[degrees]'
+        cmin: -10
+        cmax: 10
+        cint: 2
+
+    t2m_impact:
+      long_name: T2M Closeness
+      levels: [0]
+      layers: [impact]
+      title: '[Impact] 2-Meter Temperature (C)'
+      impact:
+        a: _t2mgeos
+        b: _t2m1x1
+        c: _t2mana
+        cbunits: '[degrees]'
+        cmin: -10
+        cmax: 10
+        cint: 2
+
+  attribute:
+
+    t2mcdict:
+      - {cmin: -35, cmax: 55, cint: 5} 
+      - {'$level': 0, '$region': 'sam', cmin: -30, cmax: 45, cint: 5}
+      - {'$level': 0, '$region': 'sps', cmin: -80, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'africa', cmin: -20, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'pacific', cmin: -55, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'australia', cmin: -5, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'mideast', cmin: -30, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'camer', cmin: -10, cmax: 45, cint: 5}
+      - {'$level': 0, '$region': 'sevseas', cmin: -40, cmax: 50, cint: 5, scale: log_scale}
+      - {'$level': 0, '$region': 'carib', cmin: -5, cmax: 45, cint: 5}
+      - {'$level': 0, '$region': 'usa', cmin: -60, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'nam', cmin: -60, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'indian', cmin: -35, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'natl', cmin: -45, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'europe', cmin: -60, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'global', cmin: -80, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'india', cmin: -35, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'npac', cmin: -55, cmax: 45, cint: 5, scale: log_scale}
+      - {'$level': 0, '$region': 'atlantic', cmin: -45, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'nps', cmin: -60, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'indonesia', cmin: 0, cmax: 45, cint: 5}
+      - {'$level': 0, '$region': 'ortho', cmin: -75, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'midatl', cmin: -35, cmax: 40, cint: 5}
+      - {'$level': 0, '$region': 'eastasia', cmin: -45, cmax: 50, cint: 5}
+      - {'$level': 0, '$region': 'greenland', cmin: -60, cmax: 55, cint: 5}
+      - {'$level': 0, '$region': 'hawaii', cmin: 4, cmax: 30, cint: 2, scale: log_scale}
+      - {'$level': 0, '$region': 'nasia', cmin: -60, cmax: 55, cint: 5}
+      - {'$level': 0, '$region': 'siberia', cmin: -60, cmax: 55, cint: 5}
+      - {'$level': 0, '$region': 'alaska', cmin: -60, cmax: 55, cint: 5}
+      - {'$level': 0, '$region': 'brazil', cmin: -20, cmax: 45, cint: 5}

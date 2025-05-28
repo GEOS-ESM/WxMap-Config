@@ -1,0 +1,106 @@
+field:
+  
+  GEOS: &geos
+    
+    _t2mgeos:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: re(t2m.GEOSFP.tavg1_2d_slv_Nx(td=-1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+    _t2mana:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: re(t2m.GEOSANA.tavg1_2d_slv_Nx(td=-1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  GEOSANA:
+
+    <<: *geos
+
+    _t2m:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: t2m.tavg1_2d_slv_Nx(td=-1)
+
+  GEOSFP:
+      
+    <<: *geos
+
+    _t2m:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: t2m.tavg1_2d_slv_Nx(td=-1)
+    
+    _t2m1x1:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: re(t2m.tavg1_2d_slv_Nx(td=-1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+    
+  Aurora:
+
+    <<: *geos
+    
+    _t2m:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: t2m.none(z=1,t=1)
+
+    _t2m1x1:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: re(t2m.none(z=1,t=1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  GenCast:
+
+    <<: *geos
+
+    _t2m:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: t2m.none(z=1,t=1)
+
+    _t2m1x1:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: re(t2m.none(z=1,t=1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Pangu:
+
+    <<: *geos
+
+    _t2m:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: t2m.none(z=1,t=1)
+
+    _t2m1x1:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: re(t2m.none(z=1,t=1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Aifs:
+
+    <<: *geos
+
+    _t2m:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: t2m.none(z=1,t=1)
+
+    _t2m1x1:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: re(t2m.none(z=1,t=1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Prithvi:
+
+    <<: *geos
+
+    _t2m:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: t2m.none(z=1,t=1)
+
+    _t2m1x1:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: re(t2m.none(z=1,t=1),360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
