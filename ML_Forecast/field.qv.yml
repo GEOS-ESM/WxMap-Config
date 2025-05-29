@@ -1,0 +1,106 @@
+field:
+  
+  GEOS: &geos
+    
+    _qvgeos:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: re(qv.GEOSFP.inst3_3d_asm_Np,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+    _qvana:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: re(qv.GEOSANA.inst3_3d_asm_Np,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  GEOSANA:
+
+    <<: *geos
+
+    _qv:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: qv.inst3_3d_asm_Np
+
+  GEOSFP:
+      
+    <<: *geos
+
+    _qv:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: qv.inst3_3d_asm_Np
+    
+    _qv1x1:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: re(qv.inst3_3d_asm_Np,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+    
+  Aurora:
+
+    <<: *geos
+    
+    _qv:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: qv.none
+
+    _qv1x1:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: re(qv.none,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  GenCast:
+
+    <<: *geos
+
+    _qv:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: qv.none
+
+    _qv1x1:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: re(qv.none,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Pangu:
+
+    <<: *geos
+
+    _qv:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: qv.none
+
+    _qv1x1:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: re(qv.none,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Aifs:
+
+    <<: *geos
+
+    _qv:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: qv.none
+
+    _qv1x1:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: re(qv.none,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")
+
+  Prithvi:
+
+    <<: *geos
+
+    _qv:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: qv.none
+
+    _qv1x1:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: re(qv.none,360,"linear",-180,1.00,181,"linear",-90,1.00,"ba")

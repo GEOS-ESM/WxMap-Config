@@ -1,0 +1,61 @@
+theme:
+
+  plot:
+
+    qv:
+      long_name: QV
+      title: '$level hPa Specific Humidity (g/kg)'
+      layers: [shading, contour]
+      levels: [1000, 925, 850, 700, 600, 500, 400, 300, 250, 200, 150, 100, 50]
+      map:
+        land_color: 0 0 0
+      shading:
+        expr: _qv*1000
+        cbar: Moisture
+        cbunits: '[g/kg]'
+        cmin: 0
+        cmax: 8
+        cint: 1
+        cdict: qv_shading
+      contour:
+        expr: _qv*1000
+        cint: 1
+
+    qv_error:
+      long_name: QV Error
+      layers: [error]
+      levels: [1000, 925, 850, 700, 600, 500, 400, 300, 250, 200, 150, 100, 50]
+      title: '[Error] $level hPa Specific Humidity (g/kg)'
+      error:
+        a: _qv1x1*1000
+        b: _qvana*1000
+        cbunits: '[g/kg]'
+        cmin: -3
+        cmax: 3
+        cint: 0.5
+
+    qv_impact:
+      long_name: QV Closeness
+      layers: [impact]
+      levels: [1000, 925, 850, 700, 600, 500, 400, 300, 250, 200, 150, 100, 50]
+      title: '[Impact] $level hPa Specific Humidity (g/kg)'
+      impact:
+        a: _qvgeos*1000
+        b: _qv1x1*1000
+        c: _qvana*1000
+        cbunits: '[g/kg]'
+        cmin: -3
+        cmax: 3
+        cint: 0.5
+
+  attribute:
+
+    qv_shading:
+      - {cmin: 0, cmax: 8, cint 1}
+      - {'$level': 1000, cmin: 0, cmax: 20, cint: 2}
+      - {'$level': 925, cmin: 0, cmax: 20, cint: 2}
+      - {'$level': 850, cmin: 0, cmax: 18, cint: 2}
+      - {'$level': 700, cmin: 0, cmax: 10, cint: 1}
+      - {'$level': 600, cmin: 0, cmax: 8, cint: 1}
+      - {'$level': 500, cmin: 0, cmax: 6, cint: 0.5}
+      - {'$level': 400, cmin: 0, cmax: 3, cint: 0.3}
