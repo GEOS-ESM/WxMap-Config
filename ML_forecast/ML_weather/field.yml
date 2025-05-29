@@ -1,0 +1,133 @@
+field:
+
+  GEOSFP: &geos
+
+    _prectot:
+      long_name: Total Precipitation
+      units: kg m-2 s-1
+      expression: prectot.tavg1_2d_flx_Nx(z=1)
+
+    _prectot3:
+      long_name: Total Precipitation
+      units: kg m-2 s-1
+      expression: (_prectot(td=-1) + _prectot(td=-2) + _prectot(td=-3))*60*60
+
+    _t2m:
+      long_name: 2-meter Air Temperature
+      units: K
+      expression: t2m.tavg1_2d_slv_Nx(td=-1)
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: mb 
+      expression: slp.inst3_3d_asm_Np/100
+
+    _tmpu:
+      long_name: Temperature
+      units: K
+      expression: t.inst3_3d_asm_Np
+
+    _hght:
+      long_name: Heights
+      units: m
+      expression: h.inst3_3d_asm_Np
+
+    _thick:
+      long_name: 500mb Thickness
+      units: m
+      expression: (h500.tavg1_2d_slv_Nx(td=-1) - h1000.tavg1_2d_slv_Nx(td=-1))
+
+    _uwnd:
+      long_name: East-West Wind
+      units: m s-1
+      expression: u.inst3_3d_asm_Np
+
+    _vwnd:
+      long_name: North-South Wind
+      units: m s-1
+      expression: v.inst3_3d_asm_Np
+
+    _u10m:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: u10m.tavg1_2d_slv_Nx(td=-1)
+
+    _v10m:
+      long_name: V-wind at 10-meters
+      units: m s-1
+      expression: v10m.tavg1_2d_slv_Nx(td=-1)
+
+    _w10m:
+      long_name: 10-Meter Wind Speed
+      units: m s-1
+      expression: mag(_u10m, _v10m)
+
+  GEOSANA:
+    <<: *geos
+
+  MLMODEL: &mlmodel
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: mb
+      expression: slp.none(z=1)/100
+
+    _t2m:
+      long_name: Temperature at 2-Meters
+      units: K
+      expression: t2m.none(z=1)
+
+    _u10m:
+      long_name: U-wind at 10-meters
+      units: m s-1
+      expression: u10m.none(z=1)
+
+    _v10m:
+      long_name: V-wind at 10-meters
+      units: m s-1
+      expression: v10m.none(z=1)
+
+    _w10m:
+      long_name: 10-Meter Wind Speed
+      units: m s-1
+      expression: mag(_u10m, _v10m)
+
+    _tmpu:
+      long_name: Temperature
+      units: K
+      expression: t.none
+
+    _hght:
+      long_name: Heights
+      units: m
+      expression: h.none
+
+    _thick:
+      long_name: 500mb Thickness
+      units: m
+      expression: (h.none(lev=500) - h.none(lev=1000))
+
+    _uwnd:
+      long_name: East-West Wind
+      units: m s-1
+      expression: u.none
+
+    _vwnd:
+      long_name: North-South Wind
+      units: m s-1
+      expression: v.none
+
+    _prectot3:
+      long_name: Total Precipitation
+      units: kg m-2 s-1
+      expression: prectot.none(z=1)*1000
+
+  GenCast: *mlmodel
+
+  Aurora: *mlmodel
+
+  Pangu: *mlmodel
+
+  Aifs: *mlmodel
+
+  Prithvi: *mlmodel

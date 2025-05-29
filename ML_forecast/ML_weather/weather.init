@@ -1,0 +1,7 @@
+config: [ML_forecast, ML_weather]
+streams: [GEOSFP, GenCast, Pangu, Prithvi, Aifs]
+
+default:
+  field: precip
+  region: nam
+  level: '0'

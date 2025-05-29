@@ -1,0 +1,27 @@
+theme:
+
+  interface:
+
+    field:
+
+      long_name: VARIABLES
+      groups: [single, upper]
+
+      single:
+        long_name: Single Level
+        type: button
+        items:
+          - precip
+          - t2m
+          - w10m
+          - slp
+
+      upper:
+        long_name: Upper Air
+        type: button
+        items:
+          - tmpu
+          - wind
+          - wspd
+          - vort
+          - vvel

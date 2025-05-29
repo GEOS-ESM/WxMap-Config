@@ -23,9 +23,7 @@ stream:
     type: forecast
     downloading: enabled
     access: public
-  # uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/fcast/$collection/$collection.%%Y%%m%%d_%%H
-    uri: /discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ML_Forecast/data/$collection.%%Y%%m%%d_%%H
-  # uri: /discover/nobackup/projects/gmao/geos_fp_arch/f5295_fp/forecast/Y%%Y/M%%m/D%%d/H%%H/GEOS.fp.fcst.$collection.%%Y%%m%%d_%%H+%Y%m%d_%H%M.V01.nc4
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/ML_forecasts/GEOSFP/Y%%Y/M%%m/D%%d/H%%H/$collection.%%Y%%m%%d_%%H
     service: !!python/object/apply:dataservice.GEOSDDF []
     animation: enabled
     max_frames: 20
@@ -40,8 +38,7 @@ stream:
 
     long_name: GEOS-FP
     description: GEOS-FP $cycle
-  # uri: /discover/nobackup/projects/gmao/geos_fp_arch/f5295_fp/forecast/Y%%Y/M%%m/D%%d/H%%H/GEOS.fp.fcst.$collection.%%Y%%m%%d_%%H+%Y%m%d_%H%M.V01.nc4
-    uri: /discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ML_Forecast/data/$collection.%%Y%%m%%d_%%H
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/ML_forecasts/GEOSFP/Y%%Y/M%%m/D%%d/H%%H/$collection.%%Y%%m%%d_%%H
 
   Aurora:
 
@@ -49,7 +46,7 @@ stream:
 
     long_name: Aurora
     description: Aurora $cycle
-    uri: /discover/nobackup/projects/QEFM/data/rollout_outputs/FMAurora/Y%%Y/M%%m/D%%d/pred_aurora_%Y%m%d_%Hz.nc
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/ML_forecasts/Aurora/Y%%Y/M%%m/D%%d/H%%H/pred_aurora_%Y%m%d_%Hz.nc
 
   GenCast:
 
@@ -57,7 +54,7 @@ stream:
 
     long_name: GenCast
     description: GenCast $cycle
-    uri: /discover/nobackup/projects/QEFM/data/rollout_outputs/FMGenCast/Y%%Y/M%%m/D%%d/FMGenCast-prediction-era5_date-%Y-%m-%dT%H_res-1.0_levels-13_ens-mean.nc
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/ML_forecasts/GenCast/Y%%Y/M%%m/D%%d/H%%H/FMGenCast-prediction-era5_date-%Y-%m-%dT%H_res-1.0_levels-13_ens-mean.nc
 
   Pangu:
 
@@ -65,7 +62,7 @@ stream:
 
     long_name: Pangu
     description: Pangu $cycle
-    uri: /discover/nobackup/projects/QEFM/data/rollout_outputs/FMPangu/Y%%Y/M%%m/D%%d/FMPangu-prediction-era5_date-%Y-%m-%dT%H_res-0.25_levels-13.nc
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/ML_forecasts/Pangu/Y%%Y/M%%m/D%%d/H%%H/FMPangu-prediction-era5_date-%Y-%m-%dT%H_res-0.25_levels-13.nc
 
   Aifs:
 
@@ -73,7 +70,7 @@ stream:
 
     long_name: Aifs
     description: Aifs $cycle
-    uri: /discover/nobackup/projects/QEFM/data/rollout_outputs/FMAifs/Y%%Y/M%%m/D%%d/FMAifs-prediction-era5_date-%Y-%m-%dT%H_res-0.25_levels-13.nc
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/ML_forecasts/Aifs/Y%%Y/M%%m/D%%d/H%%H/FMAifs-prediction-era5_date-%Y-%m-%dT%H_res-0.25_levels-13.nc
 
   Prithvi:
 
@@ -81,4 +78,4 @@ stream:
 
     long_name: Prithvi
     description: Prithvi $cycle
-    uri: /discover/nobackup/projects/QEFM/data/rollout_outputs/FMPrithvi-WxC/6hr/Y%%Y/M%%m/D%%d/FMPrithvi-WxC-prediction-merra2_date-%Y-%m-%dT%H_res-0.5_levels-14.nc
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/ML_forecasts/Prithvi/Y%%Y/M%%m/D%%d/H%%H/FMPrithvi-WxC-prediction-merra2_date-%Y-%m-%dT%H_res-0.5_levels-14.nc
