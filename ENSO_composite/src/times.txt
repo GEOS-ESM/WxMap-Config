@@ -1,0 +1,25 @@
+001:12 Months Before Peak Event
+002:11 Months Before Peak Event
+003:10 Months Before Peak Event
+004:09 Months Before Peak Event
+005:08 Months Before Peak Event
+006:07 Months Before Peak Event
+007:06 Months Before Peak Event
+008:05 Months Before Peak Event
+009:04 Months Before Peak Event
+010:03 Months Before Peak Event
+011:02 Months Before Peak Event
+012:01 Months Before Peak Event
+013:Peak Event
+014:01 Months After Peak Event
+015:02 Months After Peak Event
+016:03 Months After Peak Event
+017:04 Months After Peak Event
+018:05 Months After Peak Event
+019:06 Months After Peak Event
+020:07 Months After Peak Event
+021:08 Months After Peak Event
+022:09 Months After Peak Event
+023:10 Months After Peak Event
+024:11 Months After Peak Event
+025:12 Months After Peak Event

@@ -140,6 +140,89 @@ theme:
         cmax: 10
         cint: 2
 
+    h500_all:
+      long_name: H500
+      levels: [0]
+      header: $model
+      title: '500 mb Heights (m)'
+      xlabel: $tm_string
+      layout: *LAYOUT1
+      panels:
+        - {field: h500_full, pos: 11, label: Mean}
+        - {field: h500_anom, pos: 21, label: Anomaly}
+        - {field: h500_diff, pos: 12, label: $model_name minus Neutral}
+        - {field: h500_std,  pos: 22, label: Std Dev}
+
+    h500_full:
+      long_name: H500
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 500 mb Heights (m)'
+      shaded:
+        expr: full(e=5)
+        cbar: Rainbow
+        cdict: h500_attr
+        cmin: 0
+        cmax: 20
+        cint: 2
+
+    h500_anom:
+      long_name: H500 Anom
+      levels: [0]
+      layers: [shaded, sig95, sig90]
+      title: '[Anomaly] 500 mb Heights (m)'
+      shaded:
+        expr: anom(e=5)
+        cdict: h500_anom_attr
+        cmin: -10
+        cmax: 10
+        cint: 2
+      sig95:
+        expr: ttest(e=5)
+      sig90:
+        expr: ttest(e=5)
+
+    h500_std:
+      long_name: H500 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 500 mb Heights (m)'
+      shaded:
+        expr: stdc(e=5)
+        cbar: Blues
+        cdict: h500_std_attr
+        cmin: 0
+        cmax: 1
+        cint: 0.1
+
+    h500_ttest:
+      long_name: H500 T-test
+      levels: [0]
+      layers: [shaded, sig95, sig90]
+      title: '[T-test] 500 mb Heights (m)'
+      shaded:
+        expr: ttest(e=5)
+        cdict:
+        cmin: -2
+        cmax: 2
+        cint: 0.4
+      sig95:
+        expr: ttest(e=5)
+      sig90:
+        expr: ttest(e=5)
+
+    h500_diff:
+      long_name: H500 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 500 mb Heights (m)'
+      shaded:
+        expr: full(e=5)-full.M2NEUT.none(e=5)
+        cdict: h500_anom_attr
+        cmin: -10
+        cmax: 10
+        cint: 2
+
     prectot_full:
       long_name: Precip
       levels: [0]
@@ -379,7 +462,7 @@ theme:
       ccolor: 0 255 0
       cthick: 11
       cstyle: 3
-      clevs: 1.833
+      clevs: 0.883 1.383 1.833
       clsize: 0.13
       clthick: 10
       clab: 'off'

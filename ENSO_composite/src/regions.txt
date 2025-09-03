@@ -1,0 +1,33 @@
+enso:ENSO
+ensoext:ENSO Extended
+nam:North America
+usa:United States
+midatl:Mid Atlantic
+conus:CONUS
+npac:North Pacific
+nepacific:Northeast Pacific
+nps:N Polar
+sps:S Polar
+australia:Australia
+sevseas:Seven Seas
+natl:North Atlantic
+sam:South America
+carib:Caribbean
+camer:Central America
+africa:Africa
+europe:Europe
+eastasia:East Asia
+india:India
+mideast:Middle East
+indonesia:Indonesia
+global:Global
+pacific:Pacific Ocean
+atlantic:Atlantic Ocean
+indian:Indian Ocean
+ortho:Orthographic East
+greenland:Greenland
+nasia:North Asia
+brazil:Brazil
+siberia:Siberia
+alaska:Alaska
+hawaii:Hawaii

@@ -41,7 +41,7 @@ theme:
           - h850_anom: H850
 
       diff:
-        long_name: ENSO-Neutral
+        long_name: ENSO minus Neutral
         type: button
         items:
           - prectot_diff: Precip
