@@ -65,6 +65,38 @@ theme:
     - {$level: 0, $region: midatl, cint: 4.0, cmax: 20, cmin: -20}
     - {$level: 0, $region: eastasia, cint: 6.0, cmax: 30, cmin: -30}
     prectot_anom_attr:
+    - {$level: 0, $region: greenland, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: sam, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: sps, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: africa, cint: 0.5, cmax: 2.5, cmin: -2.5}
+    - {$level: 0, $region: pacific, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: hawaii, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: australia, cint: 0.5, cmax: 2.5, cmin: -2.5}
+    - {$level: 0, $region: mideast, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: 'camer,enso,ensoext', cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: sevseas, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: brazil, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: carib, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: usa, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: nam, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: indian, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: nps, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: natl, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: conus, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: europe, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: global, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: india, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: npac, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: atlantic, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: nasia, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: siberia, cint: 0.125, cmax: 0.625, cmin: -0.625}
+    - {$level: 0, $region: nepacific, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: indonesia, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: alaska, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: ortho, cint: 1.0, cmax: 5, cmin: -5}
+    - {$level: 0, $region: midatl, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    - {$level: 0, $region: eastasia, cint: 0.25, cmax: 1.25, cmin: -1.25}
+    prectot_anom_attr_save:
     - {$level: 0, $region: greenland, cint: 1.0, cmax: 5, cmin: -5}
     - {$level: 0, $region: sam, cint: 4.0, cmax: 20, cmin: -20}
     - {$level: 0, $region: sps, cint: 1.0, cmax: 5, cmin: -5}

@@ -227,6 +227,8 @@ region:
     lat: -60 72
     mpdset: mres
     mproj: latlon
+    sig90: 'off'
+    sig95: 'off'
 
   atlantic:
 

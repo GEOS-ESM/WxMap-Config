@@ -95,9 +95,9 @@ theme:
         cmax: 10
         cint: 2
       sig95:
-        expr: ttest(e=4)
+        expr: abs(ttest(e=4))
       sig90:
-        expr: ttest(e=4)
+        expr: abs(ttest(e=4))
 
     h850_std:
       long_name: H850 Stdev
@@ -118,15 +118,15 @@ theme:
       layers: [shaded, sig95, sig90]
       title: '[T-test] 850 mb Heights (m)'
       shaded:
-        expr: ttest(e=4)
+        expr: abs(ttest(e=4))
         cdict:
         cmin: -2
         cmax: 2
         cint: 0.4
       sig95:
-        expr: ttest(e=4)
+        expr: abs(ttest(e=4))
       sig90:
-        expr: ttest(e=4)
+        expr: abs(ttest(e=4))
 
     h850_diff:
       long_name: H850 Difference
@@ -178,9 +178,9 @@ theme:
         cmax: 10
         cint: 2
       sig95:
-        expr: ttest(e=5)
+        expr: abs(ttest(e=5))
       sig90:
-        expr: ttest(e=5)
+        expr: abs(ttest(e=5))
 
     h500_std:
       long_name: H500 Stdev
@@ -201,15 +201,15 @@ theme:
       layers: [shaded, sig95, sig90]
       title: '[T-test] 500 mb Heights (m)'
       shaded:
-        expr: ttest(e=5)
+        expr: abs(ttest(e=5))
         cdict:
         cmin: -2
         cmax: 2
         cint: 0.4
       sig95:
-        expr: ttest(e=5)
+        expr: abs(ttest(e=5))
       sig90:
-        expr: ttest(e=5)
+        expr: abs(ttest(e=5))
 
     h500_diff:
       long_name: H500 Difference
@@ -244,14 +244,14 @@ theme:
       shaded:
         expr: anom(e=3)
         cbar: BrnWGrn
-    #   cdict: prectot_anom_attr
+        cdict: prectot_anom_attr
         cmin: -10
         cmax: 10
         cint: 2
       sig95:
-        expr: ttest(e=3)
+        expr: abs(ttest(e=3))
       sig90:
-        expr: ttest(e=3)
+        expr: abs(ttest(e=3))
 
     prectot_std:
       long_name: Precip Stdev
@@ -272,15 +272,15 @@ theme:
       layers: [shaded, sig95, sig90]
       title: '[T-test] Precipitation Rate (mm/day)'
       shaded:
-        expr: ttest(e=3)
+        expr: abs(ttest(e=3))
         cdict:
         cmin: -2
         cmax: 2
         cint: 0.4
       sig95:
-        expr: ttest(e=3)
+        expr: abs(ttest(e=3))
       sig90:
-        expr: ttest(e=3)
+        expr: abs(ttest(e=3))
 
     prectot_diff:
       long_name: Precip Difference
@@ -289,7 +289,7 @@ theme:
       title: '[$model_name minus Neutral] Precipitation Rate (mm/day)'
       shaded:
         expr: full(e=3)-full.M2NEUT.none(e=3)
-    #   cdict: prectot_anom_attr
+        cdict: prectot_anom_attr
         cbar: BrnWGrn
         cmin: -10
         cmax: 10
@@ -320,9 +320,9 @@ theme:
         cmax: 3
         cint: 0.5
       sig95:
-        expr: ttest(e=1)
+        expr: abs(ttest(e=1))
       sig90:
-        expr: ttest(e=1)
+        expr: abs(ttest(e=1))
 
     ts_std:
       long_name: TSURF Stdev
@@ -343,7 +343,7 @@ theme:
       layers: [shaded, sig95, sig90]
       title: '[T-test] Surface Temperature (C)'
       shaded:
-        expr: ttest(e=1)
+        expr: abs(ttest(e=1))
         cdict:
         cmin: -2
         cmax: 2
@@ -351,9 +351,9 @@ theme:
         nsub: 8
         skip: 8
       sig95:
-        expr: ttest(e=1)
+        expr: abs(ttest(e=1))
       sig90:
-        expr: ttest(e=1)
+        expr: abs(ttest(e=1))
 
     ts_diff:
       long_name: TSURF Difference
@@ -392,9 +392,9 @@ theme:
         cmax: 3
         cint: 0.5
       sig95:
-        expr: ttest(e=2)
+        expr: abs(ttest(e=2))
       sig90:
-        expr: ttest(e=2)
+        expr: abs(ttest(e=2))
 
     t2m_std:
       long_name: T2M Stdev
@@ -415,7 +415,7 @@ theme:
       layers: [shaded, sig95, sig90]
       title: '[T-test] Temperature at 2-meters (C)'
       shaded:
-        expr: ttest(e=2)
+        expr: abs(ttest(e=2))
         cdict:
         cmin: -2
         cmax: 2
@@ -423,9 +423,9 @@ theme:
         nsub: 8
         skip: 8
       sig95:
-        expr: ttest(e=2)
+        expr: abs(ttest(e=2))
       sig90:
-        expr: ttest(e=2)
+        expr: abs(ttest(e=2))
 
     t2m_diff:
       long_name: T2M Difference
