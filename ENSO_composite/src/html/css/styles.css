@@ -1,0 +1,20 @@
+#banner {
+        background-image: url('https://portal.nccs.nasa.gov/datashare/gmao/geos-fp/.internal/MERRA-2/ENSO_Composite/.images/banner.png'); /* Replace with your image path */
+        background-repeat: no-repeat; /* Optional: Prevents image from repeating */
+        background-position: center center; /* Optional: Centers the image */
+        background-size: cover; /* Optional: Scales the image to cover the cell */
+    }
+
+html {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.ImageBorder {
+  padding: 1px;
+  border: thick solid white;
+}
+
+.table-spacing {
+  margin-bottom: 40px;
+}
