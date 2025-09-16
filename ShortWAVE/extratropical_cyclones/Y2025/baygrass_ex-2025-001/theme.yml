@@ -1,0 +1,66 @@
+theme:
+
+  plot:
+
+    precip:
+      long_name: Precip
+      levels: [0]
+      layers: [olr, precip, slp, hilo]
+      title: 'SLP (mb), Precipitation (mm)'
+      map:
+        line_color: 0 0 0
+        line_width: 2
+        layers: [world_shaded_relief-01]
+        frame: 'off'
+
+  layer:
+
+    slp:
+      gxout: contour
+      expr: _slp / 100
+      cint: 1
+      clab: masked
+      ccolor: 0 0 0
+      clab: 'masked'
+      cthick: 6
+      clsize: 0.10
+
+    hilo:
+      gxout: hilo
+      expr: smth9(smth9(_slp/100))
+      color: 0 0 0
+   #  hmark: 'off'
+   #  radius: 50000
+
+    precip:
+      gxout: shaded
+      expr: re(_prectot,0.1,0.1)
+      csmooth: 'on'
+      cbar: Precip
+      cbunits: '--auto'
+      nsub: 1
+      type: linear
+      skip: 1
+    # clevs: 0.5 1 2 4 6 8 10 15 20 25 50 75 100 150 200
+      clevs: 0.17 0.33 0.67 1.33 2 2.67 3.33 5 6.67 8.33 16.67 25 33.33 50 66.67
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.062 1.000 1.000
+        - 1.000 1.000 1.000
+
+    olr:
+      gxout: shaded 
+      expr: smth9(re(_lwtup,0.1,0.1))
+      cbar: OLRgray 
+      cbunits: 'Outgoing Longwave Radiation [W/m`a2`n]'
+      nsub: 10
+      skip: 10
+      cmin: 140
+      cmax: 360
+      cint: 20
+      clevs:
+      alpha:
+        - 0.00 1.00 1.00
+      # - 0.50 0.80 0.80
+        - 0.75 0.00 0.00
+        - 1.00 0.00 0.00
