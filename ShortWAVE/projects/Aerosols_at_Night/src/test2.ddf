@@ -1,0 +1,3 @@
+DSET /discover/nobackup/jardizzo/Feature-c2160_L137.inst1_2d_asm_Nx.%y4%m2%d2_%h2%n2z.nc4
+OPTIONS template
+TDEF time 1 linear 20:30Z30APR2024 30mn

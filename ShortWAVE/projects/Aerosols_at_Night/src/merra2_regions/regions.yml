@@ -1,0 +1,51 @@
+region:
+
+  ne:
+    long_name: 'Northeast United States'
+    lat: 24 50
+    lon: -125 -65
+    mpdset: hires
+    mproj: latlon
+
+  se:
+    long_name: 'Southeast United States'
+    lat: 24 50
+    lon: -125 -65
+    mpdset: hires
+    mproj: latlon
+  mw:
+    long_name: 'Midwest United States'
+    lat: 24 50
+    lon: -125 -65
+    mpdset: hires
+    mproj: latlon
+  ngp:
+    long_name: 'Northern Great Plains'
+    lat: 24 50
+    lon: -125 -65
+    mpdset: hires
+    mproj: latlon
+  sgp:
+    long_name: 'Southern Great Plains'
+    lat: 24 50
+    lon: -125 -65
+  nw:
+    long_name: 'Northwest United States'
+    lat: 24 50
+    lon: -125 -65
+  sw:
+    long_name: 'Southwest United States'
+    lat: 24 50
+    lon: -125 -65
+  conus:
+    long_name: 'CONUS'
+    lat: 24 50
+    lon: -125 -65
+  global:
+    long_name: 'Global'
+    lat: -90 90
+    lon: -180 180
+  globalland:
+    long_name: 'Global Land'
+    lat: -90 90
+    lon: -180 180

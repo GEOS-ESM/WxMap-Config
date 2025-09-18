@@ -1,0 +1,2 @@
+setenv PATH ${PATH}:/home/jardizzo/src/WxPlot/bin
+setenv PYTHONPATH ${PYTHONPATH}:/home/jardizzo/src/WxPlot/lib

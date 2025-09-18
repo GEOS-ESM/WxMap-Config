@@ -1,0 +1,13 @@
+shortwave:
+
+  ntask: 20
+  configs: [/gpfsm/dnb34/jardizzo/software/GEOS-ESM/WxMap-Config/Aerosols_at_Night]
+  stream: CONUS2KM
+  start_dt: P0D
+  end_dt: P15DT23H30M
+  t_deltat: PT30M
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 4320x2160
+  oname: /discover/nobackup/jardizzo/Aerosols_at_Night/conus2km/base/aerosols_at_night.nasa.gmao.conus2km.replay.aod.base.4320x2160.%Y-%m-%dT%H:%M:00.png
+  levels: [0]
+  fields: [aod]
+  regions: [global]

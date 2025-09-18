@@ -1,0 +1,13 @@
+shortwave:
+
+  ntask: 20
+  configs: [/gpfsm/dnb34/jardizzo/software/GEOS-ESM/WxMap-Config/Aerosols_at_Night]
+  stream: GEOSANA
+  start_dt: P0D
+  end_dt: P30DT23H
+  t_deltat: PT1H
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 4320x2160
+  oname: /discover/nobackup/jardizzo/Aerosols_at_Night/images/aerosols_at_night.nasa.gmao.geos-fp.analysis.aod.base.4320x2160.%Y-%m-%dT%H:%M:00.png
+  levels: [0]
+  fields: [aod]
+  regions: [global]

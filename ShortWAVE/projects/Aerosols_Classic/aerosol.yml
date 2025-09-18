@@ -11,18 +11,6 @@ AOT_alpha: &AOT_ALPHA
     - 0.50 1.0 1.0
     - 1.00 1.0 1.0
 
-alpha_default: &alpha1
-  alpha:
-    - 0.00 0.0 0.0
-    - 0.50 1.0 1.0
-    - 1.00 1.0 1.0
-
-alpha_SSEXTTAU: &alpha2
-  alpha:
-    - 0.00 0.2 0.2
-    - 0.50 1.0 1.0
-    - 1.00 1.0 1.0
-
 theme:
 
   plot:
@@ -30,10 +18,10 @@ theme:
     aod:
       long_name: Aerosols
       levels: [0]
-      layers: [ssexttau, suexttau, bcexttau, duexttau]
+      layers: [bcexttau, ocexttau, duexttau, ssexttau, niexttau, suexttau]
       title: 'AOT'
       map:
-        layers: [blackmarble-custom]
+        layers: [shaderelief-gray]
 
   layer:
 
@@ -52,87 +40,126 @@ theme:
 
     ssexttau:
       gxout: shaded
-      expr: _ssexttau*2.5
+      expr: _ssexttau
       cbar: SSEXTTAU
       cbunits:
       clevs:
       cmin: 0
-      cmax: 1
-      cint: 0.1
-      nsub: 10
-      skip: 10
-      scale:
-      <<: *alpha1
-
-    duexttau:
-      gxout: shaded
-      expr: _duexttau*1.5
-      cbar: DUEXTTAU
-      cbunits: 
-      clevs:
-      cmin: 0
-      cmax: 1
-      cint: 0.1
-      nsub: 10
-      skip: 10
-      scale:
-      <<: *alpha1
-
-    suexttau:
-      gxout: shaded
-      expr: _suexttau*2.5
-      cbar: SUEXTTAU
-      cbunits:
-      clevs:
-      cmin: 0
-      cmax: 1
-      cint: 0.1
-      nsub: 10
-      skip: 10
-      scale:
-      <<: *alpha1
-
-    ocexttau:
-      gxout: shaded
-      expr: _ocexttau*2.5
-      cbar: OCEXTTAU
-      cbunits:
-      clevs:
-      cmin: 0
-      cmax: 1
-      cint: 0.1
-      nsub: 10
-      skip: 10
-      scale:
-      <<: *alpha1
-
-    bcexttau:
-      gxout: shaded
-      expr: _bcexttau*5
-      cbar: BCEXTTAU
-      cbunits:
-      clevs:
-      cmin: 0
-      cmax: 1
-      cint: 0.1
-      nsub: 10
-      skip: 10
-      scale:
-      <<: *alpha1
-
-    niexttau:
-      gxout: shaded
-      expr: _niexttau*20
-      cbar: OCEXTTAU
-      cbunits:
-      clevs:
-      cmin: 0
-      cmax: 1
-      cint: 0.1
+      cmax: 0.5
+      cint: 0.05
       nsub: 10
       skip: 10
       scale:
       <<: *AOT_ALPHA
+
+    duexttau:
+      gxout: shaded
+      expr: _duexttau
+      cbar: DUEXTTAU
+      cbunits: 
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+    suexttau:
+      gxout: shaded
+      expr: _suexttau
+      cbar: SUEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+    ocexttau:
+      gxout: shaded
+      expr: _ocexttau
+      cbar: OCEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+    bcexttau:
+      gxout: shaded
+      expr: _bcexttau
+      cbar: BCEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+    niexttau:
+      gxout: shaded
+      expr: _niexttau
+      cbar: NIEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+field:
+
+  GEOSANA:
+
+    _duexttau:
+      long_name: Dust Extinction AOT [550 nm]
+      units: '1'
+      expression: duexttau.inst1_2d_hwl_Nx
+
+    _suexttau:
+      long_name: SO4 Extinction AOT [550 nm]
+      units: '1'
+      expression: suexttau.inst1_2d_hwl_Nx
+
+    _ssexttau:
+      long_name: Sea Salt Extinction AOT [550 nm]
+      units: '1'
+      expression: ssexttau.inst1_2d_hwl_Nx
+
+    _ocexttau:
+      long_name: Organic Carbon Extinction AOT [550 nm]
+      units: '1'
+      expression: ocexttau.inst1_2d_hwl_Nx
+
+    _bcexttau:
+      long_name: Black Carbon Extinction AOT [550 nm]
+      units: '1'
+      expression: bcexttau.inst1_2d_hwl_Nx
+
+    _niexttau:
+      long_name: Nitrate Extinction AOT [550 nm]
+      units: '1'
+      expression: niexttau.inst1_2d_hwl_Nx
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: Pa
+      expression: slp.tavg1_2d_slv_Nx
 
 annotate:
 
