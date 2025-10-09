@@ -1,0 +1,97 @@
+#! /usr/bin/env python
+
+import os
+import sys
+import json
+import ruamel.yaml as yaml
+
+import subprocess
+from multiprocessing import Pool
+
+import EICinterface
+from fire_events import Responder
+from myutils import read_yaml
+from handlers import *
+
+# Retrieve command-line arguments.
+
+ui = EICinterface.Interface('Creates basemaps for EIC fire images')
+args = ui.get_args()
+arg_dt = args['time_dt']
+arg_all = args['all']
+
+# Get configuration.
+# ==================
+
+# Get main workflow config
+# ------------------------
+
+config = read_yaml(args['config'])
+EIC_fire_dir = config['EIC_fire_dir']
+cfg_base = config['base_images']
+cfg_final = config['final_images']
+cfg_movies = config['movies']
+cfg_publish = config['publish']
+cfg_stats = config['stats']
+cfg_monitor = config['monitor']
+max_events = config.get('max_events', 2)
+
+event_dir = os.path.join(EIC_fire_dir, 'events', 'Y%Y', 'M%m', 'D%d', 'src')
+event_dir = arg_dt.strftime(event_dir)
+fname = os.path.join(event_dir, 'event.yml')
+
+event_info = read_yaml(fname)['event']
+if not event_info:
+    sys.exit(0)
+
+events = list(event_info.keys())
+events.sort()
+events = events[0:min(max_events,len(events))]
+events = {k: event_info[k] for k in events}
+
+responder = FireResponder()
+
+if args['init']:                # Pre-generate basemaps
+                                # ---------------------
+
+    responder.execute(make_base, cfg_base, events=events,
+                      ntasks=1, time_dt=arg_dt, tloop=False)
+
+if arg_all or args['base']:     # Generate base images for all events.
+                                # ------------------------------------
+
+    responder.execute(make_base, cfg_base, events=events, time_dt=arg_dt)
+
+if arg_all or args['stats']:    # Generate fire statistics for each event.
+                                # ----------------------------------------
+
+    responder.execute(make_stats, cfg_stats, events=events,
+                      time_dt=arg_dt, tloop=False)
+
+if arg_all or args['monitor']:  # Create fire monitor images
+                                # --------------------------
+
+    responder.execute(make_monitor, cfg_monitor, events=events,
+                      time_dt=arg_dt, iname=cfg_stats['oname'])
+
+if arg_all or args['final']:    # Create final images with annotation
+                                # -----------------------------------
+
+    responder.execute(get_places, cfg_final)
+
+    responder.execute(make_final, cfg_final, events=events, time_dt=arg_dt,
+                      iname=cfg_base['oname'], places=places)
+
+if arg_all or args['movie']:    # Generate movie files
+                                # --------------------
+
+    responder.execute(make_movie, cfg_movies, events=events,
+                      time_dt=arg_dt, tloop=False, iname=cfg_final['oname'])
+
+if args['publish']:             # Publish EIC movies
+                                # ------------------
+
+    responder.execute(publish, cfg_publish, events=events, ntasks=1,
+                      time_dt=arg_dt, tloop=False, iname=cfg_movies['oname'])
+
+sys.exit(0)

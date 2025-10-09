@@ -1,0 +1,72 @@
+svs:
+  url: 'https://svs.gsfc.nasa.gov/prepub/zoey/DailyFires/dailyfiresinfo_%Y%m%d.txt'
+  fluid_file: /discover/nobackup/dao_ops/jardizzo/EIC_fires/data/svs/Y%Y/M%m/svs_%Y%m%d
+
+eis:
+# url: 'https://openveda.cloud/api/features'
+  url: 'https://firenrt.delta-backend.com'
+  collection: public.eis_fire_lf_perimeter_nrt
+# collection: public.eis_fire_lf_fireline_nrt
+  bbox: ['-175.0', '20.0', '-60.0', '70.0']
+# bbox: ['-127.0', '20.0', '-65.0', '49.0']
+  min_area: 0.0 # minimum area of fire (km+2)
+  min_duration: 1 # minimum duration of fire (days)
+  limit: 1200 # maximum number of locations
+# time_window: P21D
+  time_window: P13D
+  time_lag: P0D
+  shape_file: /discover/nobackup/dao_ops/jardizzo/EIC_fires/data/eis/eis_%Y%m%d
+  fluid_file: eis_fluid.yml
+  csv_file: eis.csv
+
+eis_lag:
+# url: 'https://openveda.cloud/api/features'
+  url: 'https://firenrt.delta-backend.com'
+  collection: public.eis_fire_lf_perimeter_nrt
+  bbox: ['-175.0', '20.0', '-60.0', '70.0']
+# bbox: ['-127.0', '20.0', '-65.0', '49.0']
+  min_area: 0.0 # minimum area of fire (km+2)
+  min_duration: 1 # minimum duration of fire (days)
+  limit: 9999 # maximum number of locations
+# time_window: P21D
+  time_window: P13D
+  time_lag: P2D
+  shape_file: /discover/nobackup/dao_ops/jardizzo/EIC_fires/data/eis_lag/eis_lag_%Y%m%d
+  fluid_file: eis_fluid.yml
+  csv_file: eis.csv
+
+firms:
+  collection:
+  bbox: [-140.0, 20.0, -60.0, 60.0]
+  min_area: 0.001 # minimum area of fire (km+2)
+  min_duration: 2 # minimum duration of fire (days)
+  limit: 3000 # maximum number of locations
+  time_window: P0D
+  shape_file: /discover/nobackup/dao_ops/jardizzo/EIC_fires/data/firms/firms_%Y%m%d
+  fluid_file: firms_fluid.yml
+  csv_file: firms.csv
+  json_file: /discover/nobackup/dao_ops/jardizzo/EIC_fires/data/firms/firms_%Y%m%d.json
+
+eonet:
+  url: 'https://eonet.gsfc.nasa.gov/api/v3/events/geojson?source=IRWIN&status=all'
+  collection:
+  bbox: [-140.0, 20.0, -60.0, 60.0]
+  min_area: 75 # minimum area of fire (acres+2)
+  min_duration: 2 # minimum duration of fire (days)
+  limit: 3000 # maximum number of locations
+  time_window: P13D
+  shape_file: /discover/nobackup/dao_ops/jardizzo/EIC_fires/data/eonet/eonet_%Y%m%d
+  fluid_file: /discover/nobackup/dao_ops/jardizzo/EIC_fires/data/eonet/eonet_%Y%m%d/eonet_%Y%m%d.yml
+  csv_file: eonet.csv
+
+eoeis:
+  url: 'https://eonet.gsfc.nasa.gov/api/v3/events/geojson?source=IRWIN&status=all'
+  collection:
+  bbox: [-140.0, 20.0, -60.0, 60.0]
+  min_area: 75 # minimum area of fire (acres+2)
+  min_duration: 2 # minimum duration of fire (days)
+  limit: 3000 # maximum number of locations
+  time_window: P13D
+  shape_file: /discover/nobackup/dao_ops/jardizzo/EIC_fires/data/eoeis/eoeis_%Y%m%d
+  fluid_file: /discover/nobackup/dao_ops/jardizzo/EIC_fires/data/eoeis/eoeis_%Y%m%d/eoeis_%Y%m%d.yml
+  csv_file: eoeis.csv

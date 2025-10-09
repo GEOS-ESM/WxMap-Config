@@ -1,0 +1,282 @@
+event: &id001
+  event-000:
+    fire_center: -123.36 47.56
+    fire_id: missing
+    fire_name: ''
+    fire_size: 126.12477371951036
+  event-001:
+    fire_center: -117.42 61.57
+    fire_id: missing
+    fire_name: ''
+    fire_size: 1723.8586452409156
+  event-002:
+    fire_center: -111.65 59.43
+    fire_id: missing
+    fire_name: ''
+    fire_size: 520.0989875726165
+  event-003:
+    fire_center: -109.32 55.4
+    fire_id: missing
+    fire_name: ''
+    fire_size: 311.5147762221963
+  event-004:
+    fire_center: -113.1 53.81
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4.3421036513543045
+  event-005:
+    fire_center: -109.25 55.87
+    fire_id: missing
+    fire_name: ''
+    fire_size: 21.722860762177884
+  event-006:
+    fire_center: -109.65 55.69
+    fire_id: missing
+    fire_name: ''
+    fire_size: 175.7302935392528
+  event-007:
+    fire_center: -121.34 46.87
+    fire_id: missing
+    fire_name: ''
+    fire_size: 80.08286544731921
+  event-008:
+    fire_center: -114.65 56.28
+    fire_id: missing
+    fire_name: ''
+    fire_size: 41.10892034816805
+  event-009:
+    fire_center: -124.76 52.77
+    fire_id: missing
+    fire_name: ''
+    fire_size: 593.7924993725471
+  event-010:
+    fire_center: -116.63 62.82
+    fire_id: missing
+    fire_name: ''
+    fire_size: 151.43146223861478
+  event-011:
+    fire_center: -120.71 47.4
+    fire_id: missing
+    fire_name: ''
+    fire_size: 197.11344583421516
+  event-012:
+    fire_center: -114.89 56.25
+    fire_id: missing
+    fire_name: ''
+    fire_size: 5.714368727280784
+  event-013:
+    fire_center: -108.65 56.76
+    fire_id: missing
+    fire_name: ''
+    fire_size: 12.170633392069236
+  event-014:
+    fire_center: -124.75 52.39
+    fire_id: missing
+    fire_name: ''
+    fire_size: 82.30670058458028
+  event-015:
+    fire_center: -116.09 47.88
+    fire_id: missing
+    fire_name: ''
+    fire_size: 2.807229392195285
+  event-016:
+    fire_center: -109.76 55.91
+    fire_id: missing
+    fire_name: ''
+    fire_size: 41.45493039210578
+  event-017:
+    fire_center: -120.86 49.35
+    fire_id: missing
+    fire_name: ''
+    fire_size: 17.340788205270805
+  event-018:
+    fire_center: -120.44 47.68
+    fire_id: missing
+    fire_name: ''
+    fire_size: 210.1727225675195
+  event-019:
+    fire_center: -118.47 48.57
+    fire_id: missing
+    fire_name: ''
+    fire_size: 8.45086619967371
+  event-020:
+    fire_center: -118.36 48.33
+    fire_id: missing
+    fire_name: ''
+    fire_size: 46.928957739182714
+  event-021:
+    fire_center: -116.04 48.32
+    fire_id: missing
+    fire_name: ''
+    fire_size: 1.002384946375254
+  event-022:
+    fire_center: -115.69 48.12
+    fire_id: missing
+    fire_name: ''
+    fire_size: 12.934911896468542
+  event-023:
+    fire_center: -115.29 46.87
+    fire_id: missing
+    fire_name: ''
+    fire_size: 5.55886821142857
+  event-024:
+    fire_center: -115.0 56.39
+    fire_id: missing
+    fire_name: ''
+    fire_size: 11.489640946043128
+  event-025:
+    fire_center: -118.48 49.43
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4.472853221994795
+  event-026:
+    fire_center: -118.39 46.31
+    fire_id: missing
+    fire_name: ''
+    fire_size: 16.55224341936661
+  event-027:
+    fire_center: -113.94 56.94
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4.453465815747954
+  event-028:
+    fire_center: -65.69 46.14
+    fire_id: missing
+    fire_name: ''
+    fire_size: 7.402122842489178
+  event-029:
+    fire_center: -117.19 61.67
+    fire_id: missing
+    fire_name: ''
+    fire_size: 23.985369161157458
+  event-030:
+    fire_center: -113.3 47.61
+    fire_id: missing
+    fire_name: ''
+    fire_size: 17.85120443630356
+  event-031:
+    fire_center: -116.48 44.95
+    fire_id: missing
+    fire_name: ''
+    fire_size: 10.674644481215578
+  event-032:
+    fire_center: -109.37 56.85
+    fire_id: missing
+    fire_name: ''
+    fire_size: 5.9833165515279
+  event-033:
+    fire_center: -112.59 50.72
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4.81246325090256
+  event-034:
+    fire_center: -116.88 61.48
+    fire_id: missing
+    fire_name: ''
+    fire_size: 6.445848729792658
+  event-035:
+    fire_center: -110.71 52.68
+    fire_id: missing
+    fire_name: ''
+    fire_size: 6.086520188192941
+  event-036:
+    fire_center: -113.53 60.67
+    fire_id: missing
+    fire_name: ''
+    fire_size: 28.304489461540555
+  event-037:
+    fire_center: -116.09 47.87
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4.786576496721661
+  event-038:
+    fire_center: -119.81 49.75
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4.454660083142913
+  event-039:
+    fire_center: -120.68 44.79
+    fire_id: missing
+    fire_name: ''
+    fire_size: 15.118398157623753
+  event-040:
+    fire_center: -64.74 44.95
+    fire_id: missing
+    fire_name: ''
+    fire_size: 5.805369152715767
+  event-041:
+    fire_center: -66.22 45.7
+    fire_id: missing
+    fire_name: ''
+    fire_size: 1.4781415887656937
+  event-042:
+    fire_center: -84.38 46.52
+    fire_id: missing
+    fire_name: ''
+    fire_size: 6.630243433111311
+  event-043:
+    fire_center: -103.92 48.67
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4.047987174222168
+  event-044:
+    fire_center: -120.94 61.69
+    fire_id: missing
+    fire_name: ''
+    fire_size: 559.585375113857
+  event-045:
+    fire_center: -107.42 55.26
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4671.358540915733
+  event-046:
+    fire_center: -116.81 62.31
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4839.6128537714
+  event-047:
+    fire_center: -101.37 32.36
+    fire_id: missing
+    fire_name: ''
+    fire_size: 14.132168059928993
+  event-048:
+    fire_center: -88.58 33.44
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4.562237688604956
+  event-049:
+    fire_center: -93.97 29.86
+    fire_id: missing
+    fire_name: ''
+    fire_size: 11.457907937313955
+  event-050:
+    fire_center: -94.92 29.37
+    fire_id: missing
+    fire_name: ''
+    fire_size: 10.848309750031165
+  event-051:
+    fire_center: -79.88 33.01
+    fire_id: missing
+    fire_name: ''
+    fire_size: 5.0840496521915615
+  event-052:
+    fire_center: -81.67 41.46
+    fire_id: missing
+    fire_name: ''
+    fire_size: 8.05842141666669
+  event-053:
+    fire_center: -99.94 25.58
+    fire_id: missing
+    fire_name: ''
+    fire_size: 6.411305756436868
+  event-054:
+    fire_center: -97.27 27.89
+    fire_id: missing
+    fire_name: ''
+    fire_size: 4.784373963877583
+  event-055:
+    fire_center: -84.38 39.48
+    fire_id: missing
+    fire_name: ''
+    fire_size: 11.119301724547737
+region: *id001

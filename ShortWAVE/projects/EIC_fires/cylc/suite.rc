@@ -1,0 +1,110 @@
+[cylc]
+    UTC mode = True
+[scheduling]
+    initial cycle point = 2025-01-12T00
+    final cycle point = 2025-01-12T00
+    max active cycle points = 1
+    [[xtriggers]]
+        clock_1 = wall_clock(offset=PT96H)
+    [[dependencies]]
+        [[[T00]]] # validity (hours)
+            graph = """
+             #  @clock_1 => getSVS => getEONET => getEIS => getEOEIS => getFIRMS => installFire => getMaps => plotEIC => publishEIC => plotShortwave => publishShortwave
+             #  @clock_1 => getMaps => plotEIC => publishEIC
+             #  @clock_1 => getMaps => plotEIC => plotShortwave => publishShortwave
+                @clock_1 => plotShortwave => publishShortwave
+            """
+[runtime]
+    [[root]] # suite defaults
+
+        [[[environment]]]
+
+            datetime  = $CYLC_TASK_CYCLE_POINT
+            config    = $CYLC_SUITE_DEF_PATH/config.yml
+            pconfig  = $CYLC_SUITE_DEF_PATH/plot.yml
+            inputdata = $CYLC_SUITE_DEF_PATH/inputdata.yml
+            INSTALL_PATH = $CYLC_SUITE_DEF_PATH
+            
+        [[[events]]]
+            mail to = joseph.v.ardizzone@nasa.gov
+            mail events = failed
+
+    [[getSVS]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "svs_fire.py $datetime $config"
+        [[[job]]]
+            execution retry delays = 60*PT1H
+
+    [[getEONET]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "eonet_fire.py $datetime $config"
+        [[[job]]]
+            execution retry delays = 60*PT1H
+
+    [[getEOEIS]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "eoeis_fire.py $datetime $config"
+        [[[job]]]
+            execution retry delays = 60*PT1H
+
+    [[getEIS]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "eis_fire.py $datetime $config"
+        [[[job]]]
+            execution retry delays = 60*PT1H
+
+    [[getFIRMS]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "firms_fire.py $datetime $config"
+        [[[job]]]
+            execution retry delays = 60*PT1H
+
+    [[installFire]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "plot_fires.py --create $datetime $pconfig"
+        [[[job]]]
+            execution retry delays = 6*PT30M
+
+    [[getMaps]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "plot_fires.py --init $datetime $pconfig"
+        [[[job]]]
+            execution retry delays = 6*PT30M
+
+    [[plotEIC]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "plot_fires.py --plot $datetime $pconfig"
+        [[[job]]]
+            batch system = slurm
+            execution time limit = PT1H30M
+        [[[directives]]]
+            --account = g2538
+            --qos = daohi
+            --constraint = mil
+            --ntasks = 28
+            --job-name = EIC_plotFires
+
+    [[publishEIC]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "plot_fires.py --publish $datetime $pconfig"
+        [[[job]]]
+            execution retry delays = 6*PT30M
+
+    [[plotShortwave]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "plot_fires.py --theme shortwave --plot $datetime $pconfig"
+        [[[job]]]
+            batch system = slurm
+            execution time limit = PT1H30M
+        [[[directives]]]
+            --account = g2538
+            --qos = daohi
+            --constraint = mil
+            --ntasks = 28
+            --job-name = EIC_plotFires
+
+    [[publishShortwave]]
+        pre-script = "source $CYLC_SUITE_DEF_PATH/modules"
+        script = "plot_fires.py --theme shortwave --publish $datetime $pconfig"
+        [[[job]]]
+            execution retry delays = 6*PT30M

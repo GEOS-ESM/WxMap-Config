@@ -1,0 +1,2 @@
+event: &id001 {}
+region: *id001

@@ -1,0 +1,153 @@
+#! /usr/bin/env python
+
+import os
+import sys
+import json
+import ruamel.yaml as yaml
+
+import subprocess
+from multiprocessing import Pool
+
+import EICinterface
+from player import Player, Responder
+from myutils import read_yaml
+from handlers import *
+
+# Retrieve command-line arguments.
+
+ui = EICinterface.Interface('Creates basemaps for EIC fire images')
+args = ui.get_args()
+arg_dt = args['time_dt']
+arg_all = args['all']
+
+# Get configuration.
+# ==================
+
+# Get main workflow config
+# ------------------------
+
+config = read_yaml(args['config'])
+EIC_fire_dir = config['EIC_fire_dir']
+cfg_base = config['base_images']
+cfg_final = config['final_images']
+cfg_movies = config['movies']
+cfg_publish = config['publish']
+cfg_stats = config['stats']
+cfg_monitor = config['monitor']
+max_events = config.get('max_events', 2)
+
+event_dir = os.path.join(EIC_fire_dir, 'events', 'Y%Y', 'M%m', 'D%d', 'src')
+event_dir = arg_dt.strftime(event_dir)
+fname = os.path.join(event_dir, 'event.yml')
+
+event_info = read_yaml(fname)['event']
+if not event_info:
+    sys.exit(0)
+
+events = list(event_info.keys())
+events.sort()
+events = events[0:min(max_events,len(events))]
+events = {k: event_info[k] for k in events}
+
+# Generate images for a single time in order to
+# pre-cache the basemap imagery.
+# =============================================
+
+if args['init']:
+
+    cfg = cfg_base
+    iterator = Player(cfg, tloop=False, time_dt=arg_dt, events=events)
+    ntasks=1
+    pool = Pool(ntasks) 
+    pool.map(make_base, iterator)
+
+    sys.exit(0)
+
+# Generate base images for all events.
+# ====================================
+
+if arg_all or args['base']:
+    responder.execute(make_base, cfg_base, events=events, time_dt=arg_dt)
+
+ #  cfg = cfg_base
+ #  iterator = Player(cfg, time_dt=arg_dt, events=events)
+ #  ntasks = cfg.get('ntasks', 20)
+ #  pool = Pool(ntasks)
+ #  pool.map(make_base, iterator)
+
+# Generate fire statistics for each event.
+# ========================================
+
+if arg_all or args['stats']:
+
+    cfg = cfg_stats
+    iterator = Player(cfg, tloop=False, time_dt=arg_dt, events=events)
+    ntasks = cfg.get('ntasks', 20)
+    pool = Pool(ntasks)
+    pool.map(make_stats, iterator)
+
+# Create fire monitor images
+# ==========================
+
+if arg_all or args['monitor']:
+
+    cfg = cfg_monitor
+    iterator = Player(cfg, time_dt=arg_dt, events=events,
+                      iname=cfg_stats['oname'])
+    ntasks = cfg.get('ntasks', 20)
+    ntasks = 1
+    pool = Pool(ntasks)
+    pool.map(make_monitor, iterator)
+
+# Create final images with annotation
+# ===================================
+
+if arg_all or args['final']:
+
+    # Get place name information
+    # --------------------------
+
+    fname = os.path.join(EIC_fire_dir, 'src', 'places.json')
+
+    with open(fname, 'r') as f:
+        places = json.load(f)
+
+    # Generate images
+    # ---------------
+
+    cfg = cfg_final
+    iterator = Player(cfg, time_dt=arg_dt, events=events,
+                      places=places, iname=cfg_base['oname'])
+
+    ntasks = cfg.get('ntasks', 20)
+    pool = Pool(ntasks) 
+    pool.map(make_final, iterator)
+
+# Generate movie files
+# ====================
+
+if arg_all or args['movie']:
+
+    cfg = cfg_movies
+    iterator = Player(cfg, tloop=False, time_dt=arg_dt, events=events,
+                      iname=cfg_final['oname'])
+
+    ntasks = cfg.get('ntasks', 20)
+    pool = Pool(ntasks)
+    pool.map(make_movie, iterator)
+
+# Publish EIC movies
+# ==================
+
+if args['publish']:
+
+    cfg = cfg_publish
+    iterator = Player(cfg, tloop=False, time_dt=arg_dt,
+                      events=events, iname=cfg_movies['oname'])
+
+    ntasks = cfg.get('ntasks', 20)
+    ntasks = 1
+    pool = Pool(ntasks)
+    pool.map(publish, iterator)
+
+sys.exit(0)

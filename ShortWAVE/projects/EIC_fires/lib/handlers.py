@@ -1,0 +1,445 @@
+import os
+import json
+import shlex
+import shutil
+import tempfile
+import subprocess
+from dateutil import tz
+import ruamel.yaml as yaml
+from PIL import Image, ImageOps, ImageDraw
+
+import fire_monitor
+from imutils import *
+from fire_helpers import *
+from myutils import str_replace, parse_duration, read_yaml
+
+def make_base(request):
+
+    options = []
+    if request.get('plot_only', 0):
+        options.append('--plot_only')
+    if request.get('lights_off', 0):
+        options.append('--lights_off')
+    if request.get('fullframe', 0):
+        options.append('--fullframe')
+
+    fcst_dt = request['fcst_dt']
+    t_start = request['t_start']
+    t_end = request['t_end']
+    t_deltat = request['t_deltat']
+
+    defs = dict(request)
+    defs['fcst_dt'] = fcst_dt.strftime('%Y%m%dT%H%M')
+    defs['start_dt'] = t_start.strftime('%Y%m%dT%H%M')
+    defs['end_dt'] = t_end.strftime('%Y%m%dT%H%M')
+    defs['t_deltat'] = int(t_deltat / parse_duration('PT1H'))
+    defs['geometry'] = request.get('geometry', '1024x768')
+    defs['config'] = strf2time(request['config'], fcst_dt)
+
+    cmd = "$pre_script; wxmap.py --theme $theme --config $config --stream $stream --fcst_dt $fcst_dt --start_dt $start_dt --end_dt $end_dt --t_deltat $t_deltat --field $field --region $event --level $level --oname '$oname' --geometry $geometry"
+
+    cmd = str_replace(cmd, **defs)
+
+    print (cmd + ' ' + ' '.join(options))
+
+  # subprocess.call(cmd.split() + options)
+    cmd = cmd + ' ' + ' '.join(options)
+    subprocess.call(cmd, shell=True, executable='/bin/bash')
+
+# -----------------------------------------------------------------------------
+
+
+def make_stats(request):
+
+    options = []
+    if request.get('plot_only', 0):
+        options.append('--plot_only')
+    if request.get('lights_off', 0):
+        options.append('--lights_off')
+    if request.get('fullframe', 0):
+        options.append('--fullframe')
+
+    fcst_dt = request['fcst_dt']
+    start_dt = request['start_dt']
+    end_dt = request['end_dt']
+    t_deltat = request['t_deltat']
+    
+    defs = dict(request)
+    defs['fcst_dt'] = fcst_dt.strftime('%Y%m%dT%H%M')
+    defs['start_dt'] = start_dt.strftime('%Y%m%dT%H%M')
+    defs['end_dt'] = end_dt.strftime('%Y%m%dT%H%M') 
+    defs['t_deltat'] = int(t_deltat / parse_duration('PT1H'))
+    defs['geometry'] = request.get('geometry', '1024x768')
+    defs['config'] = strf2time(request['config'], fcst_dt)
+
+    cmd = "$pre_script; wxmap.py --theme $theme --config $config --stream $stream --fcst_dt $fcst_dt --start_dt $start_dt --end_dt $end_dt --t_deltat $t_deltat --field $field --region $event --level $level --oname '$oname' --geometry $geometry"
+
+    cmd = str_replace(cmd, **defs)
+
+    print (cmd + ' ' + ' '.join(options))
+
+  # subprocess.call(cmd.split() + options)
+    cmd = cmd + ' ' + ' '.join(options)
+    subprocess.call(cmd, shell=True, executable='/bin/bash')
+
+# -----------------------------------------------------------------------------
+
+
+def make_final(request):
+
+    defs = dict(request)
+    fire_name = request['fire_name']
+    fire_box_size = request['fire_box_size']
+    s = fire_name.replace(',', '')
+    defs['fire_name'] = '_'.join(s.split())
+    defs['region'] = defs['event'] # Some filenames use $region for event
+                                   # placeholder
+
+    srcdir = request['srcdir']
+    time_dt = request['t_start']
+    fcst_dt = request['fcst_dt']
+    fname = strf2time(request['iname'], fcst_dt, time_dt) # Base image filename
+    fname = str_replace(fname, **defs)
+    oname = strf2time(request['oname'], fcst_dt, time_dt)
+    oname = str_replace(oname, **defs)
+
+    # Optional
+    mname = request.get('monitor', '')
+    mname = strf2time(mname, fcst_dt, time_dt)   # Fire monitor filename
+    mname = str_replace(mname, **defs)
+    lname = request.get('legend', None)  # Legend filename
+    drawbox = request.get('drawbox', False)
+
+    field = request['field']
+    title = request['title']
+    cbar = os.path.join(srcdir, request['cbar'])
+    fire_icon = request['fire_icon']
+
+    lons = [float(x) for x in request['lon'].split()]
+    lats = [float(y) for y in request['lat'].split()]
+    bbox = [lons[0], lats[0], lons[-1], lats[-1]]
+    floc = tuple([float(xy) for xy in request['fire_center'].split()])
+    fbox = get_domain(floc, fire_box_size)
+
+    bold_name = request['bold_name']
+    font_name = request['font_name']
+    font_color = request['font_color'].split()
+    font_color = tuple([int(c) for c in font_color])
+
+    places = request['places']
+
+    # Set the format for the time string label
+
+    cdattim = time_dt.strftime("%d %b %Y %H:00 GMT")
+    print(cdattim)
+
+    # Open the main image with navigation to pixel space
+
+    im_main = Image.open(fname).convert("RGBA")
+    width, height = (im_main.width, im_main.height)
+    im_main = ImageMapper(im_main, bbox)
+
+    P = ImageScaler((width, height))
+
+    # Convert place names and markings to pixel space
+
+    state_places = []
+    for state in places:
+        x, y = im_main.to_pixel((state[1], state[2]))
+        if x < 0 or y < 0:
+            continue
+        if x > width or y > height:
+            continue
+        state = "{} {} {}".format(x, y, state[0].upper())
+        state_places.append(state)
+
+    center = im_main.to_pixel(floc)
+    box = im_main.to_pixel(fbox)
+
+    # Paste the input image onto a black canvas
+    # Use RGB mode (i.e. no alpha channel for the canvas)
+
+    im_final = Image.new('RGB', (width, height), color='black')
+    im_final.paste(im_main.img, (0, 0), im_main.img)
+
+    # Add the fire markings
+
+    icon_size = request.get('fire_icon_size', 24)
+    fire_icon = Image.open(fire_icon).convert("RGBA")
+    fire_icon = fire_icon.resize((P(icon_size),P(icon_size)), Image.LANCZOS)
+
+    xp = round(center[0] - fire_icon.width / 2.0)
+    yp = round(center[1] - fire_icon.height / 2.0)
+    im_final.paste(fire_icon, (xp,yp), fire_icon)
+    if drawbox:
+        draw = ImageDraw.Draw(im_final)
+        draw.rectangle(flip(box), outline='white', width=2)
+
+    # Add place names
+
+    xloc = box[0]
+    yloc = box[1]
+    place = ["{} {} {}".format(xloc, yloc, fire_name)]
+    im_draw_places(im_final, place, bold_name, P(18), position='tl')
+    im_draw_places(im_final, state_places, bold_name, P(24), position='c')
+
+    # Add the colorbar and title
+
+    d1 = HersheyDraw(im_final, bold_name, P(36), font_color)
+    s1 = fire_name
+    w1, h1 = d1.text_size(s1)
+
+    d2 = HersheyDraw(im_final, font_name, P(24), font_color)
+    s2 = title
+    w2, h2 = d2.text_size(s2)
+
+    im_cbar = Image.open(cbar).convert("RGBA")
+  # im_cbar = image_trim(im_cbar)
+  # im_cbar = im_cbar.resize((P(700), P(50)), Image.LANCZOS)
+    im_cbar.thumbnail((P(700), P(700)))
+
+    w4, h4 = (im_cbar.width, im_cbar.height)
+    box = round_rectangle((max(w1,w2,w4)+32, h1+h2+h4+8+24), 50, (0,0,0,80))
+    box = ImageOps.flip(box)
+    im_final.paste(box, (0, 0), box)
+    d1.draw_text(8, 8, s1)
+    d2.draw_text(8, 8+h1+8, s2)
+    im_final.paste(im_cbar, (8, 8+h1+8+h2+8), im_cbar)
+
+    # Add the fire monitor (if requested)
+
+    if mname:
+        im_paste_file(im_final, mname, 10, P(322), xsize=P(700))
+     #  img = Image.open(mname).convert("RGBA")
+     #  img = img.resize((700,390), Image.LANCZOS)
+     #  im_final.paste(img, (10, 322), img)
+     #  img.close()
+
+    if lname:
+        im_paste_file(im_final, lname, P(1600), P(700), xsize=P(300))
+
+    # Add the model and date/time label
+
+    d1 = HersheyDraw(im_final, bold_name, P(28), font_color)
+    w1, h1 = d1.text_size('GEOS Analysis')
+
+    d2 = HersheyDraw(im_final, font_name, P(28), font_color)
+    w2, h2 = d2.text_size(cdattim)
+
+    box = round_rectangle((max(w1,w2)+16, h1+h2+24), 50, (0,0,0,80))
+    im_final.paste(box, (0, im_final.height-box.height), box)
+
+    x = 8
+    y = im_final.height - box.height + 8
+    d1.draw_text(x, y, 'GEOS Analysis')
+
+    y += h1 + 2
+    d2.draw_text(x, y, cdattim)
+
+    # Add logos
+
+    box = round_rectangle((P(120),P(120)), 50, (0,0,0,80))
+    box = ImageOps.flip(box)
+    box = ImageOps.mirror(box)
+    im_final.paste(box, (im_final.width-box.width,0), box)
+
+    xsize = P(80)
+    x = im_final.width - xsize - 10
+    y = 10
+    logo_name = request['nasa_logo_name']
+    xs, ys = im_paste_file(im_final, logo_name, x, y, xsize=xsize)
+
+    y += ys + 10
+    logo_name = request['gmao_logo_name']
+    xs, ys = im_paste_file(im_final, logo_name, x, y, xsize=xsize, ysize=P(120))
+
+    # Save the final annotated image.
+
+    os.makedirs(os.path.dirname(oname), mode=0o755, exist_ok=True)
+    im_final.save(oname, format='png')
+
+# -----------------------------------------------------------------------------
+
+
+def make_monitor(request):
+
+    defs = dict(request)
+    fire_name = request['fire_name']
+    s = fire_name.replace(',', '')
+    defs['fire_name'] = '_'.join(s.split())
+    
+    time_dt = request['t_start']
+    fcst_dt = request['fcst_dt']
+    statdir = os.path.dirname(request['iname'])
+    statdir = strf2time(statdir, fcst_dt)
+    oname = strf2time(request['oname'], fcst_dt, time_dt)
+    oname = str_replace(oname, **defs)
+    console = request['console']
+    event = request['event']
+    method = request.get('method', 'FireMonitorClassic')
+    fire_fields = request['fire_fields']
+
+    fm = getattr(fire_monitor, method)
+    fmonitor = fm(statdir, event, fire_fields, console=console)
+    img = fmonitor.draw(time_dt)
+
+    os.makedirs(os.path.dirname(oname), mode=0o755, exist_ok=True)
+    img.save(oname, format='png')
+
+    img.close()
+
+def make_movie(request):
+
+    tmpdir = tempfile.TemporaryDirectory()
+
+    defs = dict(request) 
+    defs['glob'] = os.path.join(tmpdir.name, '*.png')
+    fire_name = request['fire_name']
+    s = fire_name.replace(',', '')
+    defs['fire_name'] = '_'.join(s.split())
+
+    time_dt = request['time_dt']
+    start_dt = request['start_dt']
+    end_dt = request['end_dt']
+    fcst_dt = request['fcst_dt']
+    t_deltat = request['t_deltat']
+    iname = strf2time(request['iname'], fcst_dt)
+    iname = str_replace(iname, **defs)
+    oname = strf2time(request['oname'], fcst_dt)
+    oname = str_replace(oname, **defs)
+
+    tname = os.path.join(tmpdir.name, os.path.basename(oname))
+    odir = os.path.dirname(oname)
+    os.makedirs(odir, mode=0o755, exist_ok=True)
+
+    t = start_dt
+    while (t <= end_dt):
+
+        src = t.strftime(iname)
+        dst = os.path.join(tmpdir.name, os.path.basename(src)) 
+        os.symlink(src, dst)
+
+        t += t_deltat
+
+    cmd = 'ffmpeg -loglevel debug -threads 6 -pattern_type glob -r $frame_rate -i "$glob" -y -r $frame_rate -s $frame_size -c:v libx264 -pix_fmt yuv420p -preset ultrafast -crf $quality $tname'
+
+    defs.update({'oname': oname, 'tname': tname})
+    cmd = str_replace(cmd, **defs)
+
+    subprocess.call(cmd, shell=True, executable='/bin/bash')
+
+    shutil.move(tname, oname)
+
+    tmpdir.cleanup()
+
+def publish(request):
+
+    defs = dict(request)
+    fire_name = request['fire_name']
+    s = fire_name.replace(',', '')
+    defs['fire_name'] = '_'.join(s.split())
+
+    event = request['event']
+    i = int(event[-3:]) + 1
+    defs['EIC_event_id'] = f'event{i:03d}'
+
+    time_dt = request['time_dt']
+    iname = strf2time(request['iname'], time_dt)
+    iname = str_replace(iname, **defs)
+    oname = strf2time(request['oname'], time_dt)
+    oname = str_replace(oname, **defs)
+
+    odir = os.path.dirname(oname)
+    os.makedirs(odir, mode=0o755, exist_ok=True)
+
+    shutil.copyfile(iname, oname)
+
+def purge(request):
+
+    defs = dict(request)
+
+    time_dt = request['t_start']
+
+    oname = strf2time(request['oname'], time_dt)
+    dir = os.path.dirname(oname)
+    dir = str_replace(dir, **defs)
+
+    for filename in os.listdir(dir):
+        if filename.endswith('.mp4'):
+            file_path = os.path.join(dir, filename)
+            os.remove(file_path)
+
+def get_places(request):
+
+    fname = request['places_file']
+    with open(fname, 'r') as f:
+        places = json.load(f)
+
+    return places
+
+def make_event(request):
+
+    time_dt = request['time_dt']
+    fire_source = strf2time(request['fire_source'], time_dt)
+    plot_domain_size = request['plot_domain_size']
+    stat_domain_size = request['stat_domain_size']
+    event_file = strf2time(request['event_file'], time_dt)
+    stat_file = strf2time(request['stat_file'], time_dt)
+
+    # Create a new event
+
+    if os.path.exists(fire_source):
+        event_info = read_yaml(fire_source)
+        event_info['region'] = event_info['event']
+    else:
+        event_info = {'event': {}}
+
+    # Create events file
+
+    event_info['region'] = event_info['event']
+
+    events = event_info['event']
+    for k,event in events.items():
+        center = [float(val) for val in event['fire_center'].split()]
+        coords = get_domain(center, plot_domain_size, trim=True)
+        event['lon'] = f'{coords[0]} {coords[2]}'
+        event['lat'] = f'{coords[1]} {coords[3]}'
+        event['long_name'] = k
+        event['mpdset'] = 'hires'
+
+    os.makedirs(os.path.dirname(event_file), mode=0o755, exist_ok=True)
+
+    with open(event_file, 'w') as outfile:
+        yaml.dump(event_info, outfile, default_flow_style=False)
+
+    # Create amended events file for statistics
+
+    os.makedirs(os.path.dirname(stat_file), mode=0o755, exist_ok=True)
+
+    events = event_info['event']
+    for k,event in events.items():
+        center = [float(val) for val in event['fire_center'].split()]
+        coords = get_domain(center, stat_domain_size)
+        event['lon'] = f'{coords[0]} {coords[2]}'
+        event['lat'] = f'{coords[1]} {coords[3]}'
+
+    with open(stat_file, 'w') as outfile:
+        yaml.dump(event_info, outfile, default_flow_style=False)
+
+def get_events(request):
+
+    time_dt = request['time_dt']
+    max_events = request['max_events']
+    event_file = strf2time(request['event_file'], time_dt)
+
+    if os.path.exists(event_file):
+        event_info = read_yaml(event_file)['event']
+    else:
+        return {}
+
+    events = list(event_info.keys())
+    events.sort()
+    events = events[0:min(max_events,len(events))]
+    events = {k: event_info[k] for k in events}
+
+    return events

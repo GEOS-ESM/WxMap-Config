@@ -1,0 +1,220 @@
+EIC_fire_dir: /discover/nobackup/dao_ops/jardizzo/EIC_fires
+EIC_pub_dir: /discover/nobackup/projects/gmao/yotc/pub/fp/.internal/SVS/EIC_fires
+EIC_event_dir: $EIC_fire_dir/events/Y%%Y/M%%m/D%%d
+EIC_fire_source: $EIC_fire_dir/data/eonet/eonet_%%Y%%m%%d/eonet_%%Y%%m%%d.yml
+
+SWAVE_pub_dir: /discover/nobackup/projects/gmao/yotc/pub/fp/.internal/ShortWAVE
+SWAVE_event_dir: $EIC_event_dir/ShortWAVE
+
+max_events: 2
+plot_domain_size: [14.0, 7.0]
+stat_domain_size: [0.5, 0.5]
+
+NTASKS: 12
+
+playlist: &PLAYLIST
+  smoke:
+  # title: 'Surface Smoke (BC+OC) [ug m`a-3`n]'
+    title: 'Carbon Aerosol and Organic Carbon'
+    shortname: SurfaceSmokeGEOSCF
+    cbar: smoke.cbar.png
+    levels: [0]
+  wind10m:
+  # title: '10-meter Wind Speed (m/s)'
+    title: '10-meter Wind Speed'
+    shortname: WindSpeed10mGEOS
+    cbar: wind10m.cbar.png
+    levels: [0]
+  rhmin:
+  # title: '24hr Minimum Relative Humidity (%)'
+    title: '24hr Minimum Relative Humidity'
+    shortname: RHMin24hrGEOS
+    cbar: rhmin.cbar.png
+    levels: [0]
+# t2mmax:
+# # title: '24hr Maximum 2-Meter Temperature (`aO`nC)'
+#   title: '24hr Maximum 2-Meter Temperature'
+#   shortname: T2mMax24hrGEOS-FP
+#   cbar: t2mmax.cbar.png
+#   levels: [0]
+# gwettop:
+#   title: 'Surface Soil Wetness'
+#   shortname: GWETTopGEOS-FP
+#   cbar: gwettop.cbar.png
+#   levels: [0]
+  bc:
+    title: 'Black Carbon'
+    shortname: BlackCarbonGEOS2km
+    cbar: bc.cbar.png
+    levels: [0]
+
+statistics: &STATISTICS
+# gwettop:
+#   levels: [0]
+# t2mmax:
+#   levels: [0]
+# wind10m:
+#   levels: [0]
+# rhmin:
+#   levels: [0]
+  pm25sfc:
+    levels: [0]
+# cosfc:
+#   levels: [0]
+# no2sfc:
+#   levels: [0]
+# o3sfc:
+#   levels: [0]
+
+fire_monitor: &MONITOR
+  fire_monitor:
+    shortname: FireMonitorGEOS
+    levels: [0]
+
+#******************************************************************************
+default: &DEFAULT
+#******************************************************************************
+# English Name: Default
+# -------------
+#
+# Purpose: Default EIC configuration for producing fire images.
+# --------
+#
+# Notes: 
+# ------
+#
+# Interface: plot_fires.py --theme default ...
+# ----------
+#    
+#******************************************************************************
+
+  base_images: &BASE
+    pre_script: source $INSTALL_PATH/wxmap_modules
+    theme: eic_fires_regional
+    config: $EIC_fire_dir/events/Y%%Y/M%%m/D%%d/src/event.yml
+    playlist: *PLAYLIST
+    stream: GEOS
+    lights_off: 1
+    plot_only: 1
+    fullframe: 1
+    geometry: 2048x1024
+    fcst_dt: P0D
+    start_dt: -P12D
+    end_dt: PT24H
+    t_deltat: PT1H
+    oname: $EIC_event_dir/base/$region.$field.%Y%m%dT%H%M%S.png
+    ntasks: $NTASKS
+
+  stats: &STATS
+    <<: *BASE
+    playlist: *STATISTICS
+    theme: eic_fires_stats
+    config: $EIC_fire_dir/events/Y%%Y/M%%m/D%%d/src/stat.yml
+    oname: $EIC_event_dir/stats/$region.$field.stat
+    ntasks: $NTASKS
+
+  monitor: &FIRE_MONITOR
+    <<: *BASE
+    playlist: *MONITOR
+    console: $EIC_fire_dir/src/fire_monitor_all.png
+    oname: $EIC_event_dir/final/$fire_name.nasa.gmao.geos.analysis.fire_monitor.%Y-%m-%dT%H:%M:%S.png
+    ntasks: $NTASKS
+
+  final_images: &FINAL
+    <<: *BASE
+    font_color: 255 255 255
+    srcdir: $EIC_fire_dir/src
+    fire_box_size: $stat_domain_size
+    places_file: $EIC_fire_dir/src/places.json
+    bold_name: $EIC_fire_dir/src/helr65w.ttf
+    font_name: $EIC_fire_dir/src/helr65w.ttf
+    date_box_name: $EIC_fire_dir/src/date-box-curved-corner-500x100px.png
+    logo_box_name: $EIC_fire_dir/src/logo-box-curved-corner-350x75px.png
+    nasa_logo_name: $EIC_fire_dir/src/nasa-logo.png
+    gmao_logo_name: $EIC_fire_dir/src/gmao-logo-white.png
+    fire_icon: $EIC_fire_dir/src/fire_icon.png
+    oname: $EIC_event_dir/final/$fire_name.nasa.gmao.geos.analysis.$field.%Y-%m-%dT%H:%M:%S.png
+    ntasks: $NTASKS
+
+  movies: &MOVIES
+    <<: *BASE
+    ntasks: 5
+    modules: ffmpeg_modules
+    playlist: *PLAYLIST
+    frame_rate: 12
+    frame_size: 2048x1024
+    quality: 25
+    codec: libx264
+    oname: $EIC_fire_dir/events/Y%%Y/M%%m/D%%d/mp4/$fire_name.nasa.gmao.geos.analysis.$field.%%Y%%m%%d.mp4
+
+  publish: &PUBLISH
+    <<: *BASE
+    ntasks: 5
+    oname: $EIC_pub_dir/Y%%Y/M%%m/D%%d/$fire_name.nasa.gmao.geos.analysis.$field.%%Y%%m%%d.mp4
+
+  publish_latest:
+    <<: *BASE
+    ntasks: 5
+    oname: $EIC_pub_dir/latest/$fire_name.$shortname.%%Y%%m%%d.mp4
+
+  clean:
+    start_dt: -P10D
+    end_dt: -P5D
+    t_deltat: P1D
+    dir: $EIC_event_dir
+    ntasks: $NTASKS
+
+#******************************************************************************
+shortwave:
+#******************************************************************************
+# English Name: ShortWAVE
+# -------------
+#
+# Purpose: Configuration for producing fire images for the ShortWAVE catalog.
+# --------
+#   
+# Notes: 
+# ------
+#   
+# Interface: plot_fires.py --theme shortwave ...
+# ----------
+#    
+#******************************************************************************
+
+  base_images:
+    <<: *BASE
+    theme: eic_fires_shortwave
+    oname: $SWAVE_event_dir/base/$region.$field.%Y%m%dT%H%M%S.png
+
+  stats:
+    <<: *STATS
+    task: off
+
+  monitor:
+    <<: *FIRE_MONITOR
+    task: off
+
+  final_images:
+    <<: *FINAL
+    oname: $SWAVE_event_dir/final/$fire_name.nasa.gmao.geos.analysis.$field.%Y-%m-%dT%H:%M:%S.png
+    legend: $EIC_fire_dir/src/EIC_fire_legend.png
+    monitor: $EIC_event_dir/final/$fire_name.nasa.gmao.geos.analysis.fire_monitor.%Y-%m-%dT%H:%M:%S.png
+    drawbox: 1
+
+  movies:
+    <<: *MOVIES
+    oname: $SWAVE_event_dir/mp4/$fire_name.nasa.gmao.geos.analysis.$field.%%Y%%m%%d.mp4
+
+  publish:
+    <<: *PUBLISH
+    oname: $SWAVE_pub_dir/wildfires/EIC/Y%%Y/M%%m/D%%d/$fire_name.nasa.gmao.geos.analysis.$field.%%Y%%m%%d.mp4
+
+  publish_latest:
+    <<: *PUBLISH
+    task: off
+
+  clean:
+    start_dt: -P5D
+    end_dt: P0D
+    t_deltat: P1D
+    dir: $SWAVE_event_dir

@@ -1,0 +1,45 @@
+    def hgraph(*fields):
+    
+        categories = []
+        values = []
+        for field in fields:
+    
+            categories.append(field.title)
+            values.append(field.value)
+    
+        bar_height = 0.75
+        y_pos = np.arange(len(categories))
+    
+        fig, ax = plt.subplots()
+        dpi = fig.get_dpi()
+        fig.set_size_inches(1500/dpi,750/dpi)
+    
+        plt.tight_layout()
+    
+        # Create the horizontal bar chart
+        ax.barh(y_pos, 4*[100.2], height=bar_height, color='black',
+                edgecolor='white', linewidth=2)
+        ax.barh(y_pos, values, height=bar_height-0.02, color='red',
+                edgecolor=(0,0,0,0))
+    
+        # Hide the spines
+        ax.set_xlim(-0.2,100.2)
+        ax.spines['top'].set_visible(False)
+        ax.spines['left'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        levels = [0, 50, 100]
+        labels = ['Low', 'Moderate', 'High']
+        ax.set_xticks(levels)
+        ax.set_xticklabels(labels, fontsize=10, color='white',
+              fontfamily='sans-serif', fontweight='bold', fontstyle='normal')
+    
+        ax.set_yticks(y_pos)
+        ax.set_yticklabels(categories, fontsize=10, color='white',
+              fontfamily='sans-serif', fontweight='bold', fontstyle='normal')
+    
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png', facecolor=(0,0,0), dpi=dpi,
+           transparent=True, bbox_inches='tight', pad_inches=0)
+    
+        buf.seek(0)
+        return Image.open(buf)
