@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Usage
+# =====
+
 if [ $# -ne 2 ]; then
   echo "Usage: $0 [sccyymmdd] [eccyymmdd]" 2>&1
   exit 1
