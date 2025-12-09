@@ -1,5 +1,37 @@
 theme:
   attribute:
+    h250_anom_attr:
+    - {$level: 0, $region: greenland, cint: 26.0, cmax: 130, cmin: -130}
+    - {$level: 0, $region: sam, cint: 18.0, cmax: 90, cmin: -90}
+    - {$level: 0, $region: sps, cint: 21.0, cmax: 105, cmin: -105}
+    - {$level: 0, $region: africa, cint: 18.0, cmax: 90, cmin: -90}
+    - {$level: 0, $region: pacific, cint: 34.0, cmax: 170, cmin: -170}
+    - {$level: 0, $region: hawaii, cint: 12.0, cmax: 60, cmin: -60}
+    - {$level: 0, $region: australia, cint: 16.0, cmax: 80, cmin: -80}
+    - {$level: 0, $region: mideast, cint: 18.0, cmax: 90, cmin: -90}
+    - {$level: 0, $region: 'camer,enso,ensoext', cint: 16.0, cmax: 80, cmin: -80}
+    - {$level: 0, $region: sevseas, cint: 28.0, cmax: 140, cmin: -140}
+    - {$level: 0, $region: brazil, cint: 10.0, cmax: 50, cmin: -50}
+    - {$level: 0, $region: carib, cint: 12.0, cmax: 60, cmin: -60}
+    - {$level: 0, $region: usa, cint: 23.0, cmax: 115, cmin: -115}
+    - {$level: 0, $region: nam, cint: 27.0, cmax: 135, cmin: -135}
+    - {$level: 0, $region: indian, cint: 18.0, cmax: 90, cmin: -90}
+    - {$level: 0, $region: nps, cint: 34.0, cmax: 170, cmin: -170}
+    - {$level: 0, $region: natl, cint: 20.0, cmax: 100, cmin: -100}
+    - {$level: 0, $region: conus, cint: 20.0, cmax: 100, cmin: -100}
+    - {$level: 0, $region: europe, cint: 22.0, cmax: 110, cmin: -110}
+    - {$level: 0, $region: global, cint: 35.0, cmax: 175, cmin: -175}
+    - {$level: 0, $region: india, cint: 15.0, cmax: 75, cmin: -75}
+    - {$level: 0, $region: npac, cint: 32.0, cmax: 160, cmin: -160}
+    - {$level: 0, $region: atlantic, cint: 30.0, cmax: 150, cmin: -150}
+    - {$level: 0, $region: nasia, cint: 15.0, cmax: 75, cmin: -75}
+    - {$level: 0, $region: siberia, cint: 32.0, cmax: 160, cmin: -160}
+    - {$level: 0, $region: nepacific, cint: 20.0, cmax: 100, cmin: -100}
+    - {$level: 0, $region: indonesia, cint: 5.0, cmax: 25, cmin: -25}
+    - {$level: 0, $region: alaska, cint: 31.0, cmax: 155, cmin: -155}
+    - {$level: 0, $region: ortho, cint: 30.0, cmax: 150, cmin: -150}
+    - {$level: 0, $region: midatl, cint: 20.0, cmax: 100, cmin: -100}
+    - {$level: 0, $region: eastasia, cint: 22.0, cmax: 110, cmin: -110}
     h500_anom_attr:
     - {$level: 0, $region: greenland, cint: 24.0, cmax: 120, cmin: -120}
     - {$level: 0, $region: sam, cint: 14.0, cmax: 70, cmin: -70}
