@@ -18,6 +18,61 @@ theme:
         
   plot: 
 
+    u850_all: 
+      long_name: U850
+      levels: [0]
+      header: $model
+      title: '850 mb Zonal Wind (m)'
+      xlabel: $tm_string
+      layout: *LAYOUT1
+      panels:
+        - {field: u850_full, pos: 11, label: Mean}
+        - {field: u850_anom, pos: 21, label: Anomaly}
+        - {field: u850_diff, pos: 12, label: $model_name minus Neutral}
+        - {field: u850_std,  pos: 22, label: Std Dev}
+
+    u850_full:
+      long_name: U850
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 850 mb Zonal Wind (m)'
+      shaded:
+        expr: full(e=7)
+        cbar: Rainbow
+        cdict: u850_attr
+
+    u850_anom:
+      long_name: U850 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] 850 mb Zonal Wind (m)'
+      shaded:
+        expr: anom(e=7)
+        cdict: u850_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=7))
+      sigdash:
+        expr: abs(ttest(e=7))
+
+    u850_std:
+      long_name: U850 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 850 mb Zonal Wind (m)'
+      shaded:
+        expr: stdc(e=7)
+        cbar: Blues
+        cdict: u850_std_attr
+
+    u850_diff:
+      long_name: U850 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 850 mb Zonal Wind (m)'
+      shaded:
+        expr: full(e=7)-full.M2NEUT.none(e=7)
+        cdict: u850_anom_attr
+
     ts_all:
       long_name: TS
       levels: [0]
@@ -57,6 +112,19 @@ theme:
         - {field: h850_diff, pos: 12, label: $model_name minus Neutral}
         - {field: h850_std,  pos: 22, label: Std Dev}
 
+    u850_all:
+      long_name: U850
+      levels: [0]
+      header: $model
+      title: '850 mb Zonal Wind (m)'
+      xlabel: $tm_string
+      layout: *LAYOUT1
+      panels:
+        - {field: u850_full, pos: 11, label: Mean}
+        - {field: u850_anom, pos: 21, label: Anomaly}
+        - {field: u850_diff, pos: 12, label: $model_name minus Neutral}
+        - {field: u850_std,  pos: 22, label: Std Dev}
+
     prectot_all:
       long_name: Precip
       levels: [0]
@@ -86,7 +154,7 @@ theme:
     h850_anom:
       long_name: H850 Anom
       levels: [0]
-      layers: [shaded, sig95, sig90]
+      layers: [shaded, sigsolid, sigdash]
       title: '[Anomaly] 850 mb Heights (m)'
       shaded:
         expr: anom(e=4)
@@ -94,9 +162,9 @@ theme:
         cmin: -10
         cmax: 10
         cint: 2
-      sig95:
+      sigsolid:
         expr: abs(ttest(e=4))
-      sig90:
+      sigdash:
         expr: abs(ttest(e=4))
 
     h850_std:
@@ -115,7 +183,7 @@ theme:
     h850_ttest:
       long_name: H850 T-test
       levels: [0]
-      layers: [shaded, sig95, sig90]
+      layers: [shaded, sigsolid, sigdash]
       title: '[T-test] 850 mb Heights (m)'
       shaded:
         expr: abs(ttest(e=4))
@@ -123,9 +191,9 @@ theme:
         cmin: -2
         cmax: 2
         cint: 0.4
-      sig95:
+      sigsolid:
         expr: abs(ttest(e=4))
-      sig90:
+      sigdash:
         expr: abs(ttest(e=4))
 
     h850_diff:
@@ -153,10 +221,93 @@ theme:
         - {field: h500_diff, pos: 12, label: $model_name minus Neutral}
         - {field: h500_std,  pos: 22, label: Std Dev}
 
-    h500_full:
-      long_name: H500
+    h250_all:
+      long_name: H250
+      levels: [0]
+      header: $model
+      title: '250 mb Heights (m)'
+      xlabel: $tm_string
+      layout: *LAYOUT1
+      panels:
+        - {field: h250_full, pos: 11, label: Mean}
+        - {field: h250_anom, pos: 21, label: Anomaly}
+        - {field: h250_diff, pos: 12, label: $model_name minus Neutral}
+        - {field: h250_std,  pos: 22, label: Std Dev}
+
+    h250_full:
+      long_name: H250
       levels: [0]
       layers: [shaded]
+      title: '[Mean] 250 mb Heights (m)'
+      shaded:
+        expr: full(e=6)
+        cbar: Rainbow
+        cdict: h250_attr
+        cmin: 0
+        cmax: 20
+        cint: 2
+
+    h250_anom:
+      long_name: H250 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] 250 mb Heights (m)'
+      shaded:
+        expr: anom(e=6)
+        cdict: h250_anom_attr
+        cmin: -10
+        cmax: 10
+        cint: 2
+      sigsolid:
+        expr: abs(ttest(e=6))
+      sigdash:
+        expr: abs(ttest(e=6))
+
+    h250_std:
+      long_name: H250 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 250 mb Heights (m)'
+      shaded:
+        expr: stdc(e=6)
+        cbar: Blues
+        cdict: h250_std_attr
+        cmin: 0
+        cmax: 1
+        cint: 0.1
+
+    h250_ttest:
+      long_name: H250 T-test
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[T-test] 250 mb Heights (m)'
+      shaded:
+        expr: abs(ttest(e=6))
+        cdict:
+        cmin: -2
+        cmax: 2
+        cint: 0.4
+      sigsolid:
+        expr: abs(ttest(e=6))
+      sigdash:
+        expr: abs(ttest(e=6))
+
+    h250_diff:
+      long_name: H250 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 250 mb Heights (m)'
+      shaded:
+        expr: full(e=6)-full.M2NEUT.none(e=6)
+        cdict: h250_anom_attr
+        cmin: -10
+        cmax: 10
+        cint: 2
+
+    h500_full:
+      long_name: H500 
+      levels: [0]
+      layers: [shaded] 
       title: '[Mean] 500 mb Heights (m)'
       shaded:
         expr: full(e=5)
@@ -169,7 +320,7 @@ theme:
     h500_anom:
       long_name: H500 Anom
       levels: [0]
-      layers: [shaded, sig95, sig90]
+      layers: [shaded, sigsolid, sigdash]
       title: '[Anomaly] 500 mb Heights (m)'
       shaded:
         expr: anom(e=5)
@@ -177,9 +328,9 @@ theme:
         cmin: -10
         cmax: 10
         cint: 2
-      sig95:
+      sigsolid:
         expr: abs(ttest(e=5))
-      sig90:
+      sigdash:
         expr: abs(ttest(e=5))
 
     h500_std:
@@ -198,7 +349,7 @@ theme:
     h500_ttest:
       long_name: H500 T-test
       levels: [0]
-      layers: [shaded, sig95, sig90]
+      layers: [shaded, sigsolid, sigdash]
       title: '[T-test] 500 mb Heights (m)'
       shaded:
         expr: abs(ttest(e=5))
@@ -206,9 +357,9 @@ theme:
         cmin: -2
         cmax: 2
         cint: 0.4
-      sig95:
+      sigsolid:
         expr: abs(ttest(e=5))
-      sig90:
+      sigdash:
         expr: abs(ttest(e=5))
 
     h500_diff:
@@ -239,7 +390,7 @@ theme:
     prectot_anom:
       long_name: Precip Anom
       levels: [0]
-      layers: [shaded, sig95, sig90]
+      layers: [shaded, sigsolid, sigdash]
       title: '[Anomaly] Precipitation Rate (mm/day)'
       shaded:
         expr: anom(e=3)
@@ -248,9 +399,9 @@ theme:
         cmin: -10
         cmax: 10
         cint: 2
-      sig95:
+      sigsolid:
         expr: abs(ttest(e=3))
-      sig90:
+      sigdash:
         expr: abs(ttest(e=3))
 
     prectot_std:
@@ -269,7 +420,7 @@ theme:
     prectot_ttest:
       long_name: Precip T-test
       levels: [0]
-      layers: [shaded, sig95, sig90]
+      layers: [shaded, sigsolid, sigdash]
       title: '[T-test] Precipitation Rate (mm/day)'
       shaded:
         expr: abs(ttest(e=3))
@@ -277,9 +428,9 @@ theme:
         cmin: -2
         cmax: 2
         cint: 0.4
-      sig95:
+      sigsolid:
         expr: abs(ttest(e=3))
-      sig90:
+      sigdash:
         expr: abs(ttest(e=3))
 
     prectot_diff:
@@ -311,7 +462,7 @@ theme:
     ts_anom:
       long_name: TSURF Anom
       levels: [0]
-      layers: [shaded, sig95, sig90]
+      layers: [shaded, sigsolid, sigdash]
       title: '[Anomaly] Surface Temperature (C)'
       shaded:
         expr: anom(e=1)
@@ -319,9 +470,9 @@ theme:
         cmin: -3
         cmax: 3
         cint: 0.5
-      sig95:
+      sigsolid:
         expr: abs(ttest(e=1))
-      sig90:
+      sigdash:
         expr: abs(ttest(e=1))
 
     ts_std:
@@ -340,7 +491,7 @@ theme:
     ts_ttest:
       long_name: TSURF T-test
       levels: [0]
-      layers: [shaded, sig95, sig90]
+      layers: [shaded, sigsolid, sigdash]
       title: '[T-test] Surface Temperature (C)'
       shaded:
         expr: abs(ttest(e=1))
@@ -350,9 +501,9 @@ theme:
         cint: 0.4
         nsub: 8
         skip: 8
-      sig95:
+      sigsolid:
         expr: abs(ttest(e=1))
-      sig90:
+      sigdash:
         expr: abs(ttest(e=1))
 
     ts_diff:
@@ -383,7 +534,7 @@ theme:
     t2m_anom:
       long_name: T2M Anom
       levels: [0]
-      layers: [shaded, sig95, sig90]
+      layers: [shaded, sigsolid, sigdash]
       title: '[Anomaly] Temperature at 2-meters (C)'
       shaded:
         expr: anom(e=2)
@@ -391,9 +542,9 @@ theme:
         cmin: -3
         cmax: 3
         cint: 0.5
-      sig95:
+      sigsolid:
         expr: abs(ttest(e=2))
-      sig90:
+      sigdash:
         expr: abs(ttest(e=2))
 
     t2m_std:
@@ -412,7 +563,7 @@ theme:
     t2m_ttest:
       long_name: T2M T-test
       levels: [0]
-      layers: [shaded, sig95, sig90]
+      layers: [shaded, sigsolid, sigdash]
       title: '[T-test] Temperature at 2-meters (C)'
       shaded:
         expr: abs(ttest(e=2))
@@ -422,9 +573,9 @@ theme:
         cint: 0.4
         nsub: 8
         skip: 8
-      sig95:
+      sigsolid:
         expr: abs(ttest(e=2))
-      sig90:
+      sigdash:
         expr: abs(ttest(e=2))
 
     t2m_diff:
@@ -456,7 +607,7 @@ theme:
       clsize: 0.18
       contour: 'off'
 
-    sig90:
+    sigdash:
       gxout: contour
       cint: 1000
       ccolor: 0 255 0
@@ -467,7 +618,7 @@ theme:
       clthick: 10
       clab: 'off'
 
-    sig95:
+    sigsolid:
       gxout: contour
       cint: 1000
       ccolor: 0 255 0

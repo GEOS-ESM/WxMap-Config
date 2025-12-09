@@ -102,4 +102,39 @@ theme:
       - {'$level': 0, '$region': 'midatl',  cmin: 0, cmax: 40, cint: 4}
       - {'$level': 0, '$region': 'eastasia',  cmin: 0, cmax: 45, cint: 5}
 
+    h250_std_attr:
+      - {$region: africa, cint: 10, cmax: 90, cmin: 0, scale: exp_scale}
+      - {$region: alaska, cint: 16, cmax: 144, cmin: 0}
+      - {$region: atlantic, cint: 15, cmax: 150, cmin: 0}
+      - {$region: australia, cint: 11, cmax: 99, cmin: 0}
+      - {$region: brazil, cint: 7, cmax: 70, cmin: 0}
+      - {$region: camer, cint: 8, cmax: 72, cmin: 0, scale: exp_scale}
+      - {$region: carib, cint: 6, cmax: 54, cmin: 0}
+      - {$region: conus, cint: 12, cmax: 120, cmin: 0}
+      - {$region: eastasia, cint: 11, cmax: 99, cmin: 0}
+      - {$region: ensoext, cint: 8, cmax: 80, cmin: 0, scale: exp_scale}
+      - {$region: enso, cint: 8, cmax: 80, cmin: 0}
+      - {$region: europe, cint: 16, cmax: 144, cmin: 0}
+      - {$region: global, cint: 17, cmax: 170, cmin: 0}
+      - {$region: greenland, cint: 16, cmax: 144, cmin: 0}
+      - {$region: hawaii, cint: 8, cmax: 80, cmin: 0}
+      - {$region: indian, cint: 13, cmax: 130, cmin: 0, scale: exp_scale}
+      - {$region: india, cint: 7, cmax: 70, cmin: 0}
+      - {$region: indonesia, cint: 2, cmax: 22, cmin: 0}
+      - {$region: midatl, cint: 10, cmax: 100, cmin: 0}
+      - {$region: mideast, cint: 10, cmax: 100, cmin: 0}
+      - {$region: nam, cint: 16, cmax: 144, cmin: 0}
+      - {$region: nasia, cint: 16, cmax: 144, cmin: 0}
+      - {$region: natl, cint: 13, cmax: 117, cmin: 0, scale: exp_scale}
+      - {$region: nepacific, cint: 14, cmax: 140, cmin: 0}
+      - {$region: npac, cint: 16, cmax: 144, cmin: 0}
+      - {$region: nps, cint: 16, cmax: 144, cmin: 0}
+      - {$region: ortho, cint: 17, cmax: 170, cmin: 0}
+      - {$region: pacific, cint: 16, cmax: 144, cmin: 0}
+      - {$region: sam, cint: 14, cmax: 140, cmin: 0, scale: exp_scale}
+      - {$region: sevseas, cint: 12, cmax: 108, cmin: 0, scale: exp_scale}
+      - {$region: siberia, cint: 16, cmax: 144, cmin: 0}
+      - {$region: sps, cint: 17, cmax: 170, cmin: 0}
+      - {$region: usa, cint: 16, cmax: 144, cmin: 0}
+
     ts_std_attr: *T2M

@@ -104,6 +104,40 @@ theme:
       - {'$level': 0, '$region': 'midatl',  cmin: 1368, cmax: 1548, cint: 18}
       - {'$level': 0, '$region': 'eastasia',  cmin: 1276, cmax: 1566, cint: 29, scale: log_scale}
 
+    h250_attr:
+
+      - {'$level': 0, '$region': 'greenland', cmin: 10890, cmax: 11616, cint: 66, scale: exp_scale}
+      - {'$level': 0, '$region': 'sam', cmin: 11160, cmax: 12400, cint: 124, scale: log_scale}
+      - {'$level': 0, '$region': 'sps', cmin: 11004, cmax: 12314, cint: 131, scale: exp_scale}
+      - {'$level': 0, '$region': 'africa', cmin: 11613, cmax: 12482, cint: 79, scale: log_scale}
+      - {'$level': 0, '$region': 'pacific', cmin: 10764, cmax: 12480, cint: 156}
+      - {'$level': 0, '$region': 'hawaii', cmin: 11970, cmax: 12465, cint: 45}
+      - {'$level': 0, '$region': 'australia', cmin: 11424, cmax: 12444, cint: 102, scale: log_scale}
+      - {'$level': 0, '$region': 'mideast', cmin: 11524, cmax: 12384, cint: 86}
+      - {'$level': 0, '$region': 'camer,enso,ensoext', cmin: 11956, cmax: 12446, cint: 49, scale: log_scale}
+      - {'$level': 0, '$region': 'sevseas', cmin: 11011, cmax: 12441, cint: 143, scale: log_scale}
+      - {'$level': 0, '$region': 'brazil', cmin: 11956, cmax: 12446, cint: 49, scale: log_scale}
+      - {'$level': 0, '$region': 'carib', cmin: 12060, cmax: 12456, cint: 36, scale: log_scale}
+      - {'$level': 0, '$region': 'usa', cmin: 11102, cmax: 12322, cint: 122}
+      - {'$level': 0, '$region': 'nam', cmin: 10857, cmax: 12408, cint: 141}
+      - {'$level': 0, '$region': 'indian', cmin: 11088, cmax: 12408, cint: 132, scale: log_scale}
+      - {'$level': 0, '$region': 'nps', cmin: 10804, cmax: 12410, cint: 146, scale: exp_scale}
+      - {'$level': 0, '$region': 'natl', cmin: 11160, cmax: 12480, cint: 120, scale: log_scale}
+      - {'$level': 0, '$region': 'conus', cmin: 11200, cmax: 12320, cint: 112}
+      - {'$level': 0, '$region': 'europe', cmin: 10947, cmax: 12177, cint: 123}
+      - {'$level': 0, '$region': 'global', cmin: 10764, cmax: 12480, cint: 156}
+      - {'$level': 0, '$region': 'india', cmin: 11680, cmax: 12410, cint: 73, scale: log_scale}
+      - {'$level': 0, '$region': 'npac', cmin: 10780, cmax: 12474, cint: 154}
+      - {'$level': 0, '$region': 'atlantic', cmin: 10981, cmax: 12510, cint: 139, scale: log_scale}
+      - {'$level': 0, '$region': 'nasia', cmin: 11135, cmax: 12445, cint: 131}
+      - {'$level': 0, '$region': 'siberia', cmin: 10836, cmax: 11782, cint: 86, scale: exp_scale}
+      - {'$level': 0, '$region': 'nepacific', cmin: 11070, cmax: 12420, cint: 135}
+      - {'$level': 0, '$region': 'indonesia', cmin: 12375, cmax: 12474, cint: 9, scale: log_scale}
+      - {'$level': 0, '$region': 'alaska', cmin: 10950, cmax: 11753, cint: 73}
+      - {'$level': 0, '$region': 'ortho', cmin: 10792, cmax: 12464, cint: 152}
+      - {'$level': 0, '$region': 'midatl', cmin: 11400, cmax: 12225, cint: 75}
+      - {'$level': 0, '$region': 'eastasia', cmin: 10950, cmax: 12410, cint: 146}
+
     h500_attr:
 
       - {'$level': 0, '$region': 'greenland',  cmin: 5031, cmax: 5461, cint: 43, scale: exp_scale}
@@ -138,4 +172,40 @@ theme:
       - {'$level': 0, '$region': 'midatl',  cmin: 5336, cmax: 5796, cint: 46}
       - {'$level': 0, '$region': 'eastasia',  cmin: 5082, cmax: 5852, cint: 77}
 
+    h250_attr:
+      - {$region: africa, cint: 66, cmax: 10956, cmin: 10296}
+      - {$region: alaska, cint: 130, cmax: 10790, cmin: 9490}
+      - {$region: atlantic, cint: 125, cmax: 10875, cmin: 9625}
+      - {$region: australia, cint: 94, cmax: 10810, cmin: 9870}
+   #  - {$region: brazil, cint: 48, cmax: 10944, cmin: 10464, scale: log_scale}
+      - {$region: brazil, cint: 61, cmax: 10980, cmin: 10370, scale: log_scale}
+      - {$region: camer, cint: 35, cmax: 10955, cmin: 10605, scale: log_scale}
+      - {$region: carib, cint: 24, cmax: 10968, cmin: 10728, scale: log_scale}
+      - {$region: conus, cint: 96, cmax: 10848, cmin: 9888}
+      - {$region: eastasia, cint: 119, cmax: 10829, cmin: 9639}
+      - {$region: ensoext, cint: 45, cmax: 10980, cmin: 10530}
+      - {$region: enso, cint: 40, cmax: 10960, cmin: 10560, scale: log_scale}
+      - {$region: europe, cint: 130, cmax: 10790, cmin: 9490}
+      - {$region: global, cint: 154, cmax: 10780, cmin: 9240}
+      - {$region: greenland, cint: 130, cmax: 10790, cmin: 9490}
+      - {$region: hawaii, cint: 34, cmax: 10948, cmin: 10608}
+      - {$region: indian, cint: 128, cmax: 10880, cmin: 9600, scale: log_scale}
+      - {$region: india, cint: 55, cmax: 11000, cmin: 10450, scale: log_scale}
+      - {$region: indonesia, cint: 7, cmax: 11018, cmin: 10941}
+      - {$region: midatl, cint: 72, cmax: 10872, cmin: 10152}
+      - {$region: mideast, cint: 73, cmax: 10950, cmin: 10220}
+      - {$region: nam, cint: 130, cmax: 10790, cmin: 9490}
+      - {$region: nasia, cint: 130, cmax: 10790, cmin: 9490}
+      - {$region: natl, cint: 96, cmax: 10848, cmin: 9888, scale: log_scale}
+      - {$region: nepacific, cint: 105, cmax: 10815, cmin: 9765}
+      - {$region: npac, cint: 122, cmax: 10858, cmin: 9638}
+      - {$region: nps, cint: 130, cmax: 10790, cmin: 9490}
+      - {$region: ortho, cint: 149, cmax: 10728, cmin: 9238}
+      - {$region: pacific, cint: 127, cmax: 10795, cmin: 9525}
+      - {$region: sam, cint: 116, cmax: 10788, cmin: 9628, scale: log_scale}
+      - {$region: sevseas, cint: 116, cmax: 10904, cmin: 9744, scale: log_scale}
+      - {$region: siberia, cint: 130, cmax: 10790, cmin: 9490}
+      - {$region: sps, cint: 142, cmax: 10650, cmin: 9230}
+      - {$region: usa, cint: 130, cmax: 10790, cmin: 9490}
+  
     ts_attr: *T2M
