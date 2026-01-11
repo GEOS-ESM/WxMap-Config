@@ -36,7 +36,10 @@ map:
     layers: [coastlines, water, land, shaderelief, lsmask]
 
   blackmarble-custom:
-    file: /discover/nobackup/jardizzo/maps/BlackMarble_2016/BlackMarble_2016_7680x2160.enhanced.png
+  # service: blackmarble-12000x6000
+  # file: /discover/nobackup/jardizzo/maps/BlackMarble_2016/BlackMarble_2016_12000x6000.png
+    service: blackmarble-7680x4320
+    file: /discover/nobackup/jardizzo/maps/BlackMarble_2016/BlackMarble_2016_7680x4320.enhanced.png
     water_color: 0 0 0 0
     land_color: 0 0 0 0
     line_color: 0 0 0 100

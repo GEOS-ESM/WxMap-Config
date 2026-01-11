@@ -118,6 +118,24 @@ region:
     mproj: latlon
     mpvals:
 
+  sam2:
+
+    long_name: South America
+    lon: 260 360
+    lat: -60 -10
+    mpdset: mres
+    mproj: latlon
+    mpvals:
+
+  srilanka:
+
+    long_name: Sri Lanka
+    lon: 60 100
+    lat: 0 20
+    mpdset: mres
+    mproj: latlon
+    mpvals:
+
   carib:
 
     long_name: Caribbean
