@@ -1,0 +1,10 @@
+I) Source the installed/shared version of WxMap
+
+CSH: source /discover/nobackup/jardizzo/Shared/discover/WxMap/utils/modules.csh
+BASH: source /discover/nobackup/jardizzo/Shared/discover/WxMap/utils/modules.sh
+
+II) Execute WxMap to create the images
+
+Example:
+
+wxmap.py --theme classic_geos_ca --stream GEOSCFAN --time_dt 20250109T21 --field o3sfc --region usa --oname 'nasa.gmao.geos-cf.analysis.o3sfc.%Y-%m-%dT%H:%M:%S.png'
