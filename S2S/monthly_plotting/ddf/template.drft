@@ -1,0 +1,6 @@
+dset /gpfsm/dnb07/projects/p236/GEOSS2S3/GEOS_fcst/data/DRFT/DRFT_2001_2020/COLLECTION/^%b/^%b.COLLECTION.monthly.drift.%%m.nc4
+title S2S Ensemble Mean
+undef 1e+15
+dtype netcdf
+xdef lon 720 linear -180 0.5
+ydef lat 361 linear -90 0.5

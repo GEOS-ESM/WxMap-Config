@@ -1,0 +1,6 @@
+dset /discover/nobackup/projects/gmao/geos-s2s-3/GEOSS2S3/GEOS_fcst4nrt/data/ensmean/%Y/^%b/^%b.COLLECTION.monthly.%%Y%%m.ensmean.nc4
+title S2S Ensemble Mean
+undef 1e+15
+dtype netcdf
+xdef lon 720 linear -180 0.5
+ydef lat 361 linear -90 0.5
