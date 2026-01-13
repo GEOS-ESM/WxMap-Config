@@ -2,6 +2,44 @@ theme:
 
   plot:
 
+    otp_pacific: &OTP
+      long_name: Ocean Temperature
+      levels: [0]
+      layers: [shaded]
+      title: '[Anomaly] Ocean Temperature (C)'
+      parea: 1 10 1 7.5
+      lev: 300 0
+      lat: 0
+      lon: 130 280
+      ylab: 'Depth (m)'
+      shaded:
+        expr: ave(_t-_t_ltm,lat=-20,lat=20)
+        cbar: bwr
+        cmin: -4
+        cmax: 4
+        cint: 0.5
+        nsub: 1
+        skip: 2
+
+    otp_atlantic:
+      <<: *OTP
+      title: '[Tropical Atlantic] Ocean Temperature (C)'
+      lon: -77 -16
+
+    totexttau_anom:
+      long_name: Total Aerosol Extinction AOT [550 nm]
+      levels: [0]
+      layers: [shaded]
+      title: '[Anomaly] Total Aerosol Extinction'
+      shaded:
+        expr: (_totexttau-_totexttau_ltm)
+        cbar: bwr
+        cmin: -1
+        cmax: 1
+        cint: 0.1
+        nsub: 1
+        skip: 2
+
     dusmass_anom: 
       long_name: Dust Surface Mass Concentration
       levels: [0]
@@ -15,6 +53,26 @@ theme:
         cint: 0.5
         nsub: 1
         skip: 2
+
+    ducmass_anom:
+      long_name: Dust Column Mass Density
+      levels: [0]
+      layers: [shaded]
+      title: '[Anomaly] Dust Column Mass Density (kg/m`a2`nx10`a-4`n)'
+      shaded:
+        expr: (_ducmass-_ducmass_ltm)*1.e+4
+        cbar: bwr
+        cmin: -2
+        cmax: 2
+        cint: 0.25
+        nsub: 1
+        skip: 2
+        alpha:
+          0.00 1.00 1.00 1.00
+          0.45 1.00 1.00 0.00
+          0.50 0.00 0.00 0.00
+          0.55 1.00 1.00 1.00
+          1.00 1.00 1.00 1.00
 
     T2M_anom:
       long_name: T2M Anom

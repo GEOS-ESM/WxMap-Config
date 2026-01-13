@@ -1,6 +1,6 @@
 stream:
 
-  S2SENS:
+  S2SENS: &s2sens
 
     long_name: S2S Ensemble Mean
     type: analysis
@@ -10,6 +10,8 @@ stream:
   # uri: /gpfsm/dnb04/projects/p71/aogcm/g5fcst/forecast/production/geos-s2s/runx/ensmean/%%Y/^%%b/^%%b.$collection.monthly.%Y%m.nc4
     service: !!python/object/apply:dataservice.GEOSDDF []
     logos: [nasa-logo-ul, gmao-logo-ur]
+
+  S2SV2: *s2sens
 
   S2SDRFT:
 
@@ -21,3 +23,35 @@ stream:
   # uri: /gpfsm/dnb04/projects/p71/aogcm/g5fcst/forecast/production/geos-s2s/runx/ensmean/DRFT/^%%b/^%%b.$collection.%m.nc4
     service: !!python/object/apply:dataservice.GEOSDDF []
     logos: [nasa-logo-ul, gmao-logo-ur]
+
+  S2SV3: &v3main
+
+    long_name: S2S Ensemble Mean
+    type: analysis
+    institution: Global Modeling and Assimilation Office (GMAO)
+    description: GEOS-S2S-2
+  # uri: /discover/nobackup/projects/gmao/geos-s2s-3/GEOSS2S3/GEOS_fcst4nrt/data/ensmean/%%Y/^%%b/^%%b.$collection.monthly.%Y%m.ensmean.nc4
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/S2S-3/opendap/ensemble/%%Y/^%%b/^%%b.$collection.monthly.%Y%m.ddf
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+  S2SV3VAR:
+
+    <<: *v3main
+    uri: /discover/nobackup/projects/gmao/geos-s2s-3/GEOSS2S3/GEOS_fcst4nrt/data/ensmean/%%Y/^%%b/^%%b.$collection.$var.monthly.%Y%m.ensmean.nc4
+
+  S2SV3DRFT: &v3drftmain
+
+    long_name: S2S Ensemble Mean Drift
+    type: analysis
+    institution: Global Modeling and Assimilation Office (GMAO)
+    description: GEOS-S2S-2
+  # uri: /gpfsm/dnb07/projects/p236/GEOSS2S3/GEOS_fcst/data/DRFT/DRFT_2001_2020/$collection/^%%b/^%%b.$collection.monthly.drift.%m.nc4
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/S2S-3/opendap/ensemble/DRFT/^%%b/^%%b.$collection.%m.ddf
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+  S2SV3DRFTVAR:
+
+    <<: *v3drftmain
+    uri: /gpfsm/dnb07/projects/p236/GEOSS2S3/GEOS_fcst/data/DRFT/DRFT_2001_2020/$collection/^%%b/^%%b.$collection.$var.monthly.drift.%m.nc4

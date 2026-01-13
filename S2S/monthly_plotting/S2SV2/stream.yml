@@ -1,0 +1,25 @@
+stream:
+
+  S2SENS: &s2sens
+
+    long_name: S2S Ensemble Mean
+    type: analysis
+    institution: Global Modeling and Assimilation Office (GMAO)
+    description: GEOS-S2S-2
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/S2S-2_1/opendap/ensemble/%%Y/^%%b/^%%b.$collection.monthly.%Y%m.ddf
+  # uri: /gpfsm/dnb04/projects/p71/aogcm/g5fcst/forecast/production/geos-s2s/runx/ensmean/%%Y/^%%b/^%%b.$collection.monthly.%Y%m.nc4
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+  S2SV2: *s2sens
+
+  S2SDRFT:
+
+    long_name: S2S Ensemble Mean Drift
+    type: analysis
+    institution: Global Modeling and Assimilation Office (GMAO)
+    description: GEOS-S2S-2
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/S2S-2_1/opendap/ensemble/DRFT/^%%b/^%%b.$collection.%m.ddf
+  # uri: /gpfsm/dnb04/projects/p71/aogcm/g5fcst/forecast/production/geos-s2s/runx/ensmean/DRFT/^%%b/^%%b.$collection.%m.nc4
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    logos: [nasa-logo-ul, gmao-logo-ur]

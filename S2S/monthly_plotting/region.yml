@@ -40,8 +40,17 @@ region:
 
   eqpac:
 
-    long_name: Equatorial pacific
+    long_name: Equatorial Pacific
     lon: 110 290
+    lat: -20 20
+    mpdset: newmap
+    mproj: latlon
+    addlayers: [NE_10m_Lakes, NE_10m_Admin0]
+
+  eqatl:
+
+    long_name: Equatorial Atlantic
+    lon: 283 344
     lat: -20 20
     mpdset: newmap
     mproj: latlon

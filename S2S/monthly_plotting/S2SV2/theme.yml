@@ -1,0 +1,11 @@
+theme:
+
+  plot:
+
+    otp_pacific:
+      lev: 300 0
+      yflip: 'off'
+
+    otp_atlantic:
+      lev: 300 0
+      yflip: 'off'
