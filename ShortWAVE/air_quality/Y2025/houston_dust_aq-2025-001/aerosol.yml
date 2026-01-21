@@ -1,0 +1,174 @@
+AOT_alpha: &AOT_ALPHA
+  alpha_old: 
+    - 0.00 0.0 0.0
+    - 0.30 0.0 0.0
+    - 0.70 0.8 0.8
+    - 1.00 1.0 1.0
+
+  alpha:
+    - 0.00 0.0 0.0
+    - 0.05 0.0 0.0
+    - 0.50 1.0 1.0
+    - 1.00 1.0 1.0
+
+theme:
+
+  plot:
+
+    aod:
+      long_name: Aerosols
+      levels: [0]
+     #layers: [bcexttau, ocexttau, duexttau, ssexttau, niexttau, suexttau]
+      layers: [bcexttau, ocexttau, ssexttau, niexttau, suexttau, duexttau]
+     #layers: [duexttau]
+      title: 'AOT'
+      map:
+        layers: [shaderelief-gray]
+
+  layer:
+
+    slp:
+      gxout: contour
+      expr: _slp / 100
+      cint: 4
+      clab: masked
+      cthick: 4
+      ccolor: 0 0 0
+      clsize: 0.12
+
+    hilo:
+      gxout: hilo
+      expr: smth9(smth9(_slp / 100))
+
+    ssexttau:
+      gxout: shaded
+      expr: _ssexttau*2.0
+      cbar: SSEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+    duexttau:
+      gxout: shaded
+      expr: _duexttau
+      cbar: DUEXTTAU
+      cbunits: 
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+    suexttau:
+      gxout: shaded
+      expr: _suexttau*2
+      cbar: SUEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+    ocexttau:
+      gxout: shaded
+      expr: _ocexttau*5.0
+      cbar: OCEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+    bcexttau:
+      gxout: shaded
+      expr: _bcexttau*10.0
+      cbar: BCEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+    niexttau:
+      gxout: shaded
+      expr: _niexttau
+      cbar: NIEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 0.5
+      cint: 0.05
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+field:
+
+  GEOSANA:
+
+    _duexttau:
+      long_name: Dust Extinction AOT [550 nm]
+      units: '1'
+      expression: duexttau.inst1_2d_hwl_Nx
+
+    _suexttau:
+      long_name: SO4 Extinction AOT [550 nm]
+      units: '1'
+      expression: suexttau.inst1_2d_hwl_Nx
+
+    _ssexttau:
+      long_name: Sea Salt Extinction AOT [550 nm]
+      units: '1'
+      expression: ssexttau.inst1_2d_hwl_Nx
+
+    _ocexttau:
+      long_name: Organic Carbon Extinction AOT [550 nm]
+      units: '1'
+      expression: ocexttau.inst1_2d_hwl_Nx
+
+    _bcexttau:
+      long_name: Black Carbon Extinction AOT [550 nm]
+      units: '1'
+      expression: bcexttau.inst1_2d_hwl_Nx
+
+    _niexttau:
+      long_name: Nitrate Extinction AOT [550 nm]
+      units: '1'
+      expression: niexttau.inst1_2d_hwl_Nx
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: Pa
+      expression: slp.tavg1_2d_slv_Nx
+
+annotate:
+
+  xlabel:
+    string: $tm_string
+    color: 255 255 255
+    size: 0.16 0.17
+    position: 'c'
+    margin: -0.4
+    font: fixed
