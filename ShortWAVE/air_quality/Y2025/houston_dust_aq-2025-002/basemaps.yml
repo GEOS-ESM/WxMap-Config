@@ -1,0 +1,10 @@
+map:
+
+  blackmarble-custom:
+    service: blackmarble-24000x12000-dark
+    file: /discover/nobackup/jardizzo/maps/BlackMarble_2016/BlackMarble_2016_24000x12000_dark.png
+    water_color: 0 0 0 0
+    land_color: 0 0 0 0
+    line_color: 0 0 0 100
+    line_width: 2
+    layers: [water, land]

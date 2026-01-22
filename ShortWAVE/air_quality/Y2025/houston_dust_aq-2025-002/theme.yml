@@ -1,0 +1,145 @@
+AOT_alpha: &AOT_ALPHA
+  alpha_old: 
+    - 0.00 0.0 0.0
+    - 0.30 0.0 0.0
+    - 0.70 0.8 0.8
+    - 1.00 1.0 1.0
+
+  alpha:
+    - 0.00 0.0 0.0
+    - 0.10 0.0 0.0
+    - 0.50 1.0 1.0
+    - 1.00 1.0 1.0
+
+alpha_default: &alpha1
+  alpha:
+    - 0.00 0.0 0.0
+    - 0.50 1.0 1.0
+    - 1.00 1.0 1.0
+
+alpha_SSEXTTAU: &alpha2
+  alpha:
+    - 0.00 0.2 0.2
+    - 0.50 1.0 1.0
+    - 1.00 1.0 1.0
+
+theme:
+
+  plot:
+
+    aod:
+      long_name: Aerosols
+      levels: [0]
+      layers: [suexttau, ssexttau, bcexttau, duexttau]
+      title: 'AOT'
+      map:
+        layers: [blackmarble-custom]
+
+  layer:
+
+    slp:
+      gxout: contour
+      expr: _slp / 100
+      cint: 4
+      clab: masked
+      cthick: 4
+      ccolor: 0 0 0
+      clsize: 0.12
+
+    hilo:
+      gxout: hilo
+      expr: smth9(smth9(_slp / 100))
+
+    ssexttau:
+      gxout: shaded
+      expr: _ssexttau*2.5
+      cbar: SSEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 1
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *alpha1
+
+    duexttau:
+      gxout: shaded
+      expr: _duexttau*1.5
+      cbar: DUEXTTAU
+      cbunits: 
+      clevs:
+      cmin: 0
+      cmax: 1
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *alpha1
+
+    suexttau:
+      gxout: shaded
+      expr: _suexttau*2.5
+      cbar: SUEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 1
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *alpha1
+
+    ocexttau:
+      gxout: shaded
+      expr: _ocexttau*2.5
+      cbar: OCEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 1
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *alpha1
+
+    bcexttau:
+      gxout: shaded
+      expr: _bcexttau*5
+      cbar: BCEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 1
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *alpha1
+
+    niexttau:
+      gxout: shaded
+      expr: _niexttau*20
+      cbar: OCEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 1
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      <<: *AOT_ALPHA
+
+annotate:
+
+  xlabel:
+    string: $tm_string
+    color: 255 255 255
+    size: 0.16 0.17
+    position: 'c'
+    margin: -0.4
+    font: fixed
