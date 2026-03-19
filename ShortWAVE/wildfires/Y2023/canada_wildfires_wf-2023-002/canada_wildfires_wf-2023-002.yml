@@ -1,0 +1,160 @@
+stream:
+
+  GEOSFPANA:
+
+    long_name: GEOS FP
+    description: GEOS FP Analysis
+    type: analysis
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/yotc/pub/f5295_fp/opendap/assim/$collection
+  # uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/assim/$collection
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+  GEOSFPFC:
+
+    long_name: GEOS FP
+    description: GEOS $cycle
+    type: forecast
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/fcast/$collection/$collection.%%Y%%m%%d_%%H
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+
+  QFED:
+
+    long_name: QFED
+    description: QFED
+    type: analysis
+    downloading: enabled
+    access: private
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/qfed/qfed2.emis_co.061.%Y%m%d.nc4
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: Global Modeling and Assimilation Office (GMAO)
+    reference:
+    link:
+    logos: []
+
+field:
+
+  GEOSFPFC: &geos
+
+    _biomass:
+      long_name: Biomass
+      units: 1
+      expression: biomass.QFED.QFED(z=1,t=1)
+
+    _coclbbna:
+      long_name: CO Column Burden (North America Biomass Burning)
+      units: kg m-2
+      expression: coclbbna.inst1_2d_hwl_Nx
+
+  GEOSFPANA:
+
+    <<: *geos
+
+map:
+
+  Canada_Province:
+    shape_file: Canada/PROVINCE
+    zorder: -1
+
+  bluemarble01:
+    line_color: 255 255 255
+    line_width: 1
+    water_color: 61 63 99
+    land_color: 0 0 0 0
+    land_brightness: 2.0
+    land_saturation: 0.3
+    layers: [clearmap, bluemarble, lsmask]
+
+region:
+
+  nam:
+
+    long_name: North America
+    lon: -180 180
+    lat: 0 90
+    mpdset: hires
+    mproj: nps
+    mpvals: 230 310 20 86
+    addlayers: [Canada_Province]
+    frame: 'off'
+
+theme:
+
+  plot:
+
+    cobbna:
+      long_name: CO Biomass Burning North America
+      levels: [0]
+      layers: [cobbna, qfed1, qfed2]
+      title: 'Column CO from North American Wildfires [10`a18`n molecules cm`a-2`n]'
+      map:
+        line_color: 255 255 255
+        line_width: 2
+        layers: [bluemarble01]
+
+  layer:
+
+    cobbna:
+      gxout: shaded
+      expr: _coclbbna*2150
+      cbar: myinferno
+      cmin:
+      cmax:
+      cint:
+      clevs: 0.02 0.025 0.03 0.035 0.04 0.08 0.16 0.32 0.64 1.28 2.56
+      nsub: 10
+      skip: 10
+      scale: exp_scale
+      alpha:
+        - 0.00 0.0 0.0
+        - 0.03 0.0 0.0
+        - 0.05 1.0 1.0
+        - 1.00 1.0 1.0
+
+    qfed1:
+      gxout: grid
+      cmark: 9
+      digsiz: 0.08
+      ccolor: 230 0 0
+      cthick: 5
+      expr: maskout(_biomass, _biomass-0.00000008)
+      
+    qfed2:
+      gxout: grid
+      cmark: 8
+      digsiz: 0.08
+      ccolor: 0 0 0
+      cthick: 5
+      expr: maskout(_biomass, _biomass-0.00000008)
+
+attribute:
+
+  colorbar:
+
+    myinferno:
+      - 61 61 100
+      - 40 11 84
+      - 101 21 110
+      - 159 42 99
+      - 212 72 66
+      - 245 125 21
+      - 250 193 39
+      - 252 255 164

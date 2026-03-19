@@ -1,0 +1,51 @@
+stream:
+
+  GEOSFPANA:
+
+    long_name: GEOS FP
+    description: GEOS FP Analysis
+    type: analysis
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/yotc/pub/f5295_fp/opendap/assim/$collection
+  # uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/assim/$collection
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+  GEOSFPFC:
+
+    long_name: GEOS FP
+    description: GEOS $cycle
+    type: forecast
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/fcast/$collection/$collection.%%Y%%m%%d_%%H
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+
+  QFED:
+
+    long_name: QFED
+    description: QFED
+    type: analysis
+    downloading: enabled
+    access: private
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/qfed/qfed2.emis_co.061.%Y%m%d.nc4
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: Global Modeling and Assimilation Office (GMAO)
+    reference:
+    link:
+    logos: []

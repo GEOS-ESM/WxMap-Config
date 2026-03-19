@@ -1,0 +1,14 @@
+map:
+
+  Canada_Province:
+    shape_file: Canada/PROVINCE
+    zorder: -1
+
+  bluemarble01:
+    line_color: 255 255 255
+    line_width: 1
+    water_color: 61 63 99
+    land_color: 0 0 0 0
+    land_brightness: 2.0
+    land_saturation: 0.3
+    layers: [clearmap, bluemarble, lsmask]
