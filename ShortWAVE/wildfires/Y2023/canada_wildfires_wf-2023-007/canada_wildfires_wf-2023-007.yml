@@ -1,12 +1,14 @@
 stream:
 
-  CONUS2KM:
-    long_name: GEOS CONUS 2KM Replay
-    description: GEOS CONUS 2KM Replay
+  GEOSFPANA:
+
+    long_name: GEOS FP
+    description: GEOS FP Analysis
     type: analysis
     downloading: enabled
     access: public
-    uri: /discover/nobackup/projects/gmao/osse2/HWT/CONUS02KM/Feature-c2160_L137/holding/inst1_2d_asm_Nx/%Y%m/Feature-c2160_L137.inst1_2d_asm_Nx.%Y%m%d_%H%Mz.nc4
+    uri: /discover/nobackup/projects/gmao/yotc/pub/f5295_fp/opendap/assim/$collection
+  # uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/assim/$collection
     service: !!python/object/apply:dataservice.GEOSDDF []
     animation: enabled
     max_frames: 20
@@ -14,68 +16,55 @@ stream:
     reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
     link: http://gmao.gsfc.nasa.gov/GEOS
     logos: [nasa-logo-ul, gmao-logo-ur]
+
 field:
   
-  CONUS2KM:
+  GEOSFPANA:
     
     _niexttau:
       long_name: Nitrate Extinction AOT [550 nm]
       units: '1'
-      expression: niexttau.inst1_2d_asm_Nx(z=1)
+      expression: niexttau.inst1_2d_hwl_Nx(z=1)
   
     _duexttau:
       long_name: Dust Extinction AOT [550 nm]
       units: '1'
-      expression: duexttau.inst1_2d_asm_Nx(z=1)
+      expression: duexttau.inst1_2d_hwl_Nx(z=1)
 
     _totexttau:
       long_name: Total Aerosol Extinction AOT [550 nm]
       units: '1'
-      expression: totexttau.inst1_2d_asm_Nx(z=1)
+      expression: totexttau.inst1_2d_hwl_Nx(z=1)
   
     _suexttau:
       long_name: SO4 Extinction AOT [550 nm]
       units: '1'
-      expression: suexttau.inst1_2d_asm_Nx(z=1)
+      expression: suexttau.inst1_2d_hwl_Nx(z=1)
   
     _ssexttau:
       long_name: Sea Salt Extinction AOT [550 nm]
       units: '1'
-      expression: ssexttau.inst1_2d_asm_Nx(z=1)
+      expression: ssexttau.inst1_2d_hwl_Nx(z=1)
   
     _ocexttau:
       long_name: Organic Carbon Extinction AOT [550 nm]
       units: '1'
-      expression: ocexttau.inst1_2d_asm_Nx(z=1)
+      expression: ocexttau.inst1_2d_hwl_Nx(z=1)
   
     _bcexttau:
       long_name: Black Carbon Extinction AOT [550 nm]
       units: '1'
-      expression: bcexttau.inst1_2d_asm_Nx(z=1)
+      expression: bcexttau.inst1_2d_hwl_Nx(z=1)
 map:
 
-  Canada_Province:
-    shape_file: Canada/PROVINCE
-    line_color: 255 255 255
-    line_width: 1
-    zorder: -1
-
-  blackmarble-custom:
-    service: blackmarble-12000x6000
-    file: /discover/nobackup/jardizzo/maps/BlackMarble_2016/BlackMarble_2016_12000x6000_enhanced.png
-    line_color: 255 255 255
-    line_width: 1
+  map-smoke:
+    service: SmokeForecastBasemap_200406.3x21600x10800
+    file: /discover/nobackup/jardizzo/maps/BlueMarble/SmokeForecastBasemap_200406.3x21600x10800.png
+    line_color: 0 0 0 100
+    line_width: 2
     water_color: 0 0 0 0
     land_color: 0 0 0 0
-    layers: [standard, water, land]
-
-  shaderelief-custom:
-    line_color: 255 255 255 100
-    line_width: 1
-    water_color: 0 0 0
-    land_color: 0 0 0 0
-    land_brightness: 0.4
-    layers: [standard, water, land, shaderelief, lsmask]
+    layers: [water, land, lsmask, us_states, Canada_Province]
 
 region:
 
@@ -87,7 +76,6 @@ region:
     mpdset: hires
     mproj: nps
     mpvals: 230 310 20 86
-    addlayers: [Canada_Province]
     frame: 'off'
 
 AOT_alpha: &AOT_ALPHA
@@ -100,21 +88,21 @@ AOT_alpha: &AOT_ALPHA
 alpha_default: &alpha1
   alpha:
     - 0.00 0.0 0.0
-    - 0.50 1.0 1.0
+  # - 0.30 1.0 1.0
+    - 0.0786 1.0 1.0
     - 1.00 1.0 1.0
 
 theme:
 
   plot:
 
-    aod:
-      long_name: Aerosols
+    bcexttau:
+      long_name: BC AOD
       levels: [0]
-      layers: [ssexttau, suexttau, bcexttau, duexttau]
-      title: 'AOT'
+      layers: [bcexttau]
+      title: 'Black Carbon AOD'
       map:
-      # layers: [blackmarble-custom]
-        layers: [shaderelief-custom]
+        layers: [map-smoke]
 
   layer:
 
@@ -177,7 +165,7 @@ theme:
     bcexttau:
       gxout: shaded
       expr: _bcexttau*5
-      cbar: BCEXTTAU
+      cbar: Colorbar_14C
       cbunits:
       clevs:
       cmin: 0
@@ -186,11 +174,7 @@ theme:
       nsub: 10
       skip: 10
       scale:
-   #  <<: *alpha1
-      alpha:
-        - 0.00 0.0 0.0
-        - 0.30 1.0 1.0
-        - 1.00 1.0 1.0
+      <<: *alpha1
 
     niexttau:
       gxout: shaded
@@ -207,6 +191,74 @@ theme:
       <<: *AOT_ALPHA
 attribute:
   colorbar:
+    Colorbar_14C:
+      red:
+        - 0.000 0.745 0.745
+        - 0.079 0.745 0.745
+        - 0.081 0.745 0.745
+        - 0.160 0.749 0.749
+        - 0.248 0.761 0.761
+        - 0.362 0.773 0.773
+        - 0.495 0.784 0.784
+        - 0.539 0.753 0.753
+        - 0.583 0.718 0.718
+        - 0.624 0.682 0.682
+        - 0.664 0.651 0.651
+        - 0.708 0.616 0.616
+        - 0.750 0.584 0.584
+        - 0.791 0.549 0.549
+        - 0.835 0.518 0.518
+        - 0.873 0.482 0.482
+        - 0.906 0.451 0.451
+        - 0.934 0.388 0.388
+        - 0.959 0.325 0.325
+        - 0.982 0.263 0.263
+        - 1.000 0.200 0.200
+      green:
+        - 0.000 0.745 0.745
+        - 0.079 0.737 0.737
+        - 0.081 0.737 0.737
+        - 0.160 0.722 0.722
+        - 0.248 0.667 0.667
+        - 0.362 0.553 0.553
+        - 0.495 0.471 0.471
+        - 0.539 0.439 0.439
+        - 0.583 0.408 0.408
+        - 0.624 0.369 0.369
+        - 0.664 0.337 0.337
+        - 0.708 0.302 0.302
+        - 0.750 0.271 0.271
+        - 0.791 0.235 0.235
+        - 0.835 0.204 0.204
+        - 0.873 0.169 0.169
+        - 0.906 0.137 0.137
+        - 0.934 0.149 0.149
+        - 0.959 0.165 0.165
+        - 0.982 0.176 0.176
+        - 1.000 0.192 0.192
+      blue:
+        - 0.000 0.745 0.745
+        - 0.079 0.706 0.706
+        - 0.081 0.706 0.706
+        - 0.160 0.647 0.647
+        - 0.248 0.533 0.533
+        - 0.362 0.424 0.424
+        - 0.495 0.314 0.314
+        - 0.539 0.290 0.290
+        - 0.583 0.267 0.267
+        - 0.624 0.235 0.235
+        - 0.664 0.212 0.212
+        - 0.708 0.188 0.188
+        - 0.750 0.161 0.161
+        - 0.791 0.137 0.137
+        - 0.835 0.110 0.110
+        - 0.873 0.086 0.086
+        - 0.906 0.063 0.063
+        - 0.934 0.106 0.106
+        - 0.959 0.153 0.153
+        - 0.982 0.200 0.200
+        - 1.000 0.247 0.247
+
       BCEXTTAU:
         - 255   0  0
         - 242 118 94

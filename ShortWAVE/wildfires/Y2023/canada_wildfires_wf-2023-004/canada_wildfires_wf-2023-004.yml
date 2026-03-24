@@ -1,0 +1,315 @@
+stream:
+
+  GEOSFPANA:
+
+    long_name: GEOS FP
+    description: GEOS FP Analysis
+    type: analysis
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/yotc/pub/f5295_fp/opendap/assim/$collection
+  # uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/assim/$collection
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+  GEOSFPFC:
+
+    long_name: GEOS FP
+    description: GEOS $cycle
+    type: forecast
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/fcast/$collection/$collection.%%Y%%m%%d_%%H
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+field:
+
+  GEOS: &GEOSptr
+
+    _bccmass:
+      long_name: Black Carbon Column Mass Density
+      units: kg m-2
+      expression: bccmass.inst1_2d_hwl_Nx
+
+    _lwtup:
+      long_name: Upwelling Longwave Flux at TOA
+      units: W m-2
+      expression: lwtup.tavg1_2d_rad_Nx(td=-1)
+
+  GEOSFPFC: *GEOSptr
+
+  GEOSFPANA: *GEOSptr
+map:
+
+  map-bccmass:
+    line_color: 255 255 255
+    line_width: 2
+    water_color: 17 19 27
+    land_color: 0 0 0 0
+    layers: [standard, water, land, bluemarble, lsmask]
+theme:
+
+  plot:
+
+    bccmass:
+      long_name: PRECIP
+      levels: [0]
+      layers: [bccmass]
+      title: 'Black Carbon Column Mass'
+      map:
+        frame: 'off'
+        layers: [map-bccmass]
+      olr:
+        cmin: 140
+        cmax: 360
+        cint: 20
+
+  layer:
+
+    olr:
+      gxout: shaded
+      expr: _lwtup
+      cbar: OLRgray
+    # cbunits: 'Outgoing Longwave Radiation [W/m`a2`n]'
+      cbunits: '--auto'
+      nsub: 5
+      skip: 5
+      cmin: 140
+      cmax: 320
+      cint: 20
+      clevs:
+      scale:
+      alpha:
+        - 0.00 1.00 1.00
+      # - 0.50 0.80 0.80
+        - 0.75 0.00 0.00
+        - 1.00 0.00 0.00
+
+    bccmass:
+      gxout: shaded
+      expr: _bccmass*1.0e+6
+      cbar: BCCMASS
+    # cbunits: '[mg/m`a2`n]'
+      cbunits:
+      clevs:
+      scale:
+      cmin: 0
+      cmax: 10
+      cint: 1
+      scale:
+      nsub: 20
+      skip: 20
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.040 0.000 0.000
+        - 0.200 1.000 1.000
+        - 1.000 1.000 1.000
+region:
+
+  nam:
+
+    long_name: North America
+    lon: 0 360
+    lat: 0 90
+    mpdset: hires
+    mproj: nps
+    mpvals: 230 310 20 86
+    frame: 'off'
+
+  conus:
+
+    long_name: CONUS
+    lon: -125 -65
+    lat: 24 50
+    mpdset: hires
+    mproj: latlon
+attribute:
+
+  colorbar:
+
+    OLRgray:
+      
+      - 247 247 247
+      - 31 31 31
+      - 0 0 0
+
+    BCCMASS:
+      - 253 254 254
+      - 251 252 254
+      - 248 251 255
+      - 247 250 254
+      - 247 248 251
+      - 245 248 252
+      - 244 248 251
+      - 241 245 249
+      - 237 243 250
+      - 236 242 249
+      - 234 241 248
+      - 231 241 248
+      - 227 238 247
+      - 224 237 245
+      - 222 237 245
+      - 219 234 245
+      - 215 231 243
+      - 212 230 243
+      - 209 229 241
+      - 204 227 239
+      - 200 225 241
+      - 197 223 240
+      - 192 220 239
+      - 187 218 237
+      - 184 216 237
+      - 179 214 235
+      - 176 212 234
+      - 171 209 233
+      - 166 206 232
+      - 162 202 230
+      - 158 200 230
+      - 154 197 230
+      - 150 195 229
+      - 146 193 228
+      - 149 192 224
+      - 154 193 219
+      - 156 194 213
+      - 160 195 213
+      - 164 196 209
+      - 168 196 206
+      - 172 197 203
+      - 174 198 197
+      - 177 197 194
+      - 181 198 190
+      - 185 199 185
+      - 189 200 180
+      - 191 200 177
+      - 196 199 172
+      - 197 200 167
+      - 200 201 162
+      - 205 202 158
+      - 205 202 155
+      - 209 204 148
+      - 212 205 145
+      - 215 205 140
+      - 218 207 137
+      - 222 206 132
+      - 224 207 127
+      - 226 208 124
+      - 228 208 120
+      - 229 209 115
+      - 230 209 111
+      - 233 209 108
+      - 235 211 104
+      - 236 210 102
+      - 238 210 98
+      - 240 210 95
+      - 241 210 93
+      - 240 211 92
+      - 240 211 92
+      - 240 209 91
+      - 240 207 91
+      - 241 207 90
+      - 240 206 91
+      - 239 206 91
+      - 239 204 90
+      - 239 204 90
+      - 239 203 89
+      - 239 203 89
+      - 239 203 89
+      - 238 202 89
+      - 238 200 87
+      - 238 199 87
+      - 238 198 87
+      - 238 197 87
+      - 238 197 87
+      - 238 195 86
+      - 238 193 85
+      - 238 193 85
+      - 236 191 84
+      - 236 191 83
+      - 237 191 83
+      - 237 191 83
+      - 238 189 83
+      - 237 189 83
+      - 237 189 84
+      - 236 188 83
+      - 236 186 82
+      - 236 185 82
+      - 237 184 81
+      - 236 184 80
+      - 235 182 80
+      - 235 179 79
+      - 235 177 79
+      - 235 174 79
+      - 234 171 77
+      - 232 168 75
+      - 230 166 74
+      - 229 165 72
+      - 228 162 70
+      - 229 160 70
+      - 228 157 69
+      - 225 154 67
+      - 225 152 67
+      - 225 150 67
+      - 222 148 66
+      - 221 144 65
+      - 220 142 63
+      - 221 140 62
+      - 220 137 61
+      - 219 135 60
+      - 219 133 59
+      - 218 130 59
+      - 216 128 57
+      - 215 125 56
+      - 214 122 55
+      - 213 120 54
+      - 213 118 53
+      - 212 117 52
+      - 210 114 50
+      - 210 112 49
+      - 209 110 48
+      - 209 107 49
+      - 206 105 48
+      - 205 104 48
+      - 204 103 47
+      - 200 99 45
+      - 199 96 44
+      - 196 94 43
+      - 190 91 41
+      - 187 90 41
+      - 183 88 40
+      - 180 86 38
+      - 175 83 37
+      - 173 82 36
+      - 169 80 36
+      - 165 76 35
+      - 162 74 34
+      - 156 73 33
+      - 151 69 31
+      - 148 68 31
+      - 143 66 30
+      - 139 64 29
+      - 135 61 28
+      - 131 60 27
+      - 128 58 26
+      - 122 54 25
+      - 117 52 23
+      - 114 51 23
+      - 111 49 22
+      - 108 48 21
+      - 103 46 21
+      - 100 43 20
+      - 96 42 19
+      - 91 39 16
+      - 88 38 16
+      - 84 36 14
+      - 79 34 13
+      - 76 32 12
