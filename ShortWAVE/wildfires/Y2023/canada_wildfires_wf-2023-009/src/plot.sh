@@ -15,12 +15,12 @@ catalog_id=`basename $config_path`
 year=`echo $catalog_id | cut -d'-' -f2`
 
 wxmap.py --config $config_path \
-         --stream GEOSFPANA \
+         --stream GEOSCFANA \
          --start_dt $sdate \
          --end_dt $edate \
          --t_deltat 1 \
-         --field aod \
+         --field pm25bcsfc \
          --region global \
          --fullframe --lights_off --no_title --no_label --no_logo \
-         --geometry 7680x3840 \
-         --oname $NOBACKUP/ShortWAVE/wildfires/Y${year}/$catalog_id/images/$catalog_id.nasa.gmao.geos-fp.analysis.aod.image.7680x3840.%Y%m%d%H.png
+         --geometry 4096x2048 \
+         --oname $NOBACKUP/ShortWAVE/wildfires/Y${year}/$catalog_id/images/$catalog_id.nasa.gmao.geos-cf.analysis.pm25bcsfc.image.4096x2048.%Y%m%d%H.png

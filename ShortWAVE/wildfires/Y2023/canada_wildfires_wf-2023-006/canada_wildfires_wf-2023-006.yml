@@ -92,14 +92,29 @@ region:
     mpvals: 230 310 20 86
     frame: 'off'
 
-AOT_alpha: &AOT_ALPHA
+  global:
+
+    long_name: Global
+    lon: -180 180
+    lat: -90 90
+    mpdset: lowres
+    mproj: scaled
+    mpvals:
+    frame: 'off'
+
+alpha_60: &alpha60
   alpha:
     - 0.00 0.0 0.0
-    - 0.10 0.0 0.0
+    - 0.60 1.0 1.0
+    - 1.00 1.0 1.0
+
+alpha_50: &alpha50
+  alpha:
+    - 0.00 0.0 0.0
     - 0.50 1.0 1.0
     - 1.00 1.0 1.0
 
-alpha_default: &alpha1
+alpha_30: &alpha30
   alpha:
     - 0.00 0.0 0.0
     - 0.30 1.0 1.0
@@ -112,10 +127,9 @@ theme:
     aod:
       long_name: Aerosols
       levels: [0]
-      layers: [ssexttau, suexttau, bcexttau, duexttau]
+      layers: [ssexttau, bcexttau]
       title: 'AOT'
       map:
-      # layers: [blackmarble-custom]
         layers: [shaderelief-custom]
 
   layer:
@@ -132,7 +146,7 @@ theme:
       nsub: 10
       skip: 10
       scale:
-      <<: *alpha1
+      <<: *alpha30
 
     duexttau:
       gxout: shaded
@@ -146,7 +160,7 @@ theme:
       nsub: 10
       skip: 10
       scale:
-      <<: *alpha1
+      <<: *alpha50
 
     suexttau:
       gxout: shaded
@@ -160,7 +174,7 @@ theme:
       nsub: 10
       skip: 10
       scale:
-      <<: *alpha1
+      <<: *alpha60
 
     ocexttau:
       gxout: shaded
@@ -174,11 +188,11 @@ theme:
       nsub: 10
       skip: 10
       scale:
-      <<: *alpha1
+      <<: *alpha50
 
     bcexttau:
       gxout: shaded
-      expr: _bcexttau*5
+      expr: _bcexttau*2.5
       cbar: BCEXTTAU
       cbunits:
       clevs:
@@ -188,7 +202,7 @@ theme:
       nsub: 10
       skip: 10
       scale:
-      <<: *alpha1
+      <<: *alpha30
 
     niexttau:
       gxout: shaded
@@ -202,7 +216,7 @@ theme:
       nsub: 10
       skip: 10
       scale:
-      <<: *AOT_ALPHA
+      <<: *alpha50
 attribute:
   colorbar:
       BCEXTTAU:
