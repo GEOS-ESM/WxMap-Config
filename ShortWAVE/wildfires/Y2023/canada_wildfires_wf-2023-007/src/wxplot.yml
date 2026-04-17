@@ -1,0 +1,27 @@
+lowres:
+
+  ntask: 20
+  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/wildfires/Y2023/canada_wildfires_wf-2023-007]
+  stream: GEOSFPANA
+  start_dt: P0D
+  end_dt: P29DT23H
+  t_deltat: PT1H
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 4096x2048
+  oname: /discover/nobackup/jardizzo/ShortWAVE/wildfires/Y2023/canada_wildfires_wf-2023-007/base/canada_wildfires_wf-2023-007.nasa.gmao.geos-fp.analysis.bcexttau.base.4096x2048.%Y%m%dT%H%M00.png
+  levels: [0]
+  fields: [bcexttau]
+  regions: [global]
+
+highres:
+
+  ntask: 20
+  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/wildfires/Y2023/canada_wildfires_wf-2023-007]
+  stream: GEOSFPANA
+  start_dt: P0D
+  end_dt: P29DT23H
+  t_deltat: PT1H
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 7680x3840
+  oname: /discover/nobackup/jardizzo/ShortWAVE/wildfires/Y2023/canada_wildfires_wf-2023-007/base/canada_wildfires_wf-2023-007.nasa.gmao.geos-fp.analysis.bcexttau.base.7680x3840.%Y%m%dT%H%M00.png
+  levels: [0]
+  fields: [bcexttau]
+  regions: [global]

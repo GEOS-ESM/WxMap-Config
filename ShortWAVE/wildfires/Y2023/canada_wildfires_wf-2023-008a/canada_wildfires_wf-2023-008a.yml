@@ -1,0 +1,187 @@
+stream:
+
+  GEOSFPANA:
+
+    long_name: GEOS FP
+    description: GEOS FP Analysis
+    type: analysis
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/yotc/pub/f5295_fp/opendap/assim/$collection
+  # uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/assim/$collection
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+field:
+  
+  GEOSFPANA:
+
+    _bccmass:
+      long_name: Black Carbon Column Mass Density
+      units: kg m-2
+      expression: bccmass.inst1_2d_hwl_Nx
+
+map:
+
+  map-smoke:
+    service: SmokeForecastBasemap_200406.3x21600x10800
+    file: /discover/nobackup/jardizzo/maps/BlueMarble/SmokeForecastBasemap_200406.3x21600x10800.png
+    line_color: 0 0 0 100
+    line_width: 2
+    water_color: 0 0 0 0
+    land_color: 0 0 0 0
+    layers: [water, land, lsmask]
+
+region:
+
+  nam:
+    
+    long_name: North America
+    lon: -180 180
+    lat: 0 90
+    mpdset: hires
+    mproj: nps
+    mpvals: 230 310 20 86
+    frame: 'off'
+
+  global:
+
+    long_name: Global
+    lon: -180 180
+    lat: -90 90
+    mpdset: lowres
+    mproj: scaled
+    mpvals:
+    frame: 'off'
+
+theme:
+
+  plot:
+
+    bccmass:
+      long_name: BCCMASS
+      levels: [0]
+      layers: [bccmass]
+      title: 'Black Carbon Column Mass'
+      map:
+        layers: [map-smoke]
+
+  layer:
+
+    bccmass:
+      gxout: shaded
+      expr: _bccmass*1.0e+6
+      cbar: Colorbar_14C
+      cbunits: '[mg/m`a2`n]'
+      clevs:
+      scale:
+      cmin: 0
+      cmax: 12
+      cint: 1
+      scale:
+      nsub: 20
+      skip: 20
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.040 0.000 0.000
+        - 0.200 1.000 1.000
+        - 1.000 1.000 1.000
+
+attribute:
+  colorbar:
+    Colorbar_14C:
+      red:
+        - 0.000 0.745 0.745
+        - 0.079 0.745 0.745
+        - 0.081 0.745 0.745
+        - 0.160 0.749 0.749
+        - 0.248 0.761 0.761
+        - 0.362 0.773 0.773
+        - 0.495 0.784 0.784
+        - 0.539 0.753 0.753
+        - 0.583 0.718 0.718
+        - 0.624 0.682 0.682
+        - 0.664 0.651 0.651
+        - 0.708 0.616 0.616
+        - 0.750 0.584 0.584
+        - 0.791 0.549 0.549
+        - 0.835 0.518 0.518
+        - 0.873 0.482 0.482
+        - 0.906 0.451 0.451
+        - 0.934 0.388 0.388
+        - 0.959 0.325 0.325
+        - 0.982 0.263 0.263
+        - 1.000 0.200 0.200
+      green:
+        - 0.000 0.745 0.745
+        - 0.079 0.737 0.737
+        - 0.081 0.737 0.737
+        - 0.160 0.722 0.722
+        - 0.248 0.667 0.667
+        - 0.362 0.553 0.553
+        - 0.495 0.471 0.471
+        - 0.539 0.439 0.439
+        - 0.583 0.408 0.408
+        - 0.624 0.369 0.369
+        - 0.664 0.337 0.337
+        - 0.708 0.302 0.302
+        - 0.750 0.271 0.271
+        - 0.791 0.235 0.235
+        - 0.835 0.204 0.204
+        - 0.873 0.169 0.169
+        - 0.906 0.137 0.137
+        - 0.934 0.149 0.149
+        - 0.959 0.165 0.165
+        - 0.982 0.176 0.176
+        - 1.000 0.192 0.192
+      blue:
+        - 0.000 0.745 0.745
+        - 0.079 0.706 0.706
+        - 0.081 0.706 0.706
+        - 0.160 0.647 0.647
+        - 0.248 0.533 0.533
+        - 0.362 0.424 0.424
+        - 0.495 0.314 0.314
+        - 0.539 0.290 0.290
+        - 0.583 0.267 0.267
+        - 0.624 0.235 0.235
+        - 0.664 0.212 0.212
+        - 0.708 0.188 0.188
+        - 0.750 0.161 0.161
+        - 0.791 0.137 0.137
+        - 0.835 0.110 0.110
+        - 0.873 0.086 0.086
+        - 0.906 0.063 0.063
+        - 0.934 0.106 0.106
+        - 0.959 0.153 0.153
+        - 0.982 0.200 0.200
+        - 1.000 0.247 0.247
+
+    Colorbar_14C_RGB:
+
+      - 190 190 190
+      - 190 188 180
+      - 190 188 180
+      - 191 184 165
+      - 194 170 136
+      - 197 141 108
+      - 200 120 80
+      - 192 112 74
+      - 183 104 68
+      - 174 94 60
+      - 166 86 54
+      - 157 77 48
+      - 149 69 41
+      - 140 60 35
+      - 132 52 28
+      - 123 43 22
+      - 115 35 16
+      - 99 38 27
+      - 83 42 39
+      - 67 45 51
+      - 51 49 63
