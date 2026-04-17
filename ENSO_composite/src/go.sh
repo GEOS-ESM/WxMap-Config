@@ -7,7 +7,7 @@ while [ $idate -le 19811201 ]; do
 
   IMONTH=`expr $imonth + 1000 | cut -c2-4`
 
-  wxmap.py --config /discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ENSO_composite --stream M2NINO --time_dt $idate --region greenland --oname $IMONTH/'$field.$stream.'$IMONTH'.png' --lights_off --no_logo --field t2m_anom
+  wxmap.py --config /discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ENSO_composite --stream M2NINO --time_dt $idate --region nam --oname $IMONTH/'$field.$stream.'$IMONTH'.png' --no_logo --field ocembb_full
 
   LMONTH=$lmonth
   if [ $LMONTH -ge 0 ]; then LMONTH='+'$LMONTH; fi

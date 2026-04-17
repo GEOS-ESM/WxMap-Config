@@ -209,3 +209,38 @@ theme:
       - {$region: usa, cint: 130, cmax: 10790, cmin: 9490}
   
     ts_attr: *T2M
+
+    ocembb_attr:
+      - {$region: africa, cint: 0.03, cmax: 0.27, cmin: 0.03, scale: exp_scale}
+      - {$region: alaska, cint: 0.01, cmax: 0.1, cmin: 0.01, scale: exp_scale}
+      - {$region: atlantic, cint: 0.03, cmax: 0.3, cmin: 0.0, scale: exp_scale}
+      - {$region: australia, cint: 0.02, cmax: 0.2, cmin: 0.02, scale: exp_scale}
+      - {$region: brazil, cint: 0.03, cmax: 0.3, cmin: 0.0, scale: exp_scale}
+      - {$region: camer, cint: 0.02, cmax: 0.18, cmin: 0.0, scale: exp_scale}
+      - {$region: carib, cint: 0.01, cmax: 0.06, cmin: 0.0, scale: exp_scale}
+      - {$region: conus, cint: 0.03, cmax: 0.27, cmin: 0.03, scale: exp_scale}
+      - {$region: eastasia, cint: 0.02, cmax: 0.2, cmin: 0.02, scale: exp_scale}
+      - {$region: ensoext, cint: 0.1, cmax: 0.6, cmin: 0.1, scale: exp_scale}
+      - {$region: enso, cint: 0.01, cmax: 0.09, cmin: 0.0, scale: exp_scale}
+      - {$region: europe, cint: 0.02, cmax: 0.2, cmin: 0.02, scale: exp_scale}
+      - {$region: global, cint: 0.1, cmax: 0.6, cmin: 0.0, scale: exp_scale}
+      - {$region: greenland, cint: 0.02, cmax: 0.2, cmin: 0.02, scale: exp_scale}
+      - {$region: hawaii, cint: 0.002, cmax: 0.022, cmin: 0.002, scale: exp_scale}
+      - {$region: indian, cint: 0.1, cmax: 0.6, cmin: 0.1, scale: exp_scale}
+      - {$region: india, cint: 0.02, cmax: 0.14, cmin: 0.02, scale: exp_scale}
+      - {$region: indonesia, cint: 0.1, cmax: 0.6, cmin: 0.1, scale: exp_scale}
+      - {$region: midatl, cint: 0.001, cmax: 0.013, cmin: 0.001, scale: exp_scale}
+      - {$region: mideast, cint: 0.01, cmax: 0.05, cmin: 0.0, scale: exp_scale}
+      - {$region: nam, cint: 0.03, cmax: 0.27, cmin: 0.03, scale: exp_scale}
+      - {$region: nasia, cint: 0.02, cmax: 0.16, cmin: 0.02, scale: exp_scale}
+      - {$region: natl, cint: 0.02, cmax: 0.18, cmin: 0.0, scale: exp_scale}
+      - {$region: nepacific, cint: 0.03, cmax: 0.27, cmin: 0.03, scale: exp_scale}
+      - {$region: npac, cint: 0.02, cmax: 0.2, cmin: 0.02, scale: exp_scale}
+      - {$region: nps, cint: 0.03, cmax: 0.27, cmin: 0.03, scale: exp_scale}
+      - {$region: ortho, cint: 0.03, cmax: 0.3, cmin: 0.0, scale: exp_scale}
+      - {$region: pacific, cint: 0.1, cmax: 0.6, cmin: 0.1, scale: exp_scale}
+      - {$region: sam, cint: 0.03, cmax: 0.3, cmin: 0.0, scale: exp_scale}
+      - {$region: sevseas, cint: 0.1, cmax: 0.6, cmin: 0.1, scale: exp_scale}
+      - {$region: siberia, cint: 0.02, cmax: 0.2, cmin: 0.02, scale: exp_scale}
+      - {$region: sps, cint: 0.03, cmax: 0.24, cmin: 0.0, scale: exp_scale}
+      - {$region: usa, cint: 0.03, cmax: 0.27, cmin: 0.03, scale: exp_scale}

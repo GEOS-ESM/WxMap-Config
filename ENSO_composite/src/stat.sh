@@ -14,7 +14,7 @@ while [ $idate -le 19811201 ]; do
   IMONTH=`expr $imonth + 1000 | cut -c2-4`
   echo $IMONTH $idate
 
-  wxmap.py --config /discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ENSO_composite --stream M2NEUT --time_dt $idate --oname stats/'$field.$region.stat' --field $field
+  wxmap.py --config /discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ENSO_composite/stats --stream M2NEUT --time_dt $idate --oname stats/'$field.$region.stat' --field $field
 
   idate=`timetag $idate 0 %Y%m%d%+m01`
   imonth=`expr $imonth + 1`

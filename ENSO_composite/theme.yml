@@ -14,15 +14,75 @@ defs:
   ENSO_composite:
     ref_date: 1980-12-01
 
+alpha1: &ALPHA1
+  - 0.0 0.0 0.0
+  - 0.1 1.0 1.0
+  - 1.0 1.0 1.0
+
 theme:  
         
   plot: 
+
+    u500_all:
+      long_name: U500
+      levels: [0]
+      header: $model
+      title: '500 mb Zonal Wind (m/s)'
+      xlabel: $tm_string
+      layout: *LAYOUT1
+      panels:
+        - {field: u500_full, pos: 11, label: Mean}
+        - {field: u500_anom, pos: 21, label: Anomaly}
+        - {field: u500_diff, pos: 12, label: $model_name minus Neutral}
+        - {field: u500_std,  pos: 22, label: Std Dev}
+
+    u500_full:
+      long_name: U500
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 500 mb Zonal Wind (m/s)'
+      shaded:
+        expr: full(e=8)
+        cbar: Rainbow
+        cdict: u500_attr
+
+    u500_anom:
+      long_name: U500 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] 500 mb Zonal Wind (m/s)'
+      shaded:
+        expr: anom(e=8)
+        cdict: u500_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=8))
+      sigdash:
+        expr: abs(ttest(e=8))
+
+    u500_std:
+      long_name: U500 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 500 mb Zonal Wind (m/s)'
+      shaded:
+        expr: stdc(e=8)
+        cbar: Blues
+        cdict: u500_std_attr
+
+    u500_diff:
+      long_name: U500 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 500 mb Zonal Wind (m/s)'
+      shaded:
+        expr: full(e=8)-full.M2NEUT.none(e=8)
+        cdict: u500_anom_attr
 
     u850_all: 
       long_name: U850
       levels: [0]
       header: $model
-      title: '850 mb Zonal Wind (m)'
+      title: '850 mb Zonal Wind (m/s)'
       xlabel: $tm_string
       layout: *LAYOUT1
       panels:
@@ -35,7 +95,7 @@ theme:
       long_name: U850
       levels: [0]
       layers: [shaded]
-      title: '[Mean] 850 mb Zonal Wind (m)'
+      title: '[Mean] 850 mb Zonal Wind (m/s)'
       shaded:
         expr: full(e=7)
         cbar: Rainbow
@@ -45,7 +105,7 @@ theme:
       long_name: U850 Anom
       levels: [0]
       layers: [shaded, sigsolid, sigdash]
-      title: '[Anomaly] 850 mb Zonal Wind (m)'
+      title: '[Anomaly] 850 mb Zonal Wind (m/s)'
       shaded:
         expr: anom(e=7)
         cdict: u850_anom_attr
@@ -58,7 +118,7 @@ theme:
       long_name: U850 Stdev
       levels: [0]
       layers: [shaded]
-      title: '[Std Dev] 850 mb Zonal Wind (m)'
+      title: '[Std Dev] 850 mb Zonal Wind (m/s)'
       shaded:
         expr: stdc(e=7)
         cbar: Blues
@@ -68,16 +128,689 @@ theme:
       long_name: U850 Difference
       levels: [0]
       layers: [shaded]
-      title: '[$model_name minus Neutral] 850 mb Zonal Wind (m)'
+      title: '[$model_name minus Neutral] 850 mb Zonal Wind (m/s)'
       shaded:
         expr: full(e=7)-full.M2NEUT.none(e=7)
         cdict: u850_anom_attr
+
+    u250_full:
+      long_name: U250
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 250 mb Zonal Wind (m/s)'
+      shaded:
+        expr: full(e=9)
+        cbar: Rainbow
+        cdict: u250_attr
+
+    u250_anom:
+      long_name: U250 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] 250 mb Zonal Wind (m/s)'
+      shaded:
+        expr: anom(e=9)
+        cdict: u250_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=9))
+      sigdash:
+        expr: abs(ttest(e=9))
+
+    u250_std:
+      long_name: U250 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 250 mb Zonal Wind (m/s)'
+      shaded:
+        expr: stdc(e=9)
+        cbar: Blues
+        cdict: u250_std_attr
+
+    u250_diff:
+      long_name: U250 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 250 mb Zonal Wind (m/s)'
+      shaded:
+        expr: full(e=9)-full.M2NEUT.none(e=9)
+        cdict: u250_anom_attr
+
+    v850_full:
+      long_name: V850
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 850 mb Meridional Wind (m/s)'
+      shaded:
+        expr: full(e=10)
+        cbar: Rainbow
+        cdict: v850_attr
+
+    v850_anom:
+      long_name: V850 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] 850 mb Meridional Wind (m/s)'
+      shaded:
+        expr: anom(e=10)
+        cdict: v850_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=10))
+      sigdash:
+        expr: abs(ttest(e=10))
+
+    v850_std:
+      long_name: V850 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 850 mb Meridional Wind (m/s)'
+      shaded:
+        expr: stdc(e=10)
+        cbar: Blues
+        cdict: v850_std_attr
+
+    v850_diff:
+      long_name: V850 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 850 mb Meridional Wind (m/s)'
+      shaded:
+        expr: full(e=10)-full.M2NEUT.none(e=10)
+        cdict: v850_anom_attr
+
+    v500_full:
+      long_name: V500
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 500 mb Meridional Wind (m/s)'
+      shaded:
+        expr: full(e=11)
+        cbar: Rainbow
+        cdict: v500_attr
+
+    v500_anom:
+      long_name: V500 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] 500 mb Meridional Wind (m/s)'
+      shaded:
+        expr: anom(e=11)
+        cdict: v500_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=11))
+      sigdash:
+        expr: abs(ttest(e=11))
+
+    v500_std:
+      long_name: V500 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 500 mb Meridional Wind (m/s)'
+      shaded:
+        expr: stdc(e=11)
+        cbar: Blues
+        cdict: v500_std_attr
+
+    v500_diff:
+      long_name: V500 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 500 mb Meridional Wind (m/s)'
+      shaded:
+        expr: full(e=11)-full.M2NEUT.none(e=11)
+        cdict: v500_anom_attr
+
+    v250_full:
+      long_name: V250
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 250 mb Meridional Wind (m/s)'
+      shaded:
+        expr: full(e=12)
+        cbar: Rainbow
+        cdict: v250_attr
+
+    v250_anom:
+      long_name: V250 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] 250 mb Meridional Wind (m/s)'
+      shaded:
+        expr: anom(e=12)
+        cdict: v250_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=12))
+      sigdash:
+        expr: abs(ttest(e=12))
+
+    v250_std:
+      long_name: V250 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 250 mb Meridional Wind (m/s)'
+      shaded:
+        expr: stdc(e=12)
+        cbar: Blues
+        cdict: v250_std_attr
+
+    v250_diff:
+      long_name: V250 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 250 mb Meridional Wind (m/s)'
+      shaded:
+        expr: full(e=12)-full.M2NEUT.none(e=12)
+        cdict: v250_anom_attr
+
+    wspd850_full:
+      long_name: WSPD850
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 850 mb Wind Speed (m/s)'
+      shaded:
+        expr: full(e=13)
+        cbar: Rainbow
+        cdict: wspd850_attr
+
+    wspd850_anom:
+      long_name: WSPD850 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] 850 mb Wind Speed (m/s)'
+      shaded:
+        expr: anom(e=13)
+        cdict: wspd850_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=13))
+      sigdash:
+        expr: abs(ttest(e=13))
+
+    wspd850_std:
+      long_name: WSPD850 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 850 mb Wind Speed (m/s)'
+      shaded:
+        expr: stdc(e=13)
+        cbar: Blues
+        cdict: wspd850_std_attr
+
+    wspd850_diff:
+      long_name: WSPD850 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 850 mb Wind Speed (m/s)'
+      shaded:
+        expr: full(e=13)-full.M2NEUT.none(e=13)
+        cdict: wspd850_anom_attr
+
+    wspd500_full:
+      long_name: WSPD500
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 500 mb Wind Speed (m/s)'
+      shaded:
+        expr: full(e=14)
+        cbar: Rainbow
+        cdict: wspd500_attr
+
+    wspd500_anom:
+      long_name: WSPD500 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] 500 mb Wind Speed (m/s)'
+      shaded:
+        expr: anom(e=14)
+        cdict: wspd500_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=14))
+      sigdash:
+        expr: abs(ttest(e=14))
+
+    wspd500_std:
+      long_name: WSPD500 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 500 mb Wind Speed (m/s)'
+      shaded:
+        expr: stdc(e=14)
+        cbar: Blues
+        cdict: wspd500_std_attr
+
+    wspd500_diff:
+      long_name: WSPD500 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 500 mb Wind Speed (m/s)'
+      shaded:
+        expr: full(e=14)-full.M2NEUT.none(e=14)
+        cdict: wspd500_anom_attr
+
+    wspd250_full:
+      long_name: WSPD250
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] 250 mb Wind Speed (m/s)'
+      shaded:
+        expr: full(e=15)
+        cbar: Rainbow
+        cdict: wspd250_attr
+
+    wspd250_anom:
+      long_name: WSPD250 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] 250 mb Wind Speed (m/s)'
+      shaded:
+        expr: anom(e=15)
+        cdict: wspd250_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=15))
+      sigdash:
+        expr: abs(ttest(e=15))
+
+    wspd250_std:
+      long_name: WSPD250 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] 250 mb Wind Speed (m/s)'
+      shaded:
+        expr: stdc(e=15)
+        cbar: Blues
+        cdict: wspd250_std_attr
+
+    wspd250_diff:
+      long_name: WSPD250 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] 250 mb Wind Speed (m/s)'
+      shaded:
+        expr: full(e=15)-full.M2NEUT.none(e=15)
+        cdict: wspd250_anom_attr
+
+    uflxqv_full:
+      long_name: UflxQv
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Eastward Flux of Atmospheric Water Vapor (kg m-1 s-1)'
+      shaded:
+        expr: full(e=16)
+        cbar: Rainbow
+        cdict: uflxqv_attr
+
+    uflxqv_anom:
+      long_name: UflxQv Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] Eastward Flux of Atmospheric Water Vapor (kg m-1 s-1)'
+      shaded:
+        expr: anom(e=16)
+        cdict: uflxqv_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=16))
+      sigdash:
+        expr: abs(ttest(e=16))
+
+    uflxqv_std:
+      long_name: UflxQv Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Eastward Flux of Atmospheric Water Vapor (kg m-1 s-1)'
+      shaded:
+        expr: stdc(e=16)
+        cbar: Blues
+        cdict: uflxqv_std_attr
+
+    uflxqv_diff:
+      long_name: UflxQv Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] Eastward Flux of Atmospheric Water Vapor (kg m-1 s-1)'
+      shaded:
+        expr: full(e=16)-full.M2NEUT.none(e=16)
+        cdict: uflxqv_anom_attr
+
+    vflxqv_full:
+      long_name: VflxQv
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Northward Flux of Atmospheric Water Vapor (kg m-1 s-1)'
+      shaded:
+        expr: full(e=17)
+        cbar: Rainbow
+        cdict: vflxqv_attr
+
+    vflxqv_anom:
+      long_name: VflxQv Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] Northward Flux of Atmospheric Water Vapor (kg m-1 s-1)'
+      shaded:
+        expr: anom(e=17)
+        cdict: vflxqv_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=17))
+      sigdash:
+        expr: abs(ttest(e=17))
+
+    vflxqv_std:
+      long_name: VflxQv Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Northward Flux of Atmospheric Water Vapor (kg m-1 s-1)'
+      shaded:
+        expr: stdc(e=17)
+        cbar: Blues
+        cdict: vflxqv_std_attr
+
+    vflxqv_diff:
+      long_name: VflxQv Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] Northward Flux of Atmospheric Water Vapor (kg m-1 s-1)'
+      shaded:
+        expr: full(e=17)-full.M2NEUT.none(e=17)
+        cdict: vflxqv_anom_attr
+
+    ivt_full:
+      long_name: IVT
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Integrated Water Vapor Transport (kg m-1 s-1)'
+      shaded:
+        expr: full(e=18)
+        cbar: Rainbow
+        cdict: ivt_attr
+
+    ivt_anom:
+      long_name: IVT Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] Integrated Water Vapor Transport (kg m-1 s-1)'
+      shaded:
+        expr: anom(e=18)
+        cdict: ivt_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=18))
+      sigdash:
+        expr: abs(ttest(e=18))
+
+    ivt_std:
+      long_name: IVT Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Integrated Water Vapor Transport (kg m-1 s-1)'
+      shaded:
+        expr: stdc(e=18)
+        cbar: Blues
+        cdict: ivt_std_attr
+
+    ivt_diff:
+      long_name: IVT Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] Integrated Water Vapor Transport (kg m-1 s-1)'
+      shaded:
+        expr: full(e=18)-full.M2NEUT.none(e=18)
+        cdict: ivt_anom_attr
+
+    swgcre_full:
+      long_name: SWgCRE
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Surface Incoming Shortwave Flux Assuming Clear Sky (W m-2)'
+      shaded:
+        expr: full(e=19)
+        cbar: Rainbow
+        cdict: swgcre_attr
+
+    swgcre_anom:
+      long_name: SWgCRE Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] Surface Incoming Shortwave Flux Assuming Clear Sky (W m-2)'
+      shaded:
+        expr: anom(e=19)
+        cdict: swgcre_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=19))
+      sigdash:
+        expr: abs(ttest(e=19))
+
+    swgcre_std:
+      long_name: SWgCRE Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Surface Incoming Shortwave Flux Assuming Clear Sky (W m-2)'
+      shaded:
+        expr: stdc(e=19)
+        cbar: Blues
+        cdict: swgcre_std_attr
+
+    swgcre_diff:
+      long_name: SWgCRE Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] Surface Incoming Shortwave Flux Assuming Clear Sky (W m-2)'
+      shaded:
+        expr: full(e=19)-full.M2NEUT.none(e=19)
+        cdict: swgcre_anom_attr
+
+    tqv_full:
+      long_name: TQV
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Total Precipitable Water Vapor (kg m-2)'
+      shaded:
+        expr: full(e=20)
+        cbar: Rainbow
+        cdict: tqv_attr
+
+    tqv_anom:
+      long_name: TQV Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] Total Precipitable Water Vapor (kg m-2)'
+      shaded:
+        expr: anom(e=20)
+        cdict: tqv_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=20))
+      sigdash:
+        expr: abs(ttest(e=20))
+
+    tqv_std:
+      long_name: TQV Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Total Precipitable Water Vapor (kg m-2)'
+      shaded:
+        expr: stdc(e=20)
+        cbar: Blues
+        cdict: tqv_std_attr
+
+    tqv_diff:
+      long_name: TQV Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] Total Precipitable Water Vapor (kg m-2)'
+      shaded:
+        expr: full(e=20)-full.M2NEUT.none(e=20)
+        cdict: tqv_anom_attr
+
+    omega500_full:
+      long_name: OMEGA500
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Vertical Pressure Velocity (Pa s-1)'
+      shaded:
+        expr: full(e=21)
+        cbar: Rainbow
+        cdict: omega500_attr
+
+    omega500_anom:
+      long_name: OMEGA500 Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] Vertical Pressure Velocity (Pa s-1)'
+      shaded:
+        expr: anom(e=21)
+        cdict: omega500_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=21))
+      sigdash:
+        expr: abs(ttest(e=21))
+
+    omega500_std:
+      long_name: OMEGA500 Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Vertical Pressure Velocity (Pa s-1)'
+      shaded:
+        expr: stdc(e=21)
+        cbar: Blues
+        cdict: omega500_std_attr
+
+    omega500_diff:
+      long_name: OMEGA500 Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] Vertical Pressure Velocity (Pa s-1)'
+      shaded:
+        expr: full(e=21)-full.M2NEUT.none(e=21)
+        cdict: omega500_anom_attr
+
+    ocembb_full:
+      long_name: OCEMBB
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Organic Carbon Biomass Burning Emissions (kg m-2 s-1)'
+      shaded:
+        expr: full(e=22)
+        cbar: Rainbow
+        cdict: ocembb_attr
+        alpha: *ALPHA1
+
+    ocembb_anom:
+      long_name: OCEMBB Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] Organic Carbon Biomass Burning Emissions (kg m-2 s-1)'
+      shaded:
+        expr: anom(e=22)
+        cdict: ocembb_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=22))
+      sigdash:
+        expr: abs(ttest(e=22))
+
+    ocembb_std:
+      long_name: OCEMBB Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Organic Carbon Biomass Burning Emissions (kg m-2 s-1)'
+      shaded:
+        expr: stdc(e=22)
+        cbar: Blues
+        cdict: ocembb_std_attr
+
+    ocembb_diff:
+      long_name: OCEMBB Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] Organic Carbon Biomass Burning Emissions (kg m-2 s-1)'
+      shaded:
+        expr: full(e=22)-full.M2NEUT.none(e=22)
+        cdict: ocembb_anom_attr
+
+    t2mmin_full:
+      long_name: T2Mmin
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Minimum 2-meter Temperature (`ao`nC)'
+      shaded:
+        expr: full(e=23)-273.15
+        cbar: Rainbow
+        cdict: t2mmin_attr
+
+    t2mmin_anom:
+      long_name: T2Mmin Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] Minimum 2-meter Temperature (`ao`nC)'
+      shaded:
+        expr: anom(e=23)
+        cdict: t2mmin_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=23))
+      sigdash:
+        expr: abs(ttest(e=23))
+
+    t2mmin_std:
+      long_name: T2Mmin Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Minimum 2-meter Temperature (`ao`nC)'
+      shaded:
+        expr: stdc(e=23)
+        cbar: Blues
+        cdict: t2mmin_std_attr
+
+    t2mmin_diff:
+      long_name: T2Mmin Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] Minimum 2-meter Temperature (`ao`nC)'
+      shaded:
+        expr: full(e=23)-full.M2NEUT.none(e=23)
+        cdict: t2mmin_anom_attr
+
+    t2mmax_full:
+      long_name: T2Mmax
+      levels: [0]
+      layers: [shaded]
+      title: '[Mean] Maximum 2-meter Temperature (`ao`nC)'
+      shaded:
+        expr: full(e=24)-273.15
+        cbar: Rainbow
+        cdict: t2mmax_attr
+
+    t2mmax_anom:
+      long_name: T2Mmax Anom
+      levels: [0]
+      layers: [shaded, sigsolid, sigdash]
+      title: '[Anomaly] Maximum 2-meter Temperature (`ao`nC)'
+      shaded:
+        expr: anom(e=24)
+        cdict: t2mmax_anom_attr
+      sigsolid:
+        expr: abs(ttest(e=24))
+      sigdash:
+        expr: abs(ttest(e=24))
+
+    t2mmax_std:
+      long_name: T2Mmax Stdev
+      levels: [0]
+      layers: [shaded]
+      title: '[Std Dev] Maximum 2-meter Temperature (`ao`nC)'
+      shaded:
+        expr: stdc(e=24)
+        cbar: Blues
+        cdict: t2mmax_std_attr
+
+    t2mmax_diff:
+      long_name: T2Mmax Difference
+      levels: [0]
+      layers: [shaded]
+      title: '[$model_name minus Neutral] Maximum 2-meter Temperature (`ao`nC)'
+      shaded:
+        expr: full(e=24)-full.M2NEUT.none(e=24)
+        cdict: t2mmax_anom_attr
 
     ts_all:
       long_name: TS
       levels: [0]
       header: $model
-      title: 'Surface Temperature (C)'
+      title: 'Surface Temperature (`ao`nC)'
       xlabel: $tm_string
       layout: *LAYOUT1
       panels:
@@ -90,7 +823,7 @@ theme:
       long_name: T2M
       levels: [0]
       header: $model
-      title: 'Temperature at 2-meters (C)'
+      title: 'Temperature at 2-meters (`ao`nC)'
       xlabel: $tm_string
       layout: *LAYOUT1
       panels:
@@ -450,7 +1183,7 @@ theme:
       long_name: TSURF
       levels: [0]
       layers: [shaded]
-      title: '[Mean] Surface Temperature (C)'
+      title: '[Mean] Surface Temperature (`ao`nC)'
       shaded:
         expr: full(e=1)-273.15
         cbar: Rainbow
@@ -463,7 +1196,7 @@ theme:
       long_name: TSURF Anom
       levels: [0]
       layers: [shaded, sigsolid, sigdash]
-      title: '[Anomaly] Surface Temperature (C)'
+      title: '[Anomaly] Surface Temperature (`ao`nC)'
       shaded:
         expr: anom(e=1)
         cdict: ts_anom_attr
@@ -479,7 +1212,7 @@ theme:
       long_name: TSURF Stdev
       levels: [0]
       layers: [shaded]
-      title: '[Std Dev] Surface Temperature (C)'
+      title: '[Std Dev] Surface Temperature (`ao`nC)'
       shaded:
         expr: stdc(e=1)
         cbar: Blues
@@ -492,7 +1225,7 @@ theme:
       long_name: TSURF T-test
       levels: [0]
       layers: [shaded, sigsolid, sigdash]
-      title: '[T-test] Surface Temperature (C)'
+      title: '[T-test] Surface Temperature (`ao`nC)'
       shaded:
         expr: abs(ttest(e=1))
         cdict:
@@ -510,7 +1243,7 @@ theme:
       long_name: TSURF Difference
       levels: [0]
       layers: [shaded]
-      title: '[$model_name minus Neutral] Surface Temperature (C)'
+      title: '[$model_name minus Neutral] Surface Temperature (`ao`nC)'
       shaded:
         expr: full(e=1)-full.M2NEUT.none(e=1)
         cdict: ts_anom_attr
@@ -522,7 +1255,7 @@ theme:
       long_name: T2M
       levels: [0]
       layers: [shaded]
-      title: '[Mean] Temperature at 2-meters (C)'
+      title: '[Mean] Temperature at 2-meters (`ao`nC)'
       shaded:
         expr: full(e=2)-273.15
         cbar: Rainbow
@@ -535,7 +1268,7 @@ theme:
       long_name: T2M Anom
       levels: [0]
       layers: [shaded, sigsolid, sigdash]
-      title: '[Anomaly] Temperature at 2-meters (C)'
+      title: '[Anomaly] Temperature at 2-meters (`ao`nC)'
       shaded:
         expr: anom(e=2)
         cdict: t2m_anom_attr
@@ -551,7 +1284,7 @@ theme:
       long_name: T2M Stdev
       levels: [0]
       layers: [shaded]
-      title: '[Std Dev] Temperature at 2-meters (C)'
+      title: '[Std Dev] Temperature at 2-meters (`ao`nC)'
       shaded:
         expr: stdc(e=2)
         cbar: Blues
@@ -564,7 +1297,7 @@ theme:
       long_name: T2M T-test
       levels: [0]
       layers: [shaded, sigsolid, sigdash]
-      title: '[T-test] Temperature at 2-meters (C)'
+      title: '[T-test] Temperature at 2-meters (`ao`nC)'
       shaded:
         expr: abs(ttest(e=2))
         cdict:
@@ -582,7 +1315,7 @@ theme:
       long_name: T2M Difference
       levels: [0]
       layers: [shaded]
-      title: '[$model_name minus Neutral] Temperature at 2-meters (C)'
+      title: '[$model_name minus Neutral] Temperature at 2-meters (`ao`nC)'
       shaded:
         expr: full(e=2)-full.M2NEUT.none(e=2)
         cdict: t2m_anom_attr

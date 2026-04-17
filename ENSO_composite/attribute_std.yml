@@ -69,6 +69,41 @@ theme:
       - {'$level': 0, '$region': 'ortho',  cmin: 0, cmax: 15, cint: 1}
       - {'$level': 0, '$region': 'midatl',  cmin: 0, cmax: 3, cint: 0.3}
 
+    h500_std_attr:
+      - {$region: africa, cint: 8, cmax: 72, cmin: 0.0, scale: exp_scale}
+      - {$region: alaska, cint: 16, cmax: 144, cmin: 0.0, scale: exp_scale}
+      - {$region: atlantic, cint: 16, cmax: 144, cmin: 0.0, scale: exp_scale}
+      - {$region: australia, cint: 8, cmax: 72, cmin: 0.0}
+      - {$region: brazil, cint: 5, cmax: 50, cmin: 0.0, scale: exp_scale}
+      - {$region: camer, cint: 4, cmax: 36, cmin: 0.0, scale: exp_scale}
+      - {$region: carib, cint: 3, cmax: 30, cmin: 0.0}
+      - {$region: conus, cint: 8, cmax: 80, cmin: 0.0}
+      - {$region: eastasia, cint: 8, cmax: 72, cmin: 0.0}
+      - {$region: ensoext, cint: 6, cmax: 60, cmin: 0.0, scale: exp_scale}
+      - {$region: enso, cint: 6, cmax: 60, cmin: 0.0, scale: exp_scale}
+      - {$region: europe, cint: 16, cmax: 144, cmin: 0.0, scale: exp_scale}
+      - {$region: global, cint: 16, cmax: 144, cmin: 0.0, scale: exp_scale}
+      - {$region: greenland, cint: 16, cmax: 144, cmin: 0.0, scale: exp_scale}
+      - {$region: hawaii, cint: 6, cmax: 60, cmin: 0.0, scale: exp_scale}
+      - {$region: indian, cint: 8, cmax: 80, cmin: 0.0, scale: exp_scale}
+      - {$region: india, cint: 4, cmax: 32, cmin: 0.0}
+      - {$region: indonesia, cint: 1, cmax: 14, cmin: 0.0}
+      - {$region: midatl, cint: 8, cmax: 72, cmin: 0.0}
+      - {$region: mideast, cint: 8, cmax: 72, cmin: 0.0, scale: exp_scale}
+      - {$region: nam, cint: 16, cmax: 144, cmin: 0.0, scale: exp_scale}
+      - {$region: nasia, cint: 16, cmax: 144, cmin: 0.0, scale: exp_scale}
+      - {$region: natl, cint: 12, cmax: 120, cmin: 0.0, scale: exp_scale}
+      - {$region: nepacific, cint: 13, cmax: 130, cmin: 0.0}
+      - {$region: npac, cint: 13, cmax: 130, cmin: 0.0, scale: exp_scale}
+      - {$region: nps, cint: 16, cmax: 144, cmin: 0.0}
+      - {$region: ortho, cint: 16, cmax: 144, cmin: 0.0, scale: exp_scale}
+      - {$region: pacific, cint: 13, cmax: 130, cmin: 0.0, scale: exp_scale}
+      - {$region: sam, cint: 10, cmax: 100, cmin: 0.0, scale: exp_scale}
+      - {$region: sevseas, cint: 9, cmax: 81, cmin: 0.0, scale: exp_scale}
+      - {$region: siberia, cint: 16, cmax: 144, cmin: 0.0, scale: exp_scale}
+      - {$region: sps, cint: 12, cmax: 120, cmin: 0.0}
+      - {$region: usa, cint: 16, cmax: 144, cmin: 0.0, scale: exp_scale}
+
     h850_std_attr:
       - {'$level': 0, '$region': 'greenland',  cmin: 0, cmax: 80, cint: 8}
       - {'$level': 0, '$region': 'sam',  cmin: 0, cmax: 50, cint: 5}
