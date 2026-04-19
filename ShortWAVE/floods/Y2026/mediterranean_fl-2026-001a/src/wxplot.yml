@@ -1,0 +1,27 @@
+tpw:
+
+  ntask: 24
+  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/floods/Y2026/mediterranean_fl-2026-001a]
+  stream: GEOSANA
+  start_dt: P0D
+  end_dt: P29DT23H
+  t_deltat: PT1H
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 3840x2160
+  oname: $NOBACKUP/ShortWAVE/floods/Y2026/mediterranean_fl-2026-001a/tpw/mediterranean_fl-2026-001a.nasa.gmao.geos-fp.analysis.tpw.image.3840x2160.%Y%m%d%H.png
+  levels: [0]
+  fields: [tpw]
+  regions: [med]
+
+tprcp:
+
+  ntask: 24
+  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/floods/Y2026/mediterranean_fl-2026-001a]
+  stream: GEOSANA
+  start_dt: P0D
+  end_dt: P29DT23H
+  t_deltat: PT1H
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 3840x2160
+  oname: $NOBACKUP/ShortWAVE/floods/Y2026/mediterranean_fl-2026-001a/tprcp/mediterranean_fl-2026-001a.nasa.gmao.geos-fp.analysis.tprcp.image.3840x2160.%Y%m%d%H.png
+  levels: [0]
+  fields: [tprcp]
+  regions: [med]
