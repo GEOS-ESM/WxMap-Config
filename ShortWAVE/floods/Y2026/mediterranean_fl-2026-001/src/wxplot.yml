@@ -1,27 +1,27 @@
-lowres:
+tpw:
 
   ntask: 24
-  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/wildfires/Y2023/canada_wildfires_wf-2023-008a]
-  stream: GEOSFPANA
+  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/floods/Y2026/mediterranean_fl-2026-001]
+  stream: GEOSANA
   start_dt: P0D
-  end_dt: P40DT23H
+  end_dt: P29DT23H
   t_deltat: PT1H
-  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 4096x2048
-  oname: /discover/nobackup/jardizzo/ShortWAVE/wildfires/Y2023/canada_wildfires_wf-2023-008a/base/canada_wildfires_wf-2023-008a.nasa.gmao.geos-fp.analysis.bccmass.base.4096x2048.%Y%m%dT%H%M00.png
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 3840x2160
+  oname: $NOBACKUP/ShortWAVE/floods/Y2026/mediterranean_fl-2026-001/tpw/mediterranean_fl-2026-001.nasa.gmao.geos-fp.analysis.tpw.image.3840x2160.%Y%m%d%H.png
   levels: [0]
-  fields: [bccmass]
-  regions: [global]
+  fields: [tpw]
+  regions: [med]
 
-highres:
+tprcp:
 
   ntask: 24
-  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/wildfires/Y2023/canada_wildfires_wf-2023-008a]
-  stream: GEOSFPANA
+  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/floods/Y2026/mediterranean_fl-2026-001]
+  stream: GEOSANA
   start_dt: P0D
-  end_dt: P40DT23H
+  end_dt: P29DT23H
   t_deltat: PT1H
-  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 7680x3840
-  oname: /discover/nobackup/jardizzo/ShortWAVE/wildfires/Y2023/canada_wildfires_wf-2023-008a/base/canada_wildfires_wf-2023-008a.nasa.gmao.geos-fp.analysis.bccmass.base.7680x3840.%Y%m%dT%H%M00.png
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 3840x2160
+  oname: $NOBACKUP/ShortWAVE/floods/Y2026/mediterranean_fl-2026-001/tprcp/mediterranean_fl-2026-001.nasa.gmao.geos-fp.analysis.tprcp.image.3840x2160.%Y%m%d%H.png
   levels: [0]
-  fields: [bccmass]
-  regions: [global]
+  fields: [tprcp]
+  regions: [med]

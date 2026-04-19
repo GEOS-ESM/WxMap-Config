@@ -16,10 +16,11 @@ year=`echo $catalog_id | cut -d'-' -f2`
 
 wxmap.py --config $config_path \
          --stream GEOSANA \
-         --time_dt 20260101 \
+         --start_dt $sdate \
+         --end_dt $edate \
          --t_deltat 1 \
-         --field basemap \
+         --field tprcp \
          --region med \
          --fullframe --lights_off --no_title --no_label --no_logo \
          --geometry 3840x2160 \
-         --oname $NOBACKUP/ShortWAVE/floods/Y${year}/$catalog_id/basemap/$catalog_id.nasa.gmao.geos-fp.analysis.basemap.image.3840x2160.png
+         --oname $NOBACKUP/ShortWAVE/floods/Y${year}/$catalog_id/tprcp/$catalog_id.nasa.gmao.geos-fp.analysis.tprcp.image.3840x2160.%Y%m%d%H.png

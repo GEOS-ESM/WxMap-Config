@@ -23,4 +23,4 @@ wxmap.py --config $config_path \
          --region med \
          --fullframe --lights_off --no_title --no_label --no_logo \
          --geometry 3840x2160 \
-         --oname $NOBACKUP/ShortWAVE/wildfires/Y${year}/$catalog_id/base/$catalog_id.nasa.gmao.geos-fp.analysis.tpw.image.3840x2160.%Y%m%d%H.png
+         --oname $NOBACKUP/ShortWAVE/floods/Y${year}/$catalog_id/tpw/$catalog_id.nasa.gmao.geos-fp.analysis.tpw.image.3840x2160.%Y%m%d%H.png

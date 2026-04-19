@@ -1,6 +1,6 @@
 stream:
 
-  GEOSANA:
+  GEOSANA: &geosana
 
     long_name: GEOS ANA
     description: GEOS Analysis
@@ -8,6 +8,10 @@ stream:
     uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/assim/$collection
     institution: NASA - Global Modeling and Assimilation Office (GMAO)
     logos: [nasa-logo-ul, gmao-logo-ur]
+
+  SPECIAL:
+    <<: *geosana
+    uri: $collection
 
 theme:
 
@@ -21,13 +25,21 @@ theme:
       map:
         layers: [shaderelief-gray]
 
-    maponly:
+    tprcp:
+      long_name: Total Accumulated Precip
+      levels: [0]
+      layers: [tprecip]
+      title: 'Total Accumulated Precipitation (mm)'
+      map:
+        layers: [shaderelief-gray]
+
+    basemap:
       long_name: TPW
       levels: [0]
       layers: [tpw]
       title: 'TPW [kg m-2]'
       map:
-        layers: [shaderelief-gray]
+        layers: [shaderelief-basemap]
       tpw:
         expr: maskout(_tqv,_tqv-1000)
 
@@ -46,6 +58,22 @@ theme:
       cmax: 75
       cint: 5
 
+    tprecip:
+      gxout: shaded
+      expr: _tprcp
+      csmooth: 'on'
+      cbar: Precip
+      cbunits: "Accum Precip [mm]"
+      nsub: 1
+      scale:
+      skip: 1 
+      clevs: 1.5 3 6 12 18 24 30 45 60 75 150 225 300 450 600
+      alpha: 
+        - 0.000 0.000 0.000
+        - 0.062 1.000 1.000
+        - 1.000 1.000 1.000
+
+
 field:
 
   GEOSANA:
@@ -55,15 +83,32 @@ field:
       units: kg m-2
       expression: tqv.tavg1_2d_slv_Nx(td=-1)
 
+    _tprcp:
+      long_name: Storm Total Precipitation
+      units: mm
+      expression: sum(prectot.SPECIAL.tavg1_2d_flx_Nx,t=1,td=-1)*60*60
+
 map:
 
-  shaderelief-gray:
-    line_color: 0 0 0
+  standard:
+    layers: [coastlines, states, political]
+
+  clearmap:
+    land_color: 0 0 0 0
+    water_color: 0 0 0 0
+    layers: [standard, water, land]
+
+  shaderelief-gray: &defaultmap
+    line_color: 255 255 255
     line_width: 2
-    water_color: 0 0 0
+    water_color: 0 0 0 0
     land_color: 0 0 0 0
     grayscale: 1
-    layers: [clearmap, ne_10m_coastline, shaderelief, lsmask]
+    layers: [clearmap, shaderelief, lsmask]
+
+  shaderelief-basemap:
+    <<: *defaultmap
+    water_color: 0 0 0
 
 region:
 
@@ -604,3 +649,22 @@ attribute:
       - 219 11 13
       - 217 8 13
       - 215 5 13
+
+    Precip:
+        - 255 255 255
+        - 127 255   0 
+        -   0 205   0
+        -   0 139   0
+        -  16  78 139
+        -  30 144 255
+        -   0 178 238
+        -   0 238 238
+        - 137 104 205
+        - 145  44 238
+        - 139   0 139
+        - 139   0   0
+        - 205   0   0
+        - 238  64   0
+        - 255 127   0
+        - 205 133   0
+        - 255 215   0
