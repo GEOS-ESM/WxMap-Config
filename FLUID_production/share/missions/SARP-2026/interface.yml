@@ -1,0 +1,293 @@
+wxmapschem2d:
+
+  interface:
+
+    field:
+
+      long_name: VARIABLES
+      groups: [Aerosols, CO, Other Gases]
+
+      Aerosols:
+        long_name: Aerosols
+        type: button
+        items:
+          - bcaot: BC AOT
+          - bcsmass: BC Sfc Mass
+          - ocaot: OC AOT
+          - ocsmass: OC Sfc Mass
+          - bcocaot: BCOC AOT
+          - bcocsmass: BCOC Sfc Mass
+          - duaot: Dust AOT
+          - ssaot: Seasalt AOT
+          - suaot: Sulfate AOT
+          - fineaot: Fine AOT
+          - niaot: Nitrate AOT
+          - totaot: Total AOT
+
+      CO:
+        long_name: Carbon Monoxide
+        type: button
+        items:
+          - cobbae: CO BB Eurasia
+          - cobbaf: CO BB Africa
+          - cobbla: CO BB S. Amer.
+          - cobbna: CO BB N. Amer.
+          - cocl: CO Column
+          - conbas: CO FF Asia
+          - conbeu: CO FF Europe
+          - conbna: CO FF N. Amer.
+          - cosc: CO Surface
+
+      Other Gases:
+        long_name: Other Gases
+        type: button
+        items:
+          - nismass: NO3 Sfc Mass
+          - so2cmass: SO2 Col Mass
+          - so2smass: SO2 Sfc Mass
+          - to3: Total Ozone
+
+wxmapscustom:
+
+  interface:
+
+    field:
+
+      long_name: VARIABLES
+      groups: [CO, BCOC, PM25, RH]
+
+      CO:
+        long_name: CO
+        type: button
+        items:
+          - cocl: CO Column
+          - coclbbaf: CO Column Biomass Burning
+
+      BCOC:
+        long_name: BC+OC Carbon
+        type: button
+        items:
+          - bcocaot: BC+OC AOT
+          - bcocsmass: BC+OC Sfc Mass
+          - bcoc_z: BC+OC Mass (z-coord)
+          - bcoc01
+          - bcoc02
+          - bcoc03
+          - bcoc04
+          - bcoc05
+          - bcoc06
+          - bcoc07
+
+      PM25:
+        long_name: PM 2.5
+        type: button
+        items:
+          - pm25_z: PM2.5 Mass (z-coord)
+          - pm01
+          - pm02
+          - pm03
+          - pm04
+          - pm05
+          - pm06
+          - pm07
+
+      RH:
+        long_name: Relative Humidity
+        type: button
+        items:
+          - rh01
+          - rh02
+          - rh03
+          - rh04
+          - rh05
+          - rh06
+          - rh07
+
+wxmapsmission:
+
+  interface:
+
+    field:
+
+      long_name: VARIABLES
+      groups: [Precip, Aerosols, Other]
+
+      Precip:
+        long_name: Precip/Clouds
+        type: button
+        items:
+          - precip
+          - cldlow
+          - cldmid
+          - cldhgh
+          - cldtot
+          - cldprs
+          - cldwat
+          - taulow
+          - taumid
+          - tauhgh
+
+      Aerosols:
+        long_name: Aerosols
+        type: button
+        items:
+          - fineaot
+          - dustaot
+          - dumass
+
+      Other:
+        long_name: Other
+        type: button
+        items:
+          - rh
+          - tmpu
+          - wspd
+          - vort
+          - omega
+          - epv
+          - pblh
+          - tropp
+          - wstar
+          - svent
+
+wxmapschem3d:
+
+  interface:
+
+    field:
+
+      long_name: VARIABLES
+      groups: [Aerosols, CO, Other Gases]
+
+      Aerosols:
+        long_name: Aerosols
+        type: button
+        items:
+          - bc: BC
+          - oc: OC
+          - du: Dust Mass
+          - pm: PM
+          - pm25: PM2.5
+          - pm10: PM10
+          - ss: Sea Salt
+          - so4: Sulfate
+          - no3: Nitrate
+
+      CO:
+        long_nme: Carbon Monoxide
+        type: button
+        items:
+          - co: Total CO
+          - cobbae: CO BB Eurasia
+          - cobbaf: CO BB Africa
+          - cobbla: CO BB S. Amer.
+          - cobbna: CO BB N. Amer.
+          - cobbot: CO BB Other
+          - coffas: CO FF Asia
+          - coffeu: CO FF Europe
+          - coffna: CO FF N. Amer.
+
+      Other Gases:
+        long_name: Other Gases
+        type: button
+        items:
+          - so2: SO2
+          - cfc12strat: CFC12 Strat
+          - cfc12trop: CFC12 Trop
+
+wxmapscustom-2:
+
+  interface:
+
+    field:
+
+      long_name: GEOS-CF
+      groups: [Meteorology, PM25, AOD, Gases, Surface, TOTCOL, TROPCOL]
+
+      Gases:
+        long_name: Gases
+        type: button
+        items:
+          - ch4 : CH4
+          - hcho : HCHO
+          - co : CO
+          - no2 : NO2
+          - o3 : O3
+          - pan : PAN
+          - isop : ISOP
+          - so2 : SO2
+          - noy : NOy
+          - nh3 : NH3
+
+      PM25:
+        long_name: Particulate Matter (2.5)
+        type: button
+        items:
+          - pm25 : Total
+          - pm25bc : BC
+          - pm25oc : OC
+          - pm25ss : SS
+          - pm25su : SU
+          - pm25du : DU
+          - pm25ni : NI
+          - pm25soa : SOA
+
+      Meteorology:
+        long_name: Meteorology
+        type: button
+        items:
+          - ps : PS
+          - slp : SLP
+          - h : H
+          - t : T
+          - th : TH
+          - q : Q
+          - rh : RH
+          - u : U
+          - v : V
+          - wspd : Wind Speed
+          - omega : OMEGA
+          - epv : EPV
+          - cldtt : CLDTT
+          - zpbl: ZPBL
+
+      AOD:
+        long_name: Aerosols (550nm)
+        type: button
+        items:
+          - aod550_bc : BC
+          - aod550_oc : OC
+          - aod550_sulfate : SU
+          - aod550_dust : DU
+          - aod550_sala : SALA
+          - aod550_salc : SALC
+
+      TOTCOL:
+        long_name: Total Column
+        type: button
+        items:
+          - totcol_co :  CO
+          - totcol_no2 : NO2
+          - totcol_o3 :  O3
+          - totcol_so2 : SO2
+          - totcol_hcho : HCHO
+
+      TROPCOL:
+        long_name: Tropospheric Column
+        type: button
+        items:
+          - tropcol_co : CO
+          - tropcol_no2 : NO2
+          - tropcol_o3 : O3
+          - tropcol_so2 : SO2
+          - tropcol_hcho : HCHO
+
+      Surface:
+        long_name: Surface Concentrations
+        type: button
+        items:
+          - cosfc: CO
+          - no2sfc: NO2
+          - o3sfc: O3
+          - so2sfc: SO2
+          - hchosfc: HCHO

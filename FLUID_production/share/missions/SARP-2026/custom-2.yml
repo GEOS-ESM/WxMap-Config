@@ -1,0 +1,1382 @@
+AOT_off: &AOT_OFF
+  - 0.00 1.0 1.0
+  - 0.50 1.0 1.0
+  - 1.00 1.0 1.0
+
+wxmapscustom-2:
+
+  plot:
+
+    ch4:
+      long_name: CH4
+      title: '$level hPa Methane &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _ch4*1.0e+9
+        cdict: ch4cdict
+        cbunits: '[PPBV]'
+      map:
+        layers: [shader-GryWht]
+
+    co:
+      long_name: CO
+      title: '$level hPa Carbon Monoxide &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _co*1.0e+9
+        cbunits: '[PPBV]'
+        cdict: cocdict
+      map:
+        layers: [shader-GryWht]
+
+    epv:
+      long_name: EPV
+      title: '$level hPa Ertels Potential Vorticity &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: abs(_epv*1.0e+6)
+        cdict: epvcdict
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    h:
+      long_name: H
+      title: '$level hPa Edge Heights'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights]
+      shading:
+        expr: _h/10
+        cdict: hcdict
+        cbunits: '[dam]'
+        alpha: *AOT_OFF
+        cbar: smoke01_r
+      map:
+        layers: [shader-GryWht]
+
+    hcho:
+      long_name: HCHO
+      title: '$level hPa Formaldehyde &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _hcho*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: hchocdict
+      map:
+        layers: [shader-GryWht]
+
+    isop:
+      long_name: ISOP
+      title: '$level hPa Isoprene &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _isop*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: isopcdict
+      map:
+        layers: [shader-GryWht]
+
+    nh3:
+      long_name: NH3
+      title: '$level hPa Ammonia &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _nh3*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: nh3cdict
+      map:
+        layers: [shader-GryWht]
+
+    no2:
+      long_name: NO2
+      title: '$level hPa Nitrogen Dioxide &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _no2*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: no2cdict
+      map:
+        layers: [shader-GryWht]
+
+    noy:
+      long_name: NOy
+      title: '$level hPa Reactive Nitrogen &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _noy*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: noycdict
+      map:
+        layers: [shader-GryWht]
+
+    o3:
+      long_name: O3
+      title: '$level hPa Ozone &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _o3*1.0e+9
+        cbunits: '[PPBV]'
+        cdict: o3cdict
+      map:
+        layers: [shader-GryWht]
+
+    omega:
+      long_name: OMEGA
+      title: '$level hPa Vertical Pressure Velocity &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _omega
+        cbunits: '[Pa/s]'
+        cdict: omegacdict
+      map:
+        layers: [shader-GryWht]
+
+    pan:
+      long_name: PAN
+      title: '$level hPa Peroxyacetyl Nitrate &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pan*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: pancdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25:
+      long_name: PM25
+      title: '$level hPa PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25cdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25bc:
+      long_name: PM25bc
+      title: '$level hPa Black Carbon PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25bc_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25bccdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25du:
+      long_name: PM25du
+      title: '$level hPa Dust PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25du_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25ducdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25ni:
+      long_name: PM25ni
+      title: '$level hPa Nitrate PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25nit_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25nicdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25oc:
+      long_name: PM25oc
+      title: '$level hPa Organic Carbon PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25oc_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25occdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25soa:
+      long_name: PM25soa
+      title: '$level hPa Secondary Organic Aerosol PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25soa_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25soacdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25ss:
+      long_name: PM25ss
+      title: '$level hPa Seasalt PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25ss_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25sscdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25su:
+      long_name: PM25su
+      title: '$level hPa Sulfate PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25su_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25sucdict
+      map:
+        layers: [shader-GryWht]
+
+    ps:
+      long_name: PS
+      title: 'Surface Pressure'
+      levels: [0]
+      layers: [shading, ps]
+      shading:
+        expr: _ps/100
+        cdict: pscdict
+        cbar: smoke01_r
+        cbunits: '[mb]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    q:
+      long_name: Q
+      title: '$level hPa Specific Humidity &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _q*1000
+        cdict: qcdict
+        cbunits: '[g/kg]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    rh:
+      long_name: RH
+      title: '$level hPa Relative Humidity &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _rh*100
+        cdict: rhcdict
+        cbunits: '[%]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    slp:
+      long_name: SLP
+      title: 'Sea Level Pressure'
+      levels: [0]
+      layers: [shading, slp]
+      shading:
+        expr: _slp/100
+        cdict: slpcdict
+        cbar: smoke01_r
+        cbunits: '[mb]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    so2:
+      long_name: SO2
+      title: '$level hPa Sulfur Dioxide &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _so2*1.0e+9 
+        cbunits: '[PPBV]'
+        cdict: so2cdict
+      map:
+        layers: [shader-GryWht]
+
+    t:
+      long_name: T
+      title: '$level hPa Air Temperature'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, temperature]
+      shading:
+        expr: _t-273.15
+        cdict: tcdict
+        cbunits: '[Celsius]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    th:
+      long_name: TH
+      title: '$level hPa Potential Temperature'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, temperature]
+      shading:
+        expr: _th-273.15
+        cdict: thcdict
+        cbunits: '[Celsius]'
+        alpha: *AOT_OFF
+      temperature:
+        expr: _th-273.15
+      map:
+        layers: [shader-GryWht]
+
+    u:
+      long_name: U
+      title: '$level hPa Eastward Wind'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, uwind]
+      shading:
+        expr: _u
+        cdict: ucdict
+        cbunits: '[m/s]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    v:
+      long_name: V
+      title: '$level hPa Northward Wind'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, vwind]
+      shading:
+        expr: _v
+        cdict: vcdict
+        cbunits: '[m/s]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    cldtt:
+      long_name: CLDTT
+      title: 'Total Cloud Area Fraction'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _cldtt
+        cbunits: [1]
+        cdict: cldttcdict
+      map:
+        layers: [shader-GryWht]
+
+    zpbl:
+      long_name: ZPBL
+      title: 'Planetary Boundary Layer Height'
+      levels: [0]
+      layers: [shading, zpbl]
+      shading:
+        expr: _zpbl
+        cbunits: [m]
+        cdict: zpblcdict
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    wspd:
+      long_name: Wind Speed
+      title: '$level hPa Wind Speed &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [1000, 975, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: mag(_u,_v)
+        cdict: wspdcdict
+        cbunits: '[m/s]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    aod550_bc:
+      long_name: AOD550_BC
+      title: 'Black Carbon Optical Depth At 550nm'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _aod550_bc
+        cbunits: [1]
+        cdict: aod550_bccdict
+      map:
+        layers: [shader-GryWht]
+
+    aod550_dust: &AOD
+      long_name: AOD550_DUST
+      title: 'Dust Optical Depth At 550nm'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _aod550_dust
+        cbunits: [1]
+        cdict: aod550_dustcdict
+      map:
+        layers: [shader-GryWht]
+
+    default: *AOD
+
+    aod550_oc:
+      long_name: AOD550_OC
+      title: 'Organic Carbon Optical Depth At 550nm'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _aod550_oc
+        cbunits: [1]
+        cdict: aod550_occdict
+      map:
+        layers: [shader-GryWht]
+
+    aod550_ss:
+      long_name: AOD550_SS
+      title: 'Sea Salt Optical Depth At 550nm'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _aod550_ss
+        cbunits: [1]
+        cdict: aod550_sscdict
+      map:
+        layers: [shader-GryWht]
+
+    aod550_sna:
+      long_name: AOD550_SNA
+      title: 'Sulfate-Nitrate-Ammonium Optical Depth At 550nm'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _aod550_sna
+        cbunits: [1]
+        cdict: aod550_snacdict
+      map:
+        layers: [shader-GryWht]
+
+    totcol_co:
+      long_name: TOTCOL_CO
+      title: 'Total Column Carbon Monoxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _totcol_co
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: totcol_cocdict
+      map:
+        layers: [shader-GryWht]
+
+    totcol_no2:
+      long_name: TOTCOL_NO2
+      title: 'Total Column Nitrogen Dioxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _totcol_no2
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: totcol_no2cdict
+      map:
+        layers: [shader-GryWht]
+
+    totcol_o3:
+      long_name: TOTCOL_O3
+      title: 'Total Column Ozone Ozone'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _totcol_o3
+        cbunits: [dobsons]
+        cdict: totcol_o3cdict
+      map:
+        layers: [shader-GryWht]
+
+    totcol_so2:
+      long_name: TOTCOL_SO2
+      title: 'Total Column Sulfur Dioxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _totcol_so2
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: totcol_so2cdict
+      map:
+        layers: [shader-GryWht]
+
+    tropcol_co:
+      long_name: TROPCOL_CO
+      title: 'Tropospheric Column Carbon Monoxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _tropcol_co
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: tropcol_cocdict
+      map:
+        layers: [shader-GryWht]
+
+    tropcol_hcho:
+      long_name: TROPCOL_HCHO
+      title: 'Tropospheric Column Formaldehyde'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _tropcol_hcho
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: tropcol_hchocdict
+      map:
+        layers: [shader-GryWht]
+
+    tropcol_no2:
+      long_name: TROPCOL_NO2
+      title: 'Tropospheric Column Nitrogen Dioxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _tropcol_no2
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: tropcol_no2cdict
+      map:
+        layers: [shader-GryWht]
+
+    tropcol_o3:
+      long_name: TROPCOL_O3
+      title: 'Tropospheric Column Ozone'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _tropcol_o3
+        cbunits: [dobsons]
+        cdict: tropcol_o3cdict
+      map:
+        layers: [shader-GryWht]
+
+    tropcol_so2:
+      long_name: TROPCOL_SO2
+      title: 'Tropospheric Column Sulfur Dioxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _tropcol_so2
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: tropcol_so2cdict
+      map:
+        layers: [shader-GryWht]
+
+  layer:
+
+    shading:
+      gxout: shaded
+      cbar: smoke01
+    # cbunits: '--auto'
+      nsub: 10
+      skip: 10
+      cmin: 0
+      cmax: 100
+      cint: 10
+      scale:
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.050 1.000 1.000
+        - 1.000 1.000 1.000
+
+    heights:
+      gxout: contour
+      expr: smth9(_h/10)
+      cint: hcint
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    zpbl:
+      gxout: contour
+      expr: _zpbl
+      cint: 100
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    temperature:
+      gxout: contour
+      expr: _t-273.15
+      cint: 1 
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    uwind:
+      gxout: contour
+      expr: _u
+      cint: ucint
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    vwind:
+      gxout: contour
+      expr: _v
+      cint: vcint
+      clab: masked 
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    slp:
+      gxout: contour
+      expr: smth9(_slp/100)
+      cint: 3
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    ps:
+      gxout: contour
+      expr: _ps/100
+      cint: 35
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    barbs: 
+      gxout: barb
+      uexpr: _u*1.94384
+      vexpr: _v*1.94384
+      skip: 0
+      size: 0.05
+      ccolor: 0 0 0
+      cthick: 3
+
+  attribute: 
+
+    hcint:
+      default: 2
+      1000: 1
+      975: 1
+      950: 2
+      925: 2
+      900: 2
+      850: 2
+      800: 2
+      750: 2
+      700: 2
+      650: 3
+      600: 3
+      550: 3
+      500: 4
+      450: 4
+      400: 5
+      350: 6
+      300: 7
+      250: 7
+      200: 7
+      150: 7
+      100: 7
+
+    ucint:
+      1000: 2
+      975: 2
+      950: 3
+      925: 3
+      900: 3
+      850: 3
+      800: 4
+      750: 4
+      700: 4
+      650: 4
+      600: 4
+      550: 4
+      500: 4
+      450: 5
+      400: 6
+      350: 7
+      300: 7
+      250: 6
+      200: 7
+      150: 4
+      100: 4
+
+    vcint:
+      1000: 3
+      975: 3
+      950: 3
+      925: 4
+      900: 3
+      850: 3
+      800: 4
+      750: 4
+      700: 4
+      650: 4
+      600: 5
+      550: 5
+      500: 5
+      450: 5
+      400: 6
+      350: 7
+      300: 8
+      250: 7
+      200: 8
+      150: 5
+      100: 3
+
+    aod550_bccdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.03, cint: 0.003, scale: exp_scale}
+    aod550_dustcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.08, cint: 0.01, scale: exp_scale}
+    aod550_occdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.6, cint: 0.1, scale: exp_scale}
+    aod550_snacdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.6, cint: 0.1, scale: exp_scale}
+    aod550_sscdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.5, cint: 0.1, scale: exp_scale}
+    ch4cdict:
+      - {'$level': 1000, cmin: 1944.0, cmax: 2664.0, cint: 72, scale: exp_scale}
+      - {'$level': 975, cmin: 1918.0, cmax: 3288.0, cint: 137, scale: exp_scale}
+      - {'$level': 950, cmin: 1875.0, cmax: 3125.0, cint: 125, scale: exp_scale}
+      - {'$level': 925, cmin: 1924.0, cmax: 2664.0, cint: 74, scale: exp_scale}
+      - {'$level': 900, cmin: 1911.0, cmax: 2821.0, cint: 91, scale: exp_scale}
+      - {'$level': 850, cmin: 1860.0, cmax: 3410.0, cint: 155, scale: exp_scale}
+      - {'$level': 800, cmin: 1920.0, cmax: 2320.0, cint: 40, scale: exp_scale}
+      - {'$level': 750, cmin: 1932.0, cmax: 2310.0, cint: 42, scale: exp_scale}
+      - {'$level': 700, cmin: 1924.0, cmax: 2184.0, cint: 26, scale: exp_scale}
+      - {'$level': 650, cmin: 1926.0, cmax: 2106.0, cint: 18}
+      - {'$level': 600, cmin: 1918.0, cmax: 2058.0, cint: 14}
+      - {'$level': 550, cmin: 1924.0, cmax: 2054.0, cint: 13}
+      - {'$level': 500, cmin: 1925.0, cmax: 2035.0, cint: 11}
+      - {'$level': 450, cmin: 1920.0, cmax: 2040.0, cint: 12}
+      - {'$level': 400, cmin: 1924.0, cmax: 2054.0, cint: 13}
+      - {'$level': 350, cmin: 1918.0, cmax: 2058.0, cint: 14}
+      - {'$level': 300, cmin: 1904.0, cmax: 2044.0, cint: 14}
+      - {'$level': 250, cmin: 1885.0, cmax: 2015.0, cint: 13}
+      - {'$level': 200, cmin: 1846.0, cmax: 1976.0, cint: 13}
+      - {'$level': 150, cmin: 1792.0, cmax: 1952.0, cint: 16}
+      - {'$level': 100, cmin: 1722.0, cmax: 1932.0, cint: 21}
+    cldttcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 1.0, cint: 0.1, scale: exp_scale}
+    cosfccdict:
+      - {'$level': 0, cmin: 60.0, cmax: 280.0, cint: 20, scale: exp_scale}
+    cocdict:
+      - {'$level': 1000, cmin: 72.0, cmax: 192.0, cint: 12, scale: exp_scale}
+      - {'$level': 975, cmin: 70.0, cmax: 210.0, cint: 14, scale: exp_scale}
+      - {'$level': 950, cmin: 70.0, cmax: 210.0, cint: 14, scale: exp_scale}
+      - {'$level': 925, cmin: 63.0, cmax: 162.0, cint: 9}
+      - {'$level': 900, cmin: 60.0, cmax: 192.0, cint: 12, scale: exp_scale}
+      - {'$level': 850, cmin: 60.0, cmax: 180.0, cint: 12, scale: exp_scale}
+      - {'$level': 800, cmin: 66.0, cmax: 176.0, cint: 11}
+      - {'$level': 750, cmin: 56.0, cmax: 196.0, cint: 14, scale: exp_scale}
+      - {'$level': 700, cmin: 56.0, cmax: 196.0, cint: 14, scale: exp_scale}
+      - {'$level': 650, cmin: 56.0, cmax: 196.0, cint: 14, scale: exp_scale}
+      - {'$level': 600, cmin: 65.0, cmax: 182.0, cint: 13, scale: exp_scale}
+      - {'$level': 550, cmin: 66.0, cmax: 165.0, cint: 11, scale: exp_scale}
+      - {'$level': 500, cmin: 54.0, cmax: 144.0, cint: 9}
+      - {'$level': 450, cmin: 54.0, cmax: 144.0, cint: 9}
+      - {'$level': 400, cmin: 56.0, cmax: 136.0, cint: 8}
+      - {'$level': 350, cmin: 56.0, cmax: 136.0, cint: 8}
+      - {'$level': 300, cmin: 48.0, cmax: 136.0, cint: 8}
+      - {'$level': 250, cmin: 45.0, cmax: 135.0, cint: 9}
+      - {'$level': 200, cmin: 35.0, cmax: 105.0, cint: 7}
+      - {'$level': 150, cmin: 21.0, cmax: 91.0, cint: 7}
+      - {'$level': 100, cmin: 20.0, cmax: 56.0, cint: 4, scale: exp_scale}
+    epvcdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 22.0, cint: 2, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 22.0, cint: 2, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 18.0, cint: 2, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 16.0, cint: 2, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 11.0, cint: 1, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 16.0, cint: 2, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 9.0, cint: 0.9, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 13.0, cint: 1, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 7.0, cint: 0.7, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 5.4, cint: 0.6, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 7.0, cint: 0.7, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 6.0, cint: 0.6, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 10.0, cint: 1.0, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 7.0, cint: 0.7, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 7.7, cint: 0.7, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 7.0, cint: 0.7, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 10.0, cint: 1.0, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 11.0, cint: 1, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 11.0, cint: 1, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 40.0, cint: 4, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 40.0, cint: 4, scale: exp_scale}
+    hchosfccdict:
+      - {'$level': 0, cmin: 0.0, cmax: 8.0, cint: 0.8, scale: exp_scale}
+    hchocdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 7250.0, cint: 725, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 7570.0, cint: 757, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 7340.0, cint: 734, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 6920.0, cint: 692, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 6600.0, cint: 660, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 5460.0, cint: 546, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 4690.0, cint: 469, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 3930.0, cint: 393, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 3370.0, cint: 337, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 3110.0, cint: 311, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 2030.0, cint: 203, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 1480.0, cint: 148, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 1060.0, cint: 106, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 870.0, cint: 87, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 680.0, cint: 68, scale: exp_scale}
+      - {'$level': 350, cmin: 55.0, cmax: 605.0, cint: 55, scale: exp_scale}
+      - {'$level': 300, cmin: 54.0, cmax: 594.0, cint: 54, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 540.0, cint: 54, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 500.0, cint: 50, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 380.0, cint: 38, scale: exp_scale}
+      - {'$level': 100, cmin: 6.0, cmax: 17.0, cint: 1}
+    hcdict:
+      - {'$level': 1000, cmin: 2.0, cmax: 22.0, cint: 2}
+      - {'$level': 975, cmin: 22.0, cmax: 42.0, cint: 2}
+      - {'$level': 950, cmin: 44.0, cmax: 64.0, cint: 2}
+      - {'$level': 925, cmin: 64.0, cmax: 86.0, cint: 2}
+      - {'$level': 900, cmin: 88.0, cmax: 108.0, cint: 2}
+      - {'$level': 850, cmin: 136.0, cmax: 158.0, cint: 2}
+      - {'$level': 800, cmin: 186.0, cmax: 208.0, cint: 2}
+      - {'$level': 750, cmin: 242.0, cmax: 262.0, cint: 2}
+      - {'$level': 700, cmin: 298.0, cmax: 320.0, cint: 2}
+      - {'$level': 650, cmin: 356.0, cmax: 382.0, cint: 2}
+      - {'$level': 600, cmin: 420.0, cmax: 447.0, cint: 3}
+      - {'$level': 550, cmin: 483.0, cmax: 516.0, cint: 3}
+      - {'$level': 500, cmin: 552.0, cmax: 592.0, cint: 4}
+      - {'$level': 450, cmin: 630.0, cmax: 675.0, cint: 5}
+      - {'$level': 400, cmin: 710.0, cmax: 765.0, cint: 5}
+      - {'$level': 350, cmin: 804.0, cmax: 864.0, cint: 6}
+      - {'$level': 300, cmin: 910.0, cmax: 973.0, cint: 7}
+    isopcdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 6440.0, cint: 644, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 10810.0, cint: 1081, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 8160.0, cint: 816, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 4630.0, cint: 463, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 3960.0, cint: 396, scale: exp_scale}
+    nh3cdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 15550.0, cint: 1555, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 30590.0, cint: 3059, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 22630.0, cint: 2263, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 28300.0, cint: 2830, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 22670.0, cint: 2267, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 20460.0, cint: 2046, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 15730.0, cint: 1573, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 16050.0, cint: 1605, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 11650.0, cint: 1165, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 7850.0, cint: 785, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 6620.0, cint: 662, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 4540.0, cint: 454, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 3080.0, cint: 308, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 2740.0, cint: 274, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 2580.0, cint: 258, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 2830.0, cint: 283, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 3080.0, cint: 308, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 2880.0, cint: 288, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 2100.0, cint: 210, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 680.0, cint: 68, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 16.0, cint: 2, scale: exp_scale}
+    no2sfccdict:
+      - {'$level': 0, cmin: 0.0, cmax: 27.0, cint: 3, scale: exp_scale}
+    no2cdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 10000.0, cint: 1000, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 19500.0, cint: 1950, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 11810.0, cint: 1181, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 20860.0, cint: 2086, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 13950.0, cint: 1395, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 24100.0, cint: 2410, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 5420.0, cint: 542, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 4850.0, cint: 485, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 2700.0, cint: 270, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 2180.0, cint: 218, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 2140.0, cint: 214, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 1830.0, cint: 183, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 1830.0, cint: 183, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 1810.0, cint: 181, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 1760.0, cint: 176, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 1750.0, cint: 175, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 1690.0, cint: 169, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 1700.0, cint: 170, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 1550.0, cint: 155, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 470.0, cint: 47, scale: exp_scale}
+      - {'$level': 100, cmin: 49.0, cmax: 539.0, cint: 49}
+    noycdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 13120.0, cint: 1312, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 21900.0, cint: 2190, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 14190.0, cint: 1419, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 24020.0, cint: 2402, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 18890.0, cint: 1889, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 35100.0, cint: 3510, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 11130.0, cint: 1113, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 7600.0, cint: 760, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 6970.0, cint: 697, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 5640.0, cint: 564, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 5140.0, cint: 514, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 4500.0, cint: 450, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 4040.0, cint: 404, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 3770.0, cint: 377, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 3690.0, cint: 369, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 3610.0, cint: 361, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 3660.0, cint: 366, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 3450.0, cint: 345, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 3400.0, cint: 340, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 3060.0, cint: 306}
+      - {'$level': 100, cmin: 430.0, cmax: 4730.0, cint: 430}
+    o3sfccdict:
+      - {'$level': 0, cmin: 21.0, cmax: 84.0, cint: 7}
+    o3cdict:
+      - {'$level': 1000, cmin: 18.0, cmax: 78.0, cint: 6}
+      - {'$level': 975, cmin: 18.0, cmax: 78.0, cint: 6}
+      - {'$level': 950, cmin: 18.0, cmax: 78.0, cint: 6}
+      - {'$level': 925, cmin: 24.0, cmax: 84.0, cint: 6}
+      - {'$level': 900, cmin: 18.0, cmax: 84.0, cint: 6}
+      - {'$level': 850, cmin: 21.0, cmax: 91.0, cint: 7}
+      - {'$level': 800, cmin: 16.0, cmax: 104.0, cint: 8}
+      - {'$level': 750, cmin: 18.0, cmax: 108.0, cint: 9}
+      - {'$level': 700, cmin: 20.0, cmax: 120.0, cint: 10}
+      - {'$level': 650, cmin: 22.0, cmax: 132.0, cint: 11}
+      - {'$level': 600, cmin: 28.0, cmax: 168.0, cint: 14}
+      - {'$level': 550, cmin: 34.0, cmax: 204.0, cint: 17, scale: exp_scale}
+      - {'$level': 500, cmin: 22.0, cmax: 242.0, cint: 22, scale: exp_scale}
+      - {'$level': 450, cmin: 24.0, cmax: 264.0, cint: 24, scale: exp_scale}
+      - {'$level': 400, cmin: 24.0, cmax: 264.0, cint: 24, scale: exp_scale}
+      - {'$level': 350, cmin: 27.0, cmax: 297.0, cint: 27, scale: exp_scale}
+      - {'$level': 300, cmin: 34.0, cmax: 374.0, cint: 34, scale: exp_scale}
+      - {'$level': 250, cmin: 42.0, cmax: 462.0, cint: 42, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 594.0, cint: 54, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 750.0, cint: 75}
+      - {'$level': 100, cmin: 103.0, cmax: 1133.0, cint: 103}
+    omegacdict:
+      - {'$level': 1000, cmin: -0.6, cmax: 0.4, cint: 0.1}
+      - {'$level': 975, cmin: -1.0, cmax: 1.2, cint: 0.2}
+      - {'$level': 950, cmin: -1.2, cmax: 1.8, cint: 0.3}
+      - {'$level': 925, cmin: -1.6, cmax: 2.4, cint: 0.4}
+      - {'$level': 900, cmin: -2.4, cmax: 3.6, cint: 0.6}
+      - {'$level': 850, cmin: -4.5, cmax: 4.5, cint: 0.9}
+      - {'$level': 800, cmin: -6.0, cmax: 5.0, cint: 1}
+      - {'$level': 750, cmin: -7.0, cmax: 5.0, cint: 1}
+      - {'$level': 700, cmin: -8.0, cmax: 5.0, cint: 1}
+      - {'$level': 650, cmin: -9.0, cmax: 4.0, cint: 1}
+      - {'$level': 600, cmin: -10.0, cmax: 3.0, cint: 1, scale: log_scale}
+      - {'$level': 550, cmin: -12.0, cmax: 2.0, cint: 2, scale: log_scale}
+      - {'$level': 500, cmin: -14.0, cmax: 2.0, cint: 2, scale: log_scale}
+      - {'$level': 450, cmin: -16.0, cmax: 2.0, cint: 2, scale: log_scale}
+      - {'$level': 400, cmin: -16.0, cmax: 2.0, cint: 2, scale: log_scale}
+      - {'$level': 350, cmin: -14.0, cmax: 2.0, cint: 2, scale: log_scale}
+      - {'$level': 300, cmin: -12.0, cmax: 2.0, cint: 1, scale: log_scale}
+      - {'$level': 250, cmin: -9.0, cmax: 1.0, cint: 1, scale: log_scale}
+      - {'$level': 200, cmin: -6.3, cmax: 1.4, cint: 0.7, scale: log_scale}
+      - {'$level': 150, cmin: -1.2, cmax: 0.4, cint: 0.2}
+      - {'$level': 100, cmin: -0.3, cmax: 0.3, cint: 0.1}
+    pancdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 1370.0, cint: 137, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 1430.0, cint: 143, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 1460.0, cint: 146, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 1500.0, cint: 150, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 1480.0, cint: 148, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 1290.0, cint: 129, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 1100.0, cint: 110, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 1020.0, cint: 102, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 800.0, cint: 80, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 1080.0, cint: 108, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 1620.0, cint: 162, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 1390.0, cint: 139, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 1060.0, cint: 106, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 970.0, cint: 97, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 410.0, cint: 41}
+      - {'$level': 350, cmin: 38.0, cmax: 418.0, cint: 38}
+      - {'$level': 300, cmin: 36.0, cmax: 396.0, cint: 36}
+      - {'$level': 250, cmin: 37.0, cmax: 407.0, cint: 37}
+      - {'$level': 200, cmin: 24.0, cmax: 264.0, cint: 24}
+      - {'$level': 150, cmin: 24.0, cmax: 144.0, cint: 12}
+      - {'$level': 100, cmin: 4.0, cmax: 40.0, cint: 4}
+    pm25bccdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 0.6, cint: 0.1, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 0.7, cint: 0.1, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 0.6, cint: 0.1, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 0.7, cint: 0.1, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 0.8, cint: 0.1, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 1.8, cint: 0.2, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 1.8, cint: 0.2, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 2.4, cint: 0.2, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 2.4, cint: 0.2, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 2.7, cint: 0.3, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 2.2, cint: 0.2, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 1.6, cint: 0.2, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 1.3, cint: 0.1, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 1.1, cint: 0.1, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 0.3, cint: 0.03, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 0.2, cint: 0.02, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 0.13, cint: 0.01, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 0.09, cint: 0.01, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 0.05, cint: 0.005, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 0.018, cint: 0.002}
+      - {'$level': 100, cmin: 0.001, cmax: 0.007, cint: 0.001}
+    pm25ducdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 45.0, cint: 5, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 36.0, cint: 4, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 27.0, cint: 3, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 24.0, cint: 2, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 22.0, cint: 2, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 18.0, cint: 2, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 16.0, cint: 2, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 13.0, cint: 1, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 11.0, cint: 1, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 10.0, cint: 1.0, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 10.0, cint: 1.0, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 6.0, cint: 0.6, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 5.0, cint: 0.5, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 2.7, cint: 0.3, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 1.8, cint: 0.2, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 1.6, cint: 0.2, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 1.3, cint: 0.1, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 1.1, cint: 0.1, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 0.3, cint: 0.03, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 0.044, cint: 0.004}
+    pm25nicdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 7.0, cint: 0.7, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 18.0, cint: 2, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 11.0, cint: 1, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 13.0, cint: 1, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 16.0, cint: 2, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 20.0, cint: 2, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 16.0, cint: 2, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 13.0, cint: 1, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 12.0, cint: 1, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 11.0, cint: 1, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 8.8, cint: 0.8, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 8.0, cint: 0.8, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 6.0, cint: 0.6, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 5.0, cint: 0.5, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 5.0, cint: 0.5, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 4.4, cint: 0.4, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 4.4, cint: 0.4, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 4.4, cint: 0.4, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 4.0, cint: 0.4, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 3.6, cint: 0.4, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 1.0, cint: 0.1, scale: exp_scale}
+    pm25occdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 7.0, cint: 0.7, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 10.0, cint: 1.0, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 16.0, cint: 2, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 11.0, cint: 1.0, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 11.0, cint: 1, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 55.0, cint: 5, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 50.0, cint: 5, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 70.0, cint: 7, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 70.0, cint: 7, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 77.0, cint: 7, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 66.0, cint: 6, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 44.0, cint: 4, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 36.0, cint: 4, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 30.0, cint: 3, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 8.8, cint: 0.8, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 5.4, cint: 0.6, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 2.4, cint: 0.3, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 1.6, cint: 0.2, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 0.8, cint: 0.1, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 0.22, cint: 0.02}
+      - {'$level': 100, cmin: 0.01, cmax: 0.07, cint: 0.01}
+    pm25soacdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 4.0, cint: 0.4, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 5.0, cint: 0.5, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 4.4, cint: 0.4, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 4.5, cint: 0.5, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 5.0, cint: 0.5, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 5.5, cint: 0.5, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 5.5, cint: 0.5, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 4.4, cint: 0.4, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 3.6, cint: 0.4, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 3.3, cint: 0.3, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 2.7, cint: 0.3, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 2.2, cint: 0.2, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 1.6, cint: 0.2, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 1.4, cint: 0.1, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 0.7, cint: 0.1}
+      - {'$level': 150, cmin: 0.03, cmax: 0.36, cint: 0.03}
+      - {'$level': 100, cmin: 0.1, cmax: 0.28, cint: 0.02, scale: log_scale}
+    pm25sscdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 7.2, cint: 0.8}
+      - {'$level': 975, cmin: 0.0, cmax: 6.0, cint: 0.6}
+      - {'$level': 950, cmin: 0.0, cmax: 5.0, cint: 0.5, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 4.0, cint: 0.4, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 3.6, cint: 0.3, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 2.4, cint: 0.2, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 1.6, cint: 0.2, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 1.2, cint: 0.1, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 0.9, cint: 0.1, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 0.7, cint: 0.1, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 0.5, cint: 0.1, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 0.4, cint: 0.04, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 0.36, cint: 0.04, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 0.3, cint: 0.03, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 0.3299, cint: 0.03, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 0.3299, cint: 0.03, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 0.27, cint: 0.03, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 0.09, cint: 0.01, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 0.06, cint: 0.01, scale: exp_scale}
+      - {'$level': 100, cmin: 0.004, cmax: 0.022, cint: 0.002, scale: exp_scale}
+    pm25cdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 55.0, cint: 5, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 44.0, cint: 4, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 36.0, cint: 4, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 30.0, cint: 3, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 30.0, cint: 3, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 60.0, cint: 6, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 60.0, cint: 6, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 77.0, cint: 7, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 80.0, cint: 8, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 80.0, cint: 8, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 72.0, cint: 8, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 55.0, cint: 5, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 40.0, cint: 4, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 36.0, cint: 4, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 14.0, cint: 1, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 12.0, cint: 1, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 10.0, cint: 1.0, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 9.0, cint: 0.9, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 5.4, cint: 0.6, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 5.5, cint: 0.5, scale: exp_scale}
+      - {'$level': 100, cmin: 0.2, cmax: 2.2, cint: 0.2, scale: exp_scale}
+    pm25sucdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 10.0, cint: 1.0, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 13.0, cint: 1, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 12.0, cint: 1, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 13.0, cint: 1, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 12.0, cint: 1, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 12.0, cint: 1, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 18.0, cint: 2, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 9.0, cint: 0.9, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 4.4, cint: 0.4, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 3.3, cint: 0.3, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 3.3, cint: 0.3, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 2.7, cint: 0.3, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 1.8, cint: 0.2, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 1.6, cint: 0.2, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 1.4, cint: 0.1, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 0.9, cint: 0.1}
+      - {'$level': 150, cmin: 0.0, cmax: 1.0, cint: 0.1, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 1.0, cint: 0.1, scale: exp_scale}
+    pscdict:
+      - {'$level': 0, cmin: 684.0, cmax: 1008.0, cint: 36, scale: log_scale}
+    qcdict:
+      - {'$level': 1000, cmin: 2.0, cmax: 22.0, cint: 2}
+      - {'$level': 975, cmin: 2.0, cmax: 20.0, cint: 2}
+      - {'$level': 950, cmin: 2.0, cmax: 18.0, cint: 2}
+      - {'$level': 925, cmin: 0.0, cmax: 18.0, cint: 2}
+      - {'$level': 900, cmin: 0.0, cmax: 16.0, cint: 2}
+      - {'$level': 850, cmin: 0.0, cmax: 16.0, cint: 2}
+      - {'$level': 800, cmin: 0.0, cmax: 14.0, cint: 1, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 13.0, cint: 1, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 10.0, cint: 1.0, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 9.0, cint: 0.9, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 8.0, cint: 0.8, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 6.0, cint: 0.6, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 5.0, cint: 0.5, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 3.6, cint: 0.4, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 2.6, cint: 0.2, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 1.5, cint: 0.1, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 0.8, cint: 0.1, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 0.3, cint: 0.03, scale: exp_scale}
+      - {'$level': 200, cmin: 0.01, cmax: 0.09, cint: 0.01, scale: exp_scale}
+      - {'$level': 150, cmin: 0.004, cmax: 0.044, cint: 0.004, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0018, cmax: 0.004, cint: 0.0002}
+    rhcdict:
+      - {'$level': 1000, cmin: 16.0, cmax: 96.0, cint: 8}
+      - {'$level': 975, cmin: 9.0, cmax: 99.0, cint: 9, scale: log_scale}
+      - {'$level': 950, cmin: 9.0, cmax: 99.0, cint: 9}
+      - {'$level': 925, cmin: 0.0, cmax: 100.0, cint: 10}
+      - {'$level': 900, cmin: 0.0, cmax: 100.0, cint: 10}
+      - {'$level': 850, cmin: 0.0, cmax: 100.0, cint: 10}
+      - {'$level': 800, cmin: 0.0, cmax: 100.0, cint: 10, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 100.0, cint: 10, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 100.0, cint: 10, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 100.0, cint: 10, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 100.0, cint: 10}
+      - {'$level': 550, cmin: 0.0, cmax: 100.0, cint: 10}
+      - {'$level': 500, cmin: 0.0, cmax: 100.0, cint: 10, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 100.0, cint: 10, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 100.0, cint: 10}
+      - {'$level': 350, cmin: 0.0, cmax: 100.0, cint: 10}
+      - {'$level': 300, cmin: 10.0, cmax: 100.0, cint: 10}
+      - {'$level': 250, cmin: 9.0, cmax: 99.0, cint: 9}
+      - {'$level': 200, cmin: 9.0, cmax: 99.0, cint: 9}
+      - {'$level': 150, cmin: 0.0, cmax: 90.0, cint: 9, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 60.0, cint: 6, scale: exp_scale}
+    slpcdict:
+      - {'$level': 0, cmin: 988.0, cmax: 1024.0, cint: 4}
+    so2sfccdict:
+      - {'$level': 0, cmin: 0.0, cmax: 3.6, cint: 0.4, scale: exp_scale}
+    so2cdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 3.6, cint: 0.4, scale: exp_scale}
+      - {'$level': 975, cmin: 0.0, cmax: 3.6, cint: 0.4, scale: exp_scale}
+      - {'$level': 950, cmin: 0.0, cmax: 6.0, cint: 0.6, scale: exp_scale}
+      - {'$level': 925, cmin: 0.0, cmax: 12.0, cint: 1, scale: exp_scale}
+      - {'$level': 900, cmin: 0.0, cmax: 11.0, cint: 1, scale: exp_scale}
+      - {'$level': 850, cmin: 0.0, cmax: 8.0, cint: 0.8, scale: exp_scale}
+      - {'$level': 800, cmin: 0.0, cmax: 5.0, cint: 0.5, scale: exp_scale}
+      - {'$level': 750, cmin: 0.0, cmax: 2.7, cint: 0.3, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 1.3, cint: 0.1, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 1.3, cint: 0.1, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 1.1, cint: 0.1, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 0.7, cint: 0.1, scale: exp_scale}
+      - {'$level': 500, cmin: 0.0, cmax: 0.6, cint: 0.1, scale: exp_scale}
+      - {'$level': 450, cmin: 0.0, cmax: 0.5, cint: 0.1, scale: exp_scale}
+      - {'$level': 400, cmin: 0.0, cmax: 0.22, cint: 0.02, scale: exp_scale}
+      - {'$level': 350, cmin: 0.0, cmax: 0.36, cint: 0.03, scale: exp_scale}
+      - {'$level': 300, cmin: 0.0, cmax: 0.27, cint: 0.03, scale: exp_scale}
+      - {'$level': 250, cmin: 0.0, cmax: 0.22, cint: 0.02, scale: exp_scale}
+      - {'$level': 200, cmin: 0.0, cmax: 0.4, cint: 0.04, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 0.11, cint: 0.01, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 0.027, cint: 0.003, scale: exp_scale}
+    thcdict:
+      - {'$level': 1000, cmin: 9.0, cmax: 36.0, cint: 3}
+      - {'$level': 975, cmin: 9.0, cmax: 36.0, cint: 3}
+      - {'$level': 950, cmin: 9.0, cmax: 39.0, cint: 3}
+      - {'$level': 925, cmin: 9.0, cmax: 42.0, cint: 3}
+      - {'$level': 900, cmin: 12.0, cmax: 42.0, cint: 3}
+      - {'$level': 850, cmin: 12.0, cmax: 48.0, cint: 4}
+      - {'$level': 800, cmin: 12.0, cmax: 48.0, cint: 4}
+      - {'$level': 750, cmin: 15.0, cmax: 51.0, cint: 3}
+      - {'$level': 700, cmin: 18.0, cmax: 51.0, cint: 3}
+      - {'$level': 650, cmin: 21.0, cmax: 51.0, cint: 3}
+      - {'$level': 600, cmin: 21.0, cmax: 51.0, cint: 3, scale: log_scale}
+      - {'$level': 550, cmin: 24.0, cmax: 54.0, cint: 3}
+      - {'$level': 500, cmin: 27.0, cmax: 57.0, cint: 3}
+      - {'$level': 450, cmin: 30.0, cmax: 60.0, cint: 3}
+      - {'$level': 400, cmin: 36.0, cmax: 63.0, cint: 3}
+      - {'$level': 350, cmin: 39.0, cmax: 66.0, cint: 3}
+      - {'$level': 300, cmin: 44.0, cmax: 68.0, cint: 2}
+      - {'$level': 250, cmin: 50.0, cmax: 74.0, cint: 2}
+      - {'$level': 200, cmin: 58.0, cmax: 84.0, cint: 2}
+      - {'$level': 150, cmin: 75.0, cmax: 108.0, cint: 3}
+      - {'$level': 100, cmin: 105.0, cmax: 150.0, cint: 5}
+    totcol_cocdict:
+      - {'$level': 0, cmin: 889.0, cmax: 2159.0, cint: 127}
+    totcol_no2cdict:
+      - {'$level': 0, cmin: 4.0, cmax: 28.0, cint: 2, scale: exp_scale}
+    totcol_o3cdict:
+      - {'$level': 0, cmin: 272.0, cmax: 432.0, cint: 16}
+    totcol_so2cdict:
+      - {'$level': 0, cmin: 0.0, cmax: 20.0, cint: 2, scale: exp_scale}
+    tropcol_cocdict:
+      - {'$level': 0, cmin: 568.0, cmax: 1988.0, cint: 142}
+    tropcol_hchocdict:
+      - {'$level': 0, cmin: 0.0, cmax: 24.0, cint: 2, scale: exp_scale}
+    tropcol_no2cdict:
+      - {'$level': 0, cmin: 0.0, cmax: 24.0, cint: 2, scale: exp_scale}
+    tropcol_o3cdict:
+      - {'$level': 0, cmin: 14.0, cmax: 91.0, cint: 7}
+    tropcol_so2cdict:
+      - {'$level': 0, cmin: 0.0, cmax: 20.0, cint: 2, scale: exp_scale}
+    tcdict:
+      - {'$level': 1000, cmin: 9.0, cmax: 36.0, cint: 3}
+      - {'$level': 975, cmin: 6.0, cmax: 36.0, cint: 3}
+      - {'$level': 950, cmin: 6.0, cmax: 33.0, cint: 3}
+      - {'$level': 925, cmin: 3.0, cmax: 36.0, cint: 3}
+      - {'$level': 900, cmin: 3.0, cmax: 33.0, cint: 3}
+      - {'$level': 850, cmin: -3.0, cmax: 33.0, cint: 3}
+      - {'$level': 800, cmin: -6.0, cmax: 30.0, cint: 3}
+      - {'$level': 750, cmin: -6.0, cmax: 24.0, cint: 3}
+      - {'$level': 700, cmin: -12.0, cmax: 18.0, cint: 3}
+      - {'$level': 650, cmin: -15.0, cmax: 12.0, cint: 3}
+      - {'$level': 600, cmin: -18.0, cmax: 6.0, cint: 2, scale: log_scale}
+      - {'$level': 550, cmin: -22.0, cmax: 2.0, cint: 2}
+      - {'$level': 500, cmin: -28.0, cmax: -4.0, cint: 2}
+      - {'$level': 450, cmin: -32.0, cmax: -8.0, cint: 2}
+      - {'$level': 400, cmin: -36.0, cmax: -14.0, cint: 2}
+      - {'$level': 350, cmin: -42.0, cmax: -22.0, cint: 2}
+      - {'$level': 300, cmin: -48.0, cmax: -30.0, cint: 2}
+      - {'$level': 250, cmin: -56.0, cmax: -40.0, cint: 2}
+      - {'$level': 200, cmin: -64.0, cmax: -48.0, cint: 2}
+      - {'$level': 150, cmin: -70.0, cmax: -50.0, cint: 2}
+      - {'$level': 100, cmin: -76.0, cmax: -52.0, cint: 2}
+    ucdict:
+      - {'$level': 1000, cmin: -12.0, cmax: 14.0, cint: 2}
+      - {'$level': 975, cmin: -15.0, cmax: 15.0, cint: 3}
+      - {'$level': 950, cmin: -15.0, cmax: 18.0, cint: 3}
+      - {'$level': 925, cmin: -15.0, cmax: 21.0, cint: 3}
+      - {'$level': 900, cmin: -16.0, cmax: 20.0, cint: 4}
+      - {'$level': 850, cmin: -16.0, cmax: 24.0, cint: 4}
+      - {'$level': 800, cmin: -20.0, cmax: 30.0, cint: 5}
+      - {'$level': 750, cmin: -20.0, cmax: 35.0, cint: 5}
+      - {'$level': 700, cmin: -20.0, cmax: 35.0, cint: 5}
+      - {'$level': 650, cmin: -15.0, cmax: 40.0, cint: 5}
+      - {'$level': 600, cmin: -15.0, cmax: 40.0, cint: 5}
+      - {'$level': 550, cmin: -15.0, cmax: 40.0, cint: 5}
+      - {'$level': 500, cmin: -15.0, cmax: 40.0, cint: 5}
+      - {'$level': 450, cmin: -8.0, cmax: 36.0, cint: 4}
+      - {'$level': 400, cmin: -10.0, cmax: 40.0, cint: 5}
+      - {'$level': 350, cmin: -10.0, cmax: 40.0, cint: 5}
+      - {'$level': 300, cmin: -5.0, cmax: 40.0, cint: 5}
+      - {'$level': 250, cmin: -12.0, cmax: 42.0, cint: 6}
+      - {'$level': 200, cmin: -12.0, cmax: 54.0, cint: 6}
+      - {'$level': 150, cmin: 8.0, cmax: 44.0, cint: 4}
+      - {'$level': 100, cmin: 0.0, cmax: 30.0, cint: 3}
+    vcdict:
+      - {'$level': 1000, cmin: -21.0, cmax: 9.0, cint: 3}
+      - {'$level': 975, cmin: -24.0, cmax: 16.0, cint: 4}
+      - {'$level': 950, cmin: -30.0, cmax: 20.0, cint: 5}
+      - {'$level': 925, cmin: -25.0, cmax: 25.0, cint: 5}
+      - {'$level': 900, cmin: -25.0, cmax: 25.0, cint: 5}
+      - {'$level': 850, cmin: -25.0, cmax: 25.0, cint: 5}
+      - {'$level': 800, cmin: -25.0, cmax: 25.0, cint: 5}
+      - {'$level': 750, cmin: -20.0, cmax: 24.0, cint: 4}
+      - {'$level': 700, cmin: -20.0, cmax: 24.0, cint: 4}
+      - {'$level': 650, cmin: -25.0, cmax: 25.0, cint: 5}
+      - {'$level': 600, cmin: -30.0, cmax: 30.0, cint: 6}
+      - {'$level': 550, cmin: -30.0, cmax: 30.0, cint: 6}
+      - {'$level': 500, cmin: -36.0, cmax: 30.0, cint: 6}
+      - {'$level': 450, cmin: -35.0, cmax: 28.0, cint: 7}
+      - {'$level': 400, cmin: -40.0, cmax: 32.0, cint: 8}
+      - {'$level': 350, cmin: -54.0, cmax: 36.0, cint: 9}
+      - {'$level': 300, cmin: -60.0, cmax: 40.0, cint: 10}
+      - {'$level': 250, cmin: -60.0, cmax: 50.0, cint: 10}
+      - {'$level': 200, cmin: -50.0, cmax: 50.0, cint: 10}
+      - {'$level': 150, cmin: -30.0, cmax: 30.0, cint: 6}
+      - {'$level': 100, cmin: -15.0, cmax: 18.0, cint: 3}
+    wspdcdict:
+      - {'$level': 1000, cmin: 0.0, cmax: 24.0, cint: 2}
+      - {'$level': 975, cmin: 0.0, cmax: 27.0, cint: 3}
+      - {'$level': 950, cmin: 0.0, cmax: 30.0, cint: 3}
+      - {'$level': 925, cmin: 0.0, cmax: 30.0, cint: 3}
+      - {'$level': 900, cmin: 0.0, cmax: 27.0, cint: 3}
+      - {'$level': 850, cmin: 0.0, cmax: 30.0, cint: 3}
+      - {'$level': 800, cmin: 0.0, cmax: 33.0, cint: 3}
+      - {'$level': 750, cmin: 0.0, cmax: 33.0, cint: 3, scale: exp_scale}
+      - {'$level': 700, cmin: 0.0, cmax: 36.0, cint: 4, scale: exp_scale}
+      - {'$level': 650, cmin: 0.0, cmax: 40.0, cint: 4, scale: exp_scale}
+      - {'$level': 600, cmin: 0.0, cmax: 44.0, cint: 4, scale: exp_scale}
+      - {'$level': 550, cmin: 0.0, cmax: 40.0, cint: 4}
+      - {'$level': 500, cmin: 0.0, cmax: 44.0, cint: 4}
+      - {'$level': 450, cmin: 0.0, cmax: 50.0, cint: 5}
+      - {'$level': 400, cmin: 0.0, cmax: 50.0, cint: 5}
+      - {'$level': 350, cmin: 0.0, cmax: 60.0, cint: 6}
+      - {'$level': 300, cmin: 0.0, cmax: 60.0, cint: 6}
+      - {'$level': 250, cmin: 0.0, cmax: 66.0, cint: 6}
+      - {'$level': 200, cmin: 5.0, cmax: 60.0, cint: 5}
+      - {'$level': 150, cmin: 8.0, cmax: 48.0, cint: 4}
+      - {'$level': 100, cmin: 4.0, cmax: 30.0, cint: 2}
+    zpblcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 4100.0, cint: 410, scale: exp_scale}

@@ -1,0 +1,837 @@
+field:
+
+  G5FPFC:
+
+    _wstar:
+      long_name: Convective Velocity Scale
+      units: m s-1
+      expression: pow(9.81/tlml.tavg1_2d_flx_Nx*pblh.tavg1_2d_flx_Nx*hflux.tavg1_2d_flx_Nx/rhoa.tavg1_2d_flx_Nx/1004,1/3)
+
+    _svent:
+      long_name: Surface Ventilation Velocity
+      units: m s-1
+      expression: speed.tavg1_2d_flx_Nx
+
+    _phis:
+      long_name: Surface Geopotential Height
+      units: m2 s-2
+      expression: phis.inst3_3d_asm_Np(z=1,t=1)
+
+    _taulow10:
+      long_name: In-Cloud Optical Thickness of Low Clouds Where Coverage > 10%
+      units: 1
+      expression: maskout(taulow.tavg1_2d_rad_Nx,cldlow.tavg1_2d_rad_Nx-0.1)
+
+    _taumid10:
+      long_name: In-Cloud Optical Thickness of Mid Clouds Where Coverage > 10%
+      units: 1
+      expression: maskout(taumid.tavg1_2d_rad_Nx,cldmid.tavg1_2d_rad_Nx-0.1)
+
+    _tauhgh10:
+      long_name: In-Cloud Optical Thickness of High Clouds Where Coverage > 10%
+      units: 1
+      expression: maskout(tauhgh.tavg1_2d_rad_Nx,cldhgh.tavg1_2d_rad_Nx-0.1)
+
+    _cldlow:
+      long_name: Low Cloud Fraction
+      units: 1
+      expression: cldlow.tavg1_2d_rad_Nx(z=1)
+
+    _cldmid:
+      long_name: Mid Cloud Fraction
+      units: 1
+      expression: cldmid.tavg1_2d_rad_Nx(z=1)
+
+    _cldhgh:
+      long_name: High Cloud Fraction
+      units: 1
+      expression: cldhgh.tavg1_2d_rad_Nx(z=1)
+
+    _cldtot:
+      long_name: Total Cloud Fraction
+      units: 1
+      expression: cldtot.tavg1_2d_rad_Nx(z=1)
+
+    _cldprs:
+      long_name: Cloud Top Pressure
+      units: Pa
+      expression: cldprs.tavg1_2d_slv_Nx(z=1)
+
+    _ql:
+      long_name: Mass Fraction of Cloud Liquid Water
+      units: kg kg-1
+      expression: ql.inst3_3d_asm_Np
+
+    _qi:
+      long_name: Mass Fraction of Cloud Ice Water
+      units: kg kg-1
+      expression: qi.inst3_3d_asm_Np
+
+    _ql_nz:
+      long_name: Mass Fraction of Cloud Liquid Water
+      units: kg kg-1
+      expression: ql.GEOSHGT.inst3_3d_asm_Nz
+
+    _qi_nz:
+      long_name: Mass Fraction of Cloud Ice Water
+      units: kg kg-1
+      expression: qi.GEOSHGT.inst3_3d_asm_Nz
+
+    _bcoc_nz:
+      long_name: Black Carbon Mass
+      units: mg m-3
+      expression: bcoc.GEOSHGT.inst3_3d_aer_Nz
+
+    _pm25_nz:
+      long_name: Particulate Matter 2.5
+      units: mg m-3
+      expression: pm25.GEOSHGT.inst3_3d_aer_Nz
+
+    _theta_nz:
+      long_name: Potential Temperature
+      units: K
+      expression: theta.GEOSHGT.inst3_3d_asm_Nz
+
+    _uwnd_nz:
+      long_name: East-West Wind
+      units: m s-1
+      expression: u.GEOSHGT.inst3_3d_asm_Nz
+
+    _vwnd_nz:
+      long_name: North-South Wind
+      units: m s-1
+      expression: v.GEOSHGT.inst3_3d_asm_Nz
+
+    _rh_nz:
+      long_name: Relative Humidity
+      units: '%'
+      expression: rh.GEOSHGT.inst3_3d_asm_Nz
+
+    _agl_nz:
+      long_name: Above Ground Height
+      units: m
+      expression: agl.GEOSHGT.inst3_3d_asm_Nz
+
+    _ql_nh:
+      long_name: Mass Fraction of Cloud Liquid Water
+      units: kg kg-1
+      expression: ql.GEOSHGT.inst3_3d_asm_Nh
+
+    _qi_nh:
+      long_name: Mass Fraction of Cloud Ice Water
+      units: kg kg-1
+      expression: qi.GEOSHGT.inst3_3d_asm_Nh
+
+    _bcoc_nh:
+      long_name: Black Carbon Mass
+      units: mg m-3
+      expression: bcoc.GEOSHGT.inst3_3d_aer_Nh
+
+    _pm25_nh:
+      long_name: Particulate Matter 2.5
+      units: mg m-3
+      expression: pm25.GEOSHGT.inst3_3d_aer_Nh
+
+    _theta_nh:
+      long_name: Potential Temperature
+      units: K
+      expression: theta.GEOSHGT.inst3_3d_asm_Nh
+
+    _uwnd_nh:
+      long_name: East-West Wind
+      units: m s-1
+      expression: u.GEOSHGT.inst3_3d_asm_Nh
+
+    _vwnd_nh:
+      long_name: North-South Wind
+      units: m s-1
+      expression: v.GEOSHGT.inst3_3d_asm_Nh
+
+    _bc:
+      long_name: Black Carbon Mass Mixing Ratio
+      units: kg kg-1
+      expression: bc.inst3_3d_aer_Np
+
+    _bcfluxu:
+      long_name: Black Carbon Column U-wind Mass Flux
+      units: kg m-1 s-1
+      expression: bcfluxu.inst1_2d_hwl_Nx
+
+    _bcfluxv:
+      long_name: Black Carbon Column V-wind Mass Flux
+      units: kg m-1 s-1
+      expression: bcfluxv.inst1_2d_hwl_Nx
+
+    _bccmass:
+      long_name: Black Carbon Column Mass Density
+      units: kg m-2
+      expression: bccmass.inst1_2d_hwl_Nx
+
+    _bcsmass:
+      long_name: Black Carbon Surface Mass Concentration
+      units: kg m-3
+      expression: bcsmass.inst1_2d_hwl_Nx
+
+    _bcexttau:
+      long_name: Black Carbon Extinction AOT [550 nm]
+      units: '1'
+      expression: bcexttau.inst1_2d_hwl_Nx
+
+    _bcembb:
+      long_name: Black Carbon Biomass Burning Emissions 
+      units: kg m-2 s-1
+      expression: bcembb.MERRA2.tavg1_2d_adg_Nx(z=1)
+
+    _oc:
+      long_name: Organic Carbon Mass Mixing Ratio
+      units: kg kg-1
+      expression: oc.inst3_3d_aer_Np
+
+    _ocfluxu:
+      long_name: Organic Carbon Column U-wind Mass Flux
+      units: kg m-1 s-1
+      expression: ocfluxu.inst1_2d_hwl_Nx
+
+    _ocfluxv:
+      long_name: Organic Carbon Column V-wind Mass Flux
+      units: kg m-1 s-1
+      expression: ocfluxv.inst1_2d_hwl_Nx
+
+    _occmass:
+      long_name: Organic Carbon Column Mass Density
+      units: kg m-2
+      expression: occmass.inst1_2d_hwl_Nx
+
+    _ocsmass:
+      long_name: Organic Carbon Surface Mass Concentration
+      units: kg m-3
+      expression: ocsmass.inst1_2d_hwl_Nx
+
+    _ocexttau:
+      long_name: Organic Carbon Extinction AOT [550 nm]
+      units: '1'
+      expression: ocexttau.inst1_2d_hwl_Nx
+
+    _co:
+      long_name: CO
+      units: kg m-2
+      expression: co.inst3_3d_chm_Np
+
+    _cobbna:
+      long_name: CO North America Biomass Burning
+      units: kg m-2
+      expression: cobbna.inst3_3d_tag_Np
+
+    _cobbaf:
+      long_name: CO Africa Biomass Burning
+      units: kg m-2
+      expression: cobbaf.inst3_3d_tag_Np
+
+    _cocl:
+      long_name: CO Column Burden
+      units: kg m-2
+      expression: cocl.inst1_2d_hwl_Nx
+
+    _coclbbna:
+      long_name: CO Column Burden (North America Biomass Burning)
+      units: kg m-2
+      expression: coclbbna.inst1_2d_hwl_Nx
+
+    _coclbbaf:
+      long_name: CO Column Burden (Africa Biomass Burning)
+      units: kg m-2
+      expression: coclbbaf.inst1_2d_hwl_Nx
+
+    _uwnd:
+      long_name: East-West Wind
+      units: m s-1
+      expression: u.inst3_3d_asm_Np
+
+    _vwnd:
+      long_name: North-South Wind
+      units: m s-1
+      expression: v.inst3_3d_asm_Np
+
+    _airdens:
+      long_name: Moist Air Density
+      units: unknown
+      expression: airdens.inst3_3d_tag_Np
+
+    _ocembb:
+      long_name: OC BB Emissions
+      units: unknown
+      expression: ocembb.tavg3_2d_adg_Nx
+
+    _ni:
+      long_name: Nitrate Mixing Ratio
+      units: kg kg-1
+      expression: ni.inst3_3d_aer_Np
+
+  MERRA2:
+
+    _bcembb:
+      long_name: Black Carbon Biomass Burning Emissions
+      units: kg m-2 s-1
+      expression: bcembb.tavg1_2d_adg_Nx(z=1)
+
+  GEOSCFFC:
+
+    _no2sfc:
+      long_name: NO2_volume_mixing_ratio_dry_air
+      units: mol mol-1
+      expression: no2.htf_inst_15mn_glo_L1440x721_slv(z=1)
+
+    _so2sfc:
+      long_name: SO2_volume_mixing_ratio_dry_air
+      units: mol mol-1
+      expression: so2.htf_inst_15mn_glo_L1440x721_slv(z=1)
+
+    _o3sfc:
+      long_name: O3_volume_mixing_ratio_dry_air
+      units: mol mol-1
+      expression: o3.htf_inst_15mn_glo_L1440x721_slv(z=1)
+
+    _cosfc:
+      long_name: CO_volume_mixing_ratio_dry_air
+      units: mol mol-1
+      expression: co.htf_inst_15mn_glo_L1440x721_slv(z=1)
+
+    _hchosfc:
+      long_name: HCHO_volume_mixing_ratio_dry_air
+      units: mol mol-1
+      expression: hcho.chm_tavg_1hr_glo_L1440x721_slv(z=1)
+
+    _airdens:
+      long_name: Moist Air Density
+      units: kg m-3
+      expression: airdens_dryp.met_inst_1hr_glo_L1440x721_p23
+
+    _airvol_chem:
+      long_name: Geos-chem Chemistry Box Volume
+      units: km3
+      expression: airvol_chem.GEOSCFSRP.srp_inst_1hr_wst_L140x70_p21
+
+    _ch4:
+      long_name: Methane
+      units: mol mol-1
+      expression: ch4.GEOSCFSRP.srp_inst_1hr_wst_L140x70_p21
+
+    _co:
+      long_name: Carbon Monoxide
+      units: mol mol-1
+      expression: co.chm_inst_1hr_glo_L1440x721_p23
+
+    _epv:
+      long_name: Ertels Potential Vorticity
+      units: K m+2 kg-1 s-1
+      expression: epv.met_inst_1hr_glo_L1440x721_p23
+
+    _h:
+      long_name: Edge Heights
+      units: m
+      expression: h.met_inst_1hr_glo_L1440x721_p23
+            
+    _hcho:
+      long_name: Formaldehyde
+      units: mol mol-1
+      expression: hcho.chm_inst_1hr_glo_L1440x721_p23
+
+    _isop:
+      long_name: Isoprene
+      units: mol mol-1
+      expression: isop.GEOSCFSRP.srp_inst_1hr_wst_L140x70_p21
+
+    _nh3:
+      long_name: Ammonia
+      units: mol mol-1
+      expression: nh3.GEOSCFSRP.srp_inst_1hr_wst_L140x70_p21
+
+    _no2:
+      long_name: Nitrogen Dioxide
+      units: mol mol-1
+      expression: no2.chm_inst_1hr_glo_L1440x721_p23
+
+    _noy:
+      long_name: Reactive Nitrogen
+      units: mol mol-1
+      expression: noy.chm_inst_1hr_glo_L1440x721_p23
+
+    _o3:
+      long_name: Ozone
+      units: mol mol-1
+      expression: o3.chm_inst_1hr_glo_L1440x721_p23
+
+    _omega:
+      long_name: Vertical Pressure Velocity
+      units: Pa s-1
+      expression: omega.met_inst_1hr_glo_L1440x721_p23
+
+    _pan:
+      long_name: Peroxyacetyl Nitrate
+      units: mol mol-1
+      expression: pan.GEOSCFSRP.srp_inst_1hr_wst_L140x70_p21
+
+    _pm25_rh35:
+      long_name: Particulate Matter With Diameter Below 2.5 Um Rh 35
+      units: ug m-3
+      expression: pm25_rh35.chm_inst_1hr_glo_L1440x721_p23
+
+    _pm25bc_rh35:
+      long_name: Black Carbon Particulate Matter With Diameter Below 2.5 Um Rh 35
+      units: ug m-3
+      expression: pm25bc_rh35.chm_inst_1hr_glo_L1440x721_p23
+
+    _pm25du_rh35:
+      long_name: Dust Particulate Matter With Diameter Below 2.5 Um Rh 35
+      units: ug m-3
+      expression: pm25du_rh35.chm_inst_1hr_glo_L1440x721_p23
+
+    _pm25nit_rh35:
+      long_name: Nitrate Particulate Matter With Diameter Below 2.5 Um Rh 35
+      units: ug m-3
+      expression: pm25nit_rh35.chm_inst_1hr_glo_L1440x721_p23
+
+    _pm25oc_rh35:
+      long_name: Organic Carbon Particulate Matter With Diameter Below 2.5 Um Rh 35
+      units: ug m-3
+      expression: pm25oc_rh35.chm_inst_1hr_glo_L1440x721_p23
+
+    _pm25soa_rh35:
+      long_name: Secondary Organic Aerosol Particulate Matter With Diameter Below 2.5 Um Rh 35
+      units: ug m-3
+      expression: pm25soa_rh35.chm_inst_1hr_glo_L1440x721_p23
+
+    _pm25ss_rh35:
+      long_name: Seasalt Particulate Matter With Diameter Below 2.5 Um Rh 35
+      units: ug m-3
+      expression: pm25ss_rh35.chm_inst_1hr_glo_L1440x721_p23
+
+    _pm25su_rh35:
+      long_name: Sulfate Particulate Matter With Diameter Below 2.5 Um Rh 35
+      units: ug m-3
+      expression: pm25su_rh35.chm_inst_1hr_glo_L1440x721_p23
+
+    _ps:
+      long_name: Surface Pressure
+      units: Pa
+      expression: ps.met_inst_1hr_glo_L1440x721_p23
+
+    _q:
+      long_name: Specific Humidity
+      units: kg kg-1
+      expression: q.met_inst_1hr_glo_L1440x721_p23
+
+    _rh:
+      long_name: Relative Humidity After Moist
+      units: 1
+      expression: rh.met_inst_1hr_glo_L1440x721_p23
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: Pa
+      expression: slp.met_inst_1hr_glo_L1440x721_p23
+
+    _so2:
+      long_name: Sulfur Dioxide
+      units: mol mol-1
+      expression: so2.chm_inst_1hr_glo_L1440x721_p23
+
+    _t:
+      long_name: Air Temperature
+      units: K
+      expression: t.met_inst_1hr_glo_L1440x721_p23
+
+    _th:
+      long_name: Potential Temperature
+      units: K
+      expression: th.met_inst_1hr_glo_L1440x721_p23
+
+    _u:
+      long_name: Eastward Wind
+      units: m s-1
+      expression: u.met_inst_1hr_glo_L1440x721_p23
+
+    _v:
+      long_name: Northward Wind
+      units: m s-1
+      expression: v.met_inst_1hr_glo_L1440x721_p23
+
+    _aod550_bc:
+      long_name: Black Carbon Optical Depth At 550nm
+      units: 1
+      expression: aod550_bc.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_cloud:
+      long_name: Cloud Optical Depthcloud Optical Depth
+      units: 1
+      expression: aod550_cloud.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_dst1:
+      long_name: Dust Bin1 Optical Depth At 550nm
+      units: 1
+      expression: aod550_dst1.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_dst2:
+      long_name: Dust Bin2 Optical Depth At 550nm
+      units: 1
+      expression: aod550_dst2.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_dst3:
+      long_name: Dust Bin3 Optical Depth At 550nm
+      units: 1
+      expression: aod550_dst3.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_dst4:
+      long_name: Dust Bin4 Optical Depth At 550nm
+      units: 1
+      expression: aod550_dst4.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_dst5:
+      long_name: Dust Bin5 Optical Depth At 550nm
+      units: 1
+      expression: aod550_dst5.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_dst6:
+      long_name: Dust Bin6 Optical Depth At 550nm
+      units: 1
+      expression: aod550_dst6.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_dst7:
+      long_name: Dust Bin7 Optical Depth At 550nm
+      units: 1
+      expression: aod550_dst7.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_dust:
+      long_name: Dust Optical Depth At 550nm
+      units: 1
+      expression: aod550_dust.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_oc:
+      long_name: Organic Carbon Optical Depth At 550nm
+      units: 1
+      expression: aod550_oc.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_ss:
+      long_name: Sea Salt Optical Depth At 550nm
+      units: 1
+      expression: aod550_ss.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _aod550_sna:
+      long_name: Sulfate Optical Depth At 550nm
+      units: 1
+      expression: aod550_sna.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_bcpi:
+      long_name: Hydrophilic Black Carbon Aerosol Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_bcpi.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_bcpo:
+      long_name: Hydrophobic Black Carbon Aerosol Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_bcpo.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_dst1:
+      long_name: Dust Aerosol, Reff = 0.7 Microns Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_dst1.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_dst2:
+      long_name: Dust Aerosol, Reff = 1.4 Microns Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_dst2.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_dst3:
+      long_name: Dust Aerosol, Reff = 2.4 Microns Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_dst3.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_dst4:
+      long_name: Dust Aerosol, Reff = 4.5 Microns Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_dst4.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_hcho:
+      long_name: Formaldehyde Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_hcho.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_hno3:
+      long_name: Nitric Acid Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_hno3.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_nh3:
+      long_name: Ammonia Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_nh3.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_nh4:
+      long_name: Ammonium Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_nh4.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_nit:
+      long_name: Inorganic Nitrates Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_nit.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_no2:
+      long_name: Nitrogen Dioxide Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_no2.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_o3:
+      long_name: Ozone Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_o3.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_ocpi:
+      long_name: Hydrophilic Organic Carbon Aerosol Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_ocpi.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_ocpo:
+      long_name: Hydrophobic Organic Carbon Aerosol Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_ocpo.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_sala:
+      long_name: Fine Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_sala.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _drydepflx_salc:
+      long_name: Coarse Dry Deposition Flux
+      units: molec cm-2 s-1
+      expression: drydepflx_salc.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _totcol_bro:
+      long_name: Bromine Monoxide Total Column Density
+      units: 1.0e15 molec cm-2
+      expression: totcol_bro.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _totcol_co:
+      long_name: Carbon Monoxide Total Column Density
+      units: 1.0e15 molec cm-2
+      expression: totcol_co.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _totcol_hcho:
+      long_name: Formaldehyde Total Column Density
+      units: 1.0e15 molec cm-2
+      expression: totcol_hcho.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _totcol_io:
+      long_name: Iodine Monoxide Total Column Density
+      units: 1.0e15 molec cm-2
+      expression: totcol_io.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _totcol_no2:
+      long_name: Nitrogen Dioxide Total Column Density
+      units: 1.0e15 molec cm-2
+      expression: totcol_no2.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _totcol_o3:
+      long_name: Ozone Total Column Density
+      units: dobsons
+      expression: totcol_o3.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _totcol_so2:
+      long_name: Sulfur Dioxide Total Column Density
+      units: 1.0e15 molec cm-2
+      expression: totcol_so2.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _tropcol_bro:
+      long_name: Bromine Monoxide Tropospheric Column Density
+      units: 1.0e15 molec cm-2
+      expression: tropcol_bro.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _tropcol_co:
+      long_name: Carbon Monoxide Tropospheric Column Density
+      units: 1.0e15 molec cm-2
+      expression: tropcol_co.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _tropcol_hcho:
+      long_name: Formaldehyde Tropospheric Column Density
+      units: 1.0e15 molec cm-2
+      expression: tropcol_hcho.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _tropcol_io:
+      long_name: Iodine Monoxide Tropospheric Column Density
+      units: 1.0e15 molec cm-2
+      expression: tropcol_io.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _tropcol_no2:
+      long_name: Nitrogen Dioxide Tropospheric Column Density
+      units: 1.0e15 molec cm-2
+      expression: tropcol_no2.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _tropcol_o3:
+      long_name: Ozone Tropospheric Column Density
+      units: dobsons
+      expression: tropcol_o3.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _tropcol_so2:
+      long_name: Sulfur Dioxide Tropospheric Column Density
+      units: 1.0e15 molec cm-2
+      expression: tropcol_so2.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_bcpi:
+      long_name: Hydrophilic Black Carbon Aerosol Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_bcpi.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_bcpo:
+      long_name: Hydrophobic Black Carbon Aerosol Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_bcpo.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_dst1:
+      long_name: Dust Aerosol, Reff = 0.7 Microns Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_dst1.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_dst2:
+      long_name: Dust Aerosol, Reff = 1.4 Microns Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_dst2.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_dst3:
+      long_name: Dust Aerosol, Reff = 2.4 Microns Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_dst3.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_dst4:
+      long_name: Dust Aerosol, Reff = 4.5 Microns Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_dst4.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_hcho:
+      long_name: Formaldehyde Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_hcho.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_hno3:
+      long_name: Nitric Acid Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_hno3.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_nh3:
+      long_name: Ammonia Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_nh3.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_nh4:
+      long_name: Ammonium Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_nh4.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_nit:
+      long_name: Inorganic Nitrates Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_nit.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_ocpi:
+      long_name: Hydrophilic Organic Carbon Aerosol Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_ocpi.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_ocpo:
+      long_name: Hydrophobic Organic Carbon Aerosol Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_ocpo.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_sala:
+      long_name: Fine Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_sala.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_salc:
+      long_name: Coarse Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_salc.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_so2:
+      long_name: Sulfur Dioxide Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_so2.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _wetdepflx_so4:
+      long_name: Sulfate Vertical Integrated Loss Due To Wet Scavenging
+      units: kg m-2 s-1
+      expression: wetdepflx_so4.GEOSCFFC.xgc_tavg_1hr_glo_L1440x721_slv
+
+    _cldtt:
+      long_name: Total Cloud Area Fraction
+      units: 1
+      expression: cldtt.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _phis:
+      long_name: Surface Geopotential Height
+      units: m+2 s-2
+      expression: phis.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _q10m:
+      long_name: 10-meter Specific Humidity
+      units: kg kg-1
+      expression: q10m.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _q2m:
+      long_name: 2-meter Specific Humidity
+      units: kg kg-1
+      expression: q2m.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _t10m:
+      long_name: 10-meter Air Temperature
+      units: K
+      expression: t10m.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _t2m:
+      long_name: 2-meter Air Temperature
+      units: K
+      expression: t2m.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _tprec:
+      long_name: Total Precipitation
+      units: kg m-2 s-1
+      expression: tprec.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _troppb:
+      long_name: Tropopause Pressure Based On Blended Estimate
+      units: Pa
+      expression: troppb.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _ts:
+      long_name: Surface Skin Temperature
+      units: K
+      expression: ts.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _u10m:
+      long_name: 10-meter Eastward Wind
+      units: m s-1
+      expression: u10m.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _u2m:
+      long_name: 2-meter Eastward Wind
+      units: m s-1
+      expression: u2m.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _v10m:
+      long_name: 10-meter Northward Wind
+      units: m s-1
+      expression: v10m.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _v2m:
+      long_name: 2-meter Northward Wind
+      units: m s-1
+      expression: v2m.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _zl:
+      long_name: Mid Layer Heights
+      units: m
+      expression: zl.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv
+
+    _zpbl:
+      long_name: Planetary Boundary Layer Height
+      units: m
+      expression: zpbl.GEOSCFFC.met_tavg_1hr_glo_L1440x721_slv

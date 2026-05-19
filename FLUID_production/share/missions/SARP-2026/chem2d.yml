@@ -1,0 +1,349 @@
+AOT_off: &AOT_OFF
+  - 0.00 1.0 1.0
+  - 0.50 1.0 1.0
+  - 1.00 1.0 1.0
+
+AOT_on: &AOT_ON
+  - 0.000 0.000 0.000
+  - 0.080 1.000 1.000
+  - 1.000 1.000 1.000
+
+wxmapschem2d:
+
+  plot:
+    bcaot:
+      black_carbon_aot:
+        cdict: bcaotcdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    bcsmass:
+      bc_surface_mass:
+        cdict: bcsmasscdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    ocaot:
+      organic_carbon_aot:
+        cdict: ocaotcdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    ocsmass:
+      oc_surface_mass:
+        cdict: ocsmasscdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    duaot:
+      dust_aot:
+        cdict: duaotcdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    ssaot:
+      sea_salt_aot:
+        cdict: ssaotcdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    suaot:
+      sulfate_aot:
+        cdict: suaotcdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    fineaot:
+      fine_aot:
+        cdict: fineaotcdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    niaot:
+      nitrate_aot:
+        cdict: niaotcdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    totaot:
+      total_aot:
+        cdict: totaotcdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    cobbae:
+      cobb_eurasia:
+        cdict: cobbaecdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    cobbaf:
+      cobb_africa:
+        cdict: cobbafcdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    cobbla:
+      cobb_south_america:
+        cdict: cobblacdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    cobbna:
+      cobb_north_america:
+        cdict: cobbnacdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    cocl:
+      co_total_column:
+        cdict: coclcdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    conbas:
+      conb_asia:
+        cdict: conbascdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    conbeu:
+      conb_europe:
+        cdict: conbeucdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    conbna:
+      conb_north_america:
+        cdict: conbnacdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    cosc:
+      co_surface:
+        cdict: cosccdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    nismass:
+      ni_surface_mass:
+        cdict: nismasscdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    so2cmass:
+      so2_column_mass:
+        cdict: so2cmasscdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    so2smass:
+      so2_surface_mass:
+        cdict: so2smasscdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+    to3:
+      total_ozone:
+        cdict: to3cdict
+        clevs:
+        nsub: 10
+        skip: 10
+        alpha: *AOT_ON
+      map:
+        layers: [shader-GryWht]
+
+    bcocsmass:
+      long_name: BC+OC Sfc Mass
+      levels: [0]
+      layers: [bcoc_surface_mass]
+      title: '\\\\ BC + OC Surface Mass [`3m`f13g/m`a3`n]'
+
+    bcoccmass:
+      long_name: BC+OC Col Mass
+      levels: [0]
+      layers: [bcoc_column_mass, streamlines]
+      title: '\\\\ BC + OC Column Mass [mg/m`a2`n]'
+      streamlines:
+        uexpr: (_bcfluxu+_ocfluxu)/(_bccmass+_occmass)
+        vexpr: (_bcfluxv+_ocfluxv)/(_bccmass+_occmass)
+
+    bcocaot:
+      long_name: BC+OC AOT
+      levels: [0]
+      layers: [blackorganic_carbon_aot, streamlines]
+      title: '\\\\ Black + Organic Carbon AOT'
+      streamlines:
+        uexpr: (_bcfluxu+_ocfluxu)/(_bccmass+_occmass)
+        vexpr: (_bcfluxv+_ocfluxv)/(_bccmass+_occmass)
+
+  layer:
+
+    streamlines:
+      gxout: stream
+      uexpr: _uwnd
+      vexpr: _vwnd
+      ccolor: 0 0 0
+      cthick: 1
+      strmden: 1
+
+    blackorganic_carbon_aot:
+      gxout: shaded
+      expr: _bcexttau+_ocexttau
+      cbar: smoke01
+      clevs:
+      cdict: bcocaotcdict
+      scale:
+      cmin: 0
+      cmax: 2
+      cint: 0.2
+      nsub: 10
+      skip: 10
+
+    bcoc_surface_mass:
+      gxout: shaded
+      expr: (_bcsmass+_ocsmass)*1.0e+9
+      cbar: smoke01
+      clevs:
+      cdict: bcocsmasscdict
+      scale:
+      cmin: 0
+      cmax: 60
+      cint: 5
+      nsub: 10
+      skip: 10
+
+    bcoc_column_mass:
+      gxout: shaded
+      expr: (_bccmass+_occmass)*1.0e+6
+      cbar: smoke01
+      cbunits: '[mg/m`a2`n]'
+      clevs:
+      cdict: bcoccmasscdict
+      scale:
+      cmin: 0
+      cmax: 500
+      cint: 50
+      nsub: 10
+      skip: 10
+
+  attribute:
+
+    bcaotcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.036, cint: 0.004, scale: exp_scale}
+    bcocaotcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.36, cint: 0.04, scale: exp_scale}
+    bcoccmasscdict:
+      - {'$level': 0, cmin: 0.0, cmax: 18.0, cint: 2, scale: exp_scale}
+    bcocsmasscdict:
+      - {'$level': 0, cmin: 0.0, cmax: 50.0, cint: 5, scale: exp_scale}
+    bcsmasscdict:
+      - {'$level': 0, cmin: 0.0, cmax: 3.3, cint: 0.3, scale: exp_scale}
+    cobbaecdict:
+      - {'$level': 0, cmin: 0.003, cmax: 0.033, cint: 0.003, scale: exp_scale}
+    cobbafcdict:
+      - {'$level': 0, cmin: 0.014, cmax: 0.032, cint: 0.002}
+    cobblacdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.5, cint: 0.05, scale: exp_scale}
+    cobbnacdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.3299, cint: 0.03, scale: exp_scale}
+    coclcdict:
+      - {'$level': 0, cmin: 1.0, cmax: 3.0, cint: 0.2}
+    conbascdict:
+      - {'$level': 0, cmin: 0.2, cmax: 1.3, cint: 0.1}
+    conbeucdict:
+      - {'$level': 0, cmin: 0.04, cmax: 0.24, cint: 0.02, scale: exp_scale}
+    conbnacdict:
+      - {'$level': 0, cmin: 0.0, cmax: 1.2, cint: 0.1, scale: exp_scale}
+    cosccdict:
+      - {'$level': 0, cmin: 80.0, cmax: 880.0, cint: 80, scale: exp_scale}
+    duaotcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.22, cint: 0.02, scale: exp_scale}
+    fineaotcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 1.2, cint: 0.1, scale: exp_scale}
+    niaotcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.18, cint: 0.02, scale: exp_scale}
+    nismasscdict:
+      - {'$level': 0, cmin: 0.0, cmax: 36.0, cint: 4, scale: exp_scale}
+    ocaotcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.36, cint: 0.03, scale: exp_scale}
+    ocsmasscdict:
+      - {'$level': 0, cmin: 0.0, cmax: 45.0, cint: 5, scale: exp_scale}
+    so2cmasscdict:
+      - {'$level': 0, cmin: 0.0, cmax: 5.0, cint: 0.5, scale: exp_scale}
+    so2smasscdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.27, cint: 0.03, scale: exp_scale}
+    ssaotcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.16, cint: 0.02, scale: exp_scale}
+    suaotcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.8, cint: 0.1, scale: exp_scale}
+    to3cdict:
+      - {'$level': 0, cmin: 272.0, cmax: 432.0, cint: 16}
+    totaotcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 1.4, cint: 0.1, scale: exp_scale}

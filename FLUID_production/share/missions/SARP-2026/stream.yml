@@ -1,0 +1,46 @@
+stream:
+  
+  GEOSHGT:
+  
+    long_name: GEOS FP
+    description: GEOS $cycle
+    type: forecast
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/fp/opendap/fcast/$collection/$collection.%%Y%%m%%d_%%H
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+  
+  GEOSCFFC: &geoscffc
+
+    long_name: GEOS CF
+    description: GEOS CF $cycle
+    type: forecast
+    downloading: enabled
+    access: public
+    uri: /css/gmao/geos-cf/NRTv2/pub/opendap/fcst/$collection/$collection.%%Y%%m%%d_%%Hz
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+  GEOSCFFC2:
+
+    <<: *geoscffc
+
+    uri: /css/gmao/geos-cf/NRTv2/priv/fcst/Y%%Y/M%%m/D%%d/GEOS-CF.v01.fcst.chm_inst_1hr_glo_L1440x721_p23.%%Y%%m%%d_%%Hz+%Y%m%d_%H%Mz.nc4
+
+  GEOSCFSRP:
+
+    <<: *geoscffc
+
+    uri: /css/gmao/geos-cf/NRTv2/pub/.internal/opendap/fcst/srp_inst_1hr_wst_L140x70_p21/srp_inst_1hr_wst_L140x70_p21.%%Y%%m%%d_%%Hz
+  # uri: /css/gmao/geos-cf/NRTv2/pub/.internal/fcst/Y%%Y/M%%m/D%%d/GEOS.cf.fcst.srp_inst_1hr_wst_L140x70_p21.%%Y%%m%%d_09z+%Y%m%d_%H00z.R0.nc4
