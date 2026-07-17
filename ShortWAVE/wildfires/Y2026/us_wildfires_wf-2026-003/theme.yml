@@ -1,0 +1,33 @@
+theme:
+
+  plot:
+
+    smoke:
+      long_name: Aerosols
+      levels: [0]
+      layers: [brexttau]
+      title: 'AOT'
+      parea: 0 11 0 8.5
+      map:
+        line_color: 255 255 255
+        line_width: 2
+        layers: [world_imagery-01]
+
+  layer:
+
+    brexttau:
+      gxout: shaded
+      expr: _brexttau
+      cbar: Colorbar_14C_RGB
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 1.0
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      alpha:
+        - 0.00 0.0 0.0
+        - 0.10 0.4 0.4
+        - 1.00 0.4 0.4

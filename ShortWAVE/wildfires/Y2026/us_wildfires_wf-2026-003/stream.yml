@@ -1,0 +1,31 @@
+stream:
+      
+  CONUS2KM:
+    long_name: GEOS CONUS 2KM Replay
+    description: GEOS CONUS 2KM Replay
+    type: analysis
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/osse2/HWT/CONUS02KM/Feature-c2160_L137/holding/inst1_2d_asm_Nx/%Y%m/Feature-c2160_L137.inst1_2d_asm_Nx.%Y%m%d_%H%Mz.nc4
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+  CONUS2KMFC:
+    long_name: GEOS CONUS 2KM Forecast
+    description: GEOS CONUS 2KM Forecast
+    type: forecast
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/osse2/HWT/CONUS02KM/Feature-c2160_L137/forecasts/CYCLED_REPLAY_P10800_C21600_T21600_%%Y%%m%%d_%%Hz/GEOS.$collection.%Y%m%d_%H%Mz.nc4
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]

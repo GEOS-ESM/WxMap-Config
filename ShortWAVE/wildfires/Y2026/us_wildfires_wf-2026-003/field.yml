@@ -1,0 +1,10 @@
+field:
+
+  CONUS2KM: &CONUS2KM_ptr
+
+    _brexttau:
+      long_name: Brown Carbon Extinction AOT [550 nm]
+      units: '1'
+      expression: brexttau.inst1_2d_asm_Nx(z=1)
+
+  CONUS2KMFC: *CONUS2KM_ptr
