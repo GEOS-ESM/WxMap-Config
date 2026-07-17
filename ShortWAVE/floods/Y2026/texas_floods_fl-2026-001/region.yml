@@ -1,0 +1,11 @@
+reset: [region]
+
+region:
+
+  texas:
+
+    long_name: Texas
+    lon: -107 -91
+    lat: 25 34
+    mpdset: hires
+    mproj: latlon
