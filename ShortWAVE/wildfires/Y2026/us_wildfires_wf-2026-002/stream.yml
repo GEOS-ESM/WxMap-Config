@@ -1,0 +1,19 @@
+stream:
+      
+  GEOSANA:
+      
+    long_name: GEOS FP Analysis
+    description: GEOS FP Analysis
+    type: analysis
+    uri: /discover/nobackup/projects/gmao/yotc/pub/fp/opendap/assim/$collection
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    logos: [nasa-logo-ul, gmao-logo-ur]
+    
+  QFED:
+    
+    long_name: QFED
+    description: QFED
+    type: analysis
+    uri: /discover/nobackup/projects/gmao/merra2/data/pub/supplemental/qfed/qfed2.emis_co.061.%Y%m%d.nc4
+    institution: Global Modeling and Assimilation Office (GMAO)
+    logos: []

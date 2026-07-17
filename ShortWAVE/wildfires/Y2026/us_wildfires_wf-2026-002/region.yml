@@ -1,0 +1,15 @@
+reset: [region]
+
+region:
+
+  epicenter:
+    long_name: Epicenter
+  # lon: -98 -87
+  # lat: 46 52
+    lon: -94 -78
+    lat: 43 52
+    mpdset: hires
+    mproj: latlon
+    mpvals:
+    addlayers: [Wildfires]
+    frame: 'off'

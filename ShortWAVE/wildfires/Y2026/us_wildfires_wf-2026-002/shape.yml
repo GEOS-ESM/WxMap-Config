@@ -1,0 +1,14 @@
+shape:
+
+  default:
+    line_color: 0 0 0
+    line_width: 5
+    line_style: 1
+
+  airnow:
+    class: mark
+    line_color: 255 255 0 120
+    fill_color: 255 255 0 120
+    size: 0.2
+    mark: 3
+    zorder: -3
