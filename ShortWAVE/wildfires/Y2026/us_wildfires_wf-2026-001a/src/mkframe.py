@@ -24,11 +24,15 @@ im_cbar = im_cbar.resize((round(3840/3),round(2160/28)), Image.LANCZOS)
 bbox = None
 fcst_dt = dt.datetime.strptime("2026071500", "%Y%m%d%H")
 
-for fname in sys.argv[1:]:
+odir = sys.argv[1]
+os.makedirs(odir, mode=0o755, exist_ok=True)
+
+for fname in sys.argv[2:]:
 
     # Open main image
 
     oname = os.path.basename(fname)
+    oname = os.path.join(odir, oname)
 
     dattim = oname.split('.')[-2]
     time_dt = dt.datetime.strptime(dattim, "%Y%m%d%H")
@@ -95,8 +99,8 @@ for fname in sys.argv[1:]:
     model_color = font_color
     model = 'GEOS-CAM Replay'
     if time_dt >= fcst_dt:
-        model = 'GEOS-CAM Forecast'
         tau  = round((time_dt - fcst_dt).total_seconds() / 3600)
+        model = 'GEOS-CAM Forecast'
       # cdattim = f"{tau:03d} Hour Forecast Valid {cdattim}"
         cdattim = f"{cdattim} [Forecast Hour: {tau:03d}]"
 

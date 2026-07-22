@@ -14,12 +14,16 @@ config_path=`dirname $app_path`
 catalog_id=`basename $config_path`
 year=`echo $catalog_id | cut -d'-' -f2`
 
+echo $config_path
+
 wxmap.py --config $config_path \
-         --stream CONUS2KM \
+         --stream CONUS2KMFC \
+         --fcst_dt 20260715 \
          --start_dt $sdate \
          --end_dt $edate \
          --t_deltat 1 \
          --field smoke \
+         --region nam \
          --fullframe --lights_off --no_title --no_label --no_logo \
          --geometry 3840x2160 \
-         --oname $NOBACKUP/ShortWAVE/wildfires/Y${year}/$catalog_id/images/$catalog_id.nasa.gmao.geos-fp.analysis.smoke.image.2160p.%Y%m%d%H.png
+         --oname $NOBACKUP/ShortWAVE/wildfires/Y${year}/$catalog_id/images/$catalog_id.nasa.gmao.conus2km.analysis.smoke.image.3840x2160.%Y%m%d%H.png

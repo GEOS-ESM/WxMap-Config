@@ -6,11 +6,11 @@ config_path=`dirname $app_path`
 catalog_id=`basename $config_path`
 year=`echo $catalog_id | cut -d'-' -f2`
 
-in_dir=$NOBACKUP/ShortWAVE/floods/Y${year}/$catalog_id/images
-out_dir=$NOBACKUP/ShortWAVE/floods/Y${year}/$catalog_id/frames
+in_dir=$NOBACKUP/ShortWAVE/wildfires/Y${year}/$catalog_id/images
+out_dir=$NOBACKUP/ShortWAVE/wildfires/Y${year}/$catalog_id/frames
 
 mkdir -p $out_dir
-mkframe.py $out_dir $in_dir/*.png
+mkframe.py $out_dir $in_dir/$1
 
 echo $out_dir
 

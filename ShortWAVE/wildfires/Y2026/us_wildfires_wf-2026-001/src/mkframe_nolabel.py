@@ -24,11 +24,15 @@ im_cbar = im_cbar.resize((round(3840/3),round(2160/28)), Image.LANCZOS)
 bbox = None
 fcst_dt = dt.datetime.strptime("2026071500", "%Y%m%d%H")
 
-for fname in sys.argv[1:]:
+odir = sys.argv[1]
+os.makedirs(odir, mode=0o755, exist_ok=True)
+
+for fname in sys.argv[2:]:
 
     # Open main image
 
     oname = os.path.basename(fname)
+    oname = os.path.join(odir, oname)
 
     dattim = oname.split('.')[-2]
     time_dt = dt.datetime.strptime(dattim, "%Y%m%d%H")
@@ -63,33 +67,6 @@ for fname in sys.argv[1:]:
     font_color = request['font_color'].split()
     font_color = tuple([int(c) for c in font_color])
 
-    # Add place names
-    
-    places = []
-    im_draw_places(im_final, places, bold_name, 45)
-
-    # Add the colorbar and title
-
-    d1 = HersheyDraw(im_final, bold_name, 90, font_color)
-    s1 = 'Smoke from Wildfires'
-    w1, h1 = d1.text_size(s1)
-
-    d2 = HersheyDraw(im_final, font_name, 45, font_color)
-    s2 = 'Brown Carbon AOD'
-    w2, h2 = d2.text_size(s2)
-
-    d3 = HersheyDraw(im_final, font_name, 36, font_color)
-    s3 = '**Brown carbon AOD used to estimate smoke'
-    w3, h3 = d3.text_size(s3)
-    w4, h4 = (im_cbar.width, im_cbar.height)
-    box = round_rectangle((max(w1,w2,w3,w4)+40, h1+h2+h3+h4+10+40), 50, (0,0,0,80))
-    box = ImageOps.flip(box)
-    im_final.paste(box, (0, 0), box)
-    d1.draw_text(10, 10, s1)
-    d2.draw_text(10, 10+h1+10, s2)
-    im_final.paste(im_cbar, (10, 10+h1+10+h2+10), im_cbar)
-    d3.draw_text(10, 10+h1+10+h2+10+h4+10, s3)
-
     # Add the model and date/time label
 
     model_color = font_color
@@ -115,23 +92,6 @@ for fname in sys.argv[1:]:
 
     y += h1 + 10
     d2.draw_text(x, y, cdattim)
-
-    # Add logos
-
-    box = round_rectangle((200,200), 50, (0,0,0,80))
-    box = ImageOps.flip(box)
-    box = ImageOps.mirror(box)
-    im_final.paste(box, (im_final.width-box.width,0), box)
-
-    xsize = 150
-    x = im_final.width - xsize - 10
-    y = 10
-    logo_name = request['nasa_logo_name']
-    xs, ys = im_paste_file(im_final, logo_name, x, y, xsize=xsize)
-
-    y += ys + 10
-    logo_name = request['gmao_logo_name']
-    xs, ys = im_paste_file(im_final, logo_name, x, y, xsize=xsize, ysize=200)
 
     # Save the final annotated image.
 

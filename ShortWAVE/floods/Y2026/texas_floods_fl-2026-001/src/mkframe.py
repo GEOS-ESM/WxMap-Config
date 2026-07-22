@@ -24,7 +24,7 @@ lons = [-107.0, -91.0]
 lats = [25.0, 34.0]
 bbox = [lons[0], lats[0], lons[-1], lats[-1]]
 
-im_main = Image.open(sys.argv[1]).convert("RGBA")
+im_main = Image.open(sys.argv[2]).convert("RGBA")
 im_main = ImageMapper(im_main, bbox)
 
 state_places = []
@@ -37,11 +37,15 @@ for state in states:
     state = "{} {} {}".format(x, y, state[0].upper())
     state_places.append(state)
 
-for fname in sys.argv[1:]:
+odir = sys.argv[1]
+os.makedirs(odir, mode=0o755, exist_ok=True)
+
+for fname in sys.argv[2:]:
 
     # Open main image
 
     oname = os.path.basename(fname)
+    oname = os.path.join(odir, oname)
 
     dattim = oname.split('.')[-2]
     time_dt = dt.datetime.strptime(dattim, "%Y%m%d%H")

@@ -108,7 +108,7 @@ for fname in sys.argv[2:]:
     # Add the model and date/time label
 
     d1 = HersheyDraw(im_final, bold_name, 50, font_color)
-    w1, h1 = d1.text_size('GEOS CONUS 2KM Replay')
+    w1, h1 = d1.text_size('GEOS-CAM Replay')
 
     d2 = HersheyDraw(im_final, font_name, 50, font_color)
     w2, h2 = d2.text_size(cdattim)
@@ -118,7 +118,7 @@ for fname in sys.argv[2:]:
 
     x = 10
     y = im_final.height - box.height + 10
-    d1.draw_text(x, y, 'GEOS CONUS 2KM Replay')
+    d1.draw_text(x, y, 'GEOS-CAM Replay')
 
     y += h1 + 10
     d2.draw_text(x, y, cdattim)
