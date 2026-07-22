@@ -49,15 +49,21 @@ map:
     zorder: -1
 
   us_states:
-    line_width: 4
+    line_width: 8
     line_color: 255 255 255
     shape_file: US_States/US_State_Boundaries
+    zorder: -1
+
+  Warnings-white:
+    shape_file: Warnings/wwa_%Y%m%d0000_%Y%m%d2300
+    line_color: 255 255 255
+    line_width: 14
     zorder: -1
 
   Warnings:
     shape_file: Warnings/wwa_%Y%m%d0000_%Y%m%d2300
     line_color: 255 0 0
-    line_width: 10
+    line_width: 13
     zorder: -1
 
   TexasRivers:

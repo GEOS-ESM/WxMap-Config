@@ -21,7 +21,7 @@ map:
     water_color: 0 0 0 0
     land_color: 0 0 0 0
     brightness: 1.0
-    layers: [coastlines, us_states, US_Counties, Warnings, TexasRivers, water, land, world_imagery, lsmask]
+    layers: [coastlines, us_states, US_Counties, Warnings-white, Warnings, TexasRivers, water, land, world_imagery, lsmask]
 
   map-precip:
     line_color: 255 255 255

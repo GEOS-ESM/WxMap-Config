@@ -10,7 +10,7 @@ in_dir=$NOBACKUP/ShortWAVE/floods/Y${year}/$catalog_id/images
 out_dir=$NOBACKUP/ShortWAVE/floods/Y${year}/$catalog_id/frames
 
 mkdir -p $out_dir
-mkframe.py $out_dir $in_dir/*.png
+mkframe.py $out_dir $in_dir/*2026071[7-8]*.png
 
 echo $out_dir
 
