@@ -1,0 +1,27 @@
+lowres:
+
+  ntask: 20
+  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/wildfires/Y2026/eu_wildfires_wf-2026-001]
+  stream: CONUS2KM
+  start_dt: P0D
+  end_dt: P27DT23H
+  t_deltat: PT1H
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 4096x2048
+  oname: /discover/nobackup/jardizzo/ShortWAVE/wildfires/Y2026/eu_wildfires_wf-2026-001/base/eu_wildfires_wf-2026-001.nasa.gmao.geos-cam.replay.smoke.base.4096x2048.%Y%m%dT%H%M00.png
+  levels: [0]
+  fields: [smoke]
+  regions: [global]
+
+highres:
+
+  ntask: 20
+  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/wildfires/Y2026/eu_wildfires_wf-2026-001]
+  stream: CONUS2KM
+  start_dt: P0D
+  end_dt: P27DT23H
+  t_deltat: PT1H
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 7680x3840
+  oname: /discover/nobackup/jardizzo/ShortWAVE/wildfires/Y2026/eu_wildfires_wf-2026-001/base/eu_wildfires_wf-2026-001.nasa.gmao.geos-cam.replay.smoke.base.7680x3840.%Y%m%dT%H%M00.png
+  levels: [0]
+  fields: [smoke]
+  regions: [global]
