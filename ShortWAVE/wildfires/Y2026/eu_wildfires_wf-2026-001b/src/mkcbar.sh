@@ -1,0 +1,1 @@
+wxmap.py --config /discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/wildfires/Y2026/us_wildfires_wf-2026-001 --stream CONUS2KM --time_dt 20260701 --field smoke --region nam --fullframe --lights_off --no_title --no_label --no_logo --geometry 3840x2160 --save_cbar

@@ -1,0 +1,83 @@
+#! /usr/bin/env python
+
+import sys
+import os
+import datetime as dt
+from dateutil import tz
+from PIL import Image, ImageOps
+
+from imutils import *
+
+request = {
+    'font_color': '255 255 255',
+    'bold_name': '/home/jardizzo/src/FLUID/sandbox/share/files/helr65w.ttf',
+    'font_name': '/home/jardizzo/src/FLUID/sandbox/share/files/helr65w.ttf',
+    'nasa_logo_name': '/home/jardizzo/src/FLUID/sandbox/share/files/nasa-logo.png',
+    'gmao_logo_name': '/home/jardizzo/src/FLUID/sandbox/share/files/gmao-logo-white.png'
+    }
+
+im_cbar = Image.open('smoke_cbar.png').convert("RGBA")
+im_cbar, dummy = image_trim(im_cbar)
+im_cbar = im_cbar.resize((round(3840/3),round(2160/28)), Image.LANCZOS)
+#im_cbar = im_cbar.resize((1280,77), Image.LANCZOS)
+
+bbox = None
+fcst_dt = dt.datetime.strptime("2026071500", "%Y%m%d%H")
+
+for fname in sys.argv[1:]:
+
+    # Open main image
+
+    oname = os.path.basename(fname)
+
+    dattim = oname.split('.')[-2]
+    time_dt = dt.datetime.strptime(dattim, "%Y%m%d%H")
+
+    # Switch timezone to EST/EDST
+
+  # from_zone = tz.gettz('UTC')
+  # to_zone = tz.gettz('America/New_York')
+  # time_dt = time_dt.replace(tzinfo=from_zone).astimezone(to_zone)
+
+    # Set the format for the time string label
+
+    cdattim = time_dt.strftime("%d %b %Y %H:00 GMT")
+    print(cdattim)
+
+    # Paste image onto a black canvas
+    # Use RGB mode (i.e. no alpha channel for the canvas)
+
+    im_main = Image.open(fname).convert("RGBA")
+    im_main, bbox = image_trim(im_main, bbox=bbox)
+    im_main = im_main.resize((3840, 2160), Image.LANCZOS)
+    
+    im_final = Image.new('RGBA', (im_main.width, im_main.height), color=(0,0,0,0))
+    im_main.close()
+
+    # Set the font and font color
+
+    bold_name = request['bold_name']
+    font_name = request['font_name']
+    font_color = request['font_color'].split()
+    font_color = tuple([int(c) for c in font_color])
+
+    # Add logos
+
+    box = round_rectangle((200,200), 50, (0,0,0,80))
+    box = ImageOps.flip(box)
+    box = ImageOps.mirror(box)
+    im_final.paste(box, (im_final.width-box.width,0), box)
+
+    xsize = 150
+    x = im_final.width - xsize - 10
+    y = 10
+    logo_name = request['nasa_logo_name']
+    xs, ys = im_paste_file(im_final, logo_name, x, y, xsize=xsize)
+
+    y += ys + 10
+    logo_name = request['gmao_logo_name']
+    xs, ys = im_paste_file(im_final, logo_name, x, y, xsize=xsize, ysize=200)
+
+    # Save the final annotated image.
+
+    im_final.save(oname, format='png')

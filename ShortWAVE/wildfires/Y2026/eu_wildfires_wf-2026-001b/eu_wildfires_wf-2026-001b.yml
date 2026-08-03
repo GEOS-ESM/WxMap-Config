@@ -1,0 +1,239 @@
+stream:
+
+  CONUS2KM:
+    long_name: GEOS CONUS 2KM Replay
+    description: GEOS CONUS 2KM Replay
+    type: analysis
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/osse2/HWT/CONUS02KM/Feature-c2160_L137/holding/inst1_2d_asm_Nx/%Y%m/Feature-c2160_L137.inst1_2d_asm_Nx.%Y%m%d_%H%Mz.nc4
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+  CONUS2KMFC:
+    long_name: GEOS CONUS 2KM Forecast
+    description: GEOS CONUS 2KM Forecast
+    type: forecast
+    downloading: enabled
+    access: public
+    uri: /discover/nobackup/projects/gmao/osse2/HWT/CONUS02KM/Feature-c2160_L137/forecasts/CYCLED_REPLAY_P10800_C21600_T21600_%%Y%%m%%d_%%Hz/GEOS.$collection.%Y%m%d_%H%Mz.nc4
+    service: !!python/object/apply:dataservice.GEOSDDF []
+    animation: enabled
+    max_frames: 20
+    institution: NASA - Global Modeling and Assimilation Office (GMAO)
+    reference: http://gmao.gsfc.nasa.gov/GEOS/geos5/index_pubs.php
+    link: http://gmao.gsfc.nasa.gov/GEOS
+    logos: [nasa-logo-ul, gmao-logo-ur]
+
+field:
+  
+  CONUS2KM: &CONUS2KM_ptr
+
+    _brexttau:
+      long_name: Brown Carbon Extinction AOT [550 nm]
+      units: '1'
+      expression: brexttau.inst1_2d_asm_Nx(z=1)
+
+    _niexttau:
+      long_name: Nitrate Extinction AOT [550 nm]
+      units: '1' 
+      expression: niexttau.inst1_2d_asm_Nx(z=1)
+    
+    _duexttau:
+      long_name: Dust Extinction AOT [550 nm]
+      units: '1'
+      expression: duexttau.inst1_2d_asm_Nx(z=1)
+  
+    _totexttau:
+      long_name: Total Aerosol Extinction AOT [550 nm]
+      units: '1'
+      expression: totexttau.inst1_2d_asm_Nx(z=1)
+    
+    _suexttau:
+      long_name: SO4 Extinction AOT [550 nm]
+      units: '1'
+      expression: suexttau.inst1_2d_asm_Nx(z=1)
+
+    _ssexttau:
+      long_name: Sea Salt Extinction AOT [550 nm]
+      units: '1'
+      expression: ssexttau.inst1_2d_asm_Nx(z=1)
+
+    _ocexttau:
+      long_name: Organic Carbon Extinction AOT [550 nm]
+      units: '1'
+      expression: ocexttau.inst1_2d_asm_Nx(z=1)
+
+    _bcexttau:
+      long_name: Black Carbon Extinction AOT [550 nm]
+      units: '1'
+      expression: bcexttau.inst1_2d_asm_Nx(z=1)
+
+  CONUS2KMFC: *CONUS2KM_ptr
+
+map:
+
+  blackmarble-custom:
+    service: blackmarble-12000x6000
+    file: /discover/nobackup/jardizzo/maps/BlackMarble_2016/BlackMarble_2016_12000x6000_enhanced.png
+    line_color: 255 255 255
+    line_width: 1
+    water_color: 0 0 0 0
+    land_color: 0 0 0 0
+    layers: [standard, water, land]
+  
+  shaderelief-custom:
+    line_color: 255 255 255 100
+    line_width: 1
+    water_color: 0 0 0
+    land_color: 0 0 0 0
+    land_brightness: 0.4
+    layers: [water, land, shaderelief, lsmask]
+
+  Wildfires:
+    shape_file: Wildfires/Y2026/eis_%Y%m%d
+    line_width: 10
+    line_color: 255 0 0
+    fill_color: 255 0 0
+    zorder: -1
+
+region:
+
+  europe:
+
+    long_name: Europe
+    lon: -180 180
+    lat: 5 90
+    mpdset: newmap
+    mproj: nps
+    mpvals: -28 36 29 75
+
+  global:
+
+    long_name: Global
+    lon: -180 180
+    lat: -90 90
+    mpdset: lowres
+    mproj: scaled
+    mpvals:
+    frame: 'off'
+
+  europe:
+        
+    long_name: Global
+    lon: -44 28
+    lat: 21 57
+    mpdset: lowres
+    mproj: scaled
+    mpvals: 
+    frame: 'off'
+
+theme:
+
+  plot:
+
+    aod:
+      long_name: Aerosols
+      levels: [0]
+      layers: [ssexttau, suexttau, duexttau, brexttau]
+      title: 'AOT'
+      map:
+      # layers: [blackmarble-custom]
+        layers: [shaderelief-custom]
+
+  layer:
+
+    brexttau:
+      gxout: shaded
+      expr: _brexttau*2
+      cbar: BREXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 1
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      alpha:
+        - 0.00 0.0 0.0
+      # - 0.50 1.0 1.0
+        - 0.30 1.0 1.0
+        - 1.00 1.0 1.0
+
+    ssexttau:
+      gxout: shaded
+      expr: _ssexttau*2.5
+      cbar: SSEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 1
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      alpha:
+        - 0.00 0.0 0.0
+        - 0.50 1.0 1.0
+        - 1.00 1.0 1.0
+
+    duexttau:
+      gxout: shaded
+      expr: _duexttau*1.5
+      cbar: DUEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 1
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      alpha:
+        - 0.00 0.0 0.0
+        - 0.50 1.0 1.0
+        - 1.00 1.0 1.0
+
+    suexttau:
+      gxout: shaded
+      expr: _suexttau*2.5
+      cbar: SUEXTTAU
+      cbunits:
+      clevs:
+      cmin: 0
+      cmax: 1
+      cint: 0.1
+      nsub: 10
+      skip: 10
+      scale:
+      alpha:
+        - 0.00 0.0 0.0
+        - 0.50 1.0 1.0
+        - 1.00 1.0 1.0
+
+attribute:
+
+  colorbar:
+      BREXTTAU:
+     #  - 255   0  0
+        - 172  49 75
+        - 242 118 94
+        - 253 253 169
+
+      SSEXTTAU:
+        - 53 89 188
+        - 255 255 234
+
+      DUEXTTAU:
+        - 102  51 153
+        - 226 201 234
+
+      SUEXTTAU:
+        - 0 255 0
+        - 100 255 100
