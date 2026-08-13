@@ -1,0 +1,1 @@
+wxmap.py --theme custom_mission --theme SABRE --stream G5FPFC --fcst_dt 20260808 --time_dt 20260810 --field bcoc_w1 --region sabre

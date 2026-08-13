@@ -1,0 +1,30 @@
+reset: [region, playlist]
+config: [missions, SABRE]
+
+default:
+  region: sabre
+  weather_mission: &default2d
+    field: pblh
+    region: sabre 
+    level: '0'
+  chem2d_mission:
+    <<: *default2d
+    field: duaot
+  chem3d_mission: &default3d
+    field: du
+    level: '200'
+    region: sabre 
+  custom_mission:
+    <<: *default2d
+    field: bcocaot
+  custom-2_mission:
+    cf_chem2d:
+      <<: *default2d
+      field: aod550_dust
+    cf_chem3d:
+      <<: *default3d
+      field: hcho 
+    cf_wxmaps:
+      <<: *default2d
+      field: zpbl
+

@@ -1,0 +1,1051 @@
+AOT_off: &AOT_OFF
+  - 0.00 1.0 1.0
+  - 0.50 1.0 1.0
+  - 1.00 1.0 1.0
+
+wxmapscustom-2:
+
+  plot:
+
+    ch4:
+      long_name: CH4
+      title: '$level hPa Methane &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _ch4*1.0e+9
+        cdict: ch4cdict
+        cbunits: '[PPBV]'
+      map:
+        layers: [shader-GryWht]
+
+    co:
+      long_name: CO
+      title: '$level hPa Carbon Monoxide &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _co*1.0e+9
+        cbunits: '[PPBV]'
+        cdict: cocdict
+      map:
+        layers: [shader-GryWht]
+
+    epv:
+      long_name: EPV
+      title: '$level hPa Ertels Potential Vorticity &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: abs(_epv*1.0e+6)
+        cdict: epvcdict
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    h:
+      long_name: H
+      title: '$level hPa Edge Heights'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights]
+      shading:
+        expr: _h/10
+        cdict: hcdict
+        cbunits: '[dam]'
+        alpha: *AOT_OFF
+        cbar: smoke01_r
+      map:
+        layers: [shader-GryWht]
+
+    hcho:
+      long_name: HCHO
+      title: '$level hPa Formaldehyde &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _hcho*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: hchocdict
+      map:
+        layers: [shader-GryWht]
+
+    isop:
+      long_name: ISOP
+      title: '$level hPa Isoprene &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _isop*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: isopcdict
+      map:
+        layers: [shader-GryWht]
+
+    nh3:
+      long_name: NH3
+      title: '$level hPa Ammonia &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _nh3*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: nh3cdict
+      map:
+        layers: [shader-GryWht]
+
+    no2:
+      long_name: NO2
+      title: '$level hPa Nitrogen Dioxide &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _no2*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: no2cdict
+      map:
+        layers: [shader-GryWht]
+
+    noy:
+      long_name: NOy
+      title: '$level hPa Reactive Nitrogen &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _noy*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: noycdict
+      map:
+        layers: [shader-GryWht]
+
+    o3:
+      long_name: O3
+      title: '$level hPa Ozone &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _o3*1.0e+9
+        cbunits: '[PPBV]'
+        cdict: o3cdict
+      map:
+        layers: [shader-GryWht]
+
+    omega:
+      long_name: OMEGA
+      title: '$level hPa Vertical Pressure Velocity &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _omega
+        cbunits: '[Pa/s]'
+        cdict: omegacdict
+      map:
+        layers: [shader-GryWht]
+
+    pan:
+      long_name: PAN
+      title: '$level hPa Peroxyacetyl Nitrate &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pan*1.0e+12
+        cbunits: '[PPTV]'
+        cdict: pancdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25:
+      long_name: PM25
+      title: '$level hPa PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25cdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25bc:
+      long_name: PM25bc
+      title: '$level hPa Black Carbon PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25bc_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25bccdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25du:
+      long_name: PM25du
+      title: '$level hPa Dust PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25du_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25ducdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25ni:
+      long_name: PM25ni
+      title: '$level hPa Nitrate PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25nit_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25nicdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25oc:
+      long_name: PM25oc
+      title: '$level hPa Organic Carbon PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25oc_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25occdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25soa:
+      long_name: PM25soa
+      title: '$level hPa Secondary Organic Aerosol PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25soa_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25soacdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25ss:
+      long_name: PM25ss
+      title: '$level hPa Seasalt PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25ss_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25sscdict
+      map:
+        layers: [shader-GryWht]
+
+    pm25su:
+      long_name: PM25su
+      title: '$level hPa Sulfate PM2.5 &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _pm25su_rh35
+        cbunits: '[`3m`f13g/m`a3`n]'
+        cdict: pm25sucdict
+      map:
+        layers: [shader-GryWht]
+
+    ps:
+      long_name: PS
+      title: 'Surface Pressure'
+      levels: [0]
+      layers: [shading, ps]
+      shading:
+        expr: _ps/100
+        cdict: pscdict
+        cbar: smoke01_r
+        cbunits: '[mb]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    q:
+      long_name: Q
+      title: '$level hPa Specific Humidity &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _q*1000
+        cdict: qcdict
+        cbunits: '[g/kg]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    rh:
+      long_name: RH
+      title: '$level hPa Relative Humidity &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _rh*100
+        cdict: rhcdict
+        cbunits: '[%]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    slp:
+      long_name: SLP
+      title: 'Sea Level Pressure'
+      levels: [0]
+      layers: [shading, slp]
+      shading:
+        expr: _slp/100
+        cdict: slpcdict
+        cbar: smoke01_r
+        cbunits: '[mb]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    so2:
+      long_name: SO2
+      title: '$level hPa Sulfur Dioxide &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: _so2*1.0e+9 
+        cbunits: '[PPBV]'
+        cdict: so2cdict
+      map:
+        layers: [shader-GryWht]
+
+    t:
+      long_name: T
+      title: '$level hPa Air Temperature'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, temperature]
+      shading:
+        expr: _t-273.15
+        cdict: tcdict
+        cbunits: '[Celsius]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    th:
+      long_name: TH
+      title: '$level hPa Potential Temperature'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, temperature]
+      shading:
+        expr: _th-273.15
+        cdict: thcdict
+        cbunits: '[Celsius]'
+        alpha: *AOT_OFF
+      temperature:
+        expr: _th-273.15
+      map:
+        layers: [shader-GryWht]
+
+    u:
+      long_name: U
+      title: '$level hPa Eastward Wind'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, uwind]
+      shading:
+        expr: _u
+        cdict: ucdict
+        cbunits: '[m/s]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    v:
+      long_name: V
+      title: '$level hPa Northward Wind'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, vwind]
+      shading:
+        expr: _v
+        cdict: vcdict
+        cbunits: '[m/s]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    cldtt:
+      long_name: CLDTT
+      title: 'Total Cloud Area Fraction'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _cldtt
+        cbunits: [1]
+        cdict: cldttcdict
+      map:
+        layers: [shader-GryWht]
+
+    zpbl:
+      long_name: ZPBL
+      title: 'Planetary Boundary Layer Height'
+      levels: [0]
+      layers: [shading, zpbl]
+      shading:
+        expr: _zpbl
+        cbunits: [m]
+        cdict: zpblcdict
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    wspd:
+      long_name: Wind Speed
+      title: '$level hPa Wind Speed &b&b&b&b[H`bdam`n W`bknots`n]'
+      levels: [200, 175, 150, 125, 100, 85, 70, 60]
+      layers: [shading, heights, barbs]
+      shading:
+        expr: mag(_u,_v)
+        cdict: wspdcdict
+        cbunits: '[m/s]'
+        alpha: *AOT_OFF
+      map:
+        layers: [shader-GryWht]
+
+    aod550_bc:
+      long_name: AOD550_BC
+      title: 'Black Carbon Optical Depth At 550nm'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _aod550_bc
+        cbunits: [1]
+        cdict: aod550_bccdict
+      map:
+        layers: [shader-GryWht]
+
+    aod550_dust: &AOD
+      long_name: AOD550_DUST
+      title: 'Dust Optical Depth At 550nm'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _aod550_dust
+        cbunits: [1]
+        cdict: aod550_dustcdict
+      map:
+        layers: [shader-GryWht]
+
+    default: *AOD
+
+    aod550_oc:
+      long_name: AOD550_OC
+      title: 'Organic Carbon Optical Depth At 550nm'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _aod550_oc
+        cbunits: [1]
+        cdict: aod550_occdict
+      map:
+        layers: [shader-GryWht]
+
+    aod550_ss:
+      long_name: AOD550_SS
+      title: 'Sea Salt Optical Depth At 550nm'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _aod550_ss
+        cbunits: [1]
+        cdict: aod550_sscdict
+      map:
+        layers: [shader-GryWht]
+
+    aod550_sna:
+      long_name: AOD550_SNA
+      title: 'Sulfate-Nitrate-Ammonium Optical Depth At 550nm'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _aod550_sna
+        cbunits: [1]
+        cdict: aod550_snacdict
+      map:
+        layers: [shader-GryWht]
+
+    totcol_co:
+      long_name: TOTCOL_CO
+      title: 'Total Column Carbon Monoxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _totcol_co
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: totcol_cocdict
+      map:
+        layers: [shader-GryWht]
+
+    totcol_no2:
+      long_name: TOTCOL_NO2
+      title: 'Total Column Nitrogen Dioxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _totcol_no2
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: totcol_no2cdict
+      map:
+        layers: [shader-GryWht]
+
+    totcol_o3:
+      long_name: TOTCOL_O3
+      title: 'Total Column Ozone Ozone'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _totcol_o3
+        cbunits: [dobsons]
+        cdict: totcol_o3cdict
+      map:
+        layers: [shader-GryWht]
+
+    totcol_so2:
+      long_name: TOTCOL_SO2
+      title: 'Total Column Sulfur Dioxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _totcol_so2
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: totcol_so2cdict
+      map:
+        layers: [shader-GryWht]
+
+    tropcol_co:
+      long_name: TROPCOL_CO
+      title: 'Tropospheric Column Carbon Monoxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _tropcol_co
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: tropcol_cocdict
+      map:
+        layers: [shader-GryWht]
+
+    tropcol_hcho:
+      long_name: TROPCOL_HCHO
+      title: 'Tropospheric Column Formaldehyde'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _tropcol_hcho
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: tropcol_hchocdict
+      map:
+        layers: [shader-GryWht]
+
+    tropcol_no2:
+      long_name: TROPCOL_NO2
+      title: 'Tropospheric Column Nitrogen Dioxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _tropcol_no2
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: tropcol_no2cdict
+      map:
+        layers: [shader-GryWht]
+
+    tropcol_o3:
+      long_name: TROPCOL_O3
+      title: 'Tropospheric Column Ozone'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _tropcol_o3
+        cbunits: [dobsons]
+        cdict: tropcol_o3cdict
+      map:
+        layers: [shader-GryWht]
+
+    tropcol_so2:
+      long_name: TROPCOL_SO2
+      title: 'Tropospheric Column Sulfur Dioxide'
+      levels: [0]
+      layers: [shading]
+      shading:
+        expr: _tropcol_so2
+        cbunits: '[10`a15`n molec cm`a-2`n]'
+        cdict: tropcol_so2cdict
+      map:
+        layers: [shader-GryWht]
+
+  layer:
+
+    shading:
+      gxout: shaded
+      cbar: smoke01
+    # cbunits: '--auto'
+      nsub: 10
+      skip: 10
+      cmin: 0
+      cmax: 100
+      cint: 10
+      scale:
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.050 1.000 1.000
+        - 1.000 1.000 1.000
+
+    heights:
+      gxout: contour
+      expr: smth9(_h/10)
+      cint: hcint
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    zpbl:
+      gxout: contour
+      expr: _zpbl
+      cint: 100
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    temperature:
+      gxout: contour
+      expr: _t-273.15
+      cint: 1 
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    uwind:
+      gxout: contour
+      expr: _u
+      cint: ucint
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    vwind:
+      gxout: contour
+      expr: _v
+      cint: vcint
+      clab: masked 
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    slp:
+      gxout: contour
+      expr: smth9(_slp/100)
+      cint: 3
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    ps:
+      gxout: contour
+      expr: _ps/100
+      cint: 35
+      clab: masked
+      cthick: 5
+      ccolor: 0 0 0
+      clsize: 0.10
+
+    barbs: 
+      gxout: barb
+      uexpr: _u*1.94384
+      vexpr: _v*1.94384
+      skip: 0
+      size: 0.05
+      ccolor: 0 0 0
+      cthick: 3
+
+  attribute: 
+
+    hcint:
+      default: 2
+      1000: 1
+      975: 1
+      950: 2
+      925: 2
+      900: 2
+      850: 2
+      800: 2
+      750: 2
+      700: 2
+      650: 3
+      600: 3
+      550: 3
+      500: 4
+      450: 4
+      400: 5
+      350: 6
+      300: 7
+      250: 7
+      200: 7
+      175: 7
+      150: 7
+      125: 7
+      100: 7 
+      85: 7
+      70: 7
+      60: 7
+
+    ucint:
+      1000: 2
+      975: 2
+      950: 3
+      925: 3
+      900: 3
+      850: 3
+      800: 4
+      750: 4
+      700: 4
+      650: 4
+      600: 4
+      550: 4
+      500: 4
+      450: 5
+      400: 6
+      350: 7
+      300: 7
+      250: 6
+      200: 7
+      175: 7
+      150: 7
+      125: 7
+      100: 7
+      85: 7
+      70: 7
+      60: 7
+
+    vcint:
+      1000: 3
+      975: 3
+      950: 3
+      925: 4
+      900: 3
+      850: 3
+      800: 4
+      750: 4
+      700: 4
+      650: 4
+      600: 5
+      550: 5
+      500: 5
+      450: 5
+      400: 6
+      350: 7
+      300: 8
+      250: 7
+      200: 8
+      175: 5
+      150: 5
+      125: 4
+      100: 3
+      85: 3 
+      70: 3
+      60: 3
+
+    aod550_bccdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.02, cint: 0.002, scale: exp_scale}
+    aod550_dustcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.12, cint: 0.01, scale: exp_scale}
+    aod550_occdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.16, cint: 0.02, scale: exp_scale}
+    aod550_snacdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.3, cint: 0.03, scale: exp_scale}
+    aod550_sscdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.45, cint: 0.05, scale: exp_scale}
+    ch4cdict:
+      - {'$level': 200, cmin: 1930.0, cmax: 2020.0, cint: 10, scale: exp_scale}
+      - {'$level': 175, cmin: 1930.0, cmax: 2030.0, cint: 10, scale: exp_scale}
+      - {'$level': 150, cmin: 1928.0, cmax: 2008.0, cint: 8}
+      - {'$level': 125, cmin: 1914.0, cmax: 1980.0, cint: 6}
+      - {'$level': 100, cmin: 1890.0, cmax: 1950.0, cint: 6}
+      - {'$level': 85, cmin: 1869.0, cmax: 1932.0, cint: 7, scale: log_scale}
+      - {'$level': 70, cmin: 1800.0, cmax: 1900.0, cint: 10, scale: log_scale}
+      - {'$level': 60, cmin: 1752.0, cmax: 1872.0, cint: 12, scale: log_scale}
+    cldttcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 1.0, cint: 0.1, scale: log_scale}
+    cosfccdict:
+      - {'$level': 0, cmin: 74.0, cmax: 444.0, cint: 37, scale: exp_scale}
+    cocdict:
+      - {'$level': 200, cmin: 60.0, cmax: 120.0, cint: 6}
+      - {'$level': 175, cmin: 60.0, cmax: 114.0, cint: 6}
+      - {'$level': 150, cmin: 54.0, cmax: 114.0, cint: 6}
+      - {'$level': 125, cmin: 48.0, cmax: 108.0, cint: 6}
+      - {'$level': 100, cmin: 35.0, cmax: 80.0, cint: 5}
+      - {'$level': 85, cmin: 28.0, cmax: 52.0, cint: 2}
+      - {'$level': 70, cmin: 20.0, cmax: 38.0, cint: 2}
+      - {'$level': 60, cmin: 16.0, cmax: 27.0, cint: 1}
+    defaultcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 0.12, cint: 0.01, scale: exp_scale}
+    epvcdict:
+      - {'$level': 200, cmin: 0.0, cmax: 3.6, cint: 0.4, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 5.5, cint: 0.5, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 7.0, cint: 0.7, scale: exp_scale}
+      - {'$level': 125, cmin: 0.0, cmax: 9.0, cint: 0.9, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 30.0, cint: 3, scale: exp_scale}
+      - {'$level': 85, cmin: 0.0, cmax: 22.0, cint: 2, scale: exp_scale}
+      - {'$level': 70, cmin: 0.0, cmax: 27.0, cint: 3}
+      - {'$level': 60, cmin: 0.0, cmax: 33.0, cint: 3}
+    hchosfccdict:
+      - {'$level': 0, cmin: 0.0, cmax: 8.0, cint: 0.8, scale: exp_scale}
+    hchocdict:
+      - {'$level': 200, cmin: 0.0, cmax: 803.0, cint: 73, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 730.0, cint: 73, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 700.0, cint: 70, scale: exp_scale}
+      - {'$level': 125, cmin: 0.0, cmax: 480.0, cint: 48, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 210.0, cint: 21, scale: exp_scale}
+      - {'$level': 85, cmin: 7.0, cmax: 19.0, cint: 1}
+      - {'$level': 70, cmin: 9.7999, cmax: 16.7999, cint: 0.7}
+      - {'$level': 60, cmin: 11.4, cmax: 18.0, cint: 0.6}
+    hcdict:
+      - {'$level': 200, cmin: 1244.0, cmax: 1258.0, cint: 2}
+      - {'$level': 175, cmin: 1328.0, cmax: 1346.0, cint: 2}
+      - {'$level': 150, cmin: 1424.0, cmax: 1440.0, cint: 2}
+      - {'$level': 125, cmin: 1534.0, cmax: 1547.0, cint: 1}
+      - {'$level': 100, cmin: 1664.0, cmax: 1675.0, cint: 1}
+      - {'$level': 85, cmin: 1757.0, cmax: 1769.0, cint: 1}
+      - {'$level': 70, cmin: 1870.0, cmax: 1884.0, cint: 2}
+      - {'$level': 60, cmin: 1964.0, cmax: 1978.0, cint: 2}
+    isopcdict:
+      - {'$level': 200, cmin: 0.0, cmax: 930.0, cint: 93, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 900.0, cint: 90, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 590.0, cint: 59, scale: exp_scale}
+      - {'$level': 125, cmin: 0.0, cmax: 270.0, cint: 27, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 54.0, cint: 6, scale: exp_scale}
+      - {'$level': 85, cmin: 0.0, cmax: 3.3, cint: 0.3, scale: exp_scale}
+      - {'$level': 70, cmin: 0.0, cmax: 0.8, cint: 0.1, scale: exp_scale}
+      - {'$level': 60, cmin: 0.0, cmax: 0.016, cint: 0.002, scale: exp_scale}
+    nh3cdict:
+      - {'$level': 200, cmin: 0.0, cmax: 33.0, cint: 3, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 44.0, cint: 4, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 45.0, cint: 5, scale: exp_scale}
+      - {'$level': 125, cmin: 0.0, cmax: 36.0, cint: 4, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 0.7, cint: 0.1, scale: exp_scale}
+      - {'$level': 85, cmin: 0.0, cmax: 0.22, cint: 0.02, scale: exp_scale}
+      - {'$level': 70, cmin: 0.04, cmax: 0.44, cint: 0.04, scale: exp_scale}
+      - {'$level': 60, cmin: 0.0, cmax: 0.6, cint: 0.1}
+    no2sfccdict:
+      - {'$level': 0, cmin: 0.0, cmax: 36.0, cint: 4, scale: exp_scale}
+    no2cdict:
+      - {'$level': 200, cmin: 0.0, cmax: 270.0, cint: 27, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 260.0, cint: 26, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 242.0, cint: 22, scale: exp_scale}
+      - {'$level': 125, cmin: 16.0, cmax: 176.0, cint: 16, scale: exp_scale}
+      - {'$level': 100, cmin: 58.0, cmax: 348.0, cint: 29, scale: exp_scale}
+      - {'$level': 85, cmin: 145.0, cmax: 435.0, cint: 29, scale: exp_scale}
+      - {'$level': 70, cmin: 210.0, cmax: 630.0, cint: 42, scale: exp_scale}
+      - {'$level': 60, cmin: 236.0, cmax: 826.0, cint: 59, scale: exp_scale}
+    noycdict:
+      - {'$level': 200, cmin: 123.0, cmax: 1353.0, cint: 123, scale: exp_scale}
+      - {'$level': 175, cmin: 85.0, cmax: 935.0, cint: 85}
+      - {'$level': 150, cmin: 74.0, cmax: 814.0, cint: 74}
+      - {'$level': 125, cmin: 64.0, cmax: 704.0, cint: 64}
+      - {'$level': 100, cmin: 196.0, cmax: 1176.0, cint: 98, scale: exp_scale}
+      - {'$level': 85, cmin: 605.0, cmax: 1815.0, cint: 121}
+      - {'$level': 70, cmin: 1116.0, cmax: 2976.0, cint: 186}
+      - {'$level': 60, cmin: 1374.0, cmax: 3664.0, cint: 229}
+    o3sfccdict:
+      - {'$level': 0, cmin: 0.0, cmax: 77.0, cint: 7}
+    o3cdict:
+      - {'$level': 200, cmin: 21.0, cmax: 91.0, cint: 7}
+      - {'$level': 175, cmin: 16.0, cmax: 104.0, cint: 8}
+      - {'$level': 150, cmin: 22.0, cmax: 132.0, cint: 11}
+      - {'$level': 125, cmin: 32.0, cmax: 192.0, cint: 16}
+      - {'$level': 100, cmin: 52.0, cmax: 312.0, cint: 26}
+      - {'$level': 85, cmin: 148.0, cmax: 518.0, cint: 37}
+      - {'$level': 70, cmin: 357.0, cmax: 867.0, cint: 51}
+      - {'$level': 60, cmin: 657.0, cmax: 1387.0, cint: 73}
+    omegacdict:
+      - {'$level': 200, cmin: -5.6, cmax: 0.7, cint: 0.7, scale: log_scale}
+      - {'$level': 175, cmin: -4.8, cmax: 0.6, cint: 0.6, scale: log_scale}
+      - {'$level': 150, cmin: -3.6, cmax: 0.4, cint: 0.4, scale: log_scale}
+      - {'$level': 125, cmin: -1.8, cmax: 0.4, cint: 0.2, scale: log_scale}
+      - {'$level': 100, cmin: -0.4, cmax: 0.3, cint: 0.1}
+      - {'$level': 85, cmin: -0.2, cmax: 0.3, cint: 0.05}
+      - {'$level': 70, cmin: -0.09, cmax: 0.18, cint: 0.03}
+      - {'$level': 60, cmin: -0.08, cmax: 0.16, cint: 0.02}
+    pancdict:
+      - {'$level': 200, cmin: 49.0, cmax: 490.0, cint: 49, scale: exp_scale}
+      - {'$level': 175, cmin: 37.0, cmax: 407.0, cint: 37}
+      - {'$level': 150, cmin: 24.0, cmax: 288.0, cint: 24}
+      - {'$level': 125, cmin: 32.0, cmax: 192.0, cint: 16}
+      - {'$level': 100, cmin: 20.0, cmax: 130.0, cint: 10}
+      - {'$level': 85, cmin: 24.0, cmax: 84.0, cint: 6}
+      - {'$level': 70, cmin: 15.0, cmax: 65.0, cint: 5}
+      - {'$level': 60, cmin: 9.0, cmax: 39.0, cint: 3, scale: exp_scale}
+    pm25bccdict:
+      - {'$level': 200, cmin: 0.0, cmax: 0.018, cint: 0.002, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 0.018, cint: 0.002, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 0.018, cint: 0.002, scale: exp_scale}
+      - {'$level': 125, cmin: 0.001, cmax: 0.014, cint: 0.001, scale: exp_scale}
+      - {'$level': 100, cmin: 0.002, cmax: 0.007, cint: 0.001}
+      - {'$level': 85, cmin: 0.0025, cmax: 0.007, cint: 0.0005}
+      - {'$level': 70, cmin: 0.0028, cmax: 0.0064, cint: 0.0004}
+      - {'$level': 60, cmin: 0.0029, cmax: 0.0056, cint: 0.0003}
+    pm25ducdict:
+      - {'$level': 200, cmin: 0.0, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 1.6, cint: 0.2, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 1.6, cint: 0.2, scale: exp_scale}
+      - {'$level': 125, cmin: 0.0, cmax: 1.6, cint: 0.2, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 0.7, cint: 0.1, scale: exp_scale}
+      - {'$level': 85, cmin: 0.02, cmax: 0.13, cint: 0.01, scale: exp_scale}
+      - {'$level': 70, cmin: 0.008, cmax: 0.044, cint: 0.004}
+      - {'$level': 60, cmin: 0.002, cmax: 0.02, cint: 0.002}
+    pm25nicdict:
+      - {'$level': 200, cmin: 0.0, cmax: 0.27, cint: 0.03, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 0.3, cint: 0.03, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 0.4, cint: 0.04, scale: exp_scale}
+      - {'$level': 125, cmin: 0.0, cmax: 0.36, cint: 0.04, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 0.6, cint: 0.1, scale: exp_scale}
+      - {'$level': 85, cmin: 0.0, cmax: 0.7, cint: 0.1, scale: exp_scale}
+    pm25occdict:
+      - {'$level': 200, cmin: 0.0, cmax: 0.15, cint: 0.01, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 0.13, cint: 0.01, scale: exp_scale}
+      - {'$level': 150, cmin: 0.01, cmax: 0.12, cint: 0.01, scale: exp_scale}
+      - {'$level': 125, cmin: 0.01, cmax: 0.1, cint: 0.01, scale: exp_scale}
+      - {'$level': 100, cmin: 0.012, cmax: 0.048, cint: 0.003}
+      - {'$level': 85, cmin: 0.018, cmax: 0.054, cint: 0.003}
+      - {'$level': 70, cmin: 0.024, cmax: 0.051, cint: 0.003}
+      - {'$level': 60, cmin: 0.026, cmax: 0.048, cint: 0.002}
+    pm25soacdict:
+      - {'$level': 200, cmin: 0.0, cmax: 0.8, cint: 0.1, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 0.8, cint: 0.1, scale: exp_scale}
+      - {'$level': 150, cmin: 0.05, cmax: 0.55, cint: 0.05}
+      - {'$level': 125, cmin: 0.06, cmax: 0.39, cint: 0.03}
+      - {'$level': 100, cmin: 0.12, cmax: 0.48, cint: 0.04}
+      - {'$level': 85, cmin: 0.16, cmax: 0.56, cint: 0.04}
+      - {'$level': 70, cmin: 0.21, cmax: 0.48, cint: 0.03}
+      - {'$level': 60, cmin: 0.22, cmax: 0.36, cint: 0.02}
+    pm25sscdict:
+      - {'$level': 200, cmin: 0.0, cmax: 0.12, cint: 0.01, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 0.11, cint: 0.01, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 0.1, cint: 0.01, scale: exp_scale}
+      - {'$level': 125, cmin: 0.01, cmax: 0.1, cint: 0.01, scale: exp_scale}
+      - {'$level': 100, cmin: 0.016, cmax: 0.052, cint: 0.004, scale: exp_scale}
+      - {'$level': 85, cmin: 0.013, cmax: 0.025, cint: 0.001}
+      - {'$level': 70, cmin: 0.008, cmax: 0.018, cint: 0.001}
+      - {'$level': 60, cmin: 0.005, cmax: 0.015, cint: 0.001}
+    pm25cdict:
+      - {'$level': 200, cmin: 0.3, cmax: 2.6999, cint: 0.3, scale: exp_scale}
+      - {'$level': 175, cmin: 0.2, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 150, cmin: 0.2, cmax: 2.2, cint: 0.2, scale: exp_scale}
+      - {'$level': 125, cmin: 0.4, cmax: 2.2, cint: 0.2}
+      - {'$level': 100, cmin: 0.2, cmax: 2.0, cint: 0.2}
+      - {'$level': 85, cmin: 0.2, cmax: 2.0, cint: 0.2, scale: exp_scale}
+      - {'$level': 70, cmin: 0.27, cmax: 0.6, cint: 0.03}
+      - {'$level': 60, cmin: 0.26, cmax: 0.44, cint: 0.02}
+    pm25sucdict:
+      - {'$level': 200, cmin: 0.0, cmax: 0.8, cint: 0.1, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 0.7, cint: 0.1}
+      - {'$level': 150, cmin: 0.0, cmax: 0.7, cint: 0.1}
+      - {'$level': 125, cmin: 0.0, cmax: 0.8, cint: 0.1}
+      - {'$level': 100, cmin: 0.0, cmax: 0.9, cint: 0.1}
+      - {'$level': 85, cmin: 0.0, cmax: 0.7, cint: 0.1, scale: exp_scale}
+    pscdict:
+      - {'$level': 0, cmin: 648.0, cmax: 1008.0, cint: 36, scale: log_scale}
+    qcdict:
+      - {'$level': 200, cmin: 0.02, cmax: 0.16, cint: 0.01}
+      - {'$level': 175, cmin: 0.01, cmax: 0.06, cint: 0.01}
+      - {'$level': 150, cmin: 0.006, cmax: 0.026, cint: 0.002}
+      - {'$level': 125, cmin: 0.003, cmax: 0.014, cint: 0.001}
+      - {'$level': 100, cmin: 0.001, cmax: 0.01, cint: 0.001, scale: exp_scale}
+      - {'$level': 85, cmin: 0.0023, cmax: 0.0056, cint: 0.0003, scale: exp_scale}
+      - {'$level': 70, cmin: 0.0023, cmax: 0.0033, cint: 0.0001}
+      - {'$level': 60, cmin: 0.0022, cmax: 0.0025, cint: 3e-05}
+    rhcdict:
+      - {'$level': 200, cmin: 24.0, cmax: 96.0, cint: 8}
+      - {'$level': 175, cmin: 24.0, cmax: 96.0, cint: 8}
+      - {'$level': 150, cmin: 16.0, cmax: 96.0, cint: 8}
+      - {'$level': 125, cmin: 24.0, cmax: 96.0, cint: 8}
+      - {'$level': 100, cmin: 16.0, cmax: 96.0, cint: 8}
+      - {'$level': 85, cmin: 14.0, cmax: 84.0, cint: 7}
+      - {'$level': 70, cmin: 6.0, cmax: 28.0, cint: 2}
+      - {'$level': 60, cmin: 2.4, cmax: 10.4, cint: 0.8}
+    slpcdict:
+      - {'$level': 0, cmin: 996.0, cmax: 1020.0, cint: 2}
+    so2sfccdict:
+      - {'$level': 0, cmin: 0.0, cmax: 16.0, cint: 2, scale: exp_scale}
+    so2cdict:
+      - {'$level': 200, cmin: 0.0, cmax: 1.0, cint: 0.1, scale: exp_scale}
+      - {'$level': 175, cmin: 0.0, cmax: 0.8, cint: 0.1, scale: exp_scale}
+      - {'$level': 150, cmin: 0.0, cmax: 0.8, cint: 0.1, scale: exp_scale}
+      - {'$level': 125, cmin: 0.0, cmax: 0.3299, cint: 0.03, scale: exp_scale}
+      - {'$level': 100, cmin: 0.01, cmax: 0.06, cint: 0.01, scale: exp_scale}
+      - {'$level': 85, cmin: 0.004, cmax: 0.026, cint: 0.002}
+      - {'$level': 70, cmin: 0.002, cmax: 0.018, cint: 0.002}
+      - {'$level': 60, cmin: 0.003, cmax: 0.012, cint: 0.001}
+    thcdict:
+      - {'$level': 200, cmin: 72.9, cmax: 81.9, cint: 0.9}
+      - {'$level': 175, cmin: 76.0, cmax: 84.0, cint: 0.8}
+      - {'$level': 150, cmin: 79.0, cmax: 92.0, cint: 1}
+      - {'$level': 125, cmin: 82.0, cmax: 102.0, cint: 2}
+      - {'$level': 100, cmin: 90.0, cmax: 120.0, cint: 3}
+      - {'$level': 85, cmin: 114.0, cmax: 138.0, cint: 2}
+      - {'$level': 70, cmin: 152.0, cmax: 170.0, cint: 2}
+      - {'$level': 60, cmin: 180.0, cmax: 204.0, cint: 2}
+    totcol_cocdict:
+      - {'$level': 0, cmin: 1056.0, cmax: 2376.0, cint: 132}
+    totcol_no2cdict:
+      - {'$level': 0, cmin: 2.0, cmax: 20.0, cint: 2, scale: exp_scale}
+    totcol_o3cdict:
+      - {'$level': 0, cmin: 264.0, cmax: 304.0, cint: 4}
+    totcol_so2cdict:
+      - {'$level': 0, cmin: 0.0, cmax: 36.0, cint: 4, scale: exp_scale}
+    tropcol_cocdict:
+      - {'$level': 0, cmin: 931.0, cmax: 2261.0, cint: 133}
+    tropcol_hchocdict:
+      - {'$level': 0, cmin: 0.0, cmax: 33.0, cint: 3, scale: exp_scale}
+    tropcol_no2cdict:
+      - {'$level': 0, cmin: 0.0, cmax: 18.0, cint: 2, scale: exp_scale}
+    tropcol_o3cdict:
+      - {'$level': 0, cmin: 18.0, cmax: 45.0, cint: 3}
+    tropcol_so2cdict:
+      - {'$level': 0, cmin: 0.0, cmax: 36.0, cint: 4, scale: exp_scale}
+    tcdict:
+      - {'$level': 200, cmin: -54.6, cmax: -48.6, cint: 0.6}
+      - {'$level': 175, cmin: -61.0, cmax: -56.0, cint: 0.5}
+      - {'$level': 150, cmin: -68.0, cmax: -60.8, cint: 0.8}
+      - {'$level': 125, cmin: -77.0, cmax: -66.0, cint: 1.0}
+      - {'$level': 100, cmin: -86.0, cmax: -70.0, cint: 2}
+      - {'$level': 85, cmin: -81.0, cmax: -70.0, cint: 1}
+      - {'$level': 70, cmin: -74.7, cmax: -65.7, cint: 0.9}
+      - {'$level': 60, cmin: -70.0, cmax: -60.0, cint: 1.0}
+    ucdict:
+      - {'$level': 200, cmin: -16.0, cmax: 16.0, cint: 4}
+      - {'$level': 175, cmin: -20.0, cmax: 20.0, cint: 4}
+      - {'$level': 150, cmin: -16.0, cmax: 20.0, cint: 4}
+      - {'$level': 125, cmin: -16.0, cmax: 16.0, cint: 4}
+      - {'$level': 100, cmin: -18.0, cmax: 12.0, cint: 3}
+      - {'$level': 85, cmin: -20.0, cmax: 0.0, cint: 2}
+      - {'$level': 70, cmin: -20.0, cmax: -2.0, cint: 2}
+      - {'$level': 60, cmin: -22.0, cmax: 2.0, cint: 2}
+    vcdict:
+      - {'$level': 200, cmin: -15.0, cmax: 18.0, cint: 3}
+      - {'$level': 175, cmin: -15.0, cmax: 15.0, cint: 3}
+      - {'$level': 150, cmin: -20.0, cmax: 20.0, cint: 4}
+      - {'$level': 125, cmin: -20.0, cmax: 20.0, cint: 4}
+      - {'$level': 100, cmin: -15.0, cmax: 12.0, cint: 3}
+      - {'$level': 85, cmin: -10.0, cmax: 8.0, cint: 2}
+      - {'$level': 70, cmin: -6.0, cmax: 7.0, cint: 1}
+      - {'$level': 60, cmin: -6.0, cmax: 6.0, cint: 1}
+    wspdcdict:
+      - {'$level': 200, cmin: 0.0, cmax: 20.0, cint: 2}
+      - {'$level': 175, cmin: 0.0, cmax: 20.0, cint: 2}
+      - {'$level': 150, cmin: 0.0, cmax: 22.0, cint: 2}
+      - {'$level': 125, cmin: 0.0, cmax: 22.0, cint: 2, scale: exp_scale}
+      - {'$level': 100, cmin: 0.0, cmax: 18.0, cint: 2}
+      - {'$level': 85, cmin: 2.0, cmax: 20.0, cint: 2}
+      - {'$level': 70, cmin: 2.0, cmax: 20.0, cint: 2}
+      - {'$level': 60, cmin: 2.0, cmax: 22.0, cint: 2}
+    zpblcdict:
+      - {'$level': 0, cmin: 0.0, cmax: 2410.0, cint: 241}

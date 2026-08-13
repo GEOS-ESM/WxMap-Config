@@ -1,0 +1,31 @@
+reset: [region]
+
+xlines: &XLINES
+
+  - -90 19.4666 -70.533 0
+  - -88.5 0 -70 18.5
+
+n_lines: &N_LINES
+
+  -  -79.516670 0 -79.516670 20
+
+w_lines: &W_LINES
+
+  - -90 8.983333 -70 8.983333
+
+places: &PLACES
+  - -79.516670 8.983333 Panama City
+
+region:
+
+  sabre:
+
+    long_name: SABRE Panama
+    lon: -90 -70
+    lat: 0 20
+    mpdset: hires
+    mproj: latlon
+    xlines: *XLINES
+    n_lines: *N_LINES
+    w_lines: *W_LINES
+    places: *PLACES

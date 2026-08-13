@@ -1,0 +1,104 @@
+xlines: &XLINES
+
+  - -90 19.4666 -70.533 0
+  - -88.5 0 -70 18.5
+
+n_lines: &N_LINES
+
+  -  -79.516670 0 -79.516670 20
+
+w_lines: &W_LINES
+
+  - -90 8.983333 -70 8.983333
+
+station: &PLACES
+  - -79.516670 8.983333
+
+region:
+
+  banner:
+
+    long_name: SABRE Panama
+    lon: -170 -70
+    lat: 0 20
+    mpdset: hires
+    mproj: scaled
+  # xlines: *XLINES
+  # n_lines: *N_LINES
+  # w_lines: *W_LINES
+  # station: *PLACES
+
+map:
+
+  shaderelief-custom:
+    line_color: 0 0 0
+    line_width: 5
+    water_color: 0 0 0
+    land_color: 0 0 0 0
+    land_brightness: 0.4
+    layers: [water, land, standard, shaderelief, lsmask]
+
+shape:
+
+  xlines:
+    class: line
+    line_color: 255 255 255
+    line_width: 5
+    line_style: 1
+    clip: 1
+    zorder: -5
+
+  station:
+    class: station_mark
+    line_color: 255 255 255
+    fill_color: 255 255 255
+    inner_size: 0.1
+    outer_size: 0.1
+    outer_line: ''
+    line_width: 4
+    mark_type: 3 2
+    zorder: -3
+
+  n_lines:
+    class: line
+    line_color: 255 255 255
+    line_width: 5
+    line_style: 1
+    zorder: -5
+
+  w_lines:
+    class: line
+    line_color: 255 255 255
+    line_width: 5
+    line_style: 1
+    zorder: -5
+
+wxmapschem3d:
+
+  plot:
+
+    so2:
+      layers: [shading]
+      map:
+        layers: [shaderelief-custom]
+      shading:
+        cbar: YlGnBu_r
+        cdict: so2cdict 
+        clevs:
+        expr: 1000000000 * _so2 * 28.96 / 64.066
+        alpha_off:
+          - 0.00 0.0 0.0
+          - 0.50 1.0 1.0
+          - 1.00 1.0 1.0
+
+attribute:
+  colorbar:
+      SUEXTTAU:
+        - 0 255 0
+        - 100 255 100
+
+      BREXTTAU:
+     #  - 255   0  0
+        - 172  49 75
+        - 242 118 94
+        - 253 253 169

@@ -1,0 +1,256 @@
+wxmapscustom:
+
+  plot:
+
+    bcoc_w1: &BCOC
+      long_name: 'BCOC (9.983N)'
+      label: 9.983N
+      levels: [0]
+      layers: [ground, bcoc_nz, puffy_cloud, barbs_nz, cloud_water_nz, agl_nz, theta_nz, pblh]
+      title: '[$label] &b&b&b BCOC [`3m`f13g/m`a3`n], Theta [K], Cloud Water [g/kg], PBLH [m, red]'
+      parea: 1 10 1 7.5
+      lev: 0 15000
+      lon: -90 -70
+      lat: 8.983333
+      # slice: -90 8.983333 -70 8.983333 lat
+      ylab: 'Altitude (m)'
+      shape: 'off'
+
+    bcoc_n1:
+      <<: *BCOC
+      long_name: 'BCOC (-79.51667W)'
+      label: -79.51667W
+      lev: 0 15000
+      lon: -79.51667
+      lat: 0 20
+      # slice: -79.516670 0 -79.516670 20 lat
+
+
+    bcoc_ne: 
+      long_name: 'BCOC (Northeast)'
+      label: Northeast
+      levels: [0]
+      layers: [ground, bcoc_nz, puffy_cloud, barbs_nz, cloud_water_nz, agl_nz, theta_nz, pblh]
+      title: '[$label] &b&b&b BCOC [`3m`f13g/m`a3`n], Theta [K], Cloud Water [g/kg], PBLH [m, red]'
+      parea: 1 10 1 7.5
+      lev: 0 15000
+      slice: -88.5 0 -70 18.5 lat
+      ylab: 'Altitude (m)'
+      shape: 'off'
+
+    bcoc_sw:
+      <<: *BCOC
+      long_name: 'BCOC (Southwest)'
+      label: Southwest
+      lev: 0 15000
+      slice: -90 19.4666 -70.533 0 lat
+
+
+    so4_we: &SO4
+      long_name: 'SO4 (West-East)'
+      label: west-east
+      levels: [0]
+      layers: [ground, so4_nz, puffy_cloud, barbs_nz, cloud_water_nz, agl_nz, theta_nz, pblh]
+      title: '[$label] &b&b&b SO4 [`3m`f13g/m`a3`n], Theta [K], Cloud Water [g/kg], PBLH [m, red]'
+      parea: 1 10 1 7.5
+      lev: 0 15000
+      slice: -90 8.983333 -70 8.983333 lat
+      ylab: 'Altitude (m)'
+      shape: 'off'
+
+    so4_sn:
+      <<: *SO4
+      long_name: 'SO4 (South-North)'
+      label: south-north
+      lev: 0 15000
+      slice: -79.516670 0 -79.516670 20 lat
+
+    du_we: &DU
+      long_name: 'Dust (West-East)'
+      label: west-east
+      levels: [0]
+      layers: [ground, dust_nz, puffy_cloud, barbs_nz, cloud_water_nz, agl_nz, theta_nz, pblh]
+      title: '[$label] &b&b&b DUST [`3m`f13g/m`a3`n], Theta [K], Cloud Water [g/kg], PBLH [m, red]'
+      parea: 1 10 1 7.5
+      lev: 0 15000
+      slice: -90 8.983333 -70 8.983333 lat
+      ylab: 'Altitude (m)'
+      shape: 'off'
+
+    du_sn:
+      <<: *DU
+      long_name: 'Dust (South-North)'
+      label: south-north
+      lev: 0 15000
+      slice: -79.516670 0 -79.516670 20 lat
+
+    ss_we: &SS
+      long_name: 'Sea salt (West-East)'
+      label: west-east
+      levels: [0]
+      layers: [ground, ss_nz, puffy_cloud, barbs_nz, cloud_water_nz, agl_nz, theta_nz, pblh]
+      title: '[$label] &b&b&b SS [`3m`f13g/m`a3`n], Theta [K], Cloud Water [g/kg], PBLH [m, red]'
+      parea: 1 10 1 7.5
+      lev: 0 15000
+      slice: -90 8.983333 -70 8.983333 lat
+      ylab: 'Altitude (m)'
+      shape: 'off'
+
+    ss_sn:
+      <<: *SS
+      long_name: 'Sea salt (South-North)'
+      label: south-north
+      lev: 0 15000
+      slice: -79.516670 0 -79.516670 20 lat
+
+  layer:
+
+    ground:
+      expr: const(const(_agl_nz,1.0),0.0,'-u')
+      gxout: grfill
+      cmin: 0
+      cmax: 1
+      cint: 1
+      cbar: BW
+      skip: --auto
+      nsub: 1
+
+    puffy_cloud:
+      gxout: shaded
+      expr: (_qi_nz+_ql_nz) * 1000
+      cbar: allgray
+      cbunits: 'Cloud Water [g/kg]'
+      nsub: 1
+      skip: 1
+      type: linear
+      clevs: 0.01 0.08 0.16 0.24 0.32
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.010 0.000 0.400
+        - 0.333 0.400 0.400
+        - 0.667 0.400 0.400
+        - 1.000 0.400 0.400
+
+    barbs_nz:
+      gxout: barb
+      uexpr: _uwnd_nz*1.94384
+      vexpr: _vwnd_nz*1.94384
+      skip: 4 1
+      size: 0.05
+      ccolor: 130 130 130
+      cthick: 3
+
+    cloud_water_nz:
+      gxout: contour
+      expr: (_qi_nz+_ql_nz) * 1000
+      ccolor: 0 0 255
+      cthick: 8
+      clab: masked
+      clsize: 0.06
+      clevs: 0.01 0.08 0.16 0.24 0.32
+
+    agl_nz:
+      gxout: contour
+      expr: _agl_nz
+      cmin: 800
+      cmax: 1600
+      cint: 200
+      ccolor: 0 0 0
+      cstyle: 3
+      clab: masked
+
+    theta_nz:
+      gxout: contour
+      expr: maskout(smth9(_theta_nz),_agl_nz)
+      cint: 5
+      ccolor: 0 0 0
+      cstyle: 1
+      clab: masked
+
+    pblh:
+      gxout: contour
+      expr: (_phis/9.80665+_pblh)
+      cint: 100000
+      ccolor: 215 0 0
+      cstyle: 1
+      cthick: 8
+      cmark: 0
+      clab: 'off'
+      vrange: 0 10000
+      z: 1
+
+    bcoc_nz:
+      gxout: shaded
+      expr: maskout(1.0e+9*(_bcoc_nz),_agl_nz)
+      cbar: smoke01
+      cbunits: '`n[`3m`f13g/m`a3`n]'
+      clevs: 0.1 0.2 0.4 0.8 1.2 1.6 2.2 3.2 4.5 6.4 9. 12. 
+      scale:
+      cmin:
+      cmax:
+      cint:
+      scale:
+      nsub: 1
+      skip: 1
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.070 0.000 1.000
+        - 0.100 1.000 1.000
+        - 1.000 1.000 1.000
+
+    so4_nz:
+      gxout: shaded
+      expr: maskout(1.0e+9*(_so4_nz),_agl_nz)
+      cbar: smoke01
+      cbunits: '`n[`3m`f13g/m`a3`n]'
+      clevs: 0.04 0.08 0.16 0.22 0.32 0.4 0.64 0.9 1.25 1.8 2.5 10.
+      scale:
+      cmin:
+      cmax:
+      cint:
+      scale:
+      nsub: 1
+      skip: 1
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.070 0.000 1.000
+        - 0.100 1.000 1.000
+        - 1.000 1.000 1.000
+
+    dust_nz:
+      gxout: shaded
+      expr: maskout(1.0e+9*(_dust_nz),_agl_nz)
+      cbar: smoke01
+      cbunits: '`n[`3m`f13g/m`a3`n]'
+      clevs: 0.2 0.4 0.8 1.6 3.2 6.4 12.8 25.6 51.2 102.4 204.8 409.6
+      scale:
+      cmin:
+      cmax:
+      cint:
+      scale:
+      nsub: 1
+      skip: 1
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.070 0.000 1.000
+        - 0.100 1.000 1.000
+        - 1.000 1.000 1.000
+
+    ss_nz:
+      gxout: shaded
+      expr: maskout(1.0e+9*(_ss_nz),_agl_nz)
+      cbar: smoke01
+      cbunits: '`n[`3m`f13g/m`a3`n]'
+      clevs: 0. 0.0001 0.001 0.01 0.1 0.5 1. 5. 25. 50. 75. 100.
+      scale:
+      cmin:
+      cmax:
+      cint:
+      scale:
+      nsub: 1
+      skip: 1
+      alpha:
+        - 0.000 0.000 0.000
+        - 0.070 0.000 1.000
+        - 0.100 1.000 1.000
+        - 1.000 1.000 1.000
