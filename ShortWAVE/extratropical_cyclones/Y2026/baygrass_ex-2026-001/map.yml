@@ -1,0 +1,90 @@
+map:
+
+  default:
+    ocean_color:
+    lake_color:
+    land_color: 255 227 171
+    water_color: 255 255 255
+  # line_color: 139 69 19
+    line_color: 0 0 0
+    line_width: 2
+    line_style: 1
+  # layers: [quickmap]
+    land_mask_color: 0 0 0
+
+  world_topo:
+    service: World_Topo_Map
+
+  world_shaded_relief:
+    service: World_Shaded_Relief
+
+  world_imagery:
+    service: World_Imagery
+
+  shaderelief-gray:
+    water_color: 0 0 0
+    land_color: 0 0 0 0
+    grayscale: 1
+    layers: [standard, water, land, shaderelief, lsmask]
+
+  bluemarble-01:
+    water_color: 0 0 80
+    land_color: 0 0 0 0
+    land_brightness: 1.2
+    layers: [standard, water, land, bluemarble, lsmask]
+
+  world_topo-01:
+    water_color: 0 0 0 0
+    land_color: 0 0 0 0
+    layers: [standard, water, land, world_topo, lsmask]
+
+  world_shaded_relief-01:
+    water_color: 0 0 0 0
+    land_color: 0 0 0 0
+  # layers: [standard, US_Counties, water, land, world_shaded_relief, lsmask]
+    layers: [ne_10m_admin_1_states_provinces, US_Counties, water, land, world_shaded_relief, lsmask]
+
+  world_imagery-01:
+    water_color: 0 0 0 0
+    land_color: 0 0 0 0
+    layers: [standard, water, land, world_imagery, lsmask]
+
+  standard:
+    layers: [n_coastlines, n_states, n_political]
+
+  clearmap:
+    land_color: 0 0 0 0
+    water_color: 0 0 0 0
+    layers: [standard, water, land]
+  
+  quickmap:
+    layers: [standard, water, land]
+
+  n_political:
+    layers: [ne_10m_admin_0_countries]
+
+  n_states:
+    layers: [us_states]
+
+  n_coastlines:
+    layers: [ne_10m_coastline, ne_10m_lakes]
+
+  ne_10m_admin_0_countries:
+    shape_file: Natural_Earth/ne_10m_admin_0_countries
+    zorder: -1
+
+  ne_10m_admin_1_states_provinces:
+    shape_file: Natural_Earth/ne_10m_admin_1_states_provinces
+    zorder: -1
+
+  ne_10m_coastline:
+    shape_file: Natural_Earth/ne_10m_coastline
+    zorder: -1
+
+  ne_10m_lakes:
+    shape_file: Natural_Earth/ne_10m_lakes
+    zorder: -1
+
+  us_states:
+    shape_file: US_States/US_State_Boundaries
+    zorder: -1

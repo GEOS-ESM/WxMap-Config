@@ -1,0 +1,24 @@
+field:
+
+  GEOSANA: &geosana
+
+    _prectot:
+      long_name: Total Precipitation
+      units: mm
+      expression: prectot.tavg1_2d_flx_Nx(td=-1)*60*60
+
+    _slp:
+      long_name: Sea Level Pressure
+      units: Pa
+      expression: slp.tavg1_2d_slv_Nx(td=-1)
+
+    _lwtup:
+      long_name: Upwelling Longwave Flux at TOA
+      units: W m-2
+      expression: lwtup.tavg1_2d_rad_Nx(td=-1)
+
+  G5FPFC:
+    <<: *geosana
+
+  G5FP:
+    <<: *geosana
