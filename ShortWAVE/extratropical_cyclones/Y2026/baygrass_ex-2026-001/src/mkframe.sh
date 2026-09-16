@@ -11,6 +11,6 @@ out_dir=$NOBACKUP/ShortWAVE/extratropical_cyclones/Y${year}/$catalog_id/frames
 
 mkdir -p $out_dir
 
-mkframe.py $out_dir $in_dir/$1
+mkframe.py $1 $out_dir $in_dir/$2
 
 echo $out_dir

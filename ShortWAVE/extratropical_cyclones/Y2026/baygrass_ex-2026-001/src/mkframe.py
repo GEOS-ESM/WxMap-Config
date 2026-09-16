@@ -28,10 +28,11 @@ lons = [-92.0, -66.0]
 lats = [30.0, 44.0]
 bbox = [lons[0], lats[0], lons[-1], lats[-1]]
 
-odir = sys.argv[1]
+fdate = sys.argv[1]
+odir = sys.argv[2]
 os.makedirs(odir, mode=0o755, exist_ok=True)
     
-for fname in sys.argv[2:]:
+for fname in sys.argv[3:]:
 
     # Open main image
 
@@ -39,10 +40,8 @@ for fname in sys.argv[2:]:
     oname = os.path.join(odir, oname)
 
     dattim = oname.split('.')[-2]
-    tau = oname.split('.')[-3]
-    hours = int(tau)
-    fcst_dt = dt.datetime.strptime(dattim, "%Y%m%d%H")
-    time_dt = fcst_dt + dt.timedelta(hours=hours)
+    fcst_dt = dt.datetime.strptime(fdate, "%Y%m%d%H")
+    time_dt = dt.datetime.strptime(dattim, "%Y%m%d%H")
 
     title = 'Baygrass Forecast'
     title = fcst_dt.strftime(title)
@@ -111,10 +110,11 @@ for fname in sys.argv[2:]:
     # Add the model and date/time label
 
     d1 = HersheyDraw(im_final, bold_name, 50, font_color)
-    if hours <= 0:
+    if time_dt <= fcst_dt:
         s1 = 'GEOS-FP Analysis'
     else:
-        s1 = 'GEOS-FP ' + tau + 'hr Forecast'
+        tau  = round((time_dt - fcst_dt).total_seconds() / 3600)
+        s1 = f'GEOS-FP {tau:03d}hr Forecast'
 
     w1, h1 = d1.text_size(s1)
 
