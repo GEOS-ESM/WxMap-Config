@@ -113,13 +113,13 @@ for fname in sys.argv[1:]:
     w2, h2 = d2.text_size(s2)
 
     w3, h3 = (im_cbar.width, im_cbar.height)
-  # box = round_rectangle((max(w1,w2,w3)+40, h1+h2+h3+20+20), 50, (0,0,0,80))
-    box = round_rectangle((w1+40, h1+20), 50, (0,0,0,80))
+    box = round_rectangle((max(w1,w2,w3)+40, h1+h2+h3+20+20), 50, (0,0,0,80))
+  # box = round_rectangle((w1+40, h1+20), 50, (0,0,0,80))
     box = ImageOps.flip(box)
     im_final.paste(box, (0, 0), box)
     d1.draw_text(10, 10, s1)
-  # d2.draw_text(10, 10+h1+10, s2)
-  # im_final.paste(im_cbar, (10, 10+h1+10+h2+10), im_cbar)
+    d2.draw_text(10, 10+h1+10, s2)
+    im_final.paste(im_cbar, (10, 10+h1+10+h2+10), im_cbar)
 
     # Add the vertical colorbar
 
