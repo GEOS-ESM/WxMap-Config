@@ -1,0 +1,27 @@
+tpw:
+
+  ntask: 48
+  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/atmospheric_rivers/Y2026/pacific_nw_floods-2026-001]
+  stream: GEOSCAM
+  start_dt: P0D
+  end_dt: P8D
+  t_deltat: PT1H
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 3840x2160
+  oname: $NOBACKUP/ShortWAVE/atmospheric_rivers/Y2026/pacific_nw_floods-2026-001/tpw/pacific_nw_floods-2026-001.nasa.gmao.geos-cam.replay.tpw.image.3840x2160.%Y%m%d%H.png
+  levels: [0]
+  fields: [tpw]
+  regions: [pacific-wide]
+
+tprcp:
+
+  ntask: 48
+  configs: [/discover/nobackup/jardizzo/software/GEOS-ESM/WxMap-Config/ShortWAVE/atmospheric_rivers/Y2026/pacific_nw_floods-2026-001]
+  stream: GEOSCAM
+  start_dt: P0D
+  end_dt: P2D
+  t_deltat: PT1H
+  options: --fullframe --lights_off --no_title --no_label --no_logo --geometry 3840x2160
+  oname: $NOBACKUP/ShortWAVE/atmospheric_rivers/Y2026/pacific_nw_floods-2026-001/tprcp/pacific_nw_floods-2026-001.nasa.gmao.geos-cam.replay.tprcp.image.3840x2160.%Y%m%d%H.png
+  levels: [0]
+  fields: [tprcp]
+  regions: [pacific-wide]
